@@ -1,0 +1,188 @@
+[
+  {
+    "camera": "V11_19_DRIVER",
+    "title": "Сінна · начало жилого участка",
+    "kind": "driver",
+    "station_map_m": 3900,
+    "file": "01_driver.png",
+    "location": [
+      1485.5198974609375,
+      1142.367919921875,
+      4.926495552062988
+    ],
+    "rotation": [
+      1.5747419595718384,
+      5.035172634393348e-08,
+      2.7410192489624023
+    ],
+    "lens_mm": 29.0,
+    "before_file": "screenshots_v12/01_driver.png",
+    "native_sha256": "8e4f2c9c3e1b37de42d9d99edf115a898fa72cb76936dce19020bb02f23b0e00",
+    "native_scene": "/workspace/scratch/e2f367f9a270/output/chmyrivka_v16/chmyrivka_visual_v16.blend",
+    "resolution": [
+      1600,
+      900
+    ],
+    "samples": 48,
+    "seed": 0,
+    "engine": "Blender Cycles CPU",
+    "view_transform": "AgX",
+    "exposure": 0.20000000298023224,
+    "seconds": 58.21
+  },
+  {
+    "camera": "V11_30_DETAIL",
+    "title": "Сінна · примыкание и фасады",
+    "kind": "detail",
+    "station_map_m": 4059,
+    "file": "02_detail.png",
+    "location": [
+      1430.1070556640625,
+      1017.6912841796875,
+      5.864982604980469
+    ],
+    "rotation": [
+      1.5693773031234741,
+      1.1007208655655631e-07,
+      1.8873478174209595
+    ],
+    "lens_mm": 28.0,
+    "before_file": "screenshots_v12/03_detail.png",
+    "native_sha256": "8e4f2c9c3e1b37de42d9d99edf115a898fa72cb76936dce19020bb02f23b0e00",
+    "native_scene": "/workspace/scratch/e2f367f9a270/output/chmyrivka_v16/chmyrivka_visual_v16.blend",
+    "resolution": [
+      1600,
+      900
+    ],
+    "samples": 48,
+    "seed": 0,
+    "engine": "Blender Cycles CPU",
+    "view_transform": "AgX",
+    "exposure": 0.20000000298023224,
+    "seconds": 55.53
+  },
+  {
+    "camera": "V12_08_DETAIL",
+    "title": "Фасад · материалы и детали",
+    "kind": "detail",
+    "station_map_m": 4045.1463941727675,
+    "file": "03_detail.png",
+    "location": [
+      1429.81982421875,
+      1011.9957885742188,
+      7.199999809265137
+    ],
+    "rotation": [
+      1.508022427558899,
+      6.188119527905656e-08,
+      1.3140021562576294
+    ],
+    "lens_mm": 44.0,
+    "before_file": "screenshots_v12/08_detail.png",
+    "native_sha256": "8e4f2c9c3e1b37de42d9d99edf115a898fa72cb76936dce19020bb02f23b0e00",
+    "native_scene": "/workspace/scratch/e2f367f9a270/output/chmyrivka_v16/chmyrivka_visual_v16.blend",
+    "resolution": [
+      1600,
+      900
+    ],
+    "samples": 48,
+    "seed": 0,
+    "engine": "Blender Cycles CPU",
+    "view_transform": "AgX",
+    "exposure": 0.20000000298023224,
+    "seconds": 69.26
+  },
+  {
+    "camera": "V12_07_OVERVIEW",
+    "title": "Планировка дворов и примыкания",
+    "kind": "overview",
+    "station_map_m": 4010,
+    "file": "04_overview.png",
+    "location": [
+      1385.759521484375,
+      1157.3140869140625,
+      89.45144653320312
+    ],
+    "rotation": [
+      0.9902638792991638,
+      -1.0747928769205828e-07,
+      -2.6930911540985107
+    ],
+    "lens_mm": 52.0,
+    "before_file": "screenshots_v12/07_overview.png",
+    "native_sha256": "8e4f2c9c3e1b37de42d9d99edf115a898fa72cb76936dce19020bb02f23b0e00",
+    "native_scene": "/workspace/scratch/e2f367f9a270/output/chmyrivka_v16/chmyrivka_visual_v16.blend",
+    "resolution": [
+      1600,
+      900
+    ],
+    "samples": 48,
+    "seed": 0,
+    "engine": "Blender Cycles CPU",
+    "view_transform": "AgX",
+    "exposure": 0.20000000298023224,
+    "seconds": 73.97
+  },
+  {
+    "camera": "V11_11_DRIVER",
+    "title": "Северный поворот · Т-13-02",
+    "kind": "driver",
+    "station_map_m": 2380,
+    "file": "05_driver.png",
+    "location": [
+      774.1785278320312,
+      2084.9384765625,
+      5.236767768859863
+    ],
+    "rotation": [
+      1.6290844678878784,
+      -9.36025088549286e-08,
+      -0.3269602656364441
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8,
+    "native_sha256": "8e4f2c9c3e1b37de42d9d99edf115a898fa72cb76936dce19020bb02f23b0e00",
+    "native_scene": "/workspace/scratch/e2f367f9a270/output/chmyrivka_v16/chmyrivka_visual_v16.blend",
+    "resolution": [
+      1600,
+      900
+    ],
+    "samples": 48,
+    "seed": 0,
+    "engine": "Blender Cycles CPU",
+    "view_transform": "AgX",
+    "exposure": 0.20000000298023224,
+    "seconds": 59.45
+  },
+  {
+    "camera": "V11_24_DRIVER",
+    "title": "Товарна площа · пит-лейн справа",
+    "kind": "driver",
+    "station_map_m": 5115,
+    "file": "06_driver.png",
+    "location": [
+      615.1052856445312,
+      384.55377197265625,
+      3.420391798019409
+    ],
+    "rotation": [
+      1.5592373609542847,
+      1.1188055282218556e-07,
+      1.971767544746399
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8,
+    "native_sha256": "8e4f2c9c3e1b37de42d9d99edf115a898fa72cb76936dce19020bb02f23b0e00",
+    "native_scene": "/workspace/scratch/e2f367f9a270/output/chmyrivka_v16/chmyrivka_visual_v16.blend",
+    "resolution": [
+      1600,
+      900
+    ],
+    "samples": 48,
+    "seed": 0,
+    "engine": "Blender Cycles CPU",
+    "view_transform": "AgX",
+    "exposure": 0.20000000298023224,
+    "seconds": 44.85
+  }
+]
