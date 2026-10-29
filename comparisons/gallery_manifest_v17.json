@@ -1,0 +1,78 @@
+{
+  "version": "v17",
+  "native_sha256": "06ccd62b4a82cead2a084bd7df0c7879c5f6002d2c9679ff55a9d91fabdafd22",
+  "source_sha256": "8e4f2c9c3e1b37de42d9d99edf115a898fa72cb76936dce19020bb02f23b0e00",
+  "current_views": 11,
+  "baseline_views": 11,
+  "matching_fields": [
+    "camera",
+    "location",
+    "rotation",
+    "lens_mm",
+    "resolution",
+    "samples",
+    "seed",
+    "engine",
+    "view_transform",
+    "exposure"
+  ],
+  "image_manipulation": "layout and thumbnail resizing only",
+  "assetto_corsa_tested": false,
+  "pairs": [
+    {
+      "camera": "V11_19_DRIVER",
+      "before": "screenshots_before_v16/01_driver.png",
+      "after": "screenshots_v17/01_driver.png"
+    },
+    {
+      "camera": "V11_30_DETAIL",
+      "before": "screenshots_before_v16/02_detail.png",
+      "after": "screenshots_v17/02_detail.png"
+    },
+    {
+      "camera": "V12_08_DETAIL",
+      "before": "screenshots_before_v16/03_detail.png",
+      "after": "screenshots_v17/03_detail.png"
+    },
+    {
+      "camera": "V12_07_OVERVIEW",
+      "before": "screenshots_before_v16/04_overview.png",
+      "after": "screenshots_v17/04_overview.png"
+    },
+    {
+      "camera": "V11_11_DRIVER",
+      "before": "screenshots_before_v16/05_driver.png",
+      "after": "screenshots_v17/05_driver.png"
+    },
+    {
+      "camera": "V11_24_DRIVER",
+      "before": "screenshots_before_v16/06_driver.png",
+      "after": "screenshots_v17/06_driver.png"
+    },
+    {
+      "camera": "V15_11_VERGE_EYE",
+      "before": "screenshots_extra_before_v16/01_verge.png",
+      "after": "screenshots_extra_v17/01_verge.png"
+    },
+    {
+      "camera": "V15_12_VERGE_MACRO",
+      "before": "screenshots_extra_before_v16/02_verge.png",
+      "after": "screenshots_extra_v17/02_verge.png"
+    },
+    {
+      "camera": "V15_KERB_T15_DETAIL",
+      "before": "screenshots_extra_before_v16/03_kerb.png",
+      "after": "screenshots_extra_v17/03_kerb.png"
+    },
+    {
+      "camera": "V15_HAIRPIN_B_OVERVIEW",
+      "before": "screenshots_extra_before_v16/04_overview.png",
+      "after": "screenshots_extra_v17/04_overview.png"
+    },
+    {
+      "camera": "V17_DRIVER_3985",
+      "before": "screenshots_extra_before_v16/05_driver.png",
+      "after": "screenshots_extra_v17/05_driver.png"
+    }
+  ]
+}
