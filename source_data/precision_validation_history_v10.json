@@ -1,0 +1,211 @@
+{
+  "unchanged_baseline_duplicate_xy_points": [
+    {
+      "index": 545,
+      "xyz": [
+        458.5672607421875,
+        333.0348205566406,
+        0.9760922193527222
+      ],
+      "baseline_z": 1.0100022554397583,
+      "dz": -0.03391003608703613,
+      "exact_baseline_point": true,
+      "distance_from_footprint": 438.6319965020625
+    },
+    {
+      "index": 1087,
+      "xyz": [
+        600.020751953125,
+        394.6548156738281,
+        1.9642022848129272
+      ],
+      "baseline_z": 2.2531931400299072,
+      "dz": -0.28899085521698,
+      "exact_baseline_point": true,
+      "distance_from_footprint": 559.6049460234603
+    }
+  ],
+  "pre_correction_exact_boundary_samples": [
+    {
+      "sample": 472,
+      "kind": "vertex",
+      "xyz": [
+        600.0281372070312,
+        402.1546630859375,
+        2.354322671890259
+      ],
+      "ground_z": 2.5451202392578125,
+      "gap": -0.1907975673675537,
+      "jitter_gaps": [
+        0.02793717384338379,
+        -0.19075942039489746,
+        -0.1908433437347412,
+        -0.19077467918395996
+      ],
+      "face_xyz": null
+    },
+    {
+      "sample": 475,
+      "kind": "vertex",
+      "xyz": [
+        600.218994140625,
+        394.95721435546875,
+        2.019792318344116
+      ],
+      "ground_z": 2.2779617309570312,
+      "gap": -0.25816941261291504,
+      "jitter_gaps": [
+        -0.25815415382385254,
+        0.02805495262145996,
+        0.02794814109802246,
+        -0.25807785987854004
+      ],
+      "face_xyz": null
+    },
+    {
+      "sample": 477,
+      "kind": "vertex",
+      "xyz": [
+        600.0468139648438,
+        421.04351806640625,
+        3.2663447856903076
+      ],
+      "ground_z": 3.2803802490234375,
+      "gap": -0.014035463333129883,
+      "jitter_gaps": [
+        0.027941465377807617,
+        -0.013989686965942383,
+        -0.014073610305786133,
+        -0.013997316360473633
+      ],
+      "face_xyz": null
+    },
+    {
+      "sample": 2621,
+      "kind": "vertex",
+      "xyz": [
+        600.02099609375,
+        394.8765869140625,
+        2.289825201034546
+      ],
+      "ground_z": 1.9749069213867188,
+      "gap": 0.31491827964782715,
+      "jitter_gaps": [
+        0.3148496150970459,
+        0.0280454158782959,
+        0.31485724449157715,
+        0.31496405601501465
+      ],
+      "face_xyz": null
+    },
+    {
+      "sample": 5348,
+      "kind": "vertex",
+      "xyz": [
+        606.2547607421875,
+        404.16522216796875,
+        3.059818983078003
+      ],
+      "ground_z": 2.831878662109375,
+      "gap": 0.22794032096862793,
+      "jitter_gaps": [
+        0.02800440788269043,
+        0.22800135612487793,
+        0.22787928581237793,
+        0.02807307243347168
+      ],
+      "face_xyz": null
+    }
+  ],
+  "source_level_correction": {
+    "V10_Industrial_concrete_Yards": {
+      "old_vertices": 5720,
+      "new_vertices": 5720,
+      "precision_corrections": [
+        {
+          "from_xyz": [
+            600.0281372070312,
+            402.1546630859375,
+            2.354322671890259
+          ],
+          "to_xyz": [
+            600.0281982421875,
+            402.1546630859375,
+            2.3543245792388916
+          ],
+          "xy_delta_m": 6.103515625e-05,
+          "ground_plane_delta_after_m": 3.0637634720775964e-05
+        },
+        {
+          "from_xyz": [
+            600.218994140625,
+            394.95721435546875,
+            2.019792318344116
+          ],
+          "to_xyz": [
+            600.2189331054688,
+            394.95721435546875,
+            2.019788980484009
+          ],
+          "xy_delta_m": 6.103515625e-05,
+          "ground_plane_delta_after_m": 2.884444932549357e-05
+        },
+        {
+          "from_xyz": [
+            600.0468139648438,
+            421.04351806640625,
+            3.2663447856903076
+          ],
+          "to_xyz": [
+            600.046875,
+            421.0435485839844,
+            3.2663495540618896
+          ],
+          "xy_delta_m": 6.823937919616058e-05,
+          "ground_plane_delta_after_m": 3.785212213180955e-05
+        },
+        {
+          "from_xyz": [
+            600.02099609375,
+            394.8765869140625,
+            2.289825201034546
+          ],
+          "to_xyz": [
+            600.0209350585938,
+            394.8765869140625,
+            2.2898240089416504
+          ],
+          "xy_delta_m": 6.103515625e-05,
+          "ground_plane_delta_after_m": 1.676191063548771e-05
+        },
+        {
+          "from_xyz": [
+            606.2547607421875,
+            404.16522216796875,
+            3.059818983078003
+          ],
+          "to_xyz": [
+            606.2547607421875,
+            404.1651916503906,
+            3.0598158836364746
+          ],
+          "xy_delta_m": 3.0517578125e-05,
+          "ground_plane_delta_after_m": 1.3833543666130765e-05
+        }
+      ],
+      "vertices_changed": 5,
+      "max_xy_delta_m": 6.823937919616058e-05,
+      "max_z_delta_m": 4.76837158203125e-06
+    },
+    "V10_Industrial_gravel_Yards": {
+      "old_vertices": 3433,
+      "new_vertices": 3433,
+      "precision_corrections": [],
+      "vertices_changed": 0,
+      "max_xy_delta_m": 0.0,
+      "max_z_delta_m": 0.0
+    }
+  },
+  "resolved": "Five yard corners were rounded across an inherited discontinuous ground edge. Reprojected to the nearest representable float32 point inside their own native ground triangle; same plane plus28mm retained. Maximum horizontal correction0.06824mm. No vertical gate relaxation. Baseline duplicate-XY ground vertices were already unchanged and are recognized by full originalXYZ.",
+  "final_audit": "validation_v10.json passed;19686 raw vertex/centroid samples, no exact-edge anomaly remains after correction."
+}

@@ -1,0 +1,60 @@
+{
+  "source": "Copernicus GLO-30 Public DSM, AWS COG, 2021 release",
+  "source_url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N49_00_E038_00_DEM/Copernicus_DSM_COG_10_N49_00_E038_00_DEM.tif",
+  "source_readme": "https://copernicus-dem-30m.s3.amazonaws.com/readme.html",
+  "official_documentation": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+  "registry": "https://registry.opendata.aws/copernicus-dem/",
+  "accessed_date": "2026-10-13",
+  "source_tile_sha256": "8657093372fd2d37d052fdc98b1a75bdd9c67c16d1c901e262f50e0e0eed0104",
+  "source_tile_size_bytes": 43947115,
+  "horizontal_crs": "EPSG:4326",
+  "vertical_crs": "EGM2008 (EPSG:3855), metres",
+  "projected_crs": "EPSG:32637 (WGS84 / UTM zone 37N)",
+  "local_origin_lonlat": [
+    38.9170321,
+    49.2875555
+  ],
+  "local_origin_utm": [
+    493966.5303635461,
+    5459426.073004565
+  ],
+  "local_axes": "x east, y north, z up; DSM heights still absolute EGM2008",
+  "crop_shape_rows_cols": [
+    93,
+    113
+  ],
+  "crop_transform": [
+    0.0002777777777777778,
+    0.0,
+    38.91208333333333,
+    0.0,
+    -0.0002777777777777778,
+    49.31013888888889
+  ],
+  "nominal_spacing_arcseconds": 1,
+  "approximate_spacing_m_at_route": {
+    "east_west": 20.196196099362467,
+    "north_south": 30.88083139580489
+  },
+  "sample_spacing_m": 9.986559822612072,
+  "route_length_utm_2d_m": 5852.124056050674,
+  "sample_count_including_duplicate_closure": 587,
+  "raw_dsm_route_min_m": 55.86065673828125,
+  "raw_dsm_route_max_m": 75.94031524658203,
+  "raw_dsm_route_relief_m": 20.07965850830078,
+  "smoothed_dsm_route_min_m": 56.48186492919922,
+  "smoothed_dsm_route_max_m": 74.36298370361328,
+  "smoothed_dsm_route_relief_m": 17.881118774414062,
+  "smoothed_dsm_method": "Periodic Gaussian smoothing, sigma=40 metres. Indicative modelling aid only; not ground/road reconstruction.",
+  "crop_dsm_min_m": 51.5,
+  "crop_dsm_max_m": 91.44527435302734,
+  "attribution_modified": "produced using Copernicus WorldDEM-30 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved",
+  "caveats": [
+    "Digital SURFACE model: may measure roofs, tree canopies and embankments rather than road level.",
+    "Approx. 20×31 metre sample spacing here; not appropriate for exact road width, banking, kerbs, potholes or railway-crossing ramp profiles.",
+    "Source base observations are mostly from 2011–2015, with gap-fill from other DEMs; not a current-condition survey.",
+    "Sampling every 10 metres is interpolation only, not newly measured detail.",
+    "Global product accuracy specs (<4 m absolute vertical error, LE90) are not local road accuracy guarantees.",
+    "Smoothing makes a usable indicative profile but cannot remove DSM bias reliably. Road surface still requires human reference checks."
+  ]
+}

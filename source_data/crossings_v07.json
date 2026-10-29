@@ -1,0 +1,296 @@
+{
+  "source": "OpenStreetMap contributors; existing project snapshot 2026-10-13, osm_chmyrivka.xml and route.geojson",
+  "coordinates": "EPSG:32637 minus 493966.5303635461,5459426.073004565; meters",
+  "crossings": [
+    {
+      "osm_node": "node/862737074",
+      "osm_railway": "way/317865118",
+      "xy_m": [
+        663.93,
+        2015.3
+      ],
+      "chainage_m": 2243.352081319998,
+      "rail_coordinates_xy_m": [
+        [
+          706.66,
+          1006.58
+        ],
+        [
+          669.9,
+          1909.1
+        ],
+        [
+          663.93,
+          2015.3
+        ],
+        [
+          656.22,
+          2251.78
+        ],
+        [
+          643.25,
+          2524.56
+        ],
+        [
+          632.56,
+          2592.06
+        ],
+        [
+          616.45,
+          2661.1
+        ],
+        [
+          578.72,
+          2759.09
+        ],
+        [
+          524.74,
+          2862.6
+        ],
+        [
+          457.43,
+          2954.07
+        ],
+        [
+          378.73,
+          3036.17
+        ],
+        [
+          310.4,
+          3085.39
+        ],
+        [
+          235.84,
+          3137.3
+        ],
+        [
+          210.97,
+          3151.26
+        ]
+      ],
+      "rail_tags": {
+        "electrified": "no",
+        "gauge": "1520",
+        "operator": "Укрзалізниця",
+        "railway": "rail",
+        "usage": "main"
+      }
+    },
+    {
+      "osm_node": "node/3241817783",
+      "osm_railway": "way/317865144",
+      "xy_m": [
+        872.76,
+        458.06
+      ],
+      "chainage_m": 4846.577680735569,
+      "rail_coordinates_xy_m": [
+        [
+          715.77,
+          924.86
+        ],
+        [
+          721.51,
+          863.38
+        ],
+        [
+          738.32,
+          807.4
+        ],
+        [
+          858.63,
+          549.79
+        ],
+        [
+          867.53,
+          498.47
+        ],
+        [
+          872.76,
+          458.06
+        ],
+        [
+          875.91,
+          394.44
+        ],
+        [
+          879.15,
+          328.93
+        ],
+        [
+          883.73,
+          189.14
+        ]
+      ],
+      "rail_tags": {
+        "railway": "rail",
+        "service": "siding"
+      }
+    },
+    {
+      "osm_node": "node/853117487",
+      "osm_railway": "way/380606768",
+      "xy_m": [
+        730.36,
+        424.36
+      ],
+      "chainage_m": 4992.910824102464,
+      "rail_coordinates_xy_m": [
+        [
+          949.9,
+          -4554.29
+        ],
+        [
+          921.3,
+          -3904.1
+        ],
+        [
+          906.96,
+          -3573.93
+        ],
+        [
+          864.59,
+          -2598.71
+        ],
+        [
+          847.84,
+          -2203.27
+        ],
+        [
+          830.7,
+          -1904.2
+        ],
+        [
+          826.49,
+          -1841.6
+        ],
+        [
+          825.48,
+          -1817.57
+        ],
+        [
+          820.32,
+          -1695.43
+        ],
+        [
+          813.14,
+          -1525.17
+        ],
+        [
+          808.95,
+          -1425.9
+        ],
+        [
+          803.88,
+          -1305.68
+        ],
+        [
+          797.07,
+          -1141.55
+        ],
+        [
+          788.11,
+          -932.29
+        ],
+        [
+          785.98,
+          -855.97
+        ],
+        [
+          784.35,
+          -818.76
+        ],
+        [
+          776.01,
+          -627.36
+        ],
+        [
+          775.49,
+          -591.78
+        ],
+        [
+          771.71,
+          -513.22
+        ],
+        [
+          769.96,
+          -473.55
+        ],
+        [
+          768.22,
+          -433.92
+        ],
+        [
+          730.36,
+          424.36
+        ],
+        [
+          708.1,
+          971.34
+        ]
+      ],
+      "rail_tags": {
+        "electrified": "no",
+        "gauge": "1520",
+        "operator": "Укрзалізниця",
+        "railway": "rail",
+        "usage": "main"
+      }
+    }
+  ],
+  "bridges": [
+    {
+      "osm_way": "way/969188440",
+      "name": "вулиця Тютюнника",
+      "coordinates_xy_m": [
+        [
+          181.4287510685972,
+          1077.1844709981233
+        ],
+        [
+          188.00096267450135,
+          1083.6031662151217
+        ]
+      ],
+      "chainage_start_m": 1133.0480378197767,
+      "chainage_end_m": 1142.2346374964714,
+      "mapped_length_m": 9.186599680050296,
+      "osm_tags": {
+        "bridge": "yes",
+        "highway": "secondary",
+        "layer": "1",
+        "name": "вулиця Тютюнника",
+        "name:en": "Tiutiunnyka Street",
+        "name:uk": "вулиця Тютюнника",
+        "noname": "yes",
+        "noref": "yes",
+        "oneway": "no",
+        "ref": "Т-13-02",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "osm_way": "way/406501367",
+      "name": "Без названия в OSM",
+      "coordinates_xy_m": [
+        [
+          1238.278940396849,
+          783.5138938287273
+        ],
+        [
+          1212.1281200341182,
+          762.1141172228381
+        ]
+      ],
+      "chainage_start_m": 4343.3083269084955,
+      "chainage_end_m": 4377.098832913333,
+      "mapped_length_m": 33.790765667942225,
+      "osm_tags": {
+        "bridge": "yes",
+        "highway": "unclassified",
+        "layer": "1"
+      }
+    }
+  ],
+  "construction_status": "Positions, railway gauge where tagged, mapped bridge extents are sourced. Decks, crossing infill panels, passive signs, handrail design and materials are provisional until street photographs confirm them."
+}

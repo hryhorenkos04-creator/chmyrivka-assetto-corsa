@@ -1,0 +1,98 @@
+[
+  {
+    "path": "textures/vegetation_v10/broadleaf_diffuse_1k.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "source": "Native orthographic render of project-authored folded leaf geometry",
+    "type": "diffuse",
+    "alpha": "Four clumps with transparent background; no photographic or generative-image content"
+  },
+  {
+    "path": "textures/vegetation_v10/broadleaf_normal_1k.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "source": "Native orthographic render of project-authored folded leaf geometry",
+    "type": "normal",
+    "alpha": "Four clumps with transparent background; no photographic or generative-image content"
+  },
+  {
+    "path": "textures/vegetation_v10/pine_diffuse_1k.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "source": "Native orthographic render of project-authored folded leaf geometry",
+    "type": "diffuse",
+    "alpha": "Four clumps with transparent background; no photographic or generative-image content"
+  },
+  {
+    "path": "textures/vegetation_v10/pine_normal_1k.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "source": "Native orthographic render of project-authored folded leaf geometry",
+    "type": "normal",
+    "alpha": "Four clumps with transparent background; no photographic or generative-image content"
+  },
+  {
+    "path": "textures/vegetation_v10/singleleaf_diffuse_1k.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "source": "Native orthographic render of project-authored folded leaf geometry",
+    "type": "diffuse",
+    "alpha": "Four clumps with transparent background; no photographic or generative-image content"
+  },
+  {
+    "path": "textures/vegetation_v10/singleleaf_normal_1k.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "source": "Native orthographic render of project-authored folded leaf geometry",
+    "type": "normal",
+    "alpha": "Four clumps with transparent background; no photographic or generative-image content"
+  },
+  {
+    "path": "textures/vegetation_v10/dark_bark_diffuse.png",
+    "size": [
+      512,
+      1024
+    ],
+    "source": "Orthographic native render of existing project V06 procedural bark shader",
+    "type": "diffuse"
+  },
+  {
+    "path": "textures/vegetation_v10/dark_bark_normal.png",
+    "size": [
+      512,
+      1024
+    ],
+    "source": "Orthographic native render of existing project V06 procedural bark shader",
+    "type": "normal"
+  },
+  {
+    "path": "textures/vegetation_v10/birch_bark_diffuse.png",
+    "size": [
+      512,
+      1024
+    ],
+    "source": "Orthographic native render of existing project V06 procedural bark shader",
+    "type": "diffuse"
+  },
+  {
+    "path": "textures/vegetation_v10/birch_bark_normal.png",
+    "size": [
+      512,
+      1024
+    ],
+    "source": "Orthographic native render of existing project V06 procedural bark shader",
+    "type": "normal"
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "version": "v09",
+  "direction": "A-E-B-C-D-A",
+  "source": "OpenStreetMap contributors, ODbL1.0; downloaded2026-10-13",
+  "source_feature_count": 66,
+  "junction_count": 34,
+  "connected_way_count": 32,
+  "validation": {
+    "surface_valid": true,
+    "new_road_area_m2": 37317.49197948913,
+    "main_track_intersection_m2": 0.0,
+    "pit_intersection_m2": 0.0,
+    "mapped_building_intersection_m2": 0.0,
+    "total_visible_branch_length_m": 7247.4047185102945,
+    "unique_visible_centerline_length_m": 7142.712011008617,
+    "mapped_centerline_building_intersection_m": 0.0,
+    "native_surface_area_m2": 37400.717236184166
+  },
+  "limitations": [
+    "Mapped street centre lines are authentic OSM references; all widths, levels and road surface details are approximations.",
+    "A/B connect original dead arms to redesigned hairpins; native v08 race geometry is preserved.",
+    "Roads continue behind temporary racing closures; their presence is not race access authorization.",
+    "Unmapped private driveways and any changes since the OSM capture are not reconstructed."
+  ],
+  "native_geometry": {
+    "paved_object": "SIDE_ROADS_V09",
+    "verge_object": "V09_Side_road_verges",
+    "paved_vertices": 11007,
+    "paved_triangles": 15074,
+    "graded_objects": [
+      "GROUND_land_cemetery",
+      "GROUND_land_forest",
+      "GROUND_land_industrial",
+      "GROUND_land_residential",
+      "GROUND_land_wetland",
+      "GROUND_terrain",
+      "ROAD_SHOULDERS",
+      "SIDE_ROADS",
+      "GROUND_Track_realignment_restored_v08"
+    ],
+    "vertical_sampling_missing_ray_count": 256,
+    "normal_down_count": 0,
+    "main_and_pit_meshes_modified": false,
+    "method": "Exact polygon terrain cut and5m surrounding grade; same XY and native edge level at racing surface; closed street surfaces behind barriers."
+  },
+  "native_preserved_main_pit": true,
+  "duration_seconds": 21.904144763946533
+}

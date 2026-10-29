@@ -1,0 +1,2624 @@
+{
+  "version": "v12",
+  "sector_map_m": [
+    3800,
+    4250
+  ],
+  "max_center_distance_m": 65,
+  "counts": {
+    "houses": 40,
+    "windows": 374,
+    "doors": 40,
+    "curtain_windows": 310,
+    "chimneys": 26,
+    "corrugated_roofs": 38,
+    "gutters": 76,
+    "downpipes": 76,
+    "porch_canopies": 17,
+    "attic_vents": 76,
+    "door_steps_added": 35,
+    "door_steps_skipped": 5
+  },
+  "step_clearance": {
+    "guard": "Union of track_v08.outer_polygon and side_road_plan_v09.outer_polygon +20mm margin",
+    "skipped": [
+      {
+        "osm_id": "way/403554197",
+        "station_map_m": 3903.788785305341,
+        "center": [
+          1489.129150390625,
+          1135.7918701171875,
+          4.024190425872803
+        ],
+        "corners": [
+          [
+            1489.619140625,
+            1136.23046875,
+            3.9791903495788574
+          ],
+          [
+            1489.15478515625,
+            1135.134765625,
+            3.9791903495788574
+          ],
+          [
+            1488.63916015625,
+            1135.353271484375,
+            3.9791903495788574
+          ],
+          [
+            1489.103515625,
+            1136.448974609375,
+            3.9791903495788574
+          ],
+          [
+            1489.619140625,
+            1136.23046875,
+            4.069190502166748
+          ],
+          [
+            1489.15478515625,
+            1135.134765625,
+            4.069190502166748
+          ],
+          [
+            1488.63916015625,
+            1135.353271484375,
+            4.069190502166748
+          ],
+          [
+            1489.103515625,
+            1136.448974609375,
+            4.069190502166748
+          ]
+        ],
+        "reserved_overlap_m2": 0.6600695669972436,
+        "action": "omit complete small doorway step; wall and doorway preserved"
+      },
+      {
+        "osm_id": "way/403555592",
+        "station_map_m": 3956.9216723251247,
+        "center": [
+          1468.38623046875,
+          1087.0511474609375,
+          4.26765775680542
+        ],
+        "corners": [
+          [
+            1468.951904296875,
+            1087.386474609375,
+            4.222657680511475
+          ],
+          [
+            1468.2841796875,
+            1086.401611328125,
+            4.222657680511475
+          ],
+          [
+            1467.820556640625,
+            1086.7158203125,
+            4.222657680511475
+          ],
+          [
+            1468.48828125,
+            1087.70068359375,
+            4.222657680511475
+          ],
+          [
+            1468.951904296875,
+            1087.386474609375,
+            4.312657833099365
+          ],
+          [
+            1468.2841796875,
+            1086.401611328125,
+            4.312657833099365
+          ],
+          [
+            1467.820556640625,
+            1086.7158203125,
+            4.312657833099365
+          ],
+          [
+            1468.48828125,
+            1087.70068359375,
+            4.312657833099365
+          ]
+        ],
+        "reserved_overlap_m2": 0.6664103865623474,
+        "action": "omit complete small doorway step; wall and doorway preserved"
+      },
+      {
+        "osm_id": "way/403555619",
+        "station_map_m": 4143.748357398765,
+        "center": [
+          1381.864501953125,
+          919.5604858398438,
+          4.433342456817627
+        ],
+        "corners": [
+          [
+            1382.425537109375,
+            919.9034423828125,
+            4.388342380523682
+          ],
+          [
+            1381.771240234375,
+            918.9095458984375,
+            4.388342380523682
+          ],
+          [
+            1381.303466796875,
+            919.217529296875,
+            4.388342380523682
+          ],
+          [
+            1381.957763671875,
+            920.21142578125,
+            4.388342380523682
+          ],
+          [
+            1382.425537109375,
+            919.9034423828125,
+            4.478342533111572
+          ],
+          [
+            1381.771240234375,
+            918.9095458984375,
+            4.478342533111572
+          ],
+          [
+            1381.303466796875,
+            919.217529296875,
+            4.478342533111572
+          ],
+          [
+            1381.957763671875,
+            920.21142578125,
+            4.478342533111572
+          ]
+        ],
+        "reserved_overlap_m2": 0.07185542195277167,
+        "action": "omit complete small doorway step; wall and doorway preserved"
+      },
+      {
+        "osm_id": "way/403555622",
+        "station_map_m": 4068.11574347366,
+        "center": [
+          1418.650634765625,
+          986.6925048828125,
+          4.260422706604004
+        ],
+        "corners": [
+          [
+            1419.19921875,
+            987.05517578125,
+            4.215422630310059
+          ],
+          [
+            1418.580322265625,
+            986.0386962890625,
+            4.215422630310059
+          ],
+          [
+            1418.10205078125,
+            986.329833984375,
+            4.215422630310059
+          ],
+          [
+            1418.720947265625,
+            987.3463134765625,
+            4.215422630310059
+          ],
+          [
+            1419.19921875,
+            987.05517578125,
+            4.305422782897949
+          ],
+          [
+            1418.580322265625,
+            986.0386962890625,
+            4.305422782897949
+          ],
+          [
+            1418.10205078125,
+            986.329833984375,
+            4.305422782897949
+          ],
+          [
+            1418.720947265625,
+            987.3463134765625,
+            4.305422782897949
+          ]
+        ],
+        "reserved_overlap_m2": 0.666337251663208,
+        "action": "omit complete small doorway step; wall and doorway preserved"
+      },
+      {
+        "osm_id": "way/403555625",
+        "station_map_m": 4230.371293740615,
+        "center": [
+          1324.33935546875,
+          854.8150024414062,
+          3.599548101425171
+        ],
+        "corners": [
+          [
+            1324.97607421875,
+            854.9790649414062,
+            3.5545480251312256
+          ],
+          [
+            1324.059814453125,
+            854.2197875976562,
+            3.5545480251312256
+          ],
+          [
+            1323.70263671875,
+            854.6509399414062,
+            3.5545480251312256
+          ],
+          [
+            1324.618896484375,
+            855.4102172851562,
+            3.5545480251312256
+          ],
+          [
+            1324.97607421875,
+            854.9790649414062,
+            3.644548177719116
+          ],
+          [
+            1324.059814453125,
+            854.2197875976562,
+            3.644548177719116
+          ],
+          [
+            1323.70263671875,
+            854.6509399414062,
+            3.644548177719116
+          ],
+          [
+            1324.618896484375,
+            855.4102172851562,
+            3.644548177719116
+          ]
+        ],
+        "reserved_overlap_m2": 0.5819064968659369,
+        "action": "omit complete small doorway step; wall and doorway preserved"
+      }
+    ],
+    "skipped_ids": [
+      "way/403554197",
+      "way/403555592",
+      "way/403555619",
+      "way/403555622",
+      "way/403555625"
+    ]
+  },
+  "fitting_guard": {
+    "native_paved_objects": [
+      "1ROAD_MAIN",
+      "1PIT_SURFACE_V08",
+      "ROAD_SHOULDERS",
+      "SIDE_ROADS",
+      "SIDE_ROADS_V09",
+      "V09_Side_road_verges"
+    ],
+    "local_paved_area_m2": 503.3268336392898,
+    "local_mapped_house_area_m2": 3733.646535821259,
+    "forbidden_area_m2": 491.32966967712565,
+    "policy": "Omit whole decorative primitive whenever its native-float32 convex XY projection overlaps actual native paving outside original mapped wall footprints; no height exemption and no inherited-decoration exemption.",
+    "roles": [
+      "sill",
+      "soffit",
+      "roof_trim",
+      "reveal",
+      "gutter"
+    ],
+    "tolerance_m2": 1e-10,
+    "tested_primitives": 5796,
+    "omitted_primitives": 97,
+    "impacted_house_ids": [
+      "way/403554197",
+      "way/403555590",
+      "way/403555592",
+      "way/403555609",
+      "way/403555614",
+      "way/403555622",
+      "way/403555625"
+    ],
+    "omitted_by_role": {
+      "soffit": 18,
+      "roof_trim": 27,
+      "sill": 17,
+      "gutter": 31,
+      "reveal": 4
+    },
+    "omissions": [
+      {
+        "osm_id": "way/403554197",
+        "role": "soffit",
+        "projected_overlap_m2": 0.12850433737038927,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1490.156005859375,
+          1137.8692626953125
+        ]
+      },
+      {
+        "osm_id": "way/403554197",
+        "role": "roof_trim",
+        "projected_overlap_m2": 0.04211774492941961,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1490.1146240234375,
+          1137.8868408203125
+        ]
+      },
+      {
+        "osm_id": "way/403554197",
+        "role": "sill",
+        "projected_overlap_m2": 0.028691111931487337,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1490.1837158203125,
+          1137.8575439453125
+        ]
+      },
+      {
+        "osm_id": "way/403554197",
+        "role": "sill",
+        "projected_overlap_m2": 0.010761475396577541,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1490.0390625,
+          1137.9188232421875
+        ]
+      },
+      {
+        "osm_id": "way/403554197",
+        "role": "gutter",
+        "projected_overlap_m2": 0.41762089291544535,
+        "omitted_faces": 10,
+        "primitive_vertices": 20,
+        "center_xy": [
+          1490.0501098632812,
+          1137.9140625
+        ]
+      },
+      {
+        "osm_id": "way/403554197",
+        "role": "gutter",
+        "projected_overlap_m2": 0.004055058346542623,
+        "omitted_faces": 9,
+        "primitive_vertices": 18,
+        "center_xy": [
+          1488.3475341796875,
+          1133.8062133789062
+        ]
+      },
+      {
+        "osm_id": "way/403554197",
+        "role": "gutter",
+        "projected_overlap_m2": 2.3578234561778024e-05,
+        "omitted_faces": 9,
+        "primitive_vertices": 18,
+        "center_xy": [
+          1488.3797607421875,
+          1133.7926025390625
+        ]
+      },
+      {
+        "osm_id": "way/403554197",
+        "role": "gutter",
+        "projected_overlap_m2": 0.009023268605494444,
+        "omitted_faces": 9,
+        "primitive_vertices": 18,
+        "center_xy": [
+          1488.3060913085938,
+          1133.8237915039062
+        ]
+      },
+      {
+        "osm_id": "way/403554197",
+        "role": "gutter",
+        "projected_overlap_m2": 0.0006372326707337592,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1488.3797607421875,
+          1133.7926025390625
+        ]
+      },
+      {
+        "osm_id": "way/403554197",
+        "role": "gutter",
+        "projected_overlap_m2": 0.0006372326707337592,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1488.3797607421875,
+          1133.7926025390625
+        ]
+      },
+      {
+        "osm_id": "way/403554197",
+        "role": "gutter",
+        "projected_overlap_m2": 0.0006372326707337592,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1488.3797607421875,
+          1133.7926025390625
+        ]
+      },
+      {
+        "osm_id": "way/403554197",
+        "role": "soffit",
+        "projected_overlap_m2": 0.014442791211747935,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1492.5509033203125,
+          1131.755859375
+        ]
+      },
+      {
+        "osm_id": "way/403554197",
+        "role": "roof_trim",
+        "projected_overlap_m2": 0.005100595817894016,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1492.533447265625,
+          1131.71435546875
+        ]
+      },
+      {
+        "osm_id": "way/403555590",
+        "role": "roof_trim",
+        "projected_overlap_m2": 0.06126932242797584,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1431.4512939453125,
+          1008.5789794921875
+        ]
+      },
+      {
+        "osm_id": "way/403555590",
+        "role": "soffit",
+        "projected_overlap_m2": 0.014049890550729034,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1431.4512939453125,
+          1008.5789794921875
+        ]
+      },
+      {
+        "osm_id": "way/403555592",
+        "role": "soffit",
+        "projected_overlap_m2": 0.1734415132245662,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1469.3328857421875,
+          1088.20703125
+        ]
+      },
+      {
+        "osm_id": "way/403555592",
+        "role": "roof_trim",
+        "projected_overlap_m2": 0.057210012176462446,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1469.295654296875,
+          1088.2322998046875
+        ]
+      },
+      {
+        "osm_id": "way/403555592",
+        "role": "sill",
+        "projected_overlap_m2": 0.03857027042957421,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1470.1927490234375,
+          1089.421875
+        ]
+      },
+      {
+        "osm_id": "way/403555592",
+        "role": "sill",
+        "projected_overlap_m2": 0.013449493064505769,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1470.062744140625,
+          1089.510009765625
+        ]
+      },
+      {
+        "osm_id": "way/403555592",
+        "role": "soffit",
+        "projected_overlap_m2": 0.02276224562404891,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1471.1181640625,
+          1081.53271484375
+        ]
+      },
+      {
+        "osm_id": "way/403555592",
+        "role": "roof_trim",
+        "projected_overlap_m2": 0.007845839708146118,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1471.093017578125,
+          1081.4954833984375
+        ]
+      },
+      {
+        "osm_id": "way/403555592",
+        "role": "gutter",
+        "projected_overlap_m2": 0.07300822164903702,
+        "omitted_faces": 10,
+        "primitive_vertices": 20,
+        "center_xy": [
+          1471.053955078125,
+          1081.4373779296875
+        ]
+      },
+      {
+        "osm_id": "way/403555592",
+        "role": "gutter",
+        "projected_overlap_m2": 0.004068143477455771,
+        "omitted_faces": 9,
+        "primitive_vertices": 18,
+        "center_xy": [
+          1466.9527180989583,
+          1084.2408447265625
+        ]
+      },
+      {
+        "osm_id": "way/403555592",
+        "role": "gutter",
+        "projected_overlap_m2": 2.478189337638582e-05,
+        "omitted_faces": 9,
+        "primitive_vertices": 18,
+        "center_xy": [
+          1466.9722900390625,
+          1084.2698974609375
+        ]
+      },
+      {
+        "osm_id": "way/403555592",
+        "role": "gutter",
+        "projected_overlap_m2": 0.009028707292102891,
+        "omitted_faces": 9,
+        "primitive_vertices": 18,
+        "center_xy": [
+          1466.9276529947917,
+          1084.2035386827256
+        ]
+      },
+      {
+        "osm_id": "way/403555592",
+        "role": "gutter",
+        "projected_overlap_m2": 0.0006452945808764375,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1466.9722900390625,
+          1084.2698974609375
+        ]
+      },
+      {
+        "osm_id": "way/403555592",
+        "role": "gutter",
+        "projected_overlap_m2": 0.0006452945808764375,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1466.9722900390625,
+          1084.2698974609375
+        ]
+      },
+      {
+        "osm_id": "way/403555592",
+        "role": "gutter",
+        "projected_overlap_m2": 0.0006452945808764375,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1466.9722900390625,
+          1084.2698974609375
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "sill",
+        "projected_overlap_m2": 0.024170593239766707,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1406.387939453125,
+          995.2625732421875
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "soffit",
+        "projected_overlap_m2": 0.12092913190564775,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1406.423583984375,
+          995.2402954101562
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "roof_trim",
+        "projected_overlap_m2": 0.06719051604527065,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1406.4617919921875,
+          995.2164306640625
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "reveal",
+        "projected_overlap_m2": 0.002811068085889941,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1408.9500732421875,
+          999.4036254882812
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "gutter",
+        "projected_overlap_m2": 0.1372591060321734,
+        "omitted_faces": 10,
+        "primitive_vertices": 20,
+        "center_xy": [
+          1406.5211181640625,
+          995.1793518066406
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "sill",
+        "projected_overlap_m2": 0.6299962473203043,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1405.1573486328125,
+          1001.7979736328125
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "soffit",
+        "projected_overlap_m2": 1.617716044460594,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1405.179443359375,
+          1001.8336791992188
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "roof_trim",
+        "projected_overlap_m2": 0.7223477984617179,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1405.2032470703125,
+          1001.8718872070312
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "reveal",
+        "projected_overlap_m2": 0.0028125679508122156,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1408.9462890625,
+          999.420166015625
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "reveal",
+        "projected_overlap_m2": 0.0028129092234012443,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1401.3463134765625,
+          1004.1401977539062
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "sill",
+        "projected_overlap_m2": 0.31073982453534155,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1406.4302978515625,
+          1001.0215454101562
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "sill",
+        "projected_overlap_m2": 0.025164753198623657,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1406.51318359375,
+          1001.1549072265625
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "sill",
+        "projected_overlap_m2": 0.31062310901933887,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1403.89697265625,
+          1002.5948486328125
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "sill",
+        "projected_overlap_m2": 0.025164753198623657,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1403.9798583984375,
+          1002.7282104492188
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "soffit",
+        "projected_overlap_m2": 0.0006495416164398193,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1405.30810546875,
+          1001.69970703125
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "soffit",
+        "projected_overlap_m2": 0.0006495416164398193,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1405.0023193359375,
+          1001.8895874023438
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "soffit",
+        "projected_overlap_m2": 0.010521084070205688,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1405.1551513671875,
+          1001.7946166992188
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "soffit",
+        "projected_overlap_m2": 0.010521084070205688,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1405.1551513671875,
+          1001.7946166992188
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "roof_trim",
+        "projected_overlap_m2": 0.00912696123123169,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1405.1583251953125,
+          1001.7996826171875
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "roof_trim",
+        "projected_overlap_m2": 0.00912696123123169,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1405.1583251953125,
+          1001.7996826171875
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "roof_trim",
+        "projected_overlap_m2": 0.00912696123123169,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1405.1583251953125,
+          1001.7996826171875
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "roof_trim",
+        "projected_overlap_m2": 0.00912696123123169,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1405.1583251953125,
+          1001.7996826171875
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "sill",
+        "projected_overlap_m2": 0.1647816853743027,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1398.72705078125,
+          1000.0175170898438
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "soffit",
+        "projected_overlap_m2": 0.461298130421427,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1398.69140625,
+          1000.039794921875
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "roof_trim",
+        "projected_overlap_m2": 0.21454176518967438,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1398.6533203125,
+          1000.0636596679688
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "reveal",
+        "projected_overlap_m2": 0.0028151508820563886,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1401.329833984375,
+          1004.1363525390625
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "sill",
+        "projected_overlap_m2": 0.18900407604473346,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1400.0093994140625,
+          1002.0888671875
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "sill",
+        "projected_overlap_m2": 0.02115331498547024,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1399.876220703125,
+          1002.1721801757812
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "gutter",
+        "projected_overlap_m2": 0.3106556911428968,
+        "omitted_faces": 10,
+        "primitive_vertices": 20,
+        "center_xy": [
+          1398.593994140625,
+          1000.100830078125
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "gutter",
+        "projected_overlap_m2": 0.007487048169732773,
+        "omitted_faces": 9,
+        "primitive_vertices": 18,
+        "center_xy": [
+          1401.1131591796875,
+          1004.0596618652344
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "gutter",
+        "projected_overlap_m2": 0.0031469321153399883,
+        "omitted_faces": 9,
+        "primitive_vertices": 18,
+        "center_xy": [
+          1401.142822265625,
+          1004.0410766601562
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "gutter",
+        "projected_overlap_m2": 0.01164994201394608,
+        "omitted_faces": 9,
+        "primitive_vertices": 18,
+        "center_xy": [
+          1401.0750122070312,
+          1004.0835266113281
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "gutter",
+        "projected_overlap_m2": 0.006368489741847354,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1401.142822265625,
+          1004.0410766601562
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "gutter",
+        "projected_overlap_m2": 0.006368489741847354,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1401.142822265625,
+          1004.0410766601562
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "gutter",
+        "projected_overlap_m2": 0.006368489741847354,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1401.142822265625,
+          1004.0410766601562
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "roof_trim",
+        "projected_overlap_m2": 0.007811293115503937,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1406.3599853515625,
+          995.280029296875
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "roof_trim",
+        "projected_overlap_m2": 0.10121300778820719,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1407.0400390625,
+          1000.5899658203125
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "roof_trim",
+        "projected_overlap_m2": 7.191523001062738e-07,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1402.5574951171875,
+          997.6400146484375
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "roof_trim",
+        "projected_overlap_m2": 0.05247994923701116,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1398.7550048828125,
+          1000.0
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "roof_trim",
+        "projected_overlap_m2": 7.191523001062738e-07,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1402.5574951171875,
+          997.6400146484375
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "roof_trim",
+        "projected_overlap_m2": 0.10118628759484917,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1403.239990234375,
+          1002.9500122070312
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "roof_trim",
+        "projected_overlap_m2": 1.213099458051853e-05,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1402.6407470703125,
+          1001.9921875
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "roof_trim",
+        "projected_overlap_m2": 1.2460545190665494e-05,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1402.04150390625,
+          1001.0343017578125
+        ]
+      },
+      {
+        "osm_id": "way/403555609",
+        "role": "roof_trim",
+        "projected_overlap_m2": 1.3296275498841936e-05,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1402.5574951171875,
+          997.6400146484375
+        ]
+      },
+      {
+        "osm_id": "way/403555614",
+        "role": "soffit",
+        "projected_overlap_m2": 0.005657888993584159,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1348.658935546875,
+          895.1258544921875
+        ]
+      },
+      {
+        "osm_id": "way/403555614",
+        "role": "roof_trim",
+        "projected_overlap_m2": 0.0014369486360570891,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1348.697265625,
+          895.1023559570312
+        ]
+      },
+      {
+        "osm_id": "way/403555622",
+        "role": "soffit",
+        "projected_overlap_m2": 0.24299004892240086,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1419.4608154296875,
+          987.7639770507812
+        ]
+      },
+      {
+        "osm_id": "way/403555622",
+        "role": "roof_trim",
+        "projected_overlap_m2": 0.08213523535792278,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1419.42236328125,
+          987.787353515625
+        ]
+      },
+      {
+        "osm_id": "way/403555622",
+        "role": "sill",
+        "projected_overlap_m2": 0.08894276468186918,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1420.1815185546875,
+          988.8900756835938
+        ]
+      },
+      {
+        "osm_id": "way/403555622",
+        "role": "sill",
+        "projected_overlap_m2": 0.02497279644012451,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1420.0474853515625,
+          988.9717407226562
+        ]
+      },
+      {
+        "osm_id": "way/403555622",
+        "role": "soffit",
+        "projected_overlap_m2": 0.013477410080181898,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1422.39111328125,
+          981.2158813476562
+        ]
+      },
+      {
+        "osm_id": "way/403555622",
+        "role": "roof_trim",
+        "projected_overlap_m2": 0.00479834236942224,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1422.3677978515625,
+          981.1773681640625
+        ]
+      },
+      {
+        "osm_id": "way/403555622",
+        "role": "gutter",
+        "projected_overlap_m2": 0.044255207382352,
+        "omitted_faces": 10,
+        "primitive_vertices": 20,
+        "center_xy": [
+          1422.3316040039062,
+          981.1174621582031
+        ]
+      },
+      {
+        "osm_id": "way/403555622",
+        "role": "gutter",
+        "projected_overlap_m2": 0.004063070697898907,
+        "omitted_faces": 9,
+        "primitive_vertices": 18,
+        "center_xy": [
+          1417.5137329101562,
+          984.0741814507378
+        ]
+      },
+      {
+        "osm_id": "way/403555622",
+        "role": "gutter",
+        "projected_overlap_m2": 2.4833423153968372e-05,
+        "omitted_faces": 9,
+        "primitive_vertices": 18,
+        "center_xy": [
+          1417.5318603515625,
+          984.1041259765625
+        ]
+      },
+      {
+        "osm_id": "way/403555622",
+        "role": "gutter",
+        "projected_overlap_m2": 0.009027902180804348,
+        "omitted_faces": 9,
+        "primitive_vertices": 18,
+        "center_xy": [
+          1417.4904174804688,
+          984.0356750488281
+        ]
+      },
+      {
+        "osm_id": "way/403555622",
+        "role": "gutter",
+        "projected_overlap_m2": 0.0006416632576612749,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1417.5318603515625,
+          984.1041259765625
+        ]
+      },
+      {
+        "osm_id": "way/403555622",
+        "role": "gutter",
+        "projected_overlap_m2": 0.0006416632576612749,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1417.5318603515625,
+          984.1041259765625
+        ]
+      },
+      {
+        "osm_id": "way/403555622",
+        "role": "gutter",
+        "projected_overlap_m2": 0.0006416632576612749,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1417.5318603515625,
+          984.1041259765625
+        ]
+      },
+      {
+        "osm_id": "way/403555622",
+        "role": "soffit",
+        "projected_overlap_m2": 0.007049685851769225,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1426.638916015625,
+          988.18408203125
+        ]
+      },
+      {
+        "osm_id": "way/403555622",
+        "role": "roof_trim",
+        "projected_overlap_m2": 0.0026314038456865183,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1426.6622314453125,
+          988.2225952148438
+        ]
+      },
+      {
+        "osm_id": "way/403555622",
+        "role": "gutter",
+        "projected_overlap_m2": 0.024477694060283134,
+        "omitted_faces": 10,
+        "primitive_vertices": 20,
+        "center_xy": [
+          1426.6986083984375,
+          988.2824401855469
+        ]
+      },
+      {
+        "osm_id": "way/403555625",
+        "role": "soffit",
+        "projected_overlap_m2": 0.00917503336714278,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1325.012451171875,
+          849.1619262695312
+        ]
+      },
+      {
+        "osm_id": "way/403555625",
+        "role": "roof_trim",
+        "projected_overlap_m2": 0.0033381307407871347,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1324.9779052734375,
+          849.133056640625
+        ]
+      },
+      {
+        "osm_id": "way/403555625",
+        "role": "gutter",
+        "projected_overlap_m2": 0.03133824413429068,
+        "omitted_faces": 10,
+        "primitive_vertices": 20,
+        "center_xy": [
+          1324.9241333007812,
+          849.0882263183594
+        ]
+      },
+      {
+        "osm_id": "way/403555625",
+        "role": "soffit",
+        "projected_overlap_m2": 0.15020830191682766,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1325.5921630859375,
+          855.677734375
+        ]
+      },
+      {
+        "osm_id": "way/403555625",
+        "role": "roof_trim",
+        "projected_overlap_m2": 0.04899862991211859,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1325.5634765625,
+          855.71240234375
+        ]
+      },
+      {
+        "osm_id": "way/403555625",
+        "role": "sill",
+        "projected_overlap_m2": 0.0021868857043191407,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1326.7779541015625,
+          856.621337890625
+        ]
+      },
+      {
+        "osm_id": "way/403555625",
+        "role": "sill",
+        "projected_overlap_m2": 0.0022737102845075395,
+        "omitted_faces": 6,
+        "primitive_vertices": 8,
+        "center_xy": [
+          1326.677734375,
+          856.7421875
+        ]
+      }
+    ]
+  },
+  "buildings": [
+    {
+      "osm_id": "way/403554192",
+      "station_map_m": 3801.1317398147626,
+      "distance_m": 12.906465339249673,
+      "wall_name": "BLDG_way_403554192_walls",
+      "roof_name": "BLDG_way_403554192_roof",
+      "base_z": 4.11991502844928,
+      "eave_z": 7.18591502844928,
+      "peak_z": 8.31991502844928,
+      "door": {
+        "point": [
+          1514.7733154296875,
+          1236.106689453125,
+          4.239914894104004
+        ],
+        "outward": [
+          -0.9768332839012146,
+          0.2140016257762909,
+          0.0
+        ],
+        "facade_index": 0
+      },
+      "wall_material": "V12_Architecture_Silicate_1",
+      "roof_material": "V12_Architecture_Roof_0"
+    },
+    {
+      "osm_id": "way/403554193",
+      "station_map_m": 3816.676365251186,
+      "distance_m": 13.545250923983984,
+      "wall_name": "BLDG_way_403554193_walls",
+      "roof_name": "BLDG_way_403554193_roof",
+      "base_z": 4.074297509507036,
+      "eave_z": 7.140297509507036,
+      "peak_z": 8.274297509507036,
+      "door": {
+        "point": [
+          1511.396728515625,
+          1220.5933837890625,
+          4.1942973136901855
+        ],
+        "outward": [
+          -0.9906203150749207,
+          0.13664273917675018,
+          0.0
+        ],
+        "facade_index": 0
+      },
+      "wall_material": "V12_Architecture_Plaster_0",
+      "roof_material": "V12_Architecture_Roof_2"
+    },
+    {
+      "osm_id": "way/403554194",
+      "station_map_m": 3842.8579658471763,
+      "distance_m": 11.665057692387148,
+      "wall_name": "BLDG_way_403554194_walls",
+      "roof_name": "BLDG_way_403554194_roof",
+      "base_z": 4.021437705210732,
+      "eave_z": 7.087437705210732,
+      "peak_z": 8.221437705210732,
+      "door": {
+        "point": [
+          1506.3900146484375,
+          1195.7099609375,
+          4.141437530517578
+        ],
+        "outward": [
+          -0.9599577188491821,
+          0.28014472126960754,
+          0.0
+        ],
+        "facade_index": 0
+      },
+      "wall_material": "V12_Architecture_Silicate_1",
+      "roof_material": "V12_Architecture_Roof_3"
+    },
+    {
+      "osm_id": "way/403554195",
+      "station_map_m": 3855.868189238655,
+      "distance_m": 11.238056370219212,
+      "wall_name": "BLDG_way_403554195_walls",
+      "roof_name": "BLDG_way_403554195_roof",
+      "base_z": 4.062884428894512,
+      "eave_z": 7.128884428894512,
+      "peak_z": 8.262884428894512,
+      "door": {
+        "point": [
+          1503.0633544921875,
+          1182.1700439453125,
+          4.182884216308594
+        ],
+        "outward": [
+          -0.9564139246940613,
+          0.292014479637146,
+          0.0
+        ],
+        "facade_index": 0
+      },
+      "wall_material": "V12_Architecture_Plaster_2",
+      "roof_material": "V12_Architecture_Roof_2"
+    },
+    {
+      "osm_id": "way/403554196",
+      "station_map_m": 3872.8381077699282,
+      "distance_m": 12.344705085986183,
+      "wall_name": "BLDG_way_403554196_walls",
+      "roof_name": "BLDG_way_403554196_roof",
+      "base_z": 4.103137568618734,
+      "eave_z": 7.1691375686187335,
+      "peak_z": 8.303137568618734,
+      "door": {
+        "point": [
+          1498.155029296875,
+          1164.7550048828125,
+          4.223137378692627
+        ],
+        "outward": [
+          -0.9400548934936523,
+          0.34102317690849304,
+          0.0
+        ],
+        "facade_index": 0
+      },
+      "wall_material": "V12_Architecture_Silicate_0",
+      "roof_material": "V12_Architecture_Roof_3"
+    },
+    {
+      "osm_id": "way/403554197",
+      "station_map_m": 3903.788785305341,
+      "distance_m": 10.187464450703947,
+      "wall_name": "BLDG_way_403554197_walls",
+      "roof_name": "BLDG_way_403554197_roof",
+      "base_z": 3.9841902731159538,
+      "eave_z": 7.050190273115954,
+      "peak_z": 8.184190273115954,
+      "door": {
+        "point": [
+          1489.322509765625,
+          1135.7099609375,
+          4.104190349578857
+        ],
+        "outward": [
+          -0.9207592010498047,
+          0.390131413936615,
+          0.0
+        ],
+        "facade_index": 0
+      },
+      "wall_material": "V12_Architecture_Silicate_2",
+      "roof_material": "V12_Architecture_Roof_2"
+    },
+    {
+      "osm_id": "way/403554198",
+      "station_map_m": 3825.8361581804984,
+      "distance_m": 14.758182163566428,
+      "wall_name": "BLDG_way_403554198_walls",
+      "roof_name": "BLDG_way_403554198_roof",
+      "base_z": 4.162884077312589,
+      "eave_z": 8.36288407731259,
+      "peak_z": 8.36288407731259,
+      "door": {
+        "point": [
+          1493.203369140625,
+          1216.166748046875,
+          4.282884120941162
+        ],
+        "outward": [
+          0.967887282371521,
+          -0.25138425827026367,
+          0.0
+        ],
+        "facade_index": 2
+      },
+      "wall_material": "V12_Architecture_Plaster_1",
+      "roof_material": "V12_Architecture_Roof_2"
+    },
+    {
+      "osm_id": "way/403555588",
+      "station_map_m": 4045.1463941727675,
+      "distance_m": 16.583806221256317,
+      "wall_name": "BLDG_way_403555588_walls",
+      "roof_name": "BLDG_way_403555588_roof",
+      "base_z": 4.159070877624642,
+      "eave_z": 7.225070877624642,
+      "peak_z": 8.359070877624642,
+      "door": {
+        "point": [
+          1416.2066650390625,
+          1016.203369140625,
+          4.279070854187012
+        ],
+        "outward": [
+          0.8838230967521667,
+          -0.46782124042510986,
+          0.0
+        ],
+        "facade_index": 2
+      },
+      "wall_material": "V12_Architecture_Silicate_1",
+      "roof_material": "V12_Architecture_Roof_2"
+    },
+    {
+      "osm_id": "way/403555589",
+      "station_map_m": 4000.0080847531335,
+      "distance_m": 12.920217645305948,
+      "wall_name": "BLDG_way_403555589_walls",
+      "roof_name": "BLDG_way_403555589_roof",
+      "base_z": 4.25249048992461,
+      "eave_z": 8.45249048992461,
+      "peak_z": 8.45249048992461,
+      "door": {
+        "point": [
+          1438.20751953125,
+          1056.3099365234375,
+          4.372490406036377
+        ],
+        "outward": [
+          0.8623231649398804,
+          -0.50635826587677,
+          0.0
+        ],
+        "facade_index": 2
+      },
+      "wall_material": "V12_Architecture_Plaster_3",
+      "roof_material": "V12_Architecture_Roof_0"
+    },
+    {
+      "osm_id": "way/403555590",
+      "station_map_m": 4042.643791657844,
+      "distance_m": 11.201333896359811,
+      "wall_name": "BLDG_way_403555590_walls",
+      "roof_name": "BLDG_way_403555590_roof",
+      "base_z": 4.280477975108872,
+      "eave_z": 7.346477975108872,
+      "peak_z": 8.480477975108872,
+      "door": {
+        "point": [
+          1431.7899169921875,
+          1008.4299926757812,
+          4.400477886199951
+        ],
+        "outward": [
+          -0.915314793586731,
+          0.4027390778064728,
+          0.0
+        ],
+        "facade_index": 0
+      },
+      "wall_material": "V12_Architecture_Plaster_1",
+      "roof_material": "V12_Architecture_Roof_2"
+    },
+    {
+      "osm_id": "way/403555591",
+      "station_map_m": 4019.0108190431765,
+      "distance_m": 13.098336666009837,
+      "wall_name": "BLDG_way_403555591_walls",
+      "roof_name": "BLDG_way_403555591_roof",
+      "base_z": 4.462033257109005,
+      "eave_z": 7.528033257109005,
+      "peak_z": 8.662033257109005,
+      "door": {
+        "point": [
+          1444.4166259765625,
+          1028.909912109375,
+          4.582033157348633
+        ],
+        "outward": [
+          -0.8882502913475037,
+          0.45935964584350586,
+          0.0
+        ],
+        "facade_index": 0
+      },
+      "wall_material": "V12_Architecture_Silicate_1",
+      "roof_material": "V12_Architecture_Roof_0"
+    },
+    {
+      "osm_id": "way/403555592",
+      "station_map_m": 3956.9216723251247,
+      "distance_m": 10.560395883306564,
+      "wall_name": "BLDG_way_403555592_walls",
+      "roof_name": "BLDG_way_403555592_roof",
+      "base_z": 4.227657580146647,
+      "eave_z": 7.293657580146647,
+      "peak_z": 8.427657580146647,
+      "door": {
+        "point": [
+          1468.56005859375,
+          1086.933349609375,
+          4.347657680511475
+        ],
+        "outward": [
+          -0.8277173638343811,
+          0.5611453056335449,
+          0.0
+        ],
+        "facade_index": 0
+      },
+      "wall_material": "V12_Architecture_Silicate_2",
+      "roof_material": "V12_Architecture_Roof_1"
+    },
+    {
+      "osm_id": "way/403555593",
+      "station_map_m": 3941.9026246984117,
+      "distance_m": 13.793961594293489,
+      "wall_name": "BLDG_way_403555593_walls",
+      "roof_name": "BLDG_way_403555593_roof",
+      "base_z": 4.174898876556372,
+      "eave_z": 7.240898876556372,
+      "peak_z": 8.374898876556372,
+      "door": {
+        "point": [
+          1462.9932861328125,
+          1108.4466552734375,
+          4.294898986816406
+        ],
+        "outward": [
+          0.9027437567710876,
+          -0.43017879128456116,
+          0.0
+        ],
+        "facade_index": 2
+      },
+      "wall_material": "V12_Architecture_Silicate_0",
+      "roof_material": "V12_Architecture_Roof_3"
+    },
+    {
+      "osm_id": "way/403555594",
+      "station_map_m": 3921.546815942085,
+      "distance_m": 15.226539451303745,
+      "wall_name": "BLDG_way_403555594_walls",
+      "roof_name": "BLDG_way_403555594_roof",
+      "base_z": 3.880725457761865,
+      "eave_z": 6.946725457761865,
+      "peak_z": 8.080725457761865,
+      "door": {
+        "point": [
+          1470.1375732421875,
+          1129.2025146484375,
+          4.000725269317627
+        ],
+        "outward": [
+          0.9184494018554688,
+          -0.39553847908973694,
+          0.0
+        ],
+        "facade_index": 2
+      },
+      "wall_material": "V12_Architecture_Silicate_2",
+      "roof_material": "V12_Architecture_Roof_1"
+    },
+    {
+      "osm_id": "way/403555595",
+      "station_map_m": 3981.6832736560796,
+      "distance_m": 13.136176663868385,
+      "wall_name": "BLDG_way_403555595_walls",
+      "roof_name": "BLDG_way_403555595_roof",
+      "base_z": 4.19231957597396,
+      "eave_z": 7.25831957597396,
+      "peak_z": 8.39231957597396,
+      "door": {
+        "point": [
+          1445.9166259765625,
+          1072.4599609375,
+          4.312319755554199
+        ],
+        "outward": [
+          0.8751054406166077,
+          -0.483932226896286,
+          0.0
+        ],
+        "facade_index": 2
+      },
+      "wall_material": "V12_Architecture_Plaster_0",
+      "roof_material": "V12_Architecture_Roof_0"
+    },
+    {
+      "osm_id": "way/403555596",
+      "station_map_m": 3981.5224915968483,
+      "distance_m": 10.993005869861507,
+      "wall_name": "BLDG_way_403555596_walls",
+      "roof_name": "BLDG_way_403555596_roof",
+      "base_z": 4.4315331245162914,
+      "eave_z": 7.497533124516291,
+      "peak_z": 8.631533124516292,
+      "door": {
+        "point": [
+          1459.0474853515625,
+          1062.2425537109375,
+          4.551533222198486
+        ],
+        "outward": [
+          -0.8787875771522522,
+          0.4772130846977234,
+          0.0
+        ],
+        "facade_index": 3
+      },
+      "wall_material": "V12_Architecture_Silicate_1",
+      "roof_material": "V12_Architecture_Roof_1"
+    },
+    {
+      "osm_id": "way/403555598",
+      "station_map_m": 3893.024191163489,
+      "distance_m": 13.448263568181119,
+      "wall_name": "BLDG_way_403555598_walls",
+      "roof_name": "BLDG_way_403555598_roof",
+      "base_z": 3.838064752643315,
+      "eave_z": 6.904064752643315,
+      "peak_z": 8.038064752643315,
+      "door": {
+        "point": [
+          1479.820068359375,
+          1153.0,
+          3.9580647945404053
+        ],
+        "outward": [
+          0.9234299063682556,
+          -0.3837672173976898,
+          0.0
+        ],
+        "facade_index": 2
+      },
+      "wall_material": "V12_Architecture_Plaster_0",
+      "roof_material": "V12_Architecture_Roof_0"
+    },
+    {
+      "osm_id": "way/403555599",
+      "station_map_m": 3841.981316340323,
+      "distance_m": 13.763798916228916,
+      "wall_name": "BLDG_way_403555599_walls",
+      "roof_name": "BLDG_way_403555599_roof",
+      "base_z": 4.148665619062007,
+      "eave_z": 7.214665619062007,
+      "peak_z": 8.348665619062007,
+      "door": {
+        "point": [
+          1491.193359375,
+          1201.4466552734375,
+          4.268665790557861
+        ],
+        "outward": [
+          0.9805806875228882,
+          -0.1961161345243454,
+          0.0
+        ],
+        "facade_index": 2
+      },
+      "wall_material": "V12_Architecture_Plaster_2",
+      "roof_material": "V12_Architecture_Roof_2"
+    },
+    {
+      "osm_id": "way/403555600",
+      "station_map_m": 3870.1302600973045,
+      "distance_m": 20.147295667665595,
+      "wall_name": "BLDG_way_403555600_walls",
+      "roof_name": "BLDG_way_403555600_roof",
+      "base_z": 3.910576158879791,
+      "eave_z": 6.976576158879791,
+      "peak_z": 8.110576158879791,
+      "door": {
+        "point": [
+          1481.6666259765625,
+          1175.4666748046875,
+          4.030576229095459
+        ],
+        "outward": [
+          0.9523979425430298,
+          -0.3048575222492218,
+          0.0
+        ],
+        "facade_index": 2
+      },
+      "wall_material": "V12_Architecture_Silicate_0",
+      "roof_material": "V12_Architecture_Roof_2"
+    },
+    {
+      "osm_id": "way/403555601",
+      "station_map_m": 3813.2759551324557,
+      "distance_m": 13.84650485009559,
+      "wall_name": "BLDG_way_403555601_walls",
+      "roof_name": "BLDG_way_403555601_roof",
+      "base_z": 4.142437236792131,
+      "eave_z": 7.208437236792131,
+      "peak_z": 8.342437236792131,
+      "door": {
+        "point": [
+          1495.2333984375,
+          1229.4666748046875,
+          4.262437343597412
+        ],
+        "outward": [
+          0.965872585773468,
+          -0.2590176463127136,
+          0.0
+        ],
+        "facade_index": 2
+      },
+      "wall_material": "V12_Architecture_Silicate_2",
+      "roof_material": "V12_Architecture_Roof_0"
+    },
+    {
+      "osm_id": "way/403555609",
+      "station_map_m": 4067.824845459718,
+      "distance_m": 15.30720584201105,
+      "wall_name": "BLDG_way_403555609_walls",
+      "roof_name": "BLDG_way_403555609_roof",
+      "base_z": 4.1535032858800465,
+      "eave_z": 7.219503285880046,
+      "peak_z": 8.353503285880047,
+      "door": {
+        "point": [
+          1407.64990234375,
+          997.344970703125,
+          4.273503303527832
+        ],
+        "outward": [
+          0.8481162190437317,
+          -0.5298101902008057,
+          0.0
+        ],
+        "facade_index": 1
+      },
+      "wall_material": "V12_Architecture_Plaster_2",
+      "roof_material": "V12_Architecture_Roof_0"
+    },
+    {
+      "osm_id": "way/403555610",
+      "station_map_m": 4091.8355146982326,
+      "distance_m": 22.379637168418057,
+      "wall_name": "BLDG_way_403555610_walls",
+      "roof_name": "BLDG_way_403555610_roof",
+      "base_z": 4.110977706489066,
+      "eave_z": 7.176977706489065,
+      "peak_z": 8.310977706489066,
+      "door": {
+        "point": [
+          1389.5899658203125,
+          979.699951171875,
+          4.230977535247803
+        ],
+        "outward": [
+          0.8215898275375366,
+          -0.5700790882110596,
+          0.0
+        ],
+        "facade_index": 1
+      },
+      "wall_material": "V12_Architecture_Plaster_1",
+      "roof_material": "V12_Architecture_Roof_3"
+    },
+    {
+      "osm_id": "way/403555611",
+      "station_map_m": 4109.902653206009,
+      "distance_m": 24.02891547046024,
+      "wall_name": "BLDG_way_403555611_walls",
+      "roof_name": "BLDG_way_403555611_roof",
+      "base_z": 4.143725387248394,
+      "eave_z": 7.209725387248394,
+      "peak_z": 8.343725387248394,
+      "door": {
+        "point": [
+          1379.62255859375,
+          964.95751953125,
+          4.263725280761719
+        ],
+        "outward": [
+          0.8435839414596558,
+          -0.536997377872467,
+          0.0
+        ],
+        "facade_index": 1
+      },
+      "wall_material": "V12_Architecture_Silicate_0",
+      "roof_material": "V12_Architecture_Roof_3"
+    },
+    {
+      "osm_id": "way/403555612",
+      "station_map_m": 4164.937487261789,
+      "distance_m": 15.245449200121215,
+      "wall_name": "BLDG_way_403555612_walls",
+      "roof_name": "BLDG_way_403555612_roof",
+      "base_z": 4.711674598389343,
+      "eave_z": 7.777674598389343,
+      "peak_z": 8.911674598389343,
+      "door": {
+        "point": [
+          1359.7874755859375,
+          914.737548828125,
+          4.831674575805664
+        ],
+        "outward": [
+          0.8130631446838379,
+          -0.5821755528450012,
+          0.0
+        ],
+        "facade_index": 1
+      },
+      "wall_material": "V12_Architecture_Plaster_2",
+      "roof_material": "V12_Architecture_Roof_1"
+    },
+    {
+      "osm_id": "way/403555613",
+      "station_map_m": 4144.270822464118,
+      "distance_m": 13.622240959584673,
+      "wall_name": "BLDG_way_403555613_walls",
+      "roof_name": "BLDG_way_403555613_roof",
+      "base_z": 4.467657622668173,
+      "eave_z": 7.533657622668173,
+      "peak_z": 8.667657622668173,
+      "door": {
+        "point": [
+          1370.1500244140625,
+          929.1066284179688,
+          4.587657451629639
+        ],
+        "outward": [
+          0.8235213160514832,
+          -0.5672852993011475,
+          0.0
+        ],
+        "facade_index": 1
+      },
+      "wall_material": "V12_Architecture_Silicate_2",
+      "roof_material": "V12_Architecture_Roof_2"
+    },
+    {
+      "osm_id": "way/403555614",
+      "station_map_m": 4185.219798718754,
+      "distance_m": 12.893251389641186,
+      "wall_name": "BLDG_way_403555614_walls",
+      "roof_name": "BLDG_way_403555614_roof",
+      "base_z": 4.536148633336368,
+      "eave_z": 7.602148633336368,
+      "peak_z": 8.736148633336368,
+      "door": {
+        "point": [
+          1349.8525390625,
+          897.217529296875,
+          4.656148433685303
+        ],
+        "outward": [
+          0.8526900410652161,
+          -0.5224171280860901,
+          0.0
+        ],
+        "facade_index": 2
+      },
+      "wall_material": "V12_Architecture_Plaster_3",
+      "roof_material": "V12_Architecture_Roof_0"
+    },
+    {
+      "osm_id": "way/403555615",
+      "station_map_m": 4226.413893466341,
+      "distance_m": 15.587967100387205,
+      "wall_name": "BLDG_way_403555615_walls",
+      "roof_name": "BLDG_way_403555615_roof",
+      "base_z": 3.593126965260873,
+      "eave_z": 6.659126965260873,
+      "peak_z": 7.793126965260873,
+      "door": {
+        "point": [
+          1317.0675048828125,
+          864.7750244140625,
+          3.7131268978118896
+        ],
+        "outward": [
+          0.5985772609710693,
+          -0.8010651469230652,
+          -0.0
+        ],
+        "facade_index": 2
+      },
+      "wall_material": "V12_Architecture_Plaster_1",
+      "roof_material": "V12_Architecture_Roof_2"
+    },
+    {
+      "osm_id": "way/403555616",
+      "station_map_m": 4208.17992247359,
+      "distance_m": 14.507598990418671,
+      "wall_name": "BLDG_way_403555616_walls",
+      "roof_name": "BLDG_way_403555616_roof",
+      "base_z": 4.220861975864788,
+      "eave_z": 7.286861975864788,
+      "peak_z": 8.420861975864788,
+      "door": {
+        "point": [
+          1334.3399658203125,
+          881.546630859375,
+          4.340861797332764
+        ],
+        "outward": [
+          0.8200559616088867,
+          -0.5722833275794983,
+          0.0
+        ],
+        "facade_index": 2
+      },
+      "wall_material": "V12_Architecture_Plaster_3",
+      "roof_material": "V12_Architecture_Roof_0"
+    },
+    {
+      "osm_id": "way/403555617",
+      "station_map_m": 4245.622947402248,
+      "distance_m": 16.761519385321016,
+      "wall_name": "BLDG_way_403555617_walls",
+      "roof_name": "BLDG_way_403555617_roof",
+      "base_z": 2.9185867221252986,
+      "eave_z": 5.984586722125298,
+      "peak_z": 7.118586722125299,
+      "door": {
+        "point": [
+          1305.1700439453125,
+          856.5599975585938,
+          3.0385866165161133
+        ],
+        "outward": [
+          0.7188243269920349,
+          -0.6951916813850403,
+          0.0
+        ],
+        "facade_index": 2
+      },
+      "wall_material": "V12_Architecture_Silicate_1",
+      "roof_material": "V12_Architecture_Roof_2"
+    },
+    {
+      "osm_id": "way/403555619",
+      "station_map_m": 4143.748357398765,
+      "distance_m": 10.934821536574942,
+      "wall_name": "BLDG_way_403555619_walls",
+      "roof_name": "BLDG_way_403555619_roof",
+      "base_z": 4.393342631084088,
+      "eave_z": 7.459342631084088,
+      "peak_z": 8.593342631084088,
+      "door": {
+        "point": [
+          1382.0399169921875,
+          919.4450073242188,
+          4.51334285736084
+        ],
+        "outward": [
+          -0.8352401256561279,
+          0.5498855113983154,
+          0.0
+        ],
+        "facade_index": 0
+      },
+      "wall_material": "V12_Architecture_Silicate_0",
+      "roof_material": "V12_Architecture_Roof_1"
+    },
+    {
+      "osm_id": "way/403555620",
+      "station_map_m": 4112.2332147142,
+      "distance_m": 12.108278837735506,
+      "wall_name": "BLDG_way_403555620_walls",
+      "roof_name": "BLDG_way_403555620_roof",
+      "base_z": 4.21489406000548,
+      "eave_z": 7.28089406000548,
+      "peak_z": 8.41489406000548,
+      "door": {
+        "point": [
+          1398.6500244140625,
+          947.1500244140625,
+          4.334894180297852
+        ],
+        "outward": [
+          -0.8559499979019165,
+          0.5170585513114929,
+          0.0
+        ],
+        "facade_index": 0
+      },
+      "wall_material": "V12_Architecture_Silicate_1",
+      "roof_material": "V12_Architecture_Roof_2"
+    },
+    {
+      "osm_id": "way/403555621",
+      "station_map_m": 4095.2981800520424,
+      "distance_m": 22.542115701185736,
+      "wall_name": "BLDG_way_403555621_walls",
+      "roof_name": "BLDG_way_403555621_roof",
+      "base_z": 4.110689444995006,
+      "eave_z": 7.176689444995006,
+      "peak_z": 8.310689444995006,
+      "door": {
+        "point": [
+          1415.375,
+          955.8275146484375,
+          4.230689525604248
+        ],
+        "outward": [
+          -0.8140180706977844,
+          0.5808396339416504,
+          0.0
+        ],
+        "facade_index": 3
+      },
+      "wall_material": "V12_Architecture_Plaster_1",
+      "roof_material": "V12_Architecture_Roof_0"
+    },
+    {
+      "osm_id": "way/403555622",
+      "station_map_m": 4068.11574347366,
+      "distance_m": 10.177999454575485,
+      "wall_name": "BLDG_way_403555622_walls",
+      "roof_name": "BLDG_way_403555622_roof",
+      "base_z": 4.220422785407371,
+      "eave_z": 7.286422785407371,
+      "peak_z": 8.420422785407371,
+      "door": {
+        "point": [
+          1418.8299560546875,
+          986.5833129882812,
+          4.340422630310059
+        ],
+        "outward": [
+          -0.8541732430458069,
+          0.519988477230072,
+          0.0
+        ],
+        "facade_index": 0
+      },
+      "wall_material": "V12_Architecture_Plaster_2",
+      "roof_material": "V12_Architecture_Roof_0"
+    },
+    {
+      "osm_id": "way/403555623",
+      "station_map_m": 4179.361026327166,
+      "distance_m": 13.858046613163674,
+      "wall_name": "BLDG_way_403555623_walls",
+      "roof_name": "BLDG_way_403555623_roof",
+      "base_z": 4.420831746178307,
+      "eave_z": 7.486831746178307,
+      "peak_z": 8.620831746178307,
+      "door": {
+        "point": [
+          1363.72998046875,
+          889.3866577148438,
+          4.540831565856934
+        ],
+        "outward": [
+          -0.7340028882026672,
+          0.679146409034729,
+          0.0
+        ],
+        "facade_index": 0
+      },
+      "wall_material": "V12_Architecture_Silicate_2",
+      "roof_material": "V12_Architecture_Roof_0"
+    },
+    {
+      "osm_id": "way/403555624",
+      "station_map_m": 4214.825000799633,
+      "distance_m": 10.11715639323162,
+      "wall_name": "BLDG_way_403555624_walls",
+      "roof_name": "BLDG_way_403555624_roof",
+      "base_z": 3.9194702572302136,
+      "eave_z": 6.985470257230213,
+      "peak_z": 8.119470257230214,
+      "door": {
+        "point": [
+          1340.4224853515625,
+          866.8925170898438,
+          4.039470195770264
+        ],
+        "outward": [
+          -0.6070297956466675,
+          0.7946790456771851,
+          -0.0
+        ],
+        "facade_index": 0
+      },
+      "wall_material": "V12_Architecture_Silicate_2",
+      "roof_material": "V12_Architecture_Roof_2"
+    },
+    {
+      "osm_id": "way/403555625",
+      "station_map_m": 4230.371293740615,
+      "distance_m": 7.535166501621137,
+      "wall_name": "BLDG_way_403555625_walls",
+      "roof_name": "BLDG_way_403555625_roof",
+      "base_z": 3.5595480594982805,
+      "eave_z": 6.62554805949828,
+      "peak_z": 7.759548059498281,
+      "door": {
+        "point": [
+          1324.473388671875,
+          854.6533203125,
+          3.6795480251312256
+        ],
+        "outward": [
+          -0.6380210518836975,
+          0.7700189352035522,
+          0.0
+        ],
+        "facade_index": 3
+      },
+      "wall_material": "V12_Architecture_Plaster_1",
+      "roof_material": "V12_Architecture_Roof_2"
+    },
+    {
+      "osm_id": "way/403555626",
+      "station_map_m": 4249.5160038248905,
+      "distance_m": 11.213838570091609,
+      "wall_name": "BLDG_way_403555626_walls",
+      "roof_name": "BLDG_way_403555626_roof",
+      "base_z": 2.9445183446466645,
+      "eave_z": 6.010518344646664,
+      "peak_z": 7.144518344646665,
+      "door": {
+        "point": [
+          1313.163330078125,
+          839.1333618164062,
+          3.064518451690674
+        ],
+        "outward": [
+          -0.6327736377716064,
+          0.7743368744850159,
+          0.0
+        ],
+        "facade_index": 3
+      },
+      "wall_material": "V12_Architecture_Silicate_0",
+      "roof_material": "V12_Architecture_Roof_3"
+    },
+    {
+      "osm_id": "way/406497782",
+      "station_map_m": 4028.890310671928,
+      "distance_m": 16.944641859784102,
+      "wall_name": "BLDG_way_406497782_walls",
+      "roof_name": "BLDG_way_406497782_roof",
+      "base_z": 4.1735632722528235,
+      "eave_z": 7.239563272252823,
+      "peak_z": 8.373563272252824,
+      "door": {
+        "point": [
+          1422.836669921875,
+          1031.780029296875,
+          4.293563365936279
+        ],
+        "outward": [
+          0.9405885338783264,
+          -0.3395485579967499,
+          0.0
+        ],
+        "facade_index": 2
+      },
+      "wall_material": "V12_Architecture_Silicate_1",
+      "roof_material": "V12_Architecture_Roof_2"
+    },
+    {
+      "osm_id": "way/406500028",
+      "station_map_m": 3831.882550287707,
+      "distance_m": 14.143219363127768,
+      "wall_name": "BLDG_way_406500028_walls",
+      "roof_name": "BLDG_way_406500028_roof",
+      "base_z": 3.9838852268566596,
+      "eave_z": 7.049885226856659,
+      "peak_z": 8.18388522685666,
+      "door": {
+        "point": [
+          1510.2449951171875,
+          1207.18505859375,
+          4.103885173797607
+        ],
+        "outward": [
+          -0.9792507290840149,
+          0.20265235006809235,
+          0.0
+        ],
+        "facade_index": 0
+      },
+      "wall_material": "V12_Architecture_Silicate_0",
+      "roof_material": "V12_Architecture_Roof_0"
+    },
+    {
+      "osm_id": "way/406501364",
+      "station_map_m": 3936.399090880822,
+      "distance_m": 13.669956478113798,
+      "wall_name": "BLDG_way_406501364_walls",
+      "roof_name": "BLDG_way_406501364_roof",
+      "base_z": 3.989074549642072,
+      "eave_z": 7.055074549642072,
+      "peak_z": 8.189074549642072,
+      "door": {
+        "point": [
+          1480.336669921875,
+          1103.2666015625,
+          4.109074592590332
+        ],
+        "outward": [
+          -0.9083229303359985,
+          0.41826963424682617,
+          0.0
+        ],
+        "facade_index": 0
+      },
+      "wall_material": "V12_Architecture_Plaster_1",
+      "roof_material": "V12_Architecture_Roof_1"
+    }
+  ],
+  "removed_inherited_details": [
+    {
+      "name": "Houses_foundation",
+      "removed_faces": 1200,
+      "remaining_faces": 12138
+    },
+    {
+      "name": "Houses_frame_white",
+      "removed_faces": 6216,
+      "remaining_faces": 61248
+    },
+    {
+      "name": "Houses_gutter",
+      "removed_faces": 1198,
+      "remaining_faces": 18436
+    },
+    {
+      "name": "Houses_sill",
+      "removed_faces": 4026,
+      "remaining_faces": 60068
+    },
+    {
+      "name": "Houses_glass",
+      "removed_faces": 2244,
+      "remaining_faces": 22896
+    },
+    {
+      "name": "Houses_door",
+      "removed_faces": 240,
+      "remaining_faces": 2406
+    },
+    {
+      "name": "Houses_metal",
+      "removed_faces": 240,
+      "remaining_faces": 2406
+    },
+    {
+      "name": "Houses_roof_seam",
+      "removed_faces": 8952,
+      "remaining_faces": 74910
+    },
+    {
+      "name": "Houses_chimney",
+      "removed_faces": 126,
+      "remaining_faces": 1500
+    },
+    {
+      "name": "Houses_reveal",
+      "removed_faces": 126,
+      "remaining_faces": 1500
+    },
+    {
+      "name": "Houses_frame_brown",
+      "removed_faces": 3288,
+      "remaining_faces": 45252
+    },
+    {
+      "name": "Houses_frame_blue",
+      "removed_faces": 6360,
+      "remaining_faces": 55044
+    },
+    {
+      "name": "V09_Roof_Sheet_BLDG_way_403555609_roof",
+      "removed_faces": 452,
+      "whole_detail": true
+    },
+    {
+      "name": "V09_Roof_Sheet_BLDG_way_403555622_roof",
+      "removed_faces": 542,
+      "whole_detail": true
+    },
+    {
+      "name": "V09_Roof_Sheet_BLDG_way_403555590_roof",
+      "removed_faces": 506,
+      "whole_detail": true
+    },
+    {
+      "name": "V09_Roof_Sheet_BLDG_way_403555588_roof",
+      "removed_faces": 456,
+      "whole_detail": true
+    },
+    {
+      "name": "V09_Roof_Sheet_BLDG_way_403555620_roof",
+      "removed_faces": 524,
+      "whole_detail": true
+    },
+    {
+      "name": "V09_Roof_Sheet_BLDG_way_403555591_roof",
+      "removed_faces": 432,
+      "whole_detail": true
+    },
+    {
+      "name": "V09_Street_Houses_iron",
+      "removed_faces": 114,
+      "remaining_faces": 774
+    },
+    {
+      "name": "V09_Street_Houses_conduit",
+      "removed_faces": 132,
+      "remaining_faces": 972
+    },
+    {
+      "name": "V09_Street_Houses_porch",
+      "removed_faces": 24,
+      "remaining_faces": 144
+    },
+    {
+      "name": "V09_Street_Houses_soffit",
+      "removed_faces": 24,
+      "remaining_faces": 144
+    }
+  ],
+  "primary_mesh_hashes": {
+    "BLDG_way_403554192_walls": "6cb9d0f2a546697fe9448a0b580636112e7f05e7b66e2a0e6a91af1f3d26d091",
+    "BLDG_way_403554192_roof": "067859084fef2cc385c0e3357ec9157d2f69941c29f101cb5ab0e0cb3599b478",
+    "BLDG_way_403554193_walls": "f364034f5357f2d8cc31dbc8e4930912f33601b559484dd1abd359d2a45af670",
+    "BLDG_way_403554193_roof": "d2e2c23160f6635064f3fb7c538cdc830bb324736c6698110645622747fc9909",
+    "BLDG_way_403554194_walls": "5c01e1bb637c9e631bec3911a6d74a00e4f02c0c41b8137210c73953122e21b9",
+    "BLDG_way_403554194_roof": "a0256d6f565231100b9eecaef78d40b9d3532b006606d694c9a158fd31b712f1",
+    "BLDG_way_403554195_walls": "4a84b21ff9c4ce0e322dbfa17a2f4641c76e7639ca1be5d0a6f76fc0f2733239",
+    "BLDG_way_403554195_roof": "7e9924129bfd17e8bbfea2521ce50ae7f61fe0255518f619db781ff8248d8817",
+    "BLDG_way_403554196_walls": "f5bbc621c8abe12d55d17fb2fb5bd75e0d9490a37f94390ec4a242e7ea73baf3",
+    "BLDG_way_403554196_roof": "a3bb8c6eb2976e289901171f5b96a5136d595346d7a940460f3d95786ab59fc2",
+    "BLDG_way_403554197_walls": "847d4cd8586faaf00cb3847be6882f46cf43048e378e0d1d70cd83fbd090dd98",
+    "BLDG_way_403554197_roof": "340d86a2e162f017f8b1f39391715d083150fdbb159e8d018708f0fd5591ffe7",
+    "BLDG_way_403554198_walls": "e3a5dfd029d30c5dde318598900f7ca0688110439530023aab46e6877e2e42e8",
+    "BLDG_way_403554198_roof": "f57f0bac05e686fcf5cca6254014b3e695da14232df3cffd7e02598db19131b7",
+    "BLDG_way_403555588_walls": "76c12f1e24092d21625330a8ca047f806ff20b8df1dde1b4374cd9b65d79aafd",
+    "BLDG_way_403555588_roof": "6e376d1ff541daeb2027db3862c015571e42ce6deb8b0412f3f0511396f594ba",
+    "BLDG_way_403555589_walls": "4446ae699a91103e65d70f60a8ecda99bccdcbd543853b701f836eb6c947b7e7",
+    "BLDG_way_403555589_roof": "4e932b9c79d3ed9d19e5d5c2e594c8e3386a750e87d78364e59b33e6b8c6cdde",
+    "BLDG_way_403555590_walls": "e400dd556d8d30320e8f7f1582f43f64526ae26a83218be370baacf932918f5d",
+    "BLDG_way_403555590_roof": "197ba0d03fd14b23103a289e3c2e55bc10d20206a9d48a98b20b236de1f90b79",
+    "BLDG_way_403555591_walls": "b8a1fd7570eef70b2d88e02622257e2af539dea4159fe471f48a18a05a95f566",
+    "BLDG_way_403555591_roof": "38e1a6980c840bb8fb273cdb1d672da9031644a162403efcb3dc15173376ecca",
+    "BLDG_way_403555592_walls": "e1b4b581564dbe453db301d080f7d9d61210421e67196523d08f7175798f7b75",
+    "BLDG_way_403555592_roof": "b4f6c69c68c4f65c14da4bc32b451975a146c9d5710cfb4391582b0dc776186a",
+    "BLDG_way_403555593_walls": "1f43b257c1dab70b6cc988c5875a8e2797d798b3cfba4b1d644693f5b76b1058",
+    "BLDG_way_403555593_roof": "3e5dd0777ffccbb300f036aefd02e0e30b118ff1b6a66081b99697b60ee21531",
+    "BLDG_way_403555594_walls": "72935fbaa11638028e3c9bd3435eed211af446b3d04ad0b19554a40ab2901f51",
+    "BLDG_way_403555594_roof": "7a9228999288cc94d1099de046098065333cf09420c24f90dc9328ce6312a18f",
+    "BLDG_way_403555595_walls": "0f1ea15bd5178ed8e3ae94e6320aef291561382f54ffcd648c049de80e34483f",
+    "BLDG_way_403555595_roof": "dd4d62305776c1a1aeeb053b6378936c79bccaafe020e2f9a40257140c2ed78f",
+    "BLDG_way_403555596_walls": "5d0fccc5256faa0d04438d8cf2ac115b0be7979d0a8e679d00528309c9cea986",
+    "BLDG_way_403555596_roof": "13d77002af23f16d199dc8700b43a9d9cd6ed0c50e1f902385bafe7497e0baa4",
+    "BLDG_way_403555598_walls": "91bd83613fad1926d6c99e85ef85f723bf368ff9d9acb335786f14de954e4213",
+    "BLDG_way_403555598_roof": "a34a343b33acdec81c1970876c305377de61cfdcbbf67c68694911c112674e82",
+    "BLDG_way_403555599_walls": "05b30483810a30b8be9c3345b2f84ba71a4d5dd7d5f90711a2a50cf80a2228bb",
+    "BLDG_way_403555599_roof": "aaf9e89f5b3e3183d92e0c29b7f20cee71f341ac699d05a4457064ac191a8e37",
+    "BLDG_way_403555600_walls": "e52633689389dbe6c9588027af0d7e284dd5df4d34dce62d25ddfb16d482d2c2",
+    "BLDG_way_403555600_roof": "95e4edad243003417ec5e7c039371dd26ede9ae98425937ad97442057949fc3c",
+    "BLDG_way_403555601_walls": "9aef50f3dd585432acada9c95144555bf9cc4343cc45b3c093dbf4412700c672",
+    "BLDG_way_403555601_roof": "fdf42de70f2931a7e8729516ffebf89009d7de8c6651f2b651b08161f61d7f83",
+    "BLDG_way_403555609_walls": "4aae56f7251aa65646f148924f28d65e35f6679431c60ea90d0704d7a837f602",
+    "BLDG_way_403555609_roof": "738d07cafa5d62456f4cd036c0be9efd312be20e877d387dcb1354e6bb082a59",
+    "BLDG_way_403555610_walls": "9b0f406dbd5fb049e22b284ee616fbd26365434c81613c921a664f4c69ec2084",
+    "BLDG_way_403555610_roof": "e87902b8756f0a1c965bcafcf7e2c08d73d0d188a507b41dfc6e507df41251c9",
+    "BLDG_way_403555611_walls": "d9f5f09213581c8d68980551e1dc5f2d61dcc31810c973cd3fed538a13df5e2a",
+    "BLDG_way_403555611_roof": "bee9b632bd549648fdd7f5b6f1eeea2de4be7e3f805d7c5d06f4428270c034df",
+    "BLDG_way_403555612_walls": "8e331e33325b6a73f69f95bbcdf0e52ad69300af50ab0b08a2b72c9bdff88ea1",
+    "BLDG_way_403555612_roof": "68fc8fd6bb4c5dc6d0568c8288cf922b973758a478e6624282e3da2cf317ba1a",
+    "BLDG_way_403555613_walls": "f57d8b0cd7264640864cca3a234b9d409334a3f682d75b7d1977351962aea35a",
+    "BLDG_way_403555613_roof": "c89b9c0f6eaa32385b114707f267ffa343da0ab03827276ba4f2ffeec58eb676",
+    "BLDG_way_403555614_walls": "079d917e8be5d59f060ad182f2995947552336e572fe0588d8a67f840d5abb0d",
+    "BLDG_way_403555614_roof": "0a74f6fc85f66fbcd9c3c4f976220779af1eef4200778bf81126e602aaf8d5a1",
+    "BLDG_way_403555615_walls": "49e6468322b8aa7eb779df2bff85e254f869a6ce2b1b62400bb33b536017bdb1",
+    "BLDG_way_403555615_roof": "50499a4d3f81d706f45fbfa76a27395079b96bfbb2fac43ee8df722bff7d1bc2",
+    "BLDG_way_403555616_walls": "ce9d3f2ce5929330bf6669ffe84cca47e02bde755a67535c812a779f76603172",
+    "BLDG_way_403555616_roof": "bf6642bda0b71648de2f606d0dff2dca45e4abc948ddb3066954bdbc14b02cda",
+    "BLDG_way_403555617_walls": "9f2652753c97173927838e0d34bc2bad56d3287f40628a209238d5c6cf77f880",
+    "BLDG_way_403555617_roof": "7814facf83da7a4e2fdf2a4378f06b645d681488de12bf6574697bcafb3b38ea",
+    "BLDG_way_403555619_walls": "fc86240d90f163d59e722f6565de1b73ba815ad02857712139ade802a4d3e678",
+    "BLDG_way_403555619_roof": "2acdc867ca675b04b3d832f4dbc800a8db452e7c76a402d15eab59073038623e",
+    "BLDG_way_403555620_walls": "f328ce2d864315a1c27e7f066c2004fb9c1954ebb1717174b0240b58f0b0c399",
+    "BLDG_way_403555620_roof": "dcbd9ee4c45be0efa2e376ed8c87843581c47508f70c82c545afc7ce556eea5d",
+    "BLDG_way_403555621_walls": "188304e8ed5a98049df9f32cc65e63c3a06d7835df65e4a9a717263b739082ab",
+    "BLDG_way_403555621_roof": "60b95277440aacc69fd94dff0029d73d238cb00b714781bb83b50d67fb384ab5",
+    "BLDG_way_403555622_walls": "ceec7673c70c46938a0312a19820d38c58165278c03beca002c471513f86c24d",
+    "BLDG_way_403555622_roof": "71f6286eec2243cd9c50752415aad1959a0791f5215fb4d3fd94a99f790ccffa",
+    "BLDG_way_403555623_walls": "b7774c1da801a23192472cf206725072b00ac2a30c8296851b980a67f13bb55b",
+    "BLDG_way_403555623_roof": "f750b7fb956649d0c531a32d4aa883bf763663f4be7eb1445d3f984297ba1937",
+    "BLDG_way_403555624_walls": "5ecf430c60e3f8e824edfa8c612370fa41e5b9364cfd5471e6774f10a4cc9580",
+    "BLDG_way_403555624_roof": "256f756300ba9bbef0e8de72ba556886b4136378590f73ffedb946cfbc408487",
+    "BLDG_way_403555625_walls": "f10744aaf338ec1ecaef35fcd7d99b258dbfe7c65eb24bfb5940c77c252e077d",
+    "BLDG_way_403555625_roof": "1b840b4a07f0da2dceb1a505c057466340da2ba7e1d6e393bb39ce9baf4588df",
+    "BLDG_way_403555626_walls": "4d757d86bcdf7c7f89f45b07e5e413b6c67aa60eb89702366d888c125fe911a1",
+    "BLDG_way_403555626_roof": "deda7a66b0a4715b65b04f5e0af6f29e90039379e625f2d81ab5e3384a6ff09d",
+    "BLDG_way_406497782_walls": "77d787fd62fdd7ece5fd08d5e229f39e949a1e59aa9412957d42356eb83fba28",
+    "BLDG_way_406497782_roof": "7567549bcd3d525601134b9ce8674f21552e2179bd6d5da80e4f112895b4e878",
+    "BLDG_way_406500028_walls": "33967daac7b3eca82095787b599dbd068814009115b68bfdb97ebd49f57269ff",
+    "BLDG_way_406500028_roof": "451a5c4c4ab5f4c053dc8093b6bfbd10ada417afbefa112ce3f18d68a6238c5e",
+    "BLDG_way_406501364_walls": "8a9f920894fdbfe74ef1c012536bd5a7177e1a1ba7e08486d864df4c016223ee",
+    "BLDG_way_406501364_roof": "8046494f28a053e1b6267f8999a12ffdc2eb8a8ecb4f38dbb53b7420850f7ad8"
+  },
+  "primary_meshes_unchanged": true,
+  "new_detail_objects": 58,
+  "new_detail_faces": 109655,
+  "source": "OSM footprint/envelope; no exact street facade photographs. Local typology only. Existing CC0 texture reused.",
+  "dimensions_m": {
+    "window_width_max": 1.3,
+    "window_height_max": 1.3,
+    "frame_width": 0.06,
+    "mullion_width": 0.037,
+    "recess": 0.145,
+    "curtain_depth": 0.29,
+    "roof_corrugation_pitch": 0.172,
+    "roof_corrugation_relief": 0.01
+  },
+  "limitations": [
+    "Inferred facades, not a survey",
+    "Two OSM ruins-tagged buildings excluded from occupied-house treatment",
+    "No native building, road, terrain or pit envelope moved",
+    "Native shaders require baking/conversion for Assetto Corsa"
+  ]
+}

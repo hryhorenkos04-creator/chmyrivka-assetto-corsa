@@ -1,0 +1,17 @@
+{
+  "camera": "V12_HOUSE_SINNA_CLOSEUP",
+  "osm_id": "way/403555609",
+  "station_map_m": 4067.824845459718,
+  "location": [
+    1416.1143715462672,
+    984.4701911953927,
+    6.253503285880047
+  ],
+  "target": [
+    1406.3599852404582,
+    995.2799987343789,
+    5.853503285880047
+  ],
+  "lens_mm": 45,
+  "purpose": "Road-facing facade at junction, curtains, deep reveals, guttering and corrugated roof. Generic regional detail on mapped envelope."
+}

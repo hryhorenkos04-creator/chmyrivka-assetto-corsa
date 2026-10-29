@@ -1,0 +1,97 @@
+{
+  "version": "v11",
+  "source": "base_v10.blend native geometry",
+  "terrain_object": "GROUND_Terrain_Continuous_v11",
+  "source_objects": [
+    {
+      "name": "GROUND_Former_pit_seams_v08",
+      "vertices": 2980,
+      "native_triangles": 1729
+    },
+    {
+      "name": "GROUND_land_cemetery",
+      "vertices": 893,
+      "native_triangles": 1168
+    },
+    {
+      "name": "GROUND_land_forest",
+      "vertices": 2070,
+      "native_triangles": 2722
+    },
+    {
+      "name": "GROUND_land_grass",
+      "vertices": 131,
+      "native_triangles": 121
+    },
+    {
+      "name": "GROUND_land_industrial",
+      "vertices": 3048,
+      "native_triangles": 4933
+    },
+    {
+      "name": "GROUND_land_residential",
+      "vertices": 4540,
+      "native_triangles": 5631
+    },
+    {
+      "name": "GROUND_terrain",
+      "vertices": 20002,
+      "native_triangles": 26136
+    },
+    {
+      "name": "GROUND_Former_pit_v08",
+      "vertices": 2125,
+      "native_triangles": 3518
+    },
+    {
+      "name": "GROUND_Former_pit_margin_v08",
+      "vertices": 804,
+      "native_triangles": 933
+    },
+    {
+      "name": "GROUND_Track_realignment_restored_v08",
+      "vertices": 1191,
+      "native_triangles": 1128
+    }
+  ],
+  "source_vertex_count": 37784,
+  "merged_vertex_count": 36169,
+  "source_triangle_count": 48019,
+  "merged_triangle_count": 48019,
+  "merge_policy": "Exactly identical XYZ only; no coordinate movement",
+  "normal_group_xyz_tolerance_m": 0.002,
+  "normal_group_count": 33992,
+  "native_triangle_positions_before_sha256": "3cde27e27e914327ff99ffec199f28202d179b4c8dfc814c803a6cd31a785333",
+  "native_triangle_positions_after_sha256": "3cde27e27e914327ff99ffec199f28202d179b4c8dfc814c803a6cd31a785333",
+  "native_triangle_positions_exactly_unchanged": true,
+  "maximum_xy_shift_m": 0.0,
+  "maximum_z_shift_m": 0.0,
+  "source_vertices_lowered": 0,
+  "source_vertices_raised": 0,
+  "point_attributes": {
+    "V09_Bareground": "FLOAT",
+    "V09_Forestfloor": "FLOAT",
+    "V10_EdgeDistance": "FLOAT",
+    "V10_EdgeContact": "FLOAT"
+  },
+  "corner_attributes": {
+    "UVMap": "FLOAT2",
+    "V10_Ground_Metres": "FLOAT2"
+  },
+  "uv_layers": [
+    "UVMap",
+    "V10_Ground_Metres"
+  ],
+  "triangulation": "Blender calc_loop_triangles; original loop-corner data retained",
+  "normals": "Shared smooth normals across exact and near-coincident XYZ boundaries; geometry preserved",
+  "protected_geometry_count": 1530,
+  "protected_geometry_unchanged": true,
+  "scenery_rebased": false,
+  "build_seconds": 1.16,
+  "limits": [
+    "Does not improve the original DSM survey accuracy.",
+    "Detailed buildings, roads, pits, kerbs and closure geometry are unchanged.",
+    "Native inherited stacked roadside surface offsets and terrain T junctions are retained exactly, not redesigned.",
+    "No Assetto Corsa runtime or FIA certification claim."
+  ]
+}

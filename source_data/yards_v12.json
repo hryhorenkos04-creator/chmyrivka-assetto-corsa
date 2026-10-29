@@ -1,0 +1,267 @@
+{
+  "version": "v12",
+  "yards": 33,
+  "beds": 26,
+  "pads": 17,
+  "objects": [
+    "V12_Yard_Houses_hardware",
+    "V12_Yard_Houses_grey",
+    "V12_Yard_Houses_green",
+    "V12_Yard_Houses_brick",
+    "V12_Yard_Houses_black",
+    "V12_Yard_Houses_terracotta",
+    "V12_Yard_Houses_soil",
+    "V12_Yard_Houses_concrete",
+    "V12_Yard_Houses_cream",
+    "V12_Yard_Houses_path",
+    "V12_Yard_Houses_soil.001",
+    "V12_Yard_Houses_gravel"
+  ],
+  "faces": 130336,
+  "vertices": 182153,
+  "ground_ray_misses": 0,
+  "fence_post_ground_anchors": 1780,
+  "surface_lift_m": 0.012,
+  "existing_frontage_cleanup": [
+    {
+      "object": "V06_Frontage_fences",
+      "faces_removed": 7956,
+      "faces_before": 87195,
+      "faces_after": 79239
+    },
+    {
+      "object": "V06_Fence_posts_and_hardware",
+      "faces_removed": 7278,
+      "faces_before": 78326,
+      "faces_after": 71048
+    },
+    {
+      "object": "V06_Gravel_driveways",
+      "faces_removed": 409,
+      "faces_before": 5604,
+      "faces_after": 5195
+    },
+    {
+      "object": "V06_Yard_wheelie_bins",
+      "faces_removed": 135,
+      "faces_before": 1944,
+      "faces_after": 1809
+    }
+  ],
+  "house_details": [
+    {
+      "osm_id": "way/403555601",
+      "details": [
+        "mailbox",
+        "planter"
+      ]
+    },
+    {
+      "osm_id": "way/403554193",
+      "details": [
+        "mailbox"
+      ]
+    },
+    {
+      "osm_id": "way/403554198",
+      "details": [
+        "mailbox",
+        "planter"
+      ]
+    },
+    {
+      "osm_id": "way/406500028",
+      "details": [
+        "mailbox",
+        "planter"
+      ]
+    },
+    {
+      "osm_id": "way/403555599",
+      "details": [
+        "mailbox",
+        "planter"
+      ]
+    },
+    {
+      "osm_id": "way/403554194",
+      "details": [
+        "mailbox"
+      ]
+    },
+    {
+      "osm_id": "way/403554195",
+      "details": [
+        "mailbox"
+      ]
+    },
+    {
+      "osm_id": "way/403555600",
+      "details": [
+        "mailbox",
+        "planter"
+      ]
+    },
+    {
+      "osm_id": "way/403554196",
+      "details": [
+        "mailbox"
+      ]
+    },
+    {
+      "osm_id": "way/403555598",
+      "details": [
+        "mailbox"
+      ]
+    },
+    {
+      "osm_id": "way/403554197",
+      "details": [
+        "mailbox"
+      ]
+    },
+    {
+      "osm_id": "way/403555594",
+      "details": [
+        "mailbox",
+        "planter"
+      ]
+    },
+    {
+      "osm_id": "way/406501364",
+      "details": [
+        "mailbox"
+      ]
+    },
+    {
+      "osm_id": "way/403555593",
+      "details": [
+        "mailbox"
+      ]
+    },
+    {
+      "osm_id": "way/403555596",
+      "details": [
+        "mailbox"
+      ]
+    },
+    {
+      "osm_id": "way/403555595",
+      "details": [
+        "mailbox"
+      ]
+    },
+    {
+      "osm_id": "way/403555589",
+      "details": [
+        "mailbox",
+        "planter"
+      ]
+    },
+    {
+      "osm_id": "way/403555591",
+      "details": [
+        "mailbox"
+      ]
+    },
+    {
+      "osm_id": "way/406497782",
+      "details": [
+        "mailbox",
+        "planter"
+      ]
+    },
+    {
+      "osm_id": "way/403555588",
+      "details": [
+        "mailbox",
+        "planter"
+      ]
+    },
+    {
+      "osm_id": "way/403555609",
+      "details": [
+        "mailbox"
+      ]
+    },
+    {
+      "osm_id": "way/403555610",
+      "details": [
+        "mailbox",
+        "planter"
+      ]
+    },
+    {
+      "osm_id": "way/403555621",
+      "details": [
+        "mailbox",
+        "planter"
+      ]
+    },
+    {
+      "osm_id": "way/403555611",
+      "details": [
+        "mailbox",
+        "planter"
+      ]
+    },
+    {
+      "osm_id": "way/403555620",
+      "details": [
+        "mailbox"
+      ]
+    },
+    {
+      "osm_id": "way/403555613",
+      "details": [
+        "mailbox",
+        "planter"
+      ]
+    },
+    {
+      "osm_id": "way/403555612",
+      "details": [
+        "mailbox",
+        "planter"
+      ]
+    },
+    {
+      "osm_id": "way/403555623",
+      "details": [
+        "mailbox",
+        "planter"
+      ]
+    },
+    {
+      "osm_id": "way/403555614",
+      "details": [
+        "mailbox"
+      ]
+    },
+    {
+      "osm_id": "way/403555616",
+      "details": [
+        "mailbox"
+      ]
+    },
+    {
+      "osm_id": "way/403555624",
+      "details": [
+        "mailbox"
+      ]
+    },
+    {
+      "osm_id": "way/403555615",
+      "details": [
+        "mailbox"
+      ]
+    },
+    {
+      "osm_id": "way/403555617",
+      "details": [
+        "mailbox"
+      ]
+    }
+  ],
+  "plot_boundary_status": "Inferred, not cadastral; mapped houses, roads, race surface and terrain untouched"
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "name": "V12_Roof_way_403555609",
+    "total_overlap_m2": 11.997190364667157,
+    "outside_baseline_building_footprint_m2": 5.5873665867457376e-05
+  },
+  {
+    "name": "V12_Architecture_foundation.001",
+    "total_overlap_m2": 2.3298257103316145,
+    "outside_baseline_building_footprint_m2": 2.2188382844122807,
+    "outside_baseline_building_and_matching_detail_m2": 1.081184019810951e-05,
+    "outside_centroid": [
+      1418.707920280613,
+      1009.6525357825599
+    ]
+  },
+  {
+    "name": "V12_Architecture_sill.001",
+    "total_overlap_m2": 2.0043949847702724,
+    "outside_baseline_building_footprint_m2": 1.5377051331943274,
+    "outside_baseline_building_and_matching_detail_m2": 0.5652511275192907,
+    "outside_centroid": [
+      1408.265044078504,
+      1005.7974295140664
+    ]
+  },
+  {
+    "name": "V12_Architecture_soffit",
+    "total_overlap_m2": 3.3262201952011687,
+    "outside_baseline_building_footprint_m2": 2.978500575763401,
+    "outside_centroid": [
+      1409.7091131908053,
+      1004.5946173796966
+    ]
+  },
+  {
+    "name": "V12_Architecture_roof_trim",
+    "total_overlap_m2": 2.1460480677369755,
+    "outside_baseline_building_footprint_m2": 1.5915585803932402,
+    "outside_centroid": [
+      1408.7148378867694,
+      1003.8683146360994
+    ]
+  },
+  {
+    "name": "V12_Architecture_reveal.001",
+    "total_overlap_m2": 0.5404442978971973,
+    "outside_baseline_building_footprint_m2": 0.007883731016564026,
+    "outside_centroid": [
+      1405.1422457558626,
+      1001.775781645658
+    ]
+  },
+  {
+    "name": "V12_Architecture_frame_teal",
+    "total_overlap_m2": 0.46978588006926286,
+    "outside_baseline_building_footprint_m2": 0.047152455214537786,
+    "outside_centroid": [
+      1404.2936917724794,
+      1001.8821342897174
+    ]
+  },
+  {
+    "name": "V12_Architecture_interior",
+    "total_overlap_m2": 0.0721958754309685,
+    "outside_baseline_building_footprint_m2": 0.0
+  },
+  {
+    "name": "V12_Architecture_gasket",
+    "total_overlap_m2": 0.0763910744015664,
+    "outside_baseline_building_footprint_m2": 0.0
+  },
+  {
+    "name": "V12_Architecture_gutter.001",
+    "total_overlap_m2": 1.0571358319259785,
+    "outside_baseline_building_footprint_m2": 1.0558662529922622,
+    "outside_baseline_building_and_matching_detail_m2": 0.6840977999940276,
+    "outside_centroid": [
+      1440.5899809891146,
+      1055.60010227396
+    ]
+  },
+  {
+    "name": "V12_Architecture_vent",
+    "total_overlap_m2": 0.006476312875747681,
+    "outside_baseline_building_footprint_m2": 0.006476312875747681,
+    "outside_centroid": [
+      1405.1473388671875,
+      1001.7818603515625
+    ]
+  }
+]

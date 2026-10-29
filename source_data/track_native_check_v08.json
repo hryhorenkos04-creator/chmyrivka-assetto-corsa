@@ -1,0 +1,153 @@
+{
+  "version": "v08",
+  "direction": "A-E-B-C-D-A",
+  "s_definition": "Map-reference chainage from original v07 route, preserved for crossing4993 and pit placement",
+  "source_route_length_m": 5849.321459898969,
+  "race_axis_length_m": 5736.743993982648,
+  "road_min_width_m": 8.0,
+  "road_max_width_m": 14.0,
+  "crown_fraction": 0.015,
+  "width_zones": [
+    {
+      "map_s_m": 0.0,
+      "target_width_m": 10.0
+    },
+    {
+      "map_s_m": 80.0,
+      "target_width_m": 9.0
+    },
+    {
+      "map_s_m": 180.0,
+      "target_width_m": 8.6
+    },
+    {
+      "map_s_m": 1180.0,
+      "target_width_m": 9.0
+    },
+    {
+      "map_s_m": 1330.0,
+      "target_width_m": 8.6
+    },
+    {
+      "map_s_m": 1930.0,
+      "target_width_m": 9.0
+    },
+    {
+      "map_s_m": 2090.0,
+      "target_width_m": 12.0
+    },
+    {
+      "map_s_m": 3400.0,
+      "target_width_m": 12.0
+    },
+    {
+      "map_s_m": 3510.0,
+      "target_width_m": 10.0
+    },
+    {
+      "map_s_m": 3670.0,
+      "target_width_m": 8.0
+    },
+    {
+      "map_s_m": 4290.0,
+      "target_width_m": 8.0
+    },
+    {
+      "map_s_m": 4350.0,
+      "target_width_m": 10.0
+    },
+    {
+      "map_s_m": 4570.0,
+      "target_width_m": 10.0
+    },
+    {
+      "map_s_m": 4750.0,
+      "target_width_m": 12.0
+    },
+    {
+      "map_s_m": 4930.0,
+      "target_width_m": 12.0
+    },
+    {
+      "map_s_m": 4995.0,
+      "target_width_m": 14.0
+    },
+    {
+      "map_s_m": 5510.0,
+      "target_width_m": 14.0
+    },
+    {
+      "map_s_m": 5610.0,
+      "target_width_m": 12.0
+    },
+    {
+      "map_s_m": 5750.0,
+      "target_width_m": 10.0
+    },
+    {
+      "map_s_m": 5849.321459898969,
+      "target_width_m": 10.0
+    }
+  ],
+  "corner_redesigns": [
+    {
+      "corner": "A",
+      "map_chainage_m": 0.0,
+      "centreline_radius_m": 8.0,
+      "trim_each_approach_m": 44.61359523644032,
+      "apex_shift_m": 37.325190346218406,
+      "minimum_building_clearance_to_axis_m": 23.371991399953224,
+      "status": "Fictional track conversion; original junction map marker preserved separately"
+    },
+    {
+      "corner": "B",
+      "map_chainage_m": 2449.8684837085575,
+      "centreline_radius_m": 12.0,
+      "trim_each_approach_m": 37.794348351707384,
+      "apex_shift_m": 27.653660200922268,
+      "minimum_building_clearance_to_axis_m": 210.32719602830085,
+      "status": "Fictional track conversion; original junction map marker preserved separately"
+    }
+  ],
+  "house_avoidance": [
+    {
+      "map_chainage_m": 4068.0,
+      "maximum_lateral_shift_m": 0.85,
+      "gaussian_sigma_m": 22.0,
+      "reason": "Avoid mapped building footprint; source 8m road already overlapped house at4230m"
+    },
+    {
+      "map_chainage_m": 4230.0,
+      "maximum_lateral_shift_m": 2.65,
+      "gaussian_sigma_m": 33.0,
+      "reason": "Avoid mapped building footprint; source 8m road already overlapped house at4230m"
+    }
+  ],
+  "validation": {
+    "road_valid": true,
+    "axis_simple": true,
+    "road_connected_components": 1,
+    "building_intersection_m2": 0.0,
+    "minimum_building_clearance_m": 0.7947717650444128,
+    "race_axis_length_m": 5736.743993982648,
+    "surface_area_m2": 59604.86038021417,
+    "maximum_width_change_m_per_m": 0.07999999999999993
+  },
+  "status": "Racing design, not homologated, actual vehicle dynamics and game driving not yet tested",
+  "changed_meshes": [
+    "1ROAD_MAIN",
+    "ROAD_SHOULDERS",
+    "GROUND_land_cemetery",
+    "GROUND_land_forest",
+    "GROUND_land_grass",
+    "GROUND_land_industrial",
+    "GROUND_land_residential",
+    "GROUND_terrain",
+    "SIDE_ROADS",
+    "GROUND_Pit_restored_v07",
+    "GROUND_Track_realignment_restored_v08"
+  ],
+  "road_vertices": 20637,
+  "road_triangles": 30188,
+  "terrain_grade": "Road crown1.5%, shoulder1.5m at4.5% crossfall,10m blend to original ground; exact shared polygon cut. Original footprints are retained."
+}

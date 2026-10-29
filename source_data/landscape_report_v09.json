@@ -1,0 +1,387 @@
+{
+  "cleanup": {
+    "objects": [
+      {
+        "object": "V06_Frontage_fences",
+        "faces_removed": 215,
+        "faces_before": 87410,
+        "faces_after": 87195
+      },
+      {
+        "object": "V06_Fence_posts_and_hardware",
+        "faces_removed": 214,
+        "faces_before": 78540,
+        "faces_after": 78326
+      },
+      {
+        "object": "V06_Yard_wheelie_bins",
+        "faces_removed": 45,
+        "faces_before": 1989,
+        "faces_after": 1944
+      },
+      {
+        "object": "VERGE_Grass_0125_0200",
+        "faces_removed": 33,
+        "faces_before": 2428,
+        "faces_after": 2395
+      },
+      {
+        "object": "VERGE_Grass_0200_0275",
+        "faces_removed": 105,
+        "faces_before": 2502,
+        "faces_after": 2397
+      },
+      {
+        "object": "VERGE_Grass_0350_0425",
+        "faces_removed": 1038,
+        "faces_before": 34367,
+        "faces_after": 33329
+      },
+      {
+        "object": "VERGE_Grass_0575_0650",
+        "faces_removed": 11542,
+        "faces_before": 150400,
+        "faces_after": 138858
+      },
+      {
+        "object": "VERGE_Grass_0650_0725",
+        "faces_removed": 13796,
+        "faces_before": 166584,
+        "faces_after": 152788
+      },
+      {
+        "object": "VERGE_Grass_0725_0800",
+        "faces_removed": 912,
+        "faces_before": 80256,
+        "faces_after": 79344
+      },
+      {
+        "object": "VERGE_Grass_0950_1025",
+        "faces_removed": 171,
+        "faces_before": 2426,
+        "faces_after": 2255
+      },
+      {
+        "object": "VERGE_Grass_1025_1100",
+        "faces_removed": 261,
+        "faces_before": 2632,
+        "faces_after": 2371
+      },
+      {
+        "object": "VERGE_Grass_1250_1325",
+        "faces_removed": 99,
+        "faces_before": 1829,
+        "faces_after": 1730
+      },
+      {
+        "object": "VERGE_Grass_1400_1475",
+        "faces_removed": 1523,
+        "faces_before": 28905,
+        "faces_after": 27382
+      },
+      {
+        "object": "VERGE_Grass_1475_1550",
+        "faces_removed": 1133,
+        "faces_before": 31770,
+        "faces_after": 30637
+      },
+      {
+        "object": "VERGE_Grass_1925_2000",
+        "faces_removed": 39,
+        "faces_before": 2247,
+        "faces_after": 2208
+      },
+      {
+        "object": "VERGE_Grass_2000_2075",
+        "faces_removed": 45,
+        "faces_before": 1806,
+        "faces_after": 1761
+      },
+      {
+        "object": "VERGE_Grass_2075_2150",
+        "faces_removed": 33,
+        "faces_before": 1769,
+        "faces_after": 1736
+      },
+      {
+        "object": "VERGE_Grass_2150_2225",
+        "faces_removed": 39,
+        "faces_before": 1490,
+        "faces_after": 1451
+      },
+      {
+        "object": "VERGE_Grass_2975_3050",
+        "faces_removed": 78,
+        "faces_before": 1602,
+        "faces_after": 1524
+      },
+      {
+        "object": "VERGE_Grass_3425_3500",
+        "faces_removed": 33,
+        "faces_before": 2663,
+        "faces_after": 2630
+      },
+      {
+        "object": "VERGE_Grass_3650_3725",
+        "faces_removed": 180,
+        "faces_before": 2363,
+        "faces_after": 2183
+      },
+      {
+        "object": "VERGE_Grass_3875_3950",
+        "faces_removed": 1304,
+        "faces_before": 29521,
+        "faces_after": 28217
+      },
+      {
+        "object": "VERGE_Grass_4025_4100",
+        "faces_removed": 2051,
+        "faces_before": 17288,
+        "faces_after": 15237
+      },
+      {
+        "object": "VERGE_Grass_4475_4550",
+        "faces_removed": 1342,
+        "faces_before": 40927,
+        "faces_after": 39585
+      },
+      {
+        "object": "VERGE_Grass_5450_5525",
+        "faces_removed": 72,
+        "faces_before": 939,
+        "faces_after": 867
+      },
+      {
+        "object": "VERGE_Grass_5525_5600",
+        "faces_removed": 75,
+        "faces_before": 1101,
+        "faces_after": 1026
+      },
+      {
+        "object": "VERGE_Gravel_0200_0275",
+        "faces_removed": 16,
+        "faces_before": 192,
+        "faces_after": 176
+      },
+      {
+        "object": "VERGE_Gravel_0350_0425",
+        "faces_removed": 48,
+        "faces_before": 2240,
+        "faces_after": 2192
+      },
+      {
+        "object": "VERGE_Gravel_0575_0650",
+        "faces_removed": 480,
+        "faces_before": 7952,
+        "faces_after": 7472
+      },
+      {
+        "object": "VERGE_Gravel_0650_0725",
+        "faces_removed": 544,
+        "faces_before": 7152,
+        "faces_after": 6608
+      },
+      {
+        "object": "VERGE_Gravel_0725_0800",
+        "faces_removed": 48,
+        "faces_before": 4368,
+        "faces_after": 4320
+      },
+      {
+        "object": "VERGE_Gravel_0950_1025",
+        "faces_removed": 16,
+        "faces_before": 144,
+        "faces_after": 128
+      },
+      {
+        "object": "VERGE_Gravel_1025_1100",
+        "faces_removed": 16,
+        "faces_before": 144,
+        "faces_after": 128
+      },
+      {
+        "object": "VERGE_Gravel_1250_1325",
+        "faces_removed": 16,
+        "faces_before": 144,
+        "faces_after": 128
+      },
+      {
+        "object": "VERGE_Gravel_1400_1475",
+        "faces_removed": 48,
+        "faces_before": 1584,
+        "faces_after": 1536
+      },
+      {
+        "object": "VERGE_Gravel_1475_1550",
+        "faces_removed": 128,
+        "faces_before": 2624,
+        "faces_after": 2496
+      },
+      {
+        "object": "VERGE_Gravel_2375_2450",
+        "faces_removed": 16,
+        "faces_before": 128,
+        "faces_after": 112
+      },
+      {
+        "object": "VERGE_Gravel_2450_2525",
+        "faces_removed": 32,
+        "faces_before": 96,
+        "faces_after": 64
+      },
+      {
+        "object": "VERGE_Gravel_3650_3725",
+        "faces_removed": 16,
+        "faces_before": 192,
+        "faces_after": 176
+      },
+      {
+        "object": "VERGE_Gravel_3875_3950",
+        "faces_removed": 144,
+        "faces_before": 3568,
+        "faces_after": 3424
+      },
+      {
+        "object": "VERGE_Gravel_4025_4100",
+        "faces_removed": 224,
+        "faces_before": 2160,
+        "faces_after": 1936
+      }
+    ],
+    "whole_tree_instances_removed": [
+      "V07_Street_tree_provisional_046"
+    ],
+    "utility_review": [
+      {
+        "object": "V06_Concrete_poles_and_crossarms",
+        "vertices_inside_side_road_mask": 584
+      }
+    ],
+    "old_armco_removed": [
+      {
+        "object": "V08_Outside_corner_armco",
+        "faces_removed": 396,
+        "faces_before": 4860,
+        "faces_after": 4464
+      }
+    ],
+    "old_armco_faces_removed": 396,
+    "faces_removed": 38170,
+    "method": "Complete connected scenic pieces removed, preserving remaining fencing and vegetation; mapped building geometry untouched."
+  },
+  "utilities": {
+    "poles_moved": [
+      {
+        "from_xy": [
+          519.1565551757812,
+          1821.632080078125
+        ],
+        "to_xy": [
+          519.8507283911579,
+          1821.3478556919965
+        ],
+        "shift_m": 0.75
+      },
+      {
+        "from_xy": [
+          534.1368408203125,
+          1906.04931640625
+        ],
+        "to_xy": [
+          532.0302708004441,
+          1904.9138679317552
+        ],
+        "shift_m": 2.393
+      },
+      {
+        "from_xy": [
+          1406.2008056640625,
+          989.5656127929688
+        ],
+        "to_xy": [
+          1404.2986926314722,
+          988.9475788042189
+        ],
+        "shift_m": 2.0
+      },
+      {
+        "from_xy": [
+          974.7777099609375,
+          477.250244140625
+        ],
+        "to_xy": [
+          976.9750485895585,
+          476.65991074411465
+        ],
+        "shift_m": 2.275
+      },
+      {
+        "from_xy": [
+          258.8847961425781,
+          235.4622344970703
+        ],
+        "to_xy": [
+          252.95341082702717,
+          239.1078486003191
+        ],
+        "shift_m": 6.962
+      },
+      {
+        "from_xy": [
+          219.88772583007812,
+          213.65269470214844
+        ],
+        "to_xy": [
+          218.12568780689304,
+          212.97566662360776
+        ],
+        "shift_m": 1.888
+      }
+    ],
+    "poles_removed": [],
+    "method": "Complete provisional pole assemblies relocated; wire endpoints follow interpolated displacements; mapped house footprints unchanged",
+    "reserved": "Main carriageway plus 1.25 m, pit surface, full side-road/verge masks, closure barrier footprints; mapped building exclusions from shared relocation helper"
+  },
+  "side_road_verges": {
+    "object": "V09_Side_road_verges",
+    "material": "V09_Gravel_Dirt_Vergeband",
+    "texture_repeat_m": 2,
+    "intent": "Fine gravel and soil band; width and geometry retained, no artificial grass strip"
+  },
+  "ground": {
+    "ground_objects": [
+      "GROUND_Former_pit_seams_v08",
+      "GROUND_land_cemetery",
+      "GROUND_land_forest",
+      "GROUND_land_grass",
+      "GROUND_land_industrial",
+      "GROUND_land_residential",
+      "GROUND_terrain",
+      "GROUND_Former_pit_v08",
+      "GROUND_Former_pit_margin_v08",
+      "GROUND_Track_realignment_restored_v08"
+    ],
+    "vertices_with_continuous_context_masks": 36317,
+    "boundary_feather_m": {
+      "industrial": 26,
+      "forest": 20
+    },
+    "texture_repeats_m": {
+      "grass": 1.4,
+      "soil": 2.0
+    },
+    "new_geometry": false
+  },
+  "vegetation": {
+    "forest_near": 207,
+    "forest_mid": 263,
+    "shrubs": 584,
+    "junction_shrubs": 44,
+    "grass_tufts": 1850,
+    "grass_new_faces": 33196,
+    "unique_shrub_faces": 13000,
+    "reserve_area_m2": 568825.38,
+    "geometry_note": "Mapped tree points and building footprints retained; additional individual plants are inferred, species representative.",
+    "added_root_violations": 0
+  }
+}

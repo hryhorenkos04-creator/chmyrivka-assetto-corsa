@@ -1,0 +1,27 @@
+{
+  "sources": [
+    "track_plan_v08.json",
+    "pit_plan_v08.json",
+    "side_road_plan_v09.json",
+    "junction_closures_v09.json",
+    "surroundings_local.json",
+    "osm_source.xml"
+  ],
+  "river_way_ids": [
+    "344384189",
+    "344384190",
+    "344384193",
+    "369940136",
+    "369940150",
+    "431467243"
+  ],
+  "mapped_junctions": 34,
+  "closures": 33,
+  "pits": 22,
+  "all_line_coordinates_from_data": true,
+  "line_weights": "Visually exaggerated for legibility; not scale width",
+  "figure_pixels": [
+    2560,
+    1920
+  ]
+}

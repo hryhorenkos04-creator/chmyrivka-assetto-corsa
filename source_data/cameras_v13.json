@@ -1,0 +1,154 @@
+[
+  {
+    "camera": "V11_19_DRIVER",
+    "title": "Сінна · начало жилого участка",
+    "kind": "driver",
+    "station_map_m": 3900,
+    "file": "screenshots_v13/01_driver.png",
+    "location": [
+      1485.5198974609375,
+      1142.367919921875,
+      4.926495552062988
+    ],
+    "rotation": [
+      1.5747419595718384,
+      5.035172634393348e-08,
+      2.7410192489624023
+    ],
+    "lens_mm": 29.0,
+    "before_file": "screenshots_v12/01_driver.png"
+  },
+  {
+    "camera": "V11_20_DRIVER",
+    "title": "Сінна · дворы вдоль прямой",
+    "kind": "driver",
+    "station_map_m": 4140,
+    "file": "screenshots_v13/02_driver.png",
+    "location": [
+      1379.8516845703125,
+      927.472900390625,
+      5.328900337219238
+    ],
+    "rotation": [
+      1.56459379196167,
+      1.0196242961058033e-08,
+      2.4541468620300293
+    ],
+    "lens_mm": 29.0,
+    "before_file": "screenshots_v12/02_driver.png"
+  },
+  {
+    "camera": "V11_30_DETAIL",
+    "title": "Сінна · примыкание и фасады",
+    "kind": "detail",
+    "station_map_m": 4059,
+    "file": "screenshots_v13/03_detail.png",
+    "location": [
+      1430.1070556640625,
+      1017.6912841796875,
+      5.864982604980469
+    ],
+    "rotation": [
+      1.5693773031234741,
+      1.1007208655655631e-07,
+      1.8873478174209595
+    ],
+    "lens_mm": 28.0,
+    "before_file": "screenshots_v12/03_detail.png"
+  },
+  {
+    "camera": "V12_04_DRIVER",
+    "title": "Вход в жилой сектор",
+    "kind": "driver",
+    "station_map_m": 3810,
+    "file": "screenshots_v13/04_driver.png",
+    "location": [
+      1505.3851318359375,
+      1230.060791015625,
+      5.028302192687988
+    ],
+    "rotation": [
+      1.5690797567367554,
+      -8.396840200930455e-08,
+      2.9377236366271973
+    ],
+    "lens_mm": 29.0,
+    "before_file": "screenshots_v12/04_driver.png"
+  },
+  {
+    "camera": "V12_05_DRIVER",
+    "title": "Сады и ограды вдоль улицы",
+    "kind": "driver",
+    "station_map_m": 3995,
+    "file": "screenshots_v13/05_driver.png",
+    "location": [
+      1447.7578125,
+      1055.448974609375,
+      5.264233589172363
+    ],
+    "rotation": [
+      1.5690789222717285,
+      -4.531950992259226e-08,
+      2.6854147911071777
+    ],
+    "lens_mm": 29.0,
+    "before_file": "screenshots_v12/05_driver.png"
+  },
+  {
+    "camera": "V12_06_REVERSE",
+    "title": "Жилая улица · обратный ракурс",
+    "kind": "detail",
+    "station_map_m": 4160,
+    "file": "screenshots_v13/06_detail.png",
+    "location": [
+      1369.069091796875,
+      910.7215576171875,
+      6.228247165679932
+    ],
+    "rotation": [
+      1.5672531127929688,
+      -2.2358912943332143e-08,
+      -0.5315507054328918
+    ],
+    "lens_mm": 35.0,
+    "before_file": "screenshots_v12/06_detail.png"
+  },
+  {
+    "camera": "V12_07_OVERVIEW",
+    "title": "Планировка дворов и примыкания",
+    "kind": "overview",
+    "station_map_m": 4010,
+    "file": "screenshots_v13/07_overview.png",
+    "location": [
+      1385.759521484375,
+      1157.3140869140625,
+      89.45144653320312
+    ],
+    "rotation": [
+      0.9902638792991638,
+      -1.0747928769205828e-07,
+      -2.6930911540985107
+    ],
+    "lens_mm": 52.0,
+    "before_file": "screenshots_v12/07_overview.png"
+  },
+  {
+    "camera": "V12_08_DETAIL",
+    "title": "Фасад · материалы и детали",
+    "kind": "detail",
+    "station_map_m": 4045.1463941727675,
+    "file": "screenshots_v13/08_detail.png",
+    "location": [
+      1429.81982421875,
+      1011.9957885742188,
+      7.199999809265137
+    ],
+    "rotation": [
+      1.508022427558899,
+      6.188119527905656e-08,
+      1.3140021562576294
+    ],
+    "lens_mm": 44.0,
+    "before_file": "screenshots_v12/08_detail.png"
+  }
+]

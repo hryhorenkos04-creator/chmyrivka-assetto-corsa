@@ -1,0 +1,58 @@
+{
+  "source": "Copernicus GLO-30 Public DSM, AWS COG, 2021 release",
+  "source_url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N49_00_E038_00_DEM/Copernicus_DSM_COG_10_N49_00_E038_00_DEM.tif",
+  "source_readme": "https://copernicus-dem-30m.s3.amazonaws.com/readme.html",
+  "official_documentation": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+  "source_tile_sha256": "8657093372fd2d37d052fdc98b1a75bdd9c67c16d1c901e262f50e0e0eed0104",
+  "source_tile_size_bytes": 43947115,
+  "prepared_date": "2026-10-16",
+  "horizontal_crs": "EPSG:4326",
+  "projected_crs": "EPSG:32637",
+  "vertical_crs": "EGM2008 (EPSG:3855), metres",
+  "local_origin_utm": [
+    493966.5303635461,
+    5459426.073004565
+  ],
+  "local_z_zero_egm2008_m": 59.00656509399414,
+  "horizon_bounds_local_xy_m": [
+    -4500.0,
+    -4000.0,
+    5500.0,
+    6500.0
+  ],
+  "horizon_crop_shape_rows_cols": [
+    346,
+    501
+  ],
+  "horizon_crop_transform": [
+    0.0002777777777777778,
+    0.0,
+    38.854305555555555,
+    0.0,
+    -0.0002777777777777778,
+    49.346805555555555
+  ],
+  "horizon_crop_dsm_min_m": 46.79098129272461,
+  "horizon_crop_dsm_max_m": 150.46261596679688,
+  "near_crop_reference": {
+    "file": "terrain_metadata.json",
+    "shape_rows_cols": [
+      93,
+      113
+    ],
+    "dsm_min_m": 51.5,
+    "dsm_max_m": 91.44527435302734
+  },
+  "attribution_modified": "produced using Copernicus WorldDEM-30 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved",
+  "caveats": [
+    "Digital SURFACE model: may measure roofs, tree canopies and embankments rather than road level.",
+    "Approx. 20×31 metre sample spacing here; not appropriate for exact road width, banking, kerbs, potholes or railway-crossing ramp profiles.",
+    "Source base observations are mostly from 2011–2015, with gap-fill from other DEMs; not a current-condition survey.",
+    "Sampling every 10 metres is interpolation only, not newly measured detail.",
+    "Global product accuracy specs (<4 m absolute vertical error, LE90) are not local road accuracy guarantees.",
+    "Smoothing makes a usable indicative profile but cannot remove DSM bias reliably. Road surface still requires human reference checks.",
+    "Wider visible terrain uses DSM heights, not a surveyed bare-earth DTM.",
+    "Distant terrain materials are indicative; OSM land-use masks are used only where supplied."
+  ],
+  "source_crop_tif_sha256": "175b90603be105cb0bafbbc500c6d437828e0a179d2165aaec302093d13aff89"
+}

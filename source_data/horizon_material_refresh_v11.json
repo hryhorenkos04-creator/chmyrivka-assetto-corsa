@@ -1,0 +1,14 @@
+{
+  "object": "V11_FAR_TERRAIN_DSM",
+  "geometry_changed": false,
+  "mesh_attributes_changed": false,
+  "uv_changed": false,
+  "native_shader_inputs_preserved": true,
+  "materials": [
+    {
+      "material": "V11_Horizon_Continuous_Soil_Grass",
+      "removed_nodes": [],
+      "status": "already_native_ground_shader"
+    }
+  ]
+}

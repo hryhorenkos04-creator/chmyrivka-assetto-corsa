@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "version": "v12",
+  "checked_date": "2026-10-16",
+  "sector_station_map_m": [
+    3800,
+    4250
+  ],
+  "route_direction": "A → E → B → C → D → A",
+  "exact_sector_facade_photos_confirmed": 0,
+  "conclusion": "Mapped footprints with locally informed interpretation; no exact facade reconstruction claim.",
+  "local_inventory": {
+    "source": "data/sector_inventory_v12.json",
+    "buffer_m": 65,
+    "building_count": 42,
+    "house_count": 40,
+    "house_one_level_count": 40,
+    "building_yes_count": 2,
+    "has_address_tags_count": 0,
+    "has_facade_or_roof_material_tags_count": 0,
+    "height_status": "Level count from OSM where present; metre heights assumed, not surveyed.",
+    "ruins_count": 2,
+    "excluded_from_residential_facade_detail": [
+      "way/403555597",
+      "way/406501365"
+    ],
+    "excluded_features": [
+      {
+        "osm_id": "way/403555597",
+        "tags": {
+          "building": "yes",
+          "ruins": "yes"
+        }
+      },
+      {
+        "osm_id": "way/406501365",
+        "tags": {
+          "building": "yes",
+          "ruins": "yes"
+        }
+      }
+    ],
+    "classification": "40 one-level houses and 2 ruins; ruins excluded from residential facade detailing"
+  },
+  "photos": [
+    {
+      "id": "commons_chmyrivka_lighting_02",
+      "title": "123 02 Вуличне освітлення в с Чмирівка after.jpg",
+      "author": "Mooraha",
+      "page": "https://commons.wikimedia.org/wiki/File:123_02_Вуличне_освітлення_в_с_Чмирівка_after.jpg",
+      "page_ref": "turn144view1",
+      "image_pixels_viewed_in_v12": true,
+      "working_copy": "reference_work/v12/chmyrivka_lighting_2018.jpg",
+      "sha256": "cf5ebabbad3f784e166618f5aa49274ee8d4ed8394da0c255bef567089a74dea",
+      "included_in_distributed_package": false,
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "coordinates_wgs84": {
+        "lat": 49.282104,
+        "lon": 38.953194
+      },
+      "heading": {
+        "value_deg": 69,
+        "reference": "magnetic north according to EXIF"
+      },
+      "capture_date": "2018 (exact day unresolved)",
+      "date_conflict": {
+        "page_summary": "2018-08-22",
+        "exif_datetime_original": "2018-05-24 12:35"
+      },
+      "geolocation_status": "Geotagged local example outside circuit, not Sinna sector",
+      "evidence_level": "regional_local_visual_reference",
+      "observed": [
+        "Light grey/yellowish brick wall with thin grey mortar",
+        "Muted green corrugated pitched roof with visible eaves and dark attic opening",
+        "Light window frame and external air conditioning unit",
+        "Partly concealed green fence",
+        "Yellow aboveground pipe along house; darker pipe on slender supports beyond",
+        "Concrete utility pole with brace and thin aerial wires",
+        "Grassy road edge and low houses with grey pitched roofs in distance"
+      ],
+      "do_not_infer": [
+        "Exact facade/material assigned to any Sinna footprint",
+        "Utility pole, solar light or gas network locations along circuit",
+        "Uniform tall reeds along the sector",
+        "Surveyed dimensions"
+      ]
+    },
+    {
+      "id": "commons_chmyrivka_lighting_01",
+      "title": "123 01 Вуличне освітлення в с Чмирівка after.jpg",
+      "author": "Mooraha",
+      "page": "https://commons.wikimedia.org/wiki/File:123_01_Вуличне_освітлення_в_с_Чмирівка_after.jpg",
+      "page_ref": "turn144view0",
+      "image_pixels_viewed_in_v12": true,
+      "working_copy": "reference_work/v12/chmyrivka_lighting_01_2018.jpg",
+      "sha256": "3f2f52d6e7500fa17f008296556d35be88339c8651943146b7b4023b0c5d4e85",
+      "included_in_distributed_package": false,
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "coordinates_wgs84": null,
+      "page_date": "2018-08-22",
+      "geolocation_status": "Title and same author/series suggest locality; no independent camera coordinate on opened page",
+      "evidence_level": "secondary_typological_reference",
+      "observed": [
+        "Uneven-height grass and narrow worn paths",
+        "Grouped garden trees and shrubs near low fences",
+        "Low-rise houses with mainly grey roofs and one green roof",
+        "Solar streetlights"
+      ],
+      "do_not_infer": [
+        "Exact open-space footprint on Sinna",
+        "Exact facade colours of mapped houses",
+        "Solar light positions on circuit"
+      ]
+    }
+  ],
+  "nonvisual_sources": [
+    {
+      "id": "visicom_sinna_3",
+      "url": "https://maps.visicom.ua/i/ADR3KT530TLQWSNET8",
+      "ref": "turn151view0",
+      "read_in_v12": true,
+      "label": "Chmyrivka, str. Sinna, 3",
+      "coordinates_wgs84": {
+        "lat": 49.295296031074805,
+        "lon": 38.93490860507865
+      },
+      "use": "Address orientation only; no photo, no automatic OSM number assignment"
+    },
+    {
+      "id": "gazeta_roof_2011_candidate",
+      "url": "https://gazeta.ua/articles/ukraine-newspaper/_grad-zavbilshki-z-kulak-pobiv-dahi-i-vikna/389106",
+      "ref": "turn142view0",
+      "page_read_in_v12": true,
+      "image_pixels_viewed_in_v12": false,
+      "publication_date": "2011-07-05",
+      "image_credit_in_caption": "Чмирівська сільрада",
+      "image_url": "https://static.gazeta.ua/img/cache/gallery/389/389106_1_w_300.jpg?v=0",
+      "image_fetch_result": "HTTP403; not visually verified",
+      "license": "not established",
+      "included_in_distributed_package": false,
+      "use": "Candidate only; no visual roof claims accepted"
+    }
+  ],
+  "search_queries": [
+    "Старобільськ Сінна вулиця фото",
+    "Чмирівка вулиця Сінна фото будинок",
+    "\"Чмирівка\" \"Сінна\" фото",
+    "\"Чмыровка\" \"Сенная\" фото",
+    "\"Чмирівка\" фото вулиця будинки",
+    "\"Чмыровка\" улица дома фото",
+    "\"Чмирівка\" \"освітлення\"",
+    "\"Чмыровка\" \"Ромашка\" фото"
+  ],
+  "excluded_results": [
+    "Same-name Chmyrivka in Kyiv region",
+    "Same-name Chmyrivka in Cherkasy region",
+    "Search-result snippets without verified photo/position",
+    "Address registers without visual facade evidence"
+  ],
+  "inherited_sources_reviewed": [
+    "PHOTO_REFERENCES_V10_RU.md",
+    "PHOTO_AUDIT_V07_RU.md",
+    "references/COVERAGE_RU.md",
+    "references/commons_refs.json",
+    "references/kartaview_checks.json",
+    "references/v07_metadata/photo_audit_v07.json"
+  ],
+  "panorama_coverage_status": "No continuous Sinna coverage confirmed. Inherited KartaView check dated2026-10-13 had empty responses; not rerun and not a claim that all services lack coverage.",
+  "modeling_policy": {
+    "mapped": "Building plan positions, one-level tag where present, road branches",
+    "interpreted": "Specific facade finishes/window pattern, detailed roofs, plot fences/gates, garden planting and utility detail",
+    "fictional_race_adaptation": "Smooth track, kerbs, racing barriers",
+    "prohibited_claim": "All houses/textures along Sinna are exact photo replicas",
+    "photo_pixels_used_as_textures": false
+  }
+}
