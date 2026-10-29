@@ -1,0 +1,717 @@
+{
+  "settings": {
+    "target_radius_m": 25.0,
+    "min_radius_m": 6.0,
+    "max_deviation_m": 2.0,
+    "max_step_m": 0.75,
+    "trim_fraction": 0.35
+  },
+  "corners": [
+    {
+      "source_index": 0,
+      "turn_degrees": 159.6678800958239,
+      "status": "kept",
+      "reason": "pinned"
+    },
+    {
+      "source_index": 1,
+      "turn_degrees": 3.159007245032257,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.6893631094257682,
+      "original_vertex_displacement_m": 0.009502623935508936
+    },
+    {
+      "source_index": 2,
+      "turn_degrees": 2.144010785046847,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.46780518114553865,
+      "original_vertex_displacement_m": 0.004376450683718502
+    },
+    {
+      "source_index": 3,
+      "turn_degrees": 3.7331368366395257,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.8147323638021995,
+      "original_vertex_displacement_m": 0.013272253438306736
+    },
+    {
+      "source_index": 4,
+      "turn_degrees": 11.080141204029797,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 2.42487359990246,
+      "original_vertex_displacement_m": 0.11732493669466826
+    },
+    {
+      "source_index": 5,
+      "turn_degrees": 10.118550771621873,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 2.213280690894022,
+      "original_vertex_displacement_m": 0.09778100583165417
+    },
+    {
+      "source_index": 6,
+      "turn_degrees": 10.637326011486529,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 2.327393480048658,
+      "original_vertex_displacement_m": 0.1081014895784771
+    },
+    {
+      "source_index": 7,
+      "turn_degrees": 4.089016983662235,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.8924639443904617,
+      "original_vertex_displacement_m": 0.015924765877373126
+    },
+    {
+      "source_index": 8,
+      "turn_degrees": 15.350747743218454,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 3.3691916488569777,
+      "original_vertex_displacement_m": 0.2260074598959827
+    },
+    {
+      "source_index": 9,
+      "turn_degrees": 3.468007051943832,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.7568328479404739,
+      "original_vertex_displacement_m": 0.011453295634816785
+    },
+    {
+      "source_index": 10,
+      "turn_degrees": 3.5871666566404223,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.7828540946276302,
+      "original_vertex_displacement_m": 0.012254207357542679
+    },
+    {
+      "source_index": 11,
+      "turn_degrees": 11.334694850062107,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 2.4809432379814043,
+      "original_vertex_displacement_m": 0.12279999024960575
+    },
+    {
+      "source_index": 12,
+      "turn_degrees": 1.2530741336496,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.2733892646721615,
+      "original_vertex_displacement_m": 0.0014947891128713753
+    },
+    {
+      "source_index": 13,
+      "turn_degrees": 18.090311525343264,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 3.9798107122427027,
+      "original_vertex_displacement_m": 0.31479593647323334
+    },
+    {
+      "source_index": 14,
+      "turn_degrees": 35.66173195391982,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 8.041480581588123,
+      "original_vertex_displacement_m": 1.2614814879903347
+    },
+    {
+      "source_index": 15,
+      "turn_degrees": 9.166261423246572,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 2.004044151050112,
+      "original_vertex_displacement_m": 0.08019523367707171
+    },
+    {
+      "source_index": 16,
+      "turn_degrees": 15.338696572417291,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 3.366514777559556,
+      "original_vertex_displacement_m": 0.22565007581621943
+    },
+    {
+      "source_index": 17,
+      "turn_degrees": 0.006072193453679745,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.001324747108549398,
+      "original_vertex_displacement_m": 3.5099101403091026e-08
+    },
+    {
+      "source_index": 18,
+      "turn_degrees": 0.022706222036228494,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.00495372925509639,
+      "original_vertex_displacement_m": 4.907886652638638e-07
+    },
+    {
+      "source_index": 19,
+      "turn_degrees": 1.3054633889646854,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.2848202519160473,
+      "original_vertex_displacement_m": 0.0016223988744679119
+    },
+    {
+      "source_index": 20,
+      "turn_degrees": 5.382262759477246,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 1.1750918286705265,
+      "original_vertex_displacement_m": 0.027601579172709112
+    },
+    {
+      "source_index": 21,
+      "turn_degrees": 0.0017921251842006928,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.0003909810634345255,
+      "original_vertex_displacement_m": 3.057326614097633e-09
+    },
+    {
+      "source_index": 22,
+      "turn_degrees": 5.764346517864485,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 1.2586471445765244,
+      "original_vertex_displacement_m": 0.031663800765435735
+    },
+    {
+      "source_index": 23,
+      "turn_degrees": 12.704442121445691,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 2.78309148030725,
+      "original_vertex_displacement_m": 0.15443496061398054
+    },
+    {
+      "source_index": 24,
+      "turn_degrees": 1.506806563030514,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.328753144446063,
+      "original_vertex_displacement_m": 0.002161479159823454
+    },
+    {
+      "source_index": 25,
+      "turn_degrees": 5.018612457717681,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 1.095591950611286,
+      "original_vertex_displacement_m": 0.023994919321818076
+    },
+    {
+      "source_index": 26,
+      "turn_degrees": 11.30974843428364,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 2.475447294906627,
+      "original_vertex_displacement_m": 0.12225784657621808
+    },
+    {
+      "source_index": 27,
+      "turn_degrees": 0.6470175406302366,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.14115883010744362,
+      "original_vertex_displacement_m": 0.00039851313008987255
+    },
+    {
+      "source_index": 28,
+      "turn_degrees": 8.914341338832308,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 1.9487402008049794,
+      "original_vertex_displacement_m": 0.07583674317236944
+    },
+    {
+      "source_index": 29,
+      "turn_degrees": 5.787610580749382,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 1.2637354925761337,
+      "original_vertex_displacement_m": 0.03192016995892666
+    },
+    {
+      "source_index": 30,
+      "turn_degrees": 0.10968107168298434,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.023928705157085586,
+      "original_vertex_displacement_m": 1.1451655984595632e-05
+    },
+    {
+      "source_index": 31,
+      "turn_degrees": 0.6743601169566592,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.14712425322276734,
+      "original_vertex_displacement_m": 0.00043290716955635133
+    },
+    {
+      "source_index": 32,
+      "turn_degrees": 0.003446880993618027,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.000751992778514901,
+      "original_vertex_displacement_m": 1.1309864156316962e-08
+    },
+    {
+      "source_index": 33,
+      "turn_degrees": 3.3515885374171255,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.731411764058522,
+      "original_vertex_displacement_m": 0.010696974866636344
+    },
+    {
+      "source_index": 34,
+      "turn_degrees": 18.802251209905904,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 4.1392277616071205,
+      "original_vertex_displacement_m": 0.34034740216595805
+    },
+    {
+      "source_index": 35,
+      "turn_degrees": 22.503449151230257,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 4.973591450282941,
+      "original_vertex_displacement_m": 0.4899315792398218
+    },
+    {
+      "source_index": 36,
+      "turn_degrees": 19.64855811964177,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 4.3291604275307565,
+      "original_vertex_displacement_m": 0.3720639682170568
+    },
+    {
+      "source_index": 37,
+      "turn_degrees": 4.2661794476605,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.9311662212440178,
+      "original_vertex_displacement_m": 0.017335400309637095
+    },
+    {
+      "source_index": 38,
+      "turn_degrees": 13.71248296008124,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 3.005961343631876,
+      "original_vertex_displacement_m": 0.18006758528278932
+    },
+    {
+      "source_index": 39,
+      "turn_degrees": 8.314506892302097,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 1.8171339768188404,
+      "original_vertex_displacement_m": 0.06595252308815303
+    },
+    {
+      "source_index": 40,
+      "turn_degrees": 17.227301454991665,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 3.786987229552475,
+      "original_vertex_displacement_m": 0.285198679796711
+    },
+    {
+      "source_index": 41,
+      "turn_degrees": 10.096475795936339,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 2.2084270141729654,
+      "original_vertex_displacement_m": 0.09735344367865495
+    },
+    {
+      "source_index": 42,
+      "turn_degrees": 13.296428479258946,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 2.913919840103874,
+      "original_vertex_displacement_m": 0.1692456945882881
+    },
+    {
+      "source_index": 43,
+      "turn_degrees": 11.610507227703991,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 2.5417233900800427,
+      "original_vertex_displacement_m": 0.12887498062099656
+    },
+    {
+      "source_index": 44,
+      "turn_degrees": 144.76999671379374,
+      "status": "kept",
+      "reason": "pinned"
+    },
+    {
+      "source_index": 45,
+      "turn_degrees": 8.501291076350363,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 1.8581041434206427,
+      "original_vertex_displacement_m": 0.06895592177298959
+    },
+    {
+      "source_index": 46,
+      "turn_degrees": 6.427561426375399,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 1.40374884214425,
+      "original_vertex_displacement_m": 0.03937920180572818
+    },
+    {
+      "source_index": 47,
+      "turn_degrees": 10.483040558038395,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 2.293446126363256,
+      "original_vertex_displacement_m": 0.10497749719227678
+    },
+    {
+      "source_index": 48,
+      "turn_degrees": 18.370215830942602,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 4.042448379476455,
+      "original_vertex_displacement_m": 0.32471893034021204
+    },
+    {
+      "source_index": 49,
+      "turn_degrees": 22.191367918114082,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 4.902849311027007,
+      "original_vertex_displacement_m": 0.47622286302735906
+    },
+    {
+      "source_index": 50,
+      "turn_degrees": 2.8263834834531765,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.6167462933002926,
+      "original_vertex_displacement_m": 0.007606362670931066
+    },
+    {
+      "source_index": 51,
+      "turn_degrees": 0.029921295198301157,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.006527814119249012,
+      "original_vertex_displacement_m": 8.522471284244659e-07
+    },
+    {
+      "source_index": 52,
+      "turn_degrees": 7.654499339430096,
+      "status": "filleted",
+      "radius_m": 12.86541391619354,
+      "trim_m": 0.8606657828472634,
+      "original_vertex_displacement_m": 0.028756116218414597
+    },
+    {
+      "source_index": 53,
+      "turn_degrees": 6.042834978626501,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 1.3195654758822613,
+      "original_vertex_displacement_m": 0.03480083893499519
+    },
+    {
+      "source_index": 54,
+      "turn_degrees": 0.034487306069616225,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.007523963240386425,
+      "original_vertex_displacement_m": 1.1322004334068936e-06
+    },
+    {
+      "source_index": 55,
+      "turn_degrees": 0.040578221819025644,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.00885279506186505,
+      "original_vertex_displacement_m": 1.5674395614784231e-06
+    },
+    {
+      "source_index": 56,
+      "turn_degrees": 5.199996884622555,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 1.1352426759665384,
+      "original_vertex_displacement_m": 0.0257622448015693
+    },
+    {
+      "source_index": 57,
+      "turn_degrees": 17.518844257694326,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 3.852076705105774,
+      "original_vertex_displacement_m": 0.2950290559631197
+    },
+    {
+      "source_index": 58,
+      "turn_degrees": 0.22483620991031575,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.049051714702866324,
+      "original_vertex_displacement_m": 4.812136799592359e-05
+    },
+    {
+      "source_index": 59,
+      "turn_degrees": 9.939460359932646,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 2.1739084061807916,
+      "original_vertex_displacement_m": 0.09433955613224465
+    },
+    {
+      "source_index": 60,
+      "turn_degrees": 23.614287953449765,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 5.226025385296381,
+      "original_vertex_displacement_m": 0.5403864756930055
+    },
+    {
+      "source_index": 61,
+      "turn_degrees": 27.18297098055849,
+      "status": "filleted",
+      "radius_m": 24.187625143783237,
+      "trim_m": 5.847797692853117,
+      "original_vertex_displacement_m": 0.6968669738532677
+    },
+    {
+      "source_index": 62,
+      "turn_degrees": 25.57417170630396,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 5.673935232457521,
+      "original_vertex_displacement_m": 0.6357863351628579
+    },
+    {
+      "source_index": 63,
+      "turn_degrees": 16.53870238289031,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 3.6334489686823686,
+      "original_vertex_displacement_m": 0.2626592307306219
+    },
+    {
+      "source_index": 64,
+      "turn_degrees": 18.510463186705667,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 4.073851838363038,
+      "original_vertex_displacement_m": 0.3297506659843352
+    },
+    {
+      "source_index": 65,
+      "turn_degrees": 15.230767548463238,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 3.3425443711914684,
+      "original_vertex_displacement_m": 0.22246226825176074
+    },
+    {
+      "source_index": 66,
+      "turn_degrees": 4.210614962500997,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.9190273319540893,
+      "original_vertex_displacement_m": 0.01688652164530957
+    },
+    {
+      "source_index": 67,
+      "turn_degrees": 5.086960021694599,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 1.1105321052700432,
+      "original_vertex_displacement_m": 0.0246534752598615
+    },
+    {
+      "source_index": 68,
+      "turn_degrees": 10.532218656686618,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 2.3042658432045897,
+      "original_vertex_displacement_m": 0.10596823618159723
+    },
+    {
+      "source_index": 69,
+      "turn_degrees": 4.397368379519855,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.9598281472508937,
+      "original_vertex_displacement_m": 0.018418616536397536
+    },
+    {
+      "source_index": 70,
+      "turn_degrees": 6.980123891123661,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 1.5247130341167865,
+      "original_vertex_displacement_m": 0.0464518412569892
+    },
+    {
+      "source_index": 71,
+      "turn_degrees": 8.816657970278527,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 1.927300925242417,
+      "original_vertex_displacement_m": 0.07417972449827448
+    },
+    {
+      "source_index": 72,
+      "turn_degrees": 7.466784689538979,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 1.6313091214333577,
+      "original_vertex_displacement_m": 0.053166854704650435
+    },
+    {
+      "source_index": 73,
+      "turn_degrees": 2.415794460122801,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.5271226863218459,
+      "original_vertex_displacement_m": 0.005556549023960633
+    },
+    {
+      "source_index": 74,
+      "turn_degrees": 3.007184720869971,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.6562165795579458,
+      "original_vertex_displacement_m": 0.008610921026519502
+    },
+    {
+      "source_index": 75,
+      "turn_degrees": 8.535157354061672,
+      "status": "kept",
+      "reason": "pinned"
+    },
+    {
+      "source_index": 76,
+      "turn_degrees": 1.1228791060951444,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.2449820598821974,
+      "original_vertex_displacement_m": 0.001200295379100158
+    },
+    {
+      "source_index": 77,
+      "turn_degrees": 0.8591095607938356,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.18743214258115365,
+      "original_vertex_displacement_m": 0.0007026062883386253
+    },
+    {
+      "source_index": 78,
+      "turn_degrees": 35.21288898654928,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 7.9335621498634685,
+      "original_vertex_displacement_m": 1.2286371812518349
+    },
+    {
+      "source_index": 79,
+      "turn_degrees": 2.048671543833377,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.446998421473717,
+      "original_vertex_displacement_m": 0.00399583244246049
+    },
+    {
+      "source_index": 80,
+      "turn_degrees": 0.04096339454902218,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.008936826726594233,
+      "original_vertex_displacement_m": 1.5973373845845629e-06
+    },
+    {
+      "source_index": 81,
+      "turn_degrees": 2.99882261177611,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.654390996901472,
+      "original_vertex_displacement_m": 0.008563085008017612
+    },
+    {
+      "source_index": 82,
+      "turn_degrees": 5.808983036249982,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 1.2684101976289757,
+      "original_vertex_displacement_m": 0.03215660764068762
+    },
+    {
+      "source_index": 83,
+      "turn_degrees": 2.4925515430976506,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.5438761679543216,
+      "original_vertex_displacement_m": 0.005915325899763513
+    },
+    {
+      "source_index": 84,
+      "turn_degrees": 5.9574794957145505,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 1.300892648842734,
+      "original_vertex_displacement_m": 0.0338235530214781
+    },
+    {
+      "source_index": 85,
+      "turn_degrees": 10.19193620515416,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 2.22941731049983,
+      "original_vertex_displacement_m": 0.09920918165264303
+    },
+    {
+      "source_index": 86,
+      "turn_degrees": 0.4711730469972425,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.1027945920115765,
+      "original_vertex_displacement_m": 0.00021133366969738887
+    },
+    {
+      "source_index": 87,
+      "turn_degrees": 1.2141499874657717,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 0.2648963490029803,
+      "original_vertex_displacement_m": 0.0014033621257958373
+    },
+    {
+      "source_index": 88,
+      "turn_degrees": 4.867199025364102,
+      "status": "filleted",
+      "radius_m": 25.0,
+      "trim_m": 1.062497120233926,
+      "original_vertex_displacement_m": 0.0225678164832932
+    }
+  ]
+}

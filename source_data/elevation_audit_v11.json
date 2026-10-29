@@ -1,0 +1,188 @@
+{
+  "schema": "chmyrivka.elevation_audit.v11",
+  "audit_scope": "Retained model axis from track_plan_v08.json; no claim of surveyed road heights. Native geometry preservation is checked separately by validate_v11.py.",
+  "direction": "A → E → B → C → D → A",
+  "source": {
+    "source": "Copernicus GLO-30 Public DSM, AWS COG, 2021 release",
+    "source_url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N49_00_E038_00_DEM/Copernicus_DSM_COG_10_N49_00_E038_00_DEM.tif",
+    "source_readme": "https://copernicus-dem-30m.s3.amazonaws.com/readme.html",
+    "official_documentation": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+    "source_tile_sha256": "8657093372fd2d37d052fdc98b1a75bdd9c67c16d1c901e262f50e0e0eed0104",
+    "nominal_spacing_arcseconds": 1,
+    "approximate_spacing_m_at_route": {
+      "east_west": 20.196196099362467,
+      "north_south": 30.88083139580489
+    },
+    "smoothed_dsm_method": "Periodic Gaussian smoothing, sigma=40 metres. Indicative modelling aid only; not ground/road reconstruction.",
+    "attribution_modified": "produced using Copernicus WorldDEM-30 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved"
+  },
+  "coordinate_system": {
+    "horizontal_crs": "EPSG:32637",
+    "origin_utm_m": [
+      493966.5303635461,
+      5459426.073004565
+    ],
+    "axes": "X east, Y north, Z up; metres",
+    "vertical_reference": "EGM2008 (EPSG:3855)",
+    "local_zero_m_egm2008": 59.00656509399414,
+    "zero_definition": "First original smoothed DSM route sample at original A (local XY 0,0). Retained after racing redesign moved A in XY; do not resample the datum at the redesigned A."
+  },
+  "chainage": {
+    "map_reference_length_m": 5849.321459898969,
+    "race_axis_length_m": 5736.743993982648,
+    "raw_dsm_sample_route_length_m": 5852.124056050674,
+    "crossing_4993": {
+      "map_chainage_m": 4992.910824102464,
+      "race_chainage_m": 4913.783264619737,
+      "local_xyz_m": [
+        730.3659240531354,
+        424.33815999565496,
+        2.7957772393620877
+      ],
+      "absolute_model_height_m_egm2008": 61.80234233335623
+    },
+    "pit_entry": {
+      "map_chainage_m": 5015.0,
+      "race_chainage_m": 4935.872212,
+      "local_xyz_m": [
+        709.1633092322028,
+        418.1444826783488,
+        3.034059080356435
+      ],
+      "absolute_model_height_m_egm2008": 62.040624174350576
+    },
+    "pit_exit": {
+      "map_chainage_m": 5500.0,
+      "race_chainage_m": 5420.871379728008,
+      "local_xyz_m": [
+        264.09079568135945,
+        226.51855628859215,
+        1.2787457804549773
+      ],
+      "absolute_model_height_m_egm2008": 60.28531087444912
+    },
+    "warning": "4993 denotes original MAP chainage, not distance around the revised racing axis."
+  },
+  "profile": {
+    "sample_count": 2601,
+    "local_min_m": -2.523131,
+    "local_max_m": 15.348416,
+    "relief_m": 17.871547,
+    "model_absolute_min_m_egm2008": 56.48343409399414,
+    "model_absolute_max_m_egm2008": 74.35498109399414,
+    "total_ascent_m": 33.659806,
+    "total_descent_m": 33.659805999999996,
+    "closure_height_difference_m": 0.0,
+    "highest_point": {
+      "map_chainage_m": 3136.136198,
+      "race_chainage_m": 3057.325579,
+      "local_xyz_m": [
+        1238.509114,
+        1684.442123,
+        15.348416
+      ],
+      "absolute_model_height_m_egm2008": 74.35498109399414
+    },
+    "lowest_point": {
+      "map_chainage_m": 1118.120294,
+      "race_chainage_m": 1084.628977,
+      "local_xyz_m": [
+        170.748146,
+        1066.755559,
+        -2.523131
+      ],
+      "absolute_model_height_m_egm2008": 56.48343409399414
+    },
+    "steepest_ascent": {
+      "grade_percent": 9.327793135115293,
+      "map_chainage_midpoint_m": 3009.0259435,
+      "race_chainage_midpoint_m": 2930.2187565
+    },
+    "steepest_descent": {
+      "grade_percent": -7.291423582913826,
+      "map_chainage_midpoint_m": 3218.2516725,
+      "race_chainage_midpoint_m": 3139.4410505
+    },
+    "grade_100m_min_percent": -5.77823646145308,
+    "grade_100m_max_percent": 7.612558424716382,
+    "B_regrade_maximum_m_recorded": 1.2066603461157053,
+    "maximum_model_vs_original_source_axis_difference_m": 1.2066599162103469,
+    "geometry_height_multiplier": 1.0,
+    "chart_note": "Chart axes use different scales for readability. The Blender scene has no vertical exaggeration."
+  },
+  "markers": {
+    "A": {
+      "map_chainage_m": 0.0,
+      "race_chainage_m": 0.0,
+      "local_xyz_m": [
+        20.043537,
+        31.486926,
+        0.0
+      ],
+      "absolute_model_height_m_egm2008": 59.00656509399414
+    },
+    "E": {
+      "map_chainage_m": 467.1936951421647,
+      "race_chainage_m": 433.71899098543213,
+      "local_xyz_m": [
+        142.35992576213417,
+        435.7377302872541,
+        -0.10077486584865011
+      ],
+      "absolute_model_height_m_egm2008": 58.90579022814549
+    },
+    "B": {
+      "map_chainage_m": 2449.8684837085575,
+      "race_chainage_m": 2393.7110068012053,
+      "local_xyz_m": [
+        794.4285174055128,
+        2125.46732477325,
+        7.3974810021878765
+      ],
+      "absolute_model_height_m_egm2008": 66.40404609618201
+    },
+    "C": {
+      "map_chainage_m": 3493.6912164368887,
+      "race_chainage_m": 3414.868758951722,
+      "local_xyz_m": [
+        1558.1600148978407,
+        1539.4174760837377,
+        5.137673915145155
+      ],
+      "absolute_model_height_m_egm2008": 64.1442390091393
+    },
+    "D": {
+      "map_chainage_m": 4425.466062957883,
+      "race_chainage_m": 4346.346310161314,
+      "local_xyz_m": [
+        1176.3771434977477,
+        729.54030981954,
+        0.9709951085048532
+      ],
+      "absolute_model_height_m_egm2008": 59.97756020249899
+    }
+  },
+  "retained_design": {
+    "width_m": [
+      8.0,
+      14.0
+    ],
+    "crown_fraction": 0.015,
+    "pit_side": "Right in travel direction, after map chainage 4992.910824; no rail drawn across racing asphalt"
+  },
+  "limitations": [
+    "Digital SURFACE model: may measure roofs, tree canopies and embankments rather than road level.",
+    "Approx. 20×31 metre sample spacing here; not appropriate for exact road width, banking, kerbs, potholes or railway-crossing ramp profiles.",
+    "Source base observations are mostly from 2011–2015, with gap-fill from other DEMs; not a current-condition survey.",
+    "Sampling every 10 metres is interpolation only, not newly measured detail.",
+    "Global product accuracy specs (<4 m absolute vertical error, LE90) are not local road accuracy guarantees.",
+    "Smoothing makes a usable indicative profile but cannot remove DSM bias reliably. Road surface still requires human reference checks.",
+    "The present profile is a modelling reference, not measured road levels. Curbs, crown, width, and regraded turns are fictional race conversion design. No driving or Assetto Corsa validation has been performed."
+  ],
+  "input_sha256": {
+    "data/track_plan_v08.json": "e9e125abc64a0dc79e99bb234cb8b52b2d04f72fefa8e018bd94cd4827dcb7d0",
+    "data/route_elevation_samples.npz": "1cf99e0322d5eaf695860aeb02c71af30d11b11754210dc2944983df16b59044",
+    "data/terrain_metadata.json": "843fa83b31fcd2299677b47145c8480fb5f19f35775205dfcdf8154099281ff3",
+    "scene_geometry.json": "0427c31f9e8f15000b55cb3685b4c27711fd806dce4c9aba3f2abeb736f90d5a"
+  }
+}

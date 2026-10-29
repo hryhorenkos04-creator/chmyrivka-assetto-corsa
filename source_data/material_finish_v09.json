@@ -1,0 +1,43 @@
+{
+  "version": "v09",
+  "aged_facade_objects": 154,
+  "wall_materials": [
+    "V09_Street_Plaster_Cream_CC0",
+    "V09_Street_Plaster_Faded_Teal_CC0",
+    "V09_Street_Plaster_Ochre_CC0",
+    "V09_Street_Plaster_Sage_CC0",
+    "V09_Street_Plaster_Warm_CC0",
+    "V09_Street_Silicate_Cream_CC0",
+    "V09_Street_Silicate_Grey_CC0"
+  ],
+  "secondary_materials": [
+    "HD_door",
+    "HD_foundation",
+    "HD_frame_blue",
+    "HD_frame_brown",
+    "HD_frame_white",
+    "HD_gutter",
+    "HD_roof_seam",
+    "HD_sill",
+    "v06 Fence aged blue grey",
+    "v06 Fence brown oxide",
+    "v06 Fence galvanized faded",
+    "v06 Fence picket pale",
+    "v06 Fence timber faded",
+    "v06 Fence weathered teal",
+    "v06 Masonry concrete",
+    "V09_House_Utility_Enamel",
+    "V09_Service_Aged_Teal"
+  ],
+  "asphalt": {
+    "material": "V08_Race_Asphalt",
+    "bump_depth_m": 0.0018,
+    "rubber_max_alpha": 0.18,
+    "track_vertices_changed": false
+  },
+  "original_vertices_changed": false,
+  "physical_brick_tile_m": 1.4,
+  "ground_weathering_height_m": 1.4,
+  "status": "Native Blender shader finish; requires material baking/conversion for game export",
+  "source_images": "Existing packed Poly Haven CC0; no new image assets"
+}
