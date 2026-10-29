@@ -1,0 +1,119 @@
+{
+  "purpose": "Fixed-transform before/after art review; not actual v15 render manifest",
+  "cameras": [
+    {
+      "camera": "V11_19_DRIVER",
+      "title": "Сінна · начало жилого участка",
+      "kind": "driver",
+      "station_map_m": 3900,
+      "file": "screenshots_v13/01_driver.png",
+      "location": [
+        1485.5198974609375,
+        1142.367919921875,
+        4.926495552062988
+      ],
+      "rotation": [
+        1.5747419595718384,
+        5.035172634393348e-08,
+        2.7410192489624023
+      ],
+      "lens_mm": 29.0,
+      "before_file": "screenshots_v12/01_driver.png"
+    },
+    {
+      "camera": "V11_30_DETAIL",
+      "title": "Сінна · примыкание и фасады",
+      "kind": "detail",
+      "station_map_m": 4059,
+      "file": "screenshots_v13/03_detail.png",
+      "location": [
+        1430.1070556640625,
+        1017.6912841796875,
+        5.864982604980469
+      ],
+      "rotation": [
+        1.5693773031234741,
+        1.1007208655655631e-07,
+        1.8873478174209595
+      ],
+      "lens_mm": 28.0,
+      "before_file": "screenshots_v12/03_detail.png"
+    },
+    {
+      "camera": "V12_08_DETAIL",
+      "title": "Фасад · материалы и детали",
+      "kind": "detail",
+      "station_map_m": 4045.1463941727675,
+      "file": "screenshots_v13/08_detail.png",
+      "location": [
+        1429.81982421875,
+        1011.9957885742188,
+        7.199999809265137
+      ],
+      "rotation": [
+        1.508022427558899,
+        6.188119527905656e-08,
+        1.3140021562576294
+      ],
+      "lens_mm": 44.0,
+      "before_file": "screenshots_v12/08_detail.png"
+    },
+    {
+      "camera": "V12_07_OVERVIEW",
+      "title": "Планировка дворов и примыкания",
+      "kind": "overview",
+      "station_map_m": 4010,
+      "file": "screenshots_v13/07_overview.png",
+      "location": [
+        1385.759521484375,
+        1157.3140869140625,
+        89.45144653320312
+      ],
+      "rotation": [
+        0.9902638792991638,
+        -1.0747928769205828e-07,
+        -2.6930911540985107
+      ],
+      "lens_mm": 52.0,
+      "before_file": "screenshots_v12/07_overview.png"
+    },
+    {
+      "camera": "V11_11_DRIVER",
+      "title": "Северный поворот · Т-13-02",
+      "kind": "driver",
+      "station_map_m": 2380,
+      "file": "screenshots_v11/11_driver.png",
+      "location": [
+        774.1785278320312,
+        2084.9384765625,
+        5.236767768859863
+      ],
+      "rotation": [
+        1.6290844678878784,
+        -9.36025088549286e-08,
+        -0.3269602656364441
+      ],
+      "lens_mm": 29.0,
+      "eye_above_road_m": 0.8
+    },
+    {
+      "camera": "V11_24_DRIVER",
+      "title": "Товарна площа · пит-лейн справа",
+      "kind": "driver",
+      "station_map_m": 5115,
+      "file": "screenshots_v11/24_driver.png",
+      "location": [
+        615.1052856445312,
+        384.55377197265625,
+        3.420391798019409
+      ],
+      "rotation": [
+        1.5592373609542847,
+        1.1188055282218556e-07,
+        1.971767544746399
+      ],
+      "lens_mm": 29.0,
+      "eye_above_road_m": 0.8
+    }
+  ]
+}

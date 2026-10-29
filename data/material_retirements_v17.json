@@ -1,0 +1,406 @@
+[
+  {
+    "material": "V15_V13_frame_way_403554197_V12_Architecture_frame_cream",
+    "original_users": [
+      {
+        "object": "V12_Architecture_frame_cream",
+        "slot_index": 4
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_frame_way_403555588_V12_Architecture_frame_cream",
+    "original_users": [
+      {
+        "object": "V12_Architecture_frame_cream",
+        "slot_index": 6
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_frame_way_403555589_V12_Architecture_frame_cream",
+    "original_users": [
+      {
+        "object": "V12_Architecture_frame_cream",
+        "slot_index": 7
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_frame_way_403555590_V12_Architecture_frame_cream",
+    "original_users": [
+      {
+        "object": "V12_Architecture_frame_cream",
+        "slot_index": 8
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_frame_way_403555591_V12_Architecture_frame_cream",
+    "original_users": [
+      {
+        "object": "V12_Architecture_frame_cream",
+        "slot_index": 9
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_frame_way_403555592_V12_Architecture_frame_cream",
+    "original_users": [
+      {
+        "object": "V12_Architecture_frame_cream",
+        "slot_index": 10
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_frame_way_403555593_V12_Architecture_frame_cream",
+    "original_users": [
+      {
+        "object": "V12_Architecture_frame_cream",
+        "slot_index": 11
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_frame_way_403555594_V12_Architecture_frame_teal",
+    "original_users": [
+      {
+        "object": "V12_Architecture_frame_teal",
+        "slot_index": 3
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_frame_way_403555595_V12_Architecture_frame_cream",
+    "original_users": [
+      {
+        "object": "V12_Architecture_frame_cream",
+        "slot_index": 12
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_frame_way_403555596_V12_Architecture_frame_brown",
+    "original_users": [
+      {
+        "object": "V12_Architecture_frame_brown.001",
+        "slot_index": 1
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_frame_way_403555609_V12_Architecture_frame_teal",
+    "original_users": [
+      {
+        "object": "V12_Architecture_frame_teal",
+        "slot_index": 4
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_frame_way_406501364_V12_Architecture_frame_brown",
+    "original_users": [
+      {
+        "object": "V12_Architecture_frame_brown.001",
+        "slot_index": 5
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_roof_way_403554197_V12_Architecture_Roof_2",
+    "original_users": [
+      {
+        "object": "BLDG_way_403554197_roof",
+        "slot_index": 0
+      },
+      {
+        "object": "V12_Roof_way_403554197",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_roof_way_403555588_V12_Architecture_Roof_2",
+    "original_users": [
+      {
+        "object": "BLDG_way_403555588_roof",
+        "slot_index": 0
+      },
+      {
+        "object": "V12_Roof_way_403555588",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_roof_way_403555589_V12_Architecture_Roof_0",
+    "original_users": [
+      {
+        "object": "BLDG_way_403555589_roof",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_roof_way_403555590_V12_Architecture_Roof_2",
+    "original_users": [
+      {
+        "object": "BLDG_way_403555590_roof",
+        "slot_index": 0
+      },
+      {
+        "object": "V12_Roof_way_403555590",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_roof_way_403555591_V12_Architecture_Roof_0",
+    "original_users": [
+      {
+        "object": "BLDG_way_403555591_roof",
+        "slot_index": 0
+      },
+      {
+        "object": "V12_Roof_way_403555591",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_roof_way_403555592_V12_Architecture_Roof_1",
+    "original_users": [
+      {
+        "object": "BLDG_way_403555592_roof",
+        "slot_index": 0
+      },
+      {
+        "object": "V12_Roof_way_403555592",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_roof_way_403555593_V12_Architecture_Roof_3",
+    "original_users": [
+      {
+        "object": "BLDG_way_403555593_roof",
+        "slot_index": 0
+      },
+      {
+        "object": "V12_Roof_way_403555593",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_roof_way_403555594_V12_Architecture_Roof_1",
+    "original_users": [
+      {
+        "object": "BLDG_way_403555594_roof",
+        "slot_index": 0
+      },
+      {
+        "object": "V12_Roof_way_403555594",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_roof_way_403555595_V12_Architecture_Roof_0",
+    "original_users": [
+      {
+        "object": "BLDG_way_403555595_roof",
+        "slot_index": 0
+      },
+      {
+        "object": "V12_Roof_way_403555595",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_roof_way_403555596_V12_Architecture_Roof_1",
+    "original_users": [
+      {
+        "object": "BLDG_way_403555596_roof",
+        "slot_index": 0
+      },
+      {
+        "object": "V12_Roof_way_403555596",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_roof_way_403555609_V12_Architecture_Roof_0",
+    "original_users": [
+      {
+        "object": "BLDG_way_403555609_roof",
+        "slot_index": 0
+      },
+      {
+        "object": "V12_Roof_way_403555609",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_roof_way_406501364_V12_Architecture_Roof_1",
+    "original_users": [
+      {
+        "object": "BLDG_way_406501364_roof",
+        "slot_index": 0
+      },
+      {
+        "object": "V12_Roof_way_406501364",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_wall_way_403554197_V12_Architecture_Silicate_2",
+    "original_users": [
+      {
+        "object": "BLDG_way_403554197_walls",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_wall_way_403555588_V12_Architecture_Silicate_1",
+    "original_users": [
+      {
+        "object": "BLDG_way_403555588_walls",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_wall_way_403555589_V12_Architecture_Plaster_3",
+    "original_users": [
+      {
+        "object": "BLDG_way_403555589_walls",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_wall_way_403555590_V12_Architecture_Plaster_1",
+    "original_users": [
+      {
+        "object": "BLDG_way_403555590_walls",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_wall_way_403555591_V12_Architecture_Silicate_1",
+    "original_users": [
+      {
+        "object": "BLDG_way_403555591_walls",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_wall_way_403555592_V12_Architecture_Silicate_2",
+    "original_users": [
+      {
+        "object": "BLDG_way_403555592_walls",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_wall_way_403555593_V12_Architecture_Silicate_0",
+    "original_users": [
+      {
+        "object": "BLDG_way_403555593_walls",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_wall_way_403555594_V12_Architecture_Silicate_2",
+    "original_users": [
+      {
+        "object": "BLDG_way_403555594_walls",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_wall_way_403555595_V12_Architecture_Plaster_0",
+    "original_users": [
+      {
+        "object": "BLDG_way_403555595_walls",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_wall_way_403555596_V12_Architecture_Silicate_1",
+    "original_users": [
+      {
+        "object": "BLDG_way_403555596_walls",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_wall_way_403555609_V12_Architecture_Plaster_2",
+    "original_users": [
+      {
+        "object": "BLDG_way_403555609_walls",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  },
+  {
+    "material": "V15_V13_wall_way_406501364_V12_Architecture_Plaster_1",
+    "original_users": [
+      {
+        "object": "BLDG_way_406501364_walls",
+        "slot_index": 0
+      }
+    ],
+    "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+  }
+]

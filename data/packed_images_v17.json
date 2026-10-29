@@ -1,0 +1,177 @@
+[
+  {
+    "name": "birch_bark_diffuse.png",
+    "size": [
+      512,
+      1024
+    ]
+  },
+  {
+    "name": "birch_bark_normal.png",
+    "size": [
+      512,
+      1024
+    ]
+  },
+  {
+    "name": "broadleaf_diffuse_1k.png",
+    "size": [
+      1024,
+      1024
+    ]
+  },
+  {
+    "name": "broadleaf_normal_1k.png",
+    "size": [
+      1024,
+      1024
+    ]
+  },
+  {
+    "name": "dark_bark_diffuse.png",
+    "size": [
+      512,
+      1024
+    ]
+  },
+  {
+    "name": "dark_bark_normal.png",
+    "size": [
+      512,
+      1024
+    ]
+  },
+  {
+    "name": "dirt_diff_2k.jpg",
+    "size": [
+      2048,
+      2048
+    ]
+  },
+  {
+    "name": "dirt_nor_gl_2k.jpg",
+    "size": [
+      2048,
+      2048
+    ]
+  },
+  {
+    "name": "dirt_rough_2k.jpg",
+    "size": [
+      2048,
+      2048
+    ]
+  },
+  {
+    "name": "grass001_diff_2k.jpg",
+    "size": [
+      2048,
+      2048
+    ]
+  },
+  {
+    "name": "grass001_nor_gl_2k.jpg",
+    "size": [
+      2048,
+      2048
+    ]
+  },
+  {
+    "name": "kloofendal_48d_partly_cloudy_puresky_4k.hdr",
+    "size": [
+      4096,
+      2048
+    ]
+  },
+  {
+    "name": "pine_diffuse_1k.png",
+    "size": [
+      1024,
+      1024
+    ]
+  },
+  {
+    "name": "pine_normal_1k.png",
+    "size": [
+      1024,
+      1024
+    ]
+  },
+  {
+    "name": "red_brick_diff_2k.jpg",
+    "size": [
+      2048,
+      2048
+    ]
+  },
+  {
+    "name": "red_brick_nor_gl_2k.jpg",
+    "size": [
+      2048,
+      2048
+    ]
+  },
+  {
+    "name": "red_brick_rough_2k.jpg",
+    "size": [
+      2048,
+      2048
+    ]
+  },
+  {
+    "name": "rough_concrete_diff_2k.jpg",
+    "size": [
+      2048,
+      2048
+    ]
+  },
+  {
+    "name": "rough_concrete_nor_gl_2k.jpg",
+    "size": [
+      2048,
+      2048
+    ]
+  },
+  {
+    "name": "rough_concrete_rough_2k.jpg",
+    "size": [
+      2048,
+      2048
+    ]
+  },
+  {
+    "name": "singleleaf_diffuse_1k.png",
+    "size": [
+      1024,
+      1024
+    ]
+  },
+  {
+    "name": "singleleaf_normal_1k.png",
+    "size": [
+      1024,
+      1024
+    ]
+  },
+  {
+    "name": "v10_surface_asphalt_albedo_2k.png",
+    "size": [
+      2048,
+      2048
+    ]
+  },
+  {
+    "name": "v10_surface_asphalt_normal_gl_2k.png",
+    "size": [
+      2048,
+      2048
+    ]
+  },
+  {
+    "name": "v10_surface_asphalt_roughness_2k.png",
+    "size": [
+      2048,
+      2048
+    ]
+  }
+]

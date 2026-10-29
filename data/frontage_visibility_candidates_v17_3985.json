@@ -1,0 +1,421 @@
+{
+  "camera": "V17_DRIVER_3985",
+  "camera_location": [
+    1452.05908203125,
+    1064.4764404296875,
+    5.250988960266113
+  ],
+  "camera_rotation": [
+    1.5697749853134155,
+    1.1564306845457395e-07,
+    2.690370798110962
+  ],
+  "camera_lens_mm": 29.0,
+  "scene_sha256": "03911a356ad72bb8d4d53f954f94950cf1b9992bde5d2267eb7de51fed28da95",
+  "purpose": "Structural line-of-sight ranking for selected tall frontage shrub crowns. Does not prove final leaf silhouette coverage or pixel quality.",
+  "structural_meshes": [
+    {
+      "name": "Houses_foundation",
+      "triangles": 180
+    },
+    {
+      "name": "Houses_frame_white",
+      "triangles": 1392
+    },
+    {
+      "name": "Houses_gutter",
+      "triangles": 184
+    },
+    {
+      "name": "Houses_sill",
+      "triangles": 548
+    },
+    {
+      "name": "Houses_glass",
+      "triangles": 300
+    },
+    {
+      "name": "Houses_door",
+      "triangles": 36
+    },
+    {
+      "name": "Houses_metal",
+      "triangles": 36
+    },
+    {
+      "name": "Houses_roof_seam",
+      "triangles": 588
+    },
+    {
+      "name": "Houses_chimney",
+      "triangles": 24
+    },
+    {
+      "name": "Houses_reveal",
+      "triangles": 24
+    },
+    {
+      "name": "Houses_frame_brown",
+      "triangles": 768
+    },
+    {
+      "name": "V12_Yard_Houses_brick",
+      "triangles": 2736
+    },
+    {
+      "name": "V12_Yard_Houses_black",
+      "triangles": 216
+    },
+    {
+      "name": "V12_Yard_Houses_terracotta",
+      "triangles": 96
+    },
+    {
+      "name": "V12_Yard_Houses_soil",
+      "triangles": 96
+    },
+    {
+      "name": "V12_Yard_Houses_path",
+      "triangles": 383
+    },
+    {
+      "name": "V12_Yard_Houses_soil.001",
+      "triangles": 130
+    },
+    {
+      "name": "V12_Yard_Houses_gravel",
+      "triangles": 527
+    },
+    {
+      "name": "V13_House609_Ground_Seam",
+      "triangles": 92
+    },
+    {
+      "name": "V16_Yard_Fences_Gates",
+      "triangles": 91664
+    }
+  ],
+  "candidate_count": 223,
+  "ranked_parcels": [
+    {
+      "osm_id": "way/403555589",
+      "station_map_m": 4000.0080847531335,
+      "root_xyz": [
+        1435.8447265625,
+        1046.8941650390625,
+        4.302215576171875
+      ],
+      "radius_m": 0.65,
+      "design_height_m": 2.3,
+      "distance_m": 23.936205191490867,
+      "screen_xy": [
+        0.7436654567718506,
+        0.5634725093841553
+      ],
+      "visible_samples": 6,
+      "samples": [
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 23.924214675998144,
+          "point_xyz": [
+            1435.8447265625,
+            1046.8941650390625,
+            5.822215557098389
+          ]
+        },
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 23.835456078092804,
+          "point_xyz": [
+            1436.15966796875,
+            1046.7415771484375,
+            6.152215480804443
+          ]
+        },
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 24.03796719698624,
+          "point_xyz": [
+            1435.52978515625,
+            1047.0467529296875,
+            6.152215480804443
+          ]
+        },
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 23.944131253900625,
+          "point_xyz": [
+            1435.8447265625,
+            1046.8941650390625,
+            6.38221549987793
+          ]
+        },
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 23.894622383486436,
+          "point_xyz": [
+            1436.0067138671875,
+            1046.815673828125,
+            6.422215461730957
+          ]
+        },
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 23.998725355592555,
+          "point_xyz": [
+            1435.6827392578125,
+            1046.97265625,
+            6.422215461730957
+          ]
+        }
+      ],
+      "front_edge_distance_m": 1.0273305530231784
+    },
+    {
+      "osm_id": "way/403555591",
+      "station_map_m": 4019.0108190431765,
+      "root_xyz": [
+        1447.52392578125,
+        1037.7041015625,
+        4.318817138671875
+      ],
+      "radius_m": 0.65,
+      "design_height_m": 2.3,
+      "distance_m": 27.169738757945307,
+      "screen_xy": [
+        0.2653646767139435,
+        0.5568265914916992
+      ],
+      "visible_samples": 6,
+      "samples": [
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 27.160104967428527,
+          "point_xyz": [
+            1447.52392578125,
+            1037.7041015625,
+            5.838817119598389
+          ]
+        },
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 27.269108560125222,
+          "point_xyz": [
+            1447.8388671875,
+            1037.551513671875,
+            6.168817043304443
+          ]
+        },
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 27.07354798460907,
+          "point_xyz": [
+            1447.208984375,
+            1037.856689453125,
+            6.168817043304443
+          ]
+        },
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 27.177992368481735,
+          "point_xyz": [
+            1447.52392578125,
+            1037.7041015625,
+            6.39881706237793
+          ]
+        },
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 27.230546168927436,
+          "point_xyz": [
+            1447.6859130859375,
+            1037.6256103515625,
+            6.438817024230957
+          ]
+        },
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 27.129976354466365,
+          "point_xyz": [
+            1447.3619384765625,
+            1037.7825927734375,
+            6.438817024230957
+          ]
+        }
+      ],
+      "front_edge_distance_m": 1.4225755729088227
+    },
+    {
+      "osm_id": "way/406497782",
+      "station_map_m": 4028.890310671928,
+      "root_xyz": [
+        1430.7852783203125,
+        1036.6192626953125,
+        4.286041259765625
+      ],
+      "radius_m": 0.65,
+      "design_height_m": 2.3,
+      "distance_m": 35.06462890873314,
+      "screen_xy": [
+        0.6641139984130859,
+        0.5421200394630432
+      ],
+      "visible_samples": 6,
+      "samples": [
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 35.055743601350365,
+          "point_xyz": [
+            1430.7852783203125,
+            1036.6192626953125,
+            5.806041240692139
+          ]
+        },
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 34.99434539637923,
+          "point_xyz": [
+            1431.1002197265625,
+            1036.4666748046875,
+            6.136041164398193
+          ]
+        },
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 35.13405104004889,
+          "point_xyz": [
+            1430.4703369140625,
+            1036.7718505859375,
+            6.136041164398193
+          ]
+        },
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 35.06908065321842,
+          "point_xyz": [
+            1430.7852783203125,
+            1036.6192626953125,
+            6.36604118347168
+          ]
+        },
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 35.03490485421097,
+          "point_xyz": [
+            1430.947265625,
+            1036.540771484375,
+            6.406041145324707
+          ]
+        },
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 35.10673261069298,
+          "point_xyz": [
+            1430.623291015625,
+            1036.69775390625,
+            6.406041145324707
+          ]
+        }
+      ],
+      "front_edge_distance_m": 1.1211245544869068
+    },
+    {
+      "osm_id": "way/403555588",
+      "station_map_m": 4045.1463941727675,
+      "root_xyz": [
+        1421.299072265625,
+        1017.2149658203125,
+        4.262359619140625
+      ],
+      "radius_m": 0.65,
+      "design_height_m": 2.3,
+      "distance_m": 56.398604444411795,
+      "screen_xy": [
+        0.6018354296684265,
+        0.5258167386054993
+      ],
+      "visible_samples": 6,
+      "samples": [
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 56.39244231326383,
+          "point_xyz": [
+            1421.299072265625,
+            1017.2149658203125,
+            5.782359600067139
+          ]
+        },
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 56.353733159499704,
+          "point_xyz": [
+            1421.614013671875,
+            1017.0623168945312,
+            6.112359523773193
+          ]
+        },
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 56.44143869749038,
+          "point_xyz": [
+            1420.984130859375,
+            1017.3676147460938,
+            6.112359523773193
+          ]
+        },
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 56.400498978837376,
+          "point_xyz": [
+            1421.299072265625,
+            1017.2149658203125,
+            6.34235954284668
+          ]
+        },
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 56.37899624432713,
+          "point_xyz": [
+            1421.4610595703125,
+            1017.136474609375,
+            6.382359504699707
+          ]
+        },
+        {
+          "visible": true,
+          "blocker": null,
+          "distance_m": 56.424142065696344,
+          "point_xyz": [
+            1421.1370849609375,
+            1017.29345703125,
+            6.382359504699707
+          ]
+        }
+      ],
+      "front_edge_distance_m": 1.0219864052535637
+    }
+  ]
+}

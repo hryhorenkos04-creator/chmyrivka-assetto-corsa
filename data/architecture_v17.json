@@ -1,0 +1,1042 @@
+{
+  "version": "v17",
+  "scope": "Twelve near-road houses around Sinna map3900–4070m, selected from established review cameras01–03",
+  "geometry_policy": "Original objects/meshes/transforms/UVs/normals and polygon material indices unchanged; explicit private material rebindings only",
+  "accuracy": "OSM envelopes retained; house treatments/canopies/cladding are regional reconstruction, not address-matched photographs",
+  "counts": {
+    "houses": 12,
+    "canopies": 5,
+    "gable_clad_frontages": 4,
+    "window_surrounds": 56,
+    "curtain_windows": 44,
+    "roof_palette_copies": 12
+  },
+  "canopy_reserves": [
+    {
+      "osm_id": "way/403555588",
+      "polygon_xy": [
+        [
+          1415.7933349609375,
+          1015.4547119140625
+        ],
+        [
+          1416.5933837890625,
+          1016.966064453125
+        ],
+        [
+          1417.4639892578125,
+          1016.5052490234375
+        ],
+        [
+          1416.6639404296875,
+          1014.993896484375
+        ]
+      ],
+      "ground_posts": false
+    },
+    {
+      "osm_id": "way/403555591",
+      "polygon_xy": [
+        [
+          1444.82275390625,
+          1029.66259765625
+        ],
+        [
+          1444.0372314453125,
+          1028.1436767578125
+        ],
+        [
+          1443.162353515625,
+          1028.5960693359375
+        ],
+        [
+          1443.9478759765625,
+          1030.114990234375
+        ]
+      ],
+      "ground_posts": false
+    },
+    {
+      "osm_id": "way/403555593",
+      "polygon_xy": [
+        [
+          1462.6119384765625,
+          1107.6812744140625
+        ],
+        [
+          1463.3475341796875,
+          1109.2249755859375
+        ],
+        [
+          1464.2366943359375,
+          1108.80126953125
+        ],
+        [
+          1463.5010986328125,
+          1107.257568359375
+        ]
+      ],
+      "ground_posts": false
+    },
+    {
+      "osm_id": "way/403555594",
+      "polygon_xy": [
+        [
+          1469.7855224609375,
+          1128.4232177734375
+        ],
+        [
+          1470.4619140625,
+          1129.9937744140625
+        ],
+        [
+          1471.3665771484375,
+          1129.6041259765625
+        ],
+        [
+          1470.690185546875,
+          1128.0335693359375
+        ]
+      ],
+      "ground_posts": false
+    },
+    {
+      "osm_id": "way/403555596",
+      "polygon_xy": [
+        [
+          1459.46875,
+          1062.9866943359375
+        ],
+        [
+          1458.6527099609375,
+          1061.4840087890625
+        ],
+        [
+          1457.787109375,
+          1061.9541015625
+        ],
+        [
+          1458.6031494140625,
+          1063.456787109375
+        ]
+      ],
+      "ground_posts": false
+    }
+  ],
+  "new_objects": [
+    {
+      "object": "V17_Architecture_way_403554197",
+      "role": "attached_detail",
+      "associated_building": "BLDG_way_403554197_walls",
+      "associated_osm_id": "way/403554197",
+      "attachment_tolerance_m": 1.2,
+      "maximum_above_building_m": 1.5,
+      "minimum_below_building_m": 0.05,
+      "minimum_asphalt_clearance_m": 0.0,
+      "minimum_building_clearance_m": 0.0
+    },
+    {
+      "object": "V17_Architecture_way_403555588",
+      "role": "attached_detail",
+      "associated_building": "BLDG_way_403555588_walls",
+      "associated_osm_id": "way/403555588",
+      "attachment_tolerance_m": 1.2,
+      "maximum_above_building_m": 1.5,
+      "minimum_below_building_m": 0.05,
+      "minimum_asphalt_clearance_m": 0.0,
+      "minimum_building_clearance_m": 0.0
+    },
+    {
+      "object": "V17_Architecture_way_403555589",
+      "role": "attached_detail",
+      "associated_building": "BLDG_way_403555589_walls",
+      "associated_osm_id": "way/403555589",
+      "attachment_tolerance_m": 1.2,
+      "maximum_above_building_m": 1.5,
+      "minimum_below_building_m": 0.05,
+      "minimum_asphalt_clearance_m": 0.0,
+      "minimum_building_clearance_m": 0.0
+    },
+    {
+      "object": "V17_Architecture_way_403555590",
+      "role": "attached_detail",
+      "associated_building": "BLDG_way_403555590_walls",
+      "associated_osm_id": "way/403555590",
+      "attachment_tolerance_m": 1.2,
+      "maximum_above_building_m": 1.5,
+      "minimum_below_building_m": 0.05,
+      "minimum_asphalt_clearance_m": 0.0,
+      "minimum_building_clearance_m": 0.0
+    },
+    {
+      "object": "V17_Architecture_way_403555591",
+      "role": "attached_detail",
+      "associated_building": "BLDG_way_403555591_walls",
+      "associated_osm_id": "way/403555591",
+      "attachment_tolerance_m": 1.2,
+      "maximum_above_building_m": 1.5,
+      "minimum_below_building_m": 0.05,
+      "minimum_asphalt_clearance_m": 0.0,
+      "minimum_building_clearance_m": 0.0
+    },
+    {
+      "object": "V17_Architecture_way_403555592",
+      "role": "attached_detail",
+      "associated_building": "BLDG_way_403555592_walls",
+      "associated_osm_id": "way/403555592",
+      "attachment_tolerance_m": 1.2,
+      "maximum_above_building_m": 1.5,
+      "minimum_below_building_m": 0.05,
+      "minimum_asphalt_clearance_m": 0.0,
+      "minimum_building_clearance_m": 0.0
+    },
+    {
+      "object": "V17_Architecture_way_403555593",
+      "role": "attached_detail",
+      "associated_building": "BLDG_way_403555593_walls",
+      "associated_osm_id": "way/403555593",
+      "attachment_tolerance_m": 1.2,
+      "maximum_above_building_m": 1.5,
+      "minimum_below_building_m": 0.05,
+      "minimum_asphalt_clearance_m": 0.0,
+      "minimum_building_clearance_m": 0.0
+    },
+    {
+      "object": "V17_Architecture_way_403555594",
+      "role": "attached_detail",
+      "associated_building": "BLDG_way_403555594_walls",
+      "associated_osm_id": "way/403555594",
+      "attachment_tolerance_m": 1.2,
+      "maximum_above_building_m": 1.5,
+      "minimum_below_building_m": 0.05,
+      "minimum_asphalt_clearance_m": 0.0,
+      "minimum_building_clearance_m": 0.0
+    },
+    {
+      "object": "V17_Architecture_way_403555595",
+      "role": "attached_detail",
+      "associated_building": "BLDG_way_403555595_walls",
+      "associated_osm_id": "way/403555595",
+      "attachment_tolerance_m": 1.2,
+      "maximum_above_building_m": 1.5,
+      "minimum_below_building_m": 0.05,
+      "minimum_asphalt_clearance_m": 0.0,
+      "minimum_building_clearance_m": 0.0
+    },
+    {
+      "object": "V17_Architecture_way_403555596",
+      "role": "attached_detail",
+      "associated_building": "BLDG_way_403555596_walls",
+      "associated_osm_id": "way/403555596",
+      "attachment_tolerance_m": 1.2,
+      "maximum_above_building_m": 1.5,
+      "minimum_below_building_m": 0.05,
+      "minimum_asphalt_clearance_m": 0.0,
+      "minimum_building_clearance_m": 0.0
+    },
+    {
+      "object": "V17_Architecture_way_403555609",
+      "role": "attached_detail",
+      "associated_building": "BLDG_way_403555609_walls",
+      "associated_osm_id": "way/403555609",
+      "attachment_tolerance_m": 1.2,
+      "maximum_above_building_m": 1.5,
+      "minimum_below_building_m": 0.05,
+      "minimum_asphalt_clearance_m": 0.0,
+      "minimum_building_clearance_m": 0.0
+    },
+    {
+      "object": "V17_Architecture_way_406501364",
+      "role": "attached_detail",
+      "associated_building": "BLDG_way_406501364_walls",
+      "associated_osm_id": "way/406501364",
+      "attachment_tolerance_m": 1.2,
+      "maximum_above_building_m": 1.5,
+      "minimum_below_building_m": 0.05,
+      "minimum_asphalt_clearance_m": 0.0,
+      "minimum_building_clearance_m": 0.0
+    }
+  ],
+  "buildings": [
+    {
+      "osm_id": "way/403554197",
+      "station_map_m": 3903.788785305341,
+      "wall_object": "BLDG_way_403554197_walls",
+      "roof_object": "BLDG_way_403554197_roof",
+      "detail_object": "V17_Architecture_way_403554197",
+      "style": {
+        "wall": [
+          1.0,
+          0.92,
+          0.8
+        ],
+        "trim": "cream",
+        "gable": null,
+        "canopy": false,
+        "roof": [
+          1.02,
+          0.95,
+          0.86
+        ]
+      },
+      "counts": {
+        "canopies": 0,
+        "gable_clad_frontages": 0,
+        "window_surrounds": 4,
+        "curtain_windows": 3
+      },
+      "tested_primitives": 18,
+      "omitted_primitives": [],
+      "polygons": 153,
+      "triangles": 306
+    },
+    {
+      "osm_id": "way/403555588",
+      "station_map_m": 4045.1463941727675,
+      "wall_object": "BLDG_way_403555588_walls",
+      "roof_object": "BLDG_way_403555588_roof",
+      "detail_object": "V17_Architecture_way_403555588",
+      "style": {
+        "wall": [
+          0.99,
+          0.97,
+          0.88
+        ],
+        "trim": "cream",
+        "gable": "sage",
+        "canopy": true,
+        "roof": [
+          0.9,
+          0.99,
+          0.96
+        ]
+      },
+      "counts": {
+        "canopies": 1,
+        "gable_clad_frontages": 1,
+        "window_surrounds": 7,
+        "curtain_windows": 5
+      },
+      "tested_primitives": 55,
+      "omitted_primitives": [],
+      "polygons": 364,
+      "triangles": 735
+    },
+    {
+      "osm_id": "way/403555589",
+      "station_map_m": 4000.0080847531335,
+      "wall_object": "BLDG_way_403555589_walls",
+      "roof_object": "BLDG_way_403555589_roof",
+      "detail_object": "V17_Architecture_way_403555589",
+      "style": {
+        "wall": [
+          0.86,
+          0.97,
+          0.92
+        ],
+        "trim": "cream",
+        "gable": null,
+        "canopy": false,
+        "roof": [
+          0.94,
+          0.99,
+          0.96
+        ]
+      },
+      "counts": {
+        "canopies": 0,
+        "gable_clad_frontages": 0,
+        "window_surrounds": 4,
+        "curtain_windows": 4
+      },
+      "tested_primitives": 22,
+      "omitted_primitives": [],
+      "polygons": 190,
+      "triangles": 380
+    },
+    {
+      "osm_id": "way/403555590",
+      "station_map_m": 4042.643791657844,
+      "wall_object": "BLDG_way_403555590_walls",
+      "roof_object": "BLDG_way_403555590_roof",
+      "detail_object": "V17_Architecture_way_403555590",
+      "style": {
+        "wall": [
+          0.93,
+          0.95,
+          1.02
+        ],
+        "trim": "blue",
+        "gable": "blue",
+        "canopy": false,
+        "roof": [
+          0.88,
+          0.95,
+          1.02
+        ]
+      },
+      "counts": {
+        "canopies": 0,
+        "gable_clad_frontages": 1,
+        "window_surrounds": 4,
+        "curtain_windows": 3
+      },
+      "tested_primitives": 28,
+      "omitted_primitives": [],
+      "polygons": 170,
+      "triangles": 347
+    },
+    {
+      "osm_id": "way/403555591",
+      "station_map_m": 4019.0108190431765,
+      "wall_object": "BLDG_way_403555591_walls",
+      "roof_object": "BLDG_way_403555591_roof",
+      "detail_object": "V17_Architecture_way_403555591",
+      "style": {
+        "wall": [
+          0.92,
+          0.94,
+          0.85
+        ],
+        "trim": "sage",
+        "gable": null,
+        "canopy": true,
+        "roof": [
+          1.02,
+          0.92,
+          0.81
+        ]
+      },
+      "counts": {
+        "canopies": 1,
+        "gable_clad_frontages": 0,
+        "window_surrounds": 4,
+        "curtain_windows": 4
+      },
+      "tested_primitives": 30,
+      "omitted_primitives": [],
+      "polygons": 247,
+      "triangles": 494
+    },
+    {
+      "osm_id": "way/403555592",
+      "station_map_m": 3956.9216723251247,
+      "wall_object": "BLDG_way_403555592_walls",
+      "roof_object": "BLDG_way_403555592_roof",
+      "detail_object": "V17_Architecture_way_403555592",
+      "style": {
+        "wall": [
+          0.9,
+          0.91,
+          0.81
+        ],
+        "trim": "cream",
+        "gable": "cream",
+        "canopy": false,
+        "roof": [
+          0.9,
+          0.94,
+          0.92
+        ]
+      },
+      "counts": {
+        "canopies": 0,
+        "gable_clad_frontages": 1,
+        "window_surrounds": 4,
+        "curtain_windows": 3
+      },
+      "tested_primitives": 27,
+      "omitted_primitives": [],
+      "polygons": 167,
+      "triangles": 341
+    },
+    {
+      "osm_id": "way/403555593",
+      "station_map_m": 3941.9026246984117,
+      "wall_object": "BLDG_way_403555593_walls",
+      "roof_object": "BLDG_way_403555593_roof",
+      "detail_object": "V17_Architecture_way_403555593",
+      "style": {
+        "wall": [
+          0.97,
+          0.93,
+          0.82
+        ],
+        "trim": "cream",
+        "gable": "timber",
+        "canopy": true,
+        "roof": [
+          0.91,
+          0.93,
+          0.92
+        ]
+      },
+      "counts": {
+        "canopies": 1,
+        "gable_clad_frontages": 1,
+        "window_surrounds": 7,
+        "curtain_windows": 5
+      },
+      "tested_primitives": 53,
+      "omitted_primitives": [],
+      "polygons": 338,
+      "triangles": 683
+    },
+    {
+      "osm_id": "way/403555594",
+      "station_map_m": 3921.546815942085,
+      "wall_object": "BLDG_way_403555594_walls",
+      "roof_object": "BLDG_way_403555594_roof",
+      "detail_object": "V17_Architecture_way_403555594",
+      "style": {
+        "wall": [
+          0.81,
+          0.91,
+          0.94
+        ],
+        "trim": "sage",
+        "gable": "sage",
+        "canopy": true,
+        "roof": [
+          1.28,
+          0.84,
+          0.69
+        ]
+      },
+      "counts": {
+        "canopies": 1,
+        "gable_clad_frontages": 0,
+        "window_surrounds": 4,
+        "curtain_windows": 3
+      },
+      "tested_primitives": 27,
+      "omitted_primitives": [],
+      "polygons": 202,
+      "triangles": 404
+    },
+    {
+      "osm_id": "way/403555595",
+      "station_map_m": 3981.6832736560796,
+      "wall_object": "BLDG_way_403555595_walls",
+      "roof_object": "BLDG_way_403555595_roof",
+      "detail_object": "V17_Architecture_way_403555595",
+      "style": {
+        "wall": [
+          1.04,
+          0.92,
+          0.79
+        ],
+        "trim": "timber",
+        "gable": null,
+        "canopy": false,
+        "roof": [
+          1.06,
+          0.93,
+          0.86
+        ]
+      },
+      "counts": {
+        "canopies": 0,
+        "gable_clad_frontages": 0,
+        "window_surrounds": 3,
+        "curtain_windows": 1
+      },
+      "tested_primitives": 12,
+      "omitted_primitives": [],
+      "polygons": 91,
+      "triangles": 182
+    },
+    {
+      "osm_id": "way/403555596",
+      "station_map_m": 3981.5224915968483,
+      "wall_object": "BLDG_way_403555596_walls",
+      "roof_object": "BLDG_way_403555596_roof",
+      "detail_object": "V17_Architecture_way_403555596",
+      "style": {
+        "wall": [
+          0.9,
+          0.94,
+          0.97
+        ],
+        "trim": "blue",
+        "gable": null,
+        "canopy": true,
+        "roof": [
+          0.99,
+          0.95,
+          0.88
+        ]
+      },
+      "counts": {
+        "canopies": 1,
+        "gable_clad_frontages": 0,
+        "window_surrounds": 2,
+        "curtain_windows": 2
+      },
+      "tested_primitives": 20,
+      "omitted_primitives": [],
+      "polygons": 153,
+      "triangles": 306
+    },
+    {
+      "osm_id": "way/403555609",
+      "station_map_m": 4067.824845459718,
+      "wall_object": "BLDG_way_403555609_walls",
+      "roof_object": "BLDG_way_403555609_roof",
+      "detail_object": "V17_Architecture_way_403555609",
+      "style": {
+        "wall": [
+          1.0,
+          0.93,
+          0.84
+        ],
+        "trim": "cream",
+        "gable": null,
+        "canopy": false,
+        "roof": [
+          1.02,
+          0.98,
+          0.94
+        ]
+      },
+      "counts": {
+        "canopies": 0,
+        "gable_clad_frontages": 0,
+        "window_surrounds": 6,
+        "curtain_windows": 5
+      },
+      "tested_primitives": 33,
+      "omitted_primitives": [],
+      "polygons": 284,
+      "triangles": 568
+    },
+    {
+      "osm_id": "way/406501364",
+      "station_map_m": 3936.399090880822,
+      "wall_object": "BLDG_way_406501364_walls",
+      "roof_object": "BLDG_way_406501364_roof",
+      "detail_object": "V17_Architecture_way_406501364",
+      "style": {
+        "wall": [
+          0.95,
+          0.96,
+          0.92
+        ],
+        "trim": "blue",
+        "gable": null,
+        "canopy": false,
+        "roof": [
+          0.93,
+          1.02,
+          1.04
+        ]
+      },
+      "counts": {
+        "canopies": 0,
+        "gable_clad_frontages": 0,
+        "window_surrounds": 7,
+        "curtain_windows": 6
+      },
+      "tested_primitives": 36,
+      "omitted_primitives": [],
+      "polygons": 305,
+      "triangles": 610
+    }
+  ],
+  "material_rebindings": [
+    {
+      "object": "BLDG_way_403554197_walls",
+      "slot": 0,
+      "old_material": "V15_V13_wall_way_403554197_V12_Architecture_Silicate_2",
+      "new_material": "V17_403554197_V15_V13_wall_way_403554197_V12_Architecture_Silic",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_403554197_roof",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_403554197_V12_Architecture_Roof_2",
+      "new_material": "V17_403554197_V15_V13_roof_way_403554197_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Roof_way_403554197",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_403554197_V12_Architecture_Roof_2",
+      "new_material": "V17_403554197_V15_V13_roof_way_403554197_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Architecture_frame_cream",
+      "slot": 4,
+      "old_material": "V15_V13_frame_way_403554197_V12_Architecture_frame_cream",
+      "new_material": "V17_Frame_403554197_V15_V13_frame_way_403554197_V12_Architectur",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_403555588_walls",
+      "slot": 0,
+      "old_material": "V15_V13_wall_way_403555588_V12_Architecture_Silicate_1",
+      "new_material": "V17_403555588_V15_V13_wall_way_403555588_V12_Architecture_Silic",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_403555588_roof",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_403555588_V12_Architecture_Roof_2",
+      "new_material": "V17_403555588_V15_V13_roof_way_403555588_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Roof_way_403555588",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_403555588_V12_Architecture_Roof_2",
+      "new_material": "V17_403555588_V15_V13_roof_way_403555588_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Architecture_frame_cream",
+      "slot": 6,
+      "old_material": "V15_V13_frame_way_403555588_V12_Architecture_frame_cream",
+      "new_material": "V17_Frame_403555588_V15_V13_frame_way_403555588_V12_Architectur",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_403555589_walls",
+      "slot": 0,
+      "old_material": "V15_V13_wall_way_403555589_V12_Architecture_Plaster_3",
+      "new_material": "V17_403555589_V15_V13_wall_way_403555589_V12_Architecture_Plast",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_403555589_roof",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_403555589_V12_Architecture_Roof_0",
+      "new_material": "V17_403555589_V15_V13_roof_way_403555589_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Architecture_frame_cream",
+      "slot": 7,
+      "old_material": "V15_V13_frame_way_403555589_V12_Architecture_frame_cream",
+      "new_material": "V17_Frame_403555589_V15_V13_frame_way_403555589_V12_Architectur",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_403555590_walls",
+      "slot": 0,
+      "old_material": "V15_V13_wall_way_403555590_V12_Architecture_Plaster_1",
+      "new_material": "V17_403555590_V15_V13_wall_way_403555590_V12_Architecture_Plast",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_403555590_roof",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_403555590_V12_Architecture_Roof_2",
+      "new_material": "V17_403555590_V15_V13_roof_way_403555590_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Roof_way_403555590",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_403555590_V12_Architecture_Roof_2",
+      "new_material": "V17_403555590_V15_V13_roof_way_403555590_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Architecture_frame_cream",
+      "slot": 8,
+      "old_material": "V15_V13_frame_way_403555590_V12_Architecture_frame_cream",
+      "new_material": "V17_Frame_403555590_V15_V13_frame_way_403555590_V12_Architectur",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_403555591_walls",
+      "slot": 0,
+      "old_material": "V15_V13_wall_way_403555591_V12_Architecture_Silicate_1",
+      "new_material": "V17_403555591_V15_V13_wall_way_403555591_V12_Architecture_Silic",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_403555591_roof",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_403555591_V12_Architecture_Roof_0",
+      "new_material": "V17_403555591_V15_V13_roof_way_403555591_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Roof_way_403555591",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_403555591_V12_Architecture_Roof_0",
+      "new_material": "V17_403555591_V15_V13_roof_way_403555591_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Architecture_frame_cream",
+      "slot": 9,
+      "old_material": "V15_V13_frame_way_403555591_V12_Architecture_frame_cream",
+      "new_material": "V17_Frame_403555591_V15_V13_frame_way_403555591_V12_Architectur",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_403555592_walls",
+      "slot": 0,
+      "old_material": "V15_V13_wall_way_403555592_V12_Architecture_Silicate_2",
+      "new_material": "V17_403555592_V15_V13_wall_way_403555592_V12_Architecture_Silic",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_403555592_roof",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_403555592_V12_Architecture_Roof_1",
+      "new_material": "V17_403555592_V15_V13_roof_way_403555592_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Roof_way_403555592",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_403555592_V12_Architecture_Roof_1",
+      "new_material": "V17_403555592_V15_V13_roof_way_403555592_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Architecture_frame_cream",
+      "slot": 10,
+      "old_material": "V15_V13_frame_way_403555592_V12_Architecture_frame_cream",
+      "new_material": "V17_Frame_403555592_V15_V13_frame_way_403555592_V12_Architectur",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_403555593_walls",
+      "slot": 0,
+      "old_material": "V15_V13_wall_way_403555593_V12_Architecture_Silicate_0",
+      "new_material": "V17_403555593_V15_V13_wall_way_403555593_V12_Architecture_Silic",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_403555593_roof",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_403555593_V12_Architecture_Roof_3",
+      "new_material": "V17_403555593_V15_V13_roof_way_403555593_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Roof_way_403555593",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_403555593_V12_Architecture_Roof_3",
+      "new_material": "V17_403555593_V15_V13_roof_way_403555593_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Architecture_frame_cream",
+      "slot": 11,
+      "old_material": "V15_V13_frame_way_403555593_V12_Architecture_frame_cream",
+      "new_material": "V17_Frame_403555593_V15_V13_frame_way_403555593_V12_Architectur",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_403555594_walls",
+      "slot": 0,
+      "old_material": "V15_V13_wall_way_403555594_V12_Architecture_Silicate_2",
+      "new_material": "V17_403555594_V15_V13_wall_way_403555594_V12_Architecture_Silic",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_403555594_roof",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_403555594_V12_Architecture_Roof_1",
+      "new_material": "V17_403555594_V15_V13_roof_way_403555594_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Roof_way_403555594",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_403555594_V12_Architecture_Roof_1",
+      "new_material": "V17_403555594_V15_V13_roof_way_403555594_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Architecture_frame_teal",
+      "slot": 3,
+      "old_material": "V15_V13_frame_way_403555594_V12_Architecture_frame_teal",
+      "new_material": "V17_Frame_403555594_V15_V13_frame_way_403555594_V12_Architectur",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_403555595_walls",
+      "slot": 0,
+      "old_material": "V15_V13_wall_way_403555595_V12_Architecture_Plaster_0",
+      "new_material": "V17_403555595_V15_V13_wall_way_403555595_V12_Architecture_Plast",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_403555595_roof",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_403555595_V12_Architecture_Roof_0",
+      "new_material": "V17_403555595_V15_V13_roof_way_403555595_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Roof_way_403555595",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_403555595_V12_Architecture_Roof_0",
+      "new_material": "V17_403555595_V15_V13_roof_way_403555595_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Architecture_frame_cream",
+      "slot": 12,
+      "old_material": "V15_V13_frame_way_403555595_V12_Architecture_frame_cream",
+      "new_material": "V17_Frame_403555595_V15_V13_frame_way_403555595_V12_Architectur",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_403555596_walls",
+      "slot": 0,
+      "old_material": "V15_V13_wall_way_403555596_V12_Architecture_Silicate_1",
+      "new_material": "V17_403555596_V15_V13_wall_way_403555596_V12_Architecture_Silic",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_403555596_roof",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_403555596_V12_Architecture_Roof_1",
+      "new_material": "V17_403555596_V15_V13_roof_way_403555596_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Roof_way_403555596",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_403555596_V12_Architecture_Roof_1",
+      "new_material": "V17_403555596_V15_V13_roof_way_403555596_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Architecture_frame_brown.001",
+      "slot": 1,
+      "old_material": "V15_V13_frame_way_403555596_V12_Architecture_frame_brown",
+      "new_material": "V17_Frame_403555596_V15_V13_frame_way_403555596_V12_Architectur",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_403555609_walls",
+      "slot": 0,
+      "old_material": "V15_V13_wall_way_403555609_V12_Architecture_Plaster_2",
+      "new_material": "V17_403555609_V15_V13_wall_way_403555609_V12_Architecture_Plast",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_403555609_roof",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_403555609_V12_Architecture_Roof_0",
+      "new_material": "V17_403555609_V15_V13_roof_way_403555609_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Roof_way_403555609",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_403555609_V12_Architecture_Roof_0",
+      "new_material": "V17_403555609_V15_V13_roof_way_403555609_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Architecture_frame_teal",
+      "slot": 4,
+      "old_material": "V15_V13_frame_way_403555609_V12_Architecture_frame_teal",
+      "new_material": "V17_Frame_403555609_V15_V13_frame_way_403555609_V12_Architectur",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_406501364_walls",
+      "slot": 0,
+      "old_material": "V15_V13_wall_way_406501364_V12_Architecture_Plaster_1",
+      "new_material": "V17_406501364_V15_V13_wall_way_406501364_V12_Architecture_Plast",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "BLDG_way_406501364_roof",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_406501364_V12_Architecture_Roof_1",
+      "new_material": "V17_406501364_V15_V13_roof_way_406501364_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Roof_way_406501364",
+      "slot": 0,
+      "old_material": "V15_V13_roof_way_406501364_V12_Architecture_Roof_1",
+      "new_material": "V17_406501364_V15_V13_roof_way_406501364_V12_Architecture_Roof_",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    },
+    {
+      "object": "V12_Architecture_frame_brown.001",
+      "slot": 5,
+      "old_material": "V15_V13_frame_way_406501364_V12_Architecture_frame_brown",
+      "new_material": "V17_Frame_406501364_V15_V13_frame_way_406501364_V12_Architectur",
+      "old_link": "DATA",
+      "new_link": "DATA"
+    }
+  ],
+  "guard": {
+    "paved_objects": [
+      "1ROAD_MAIN",
+      "ROAD_SHOULDERS",
+      "SIDE_ROADS_V09",
+      "V09_Side_road_verges"
+    ],
+    "full_projected_primitives_checked": true,
+    "other_buildings_excluded": true,
+    "maximum_attachment_distance_m": 1.2,
+    "omitted_primitives": 0
+  },
+  "limitations": [
+    "Native Blender materials require deliberate baking/conversion for AC",
+    "No KN5 or game validation",
+    "Original openings and house silhouettes remain; gable board finish is an overlay inside existing roof envelope",
+    "Canopy/architrave additions are inferred, not actual surveyed facade details"
+  ]
+}
