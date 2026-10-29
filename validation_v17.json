@@ -1,0 +1,1547 @@
+{
+  "version": "v17",
+  "independent": true,
+  "read_only": true,
+  "source": "/workspace/scratch/e2f367f9a270/output/chmyrivka_v16/chmyrivka_visual_v16.blend",
+  "candidate": "/workspace/scratch/e2f367f9a270/output/chmyrivka_v17/chmyrivka_visual_v17.blend",
+  "contract_sha256": "a4c092d51926011ff0175ba2e79fba170cb1cb087039a9490600fce59e09213d",
+  "assetto_corsa_tested": false,
+  "errors": [],
+  "warnings": [
+    "Three inherited exact-zero-area terrain faces have undefined computed corner normals in bpy 4.5.7. Their explicitly listed outputs are canonicalized only in validator memory; topology and raw custom_normal data are checked exactly.",
+    "Ground checks cover declared actual support vertices only; they do not establish continuous contact of every triangle with terrain. Planar footprint overlap is conservative, including transparent leaf-card geometry.",
+    "Material graph checks establish linked procedural/bitmap inputs, not perceptual success or AC shader equivalence. No KN5, AC physics, AI or performance claim is made."
+  ],
+  "source_sha256": "8e4f2c9c3e1b37de42d9d99edf115a898fa72cb76936dce19020bb02f23b0e00",
+  "inherited_materials": {
+    "count": 474,
+    "changed": [],
+    "retained_exact": 438,
+    "retired_unused": [
+      {
+        "material": "V15_V13_frame_way_403554197_V12_Architecture_frame_cream",
+        "original_users": [
+          {
+            "object": "V12_Architecture_frame_cream",
+            "slot_index": 4
+          }
+        ],
+        "source_graph_sha256": "350193cf8a1e32fa88284f770791d0f71a6df7f1fcab264996839d818e3fde5a",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_frame_way_403555588_V12_Architecture_frame_cream",
+        "original_users": [
+          {
+            "object": "V12_Architecture_frame_cream",
+            "slot_index": 6
+          }
+        ],
+        "source_graph_sha256": "896b68bb15bf282de394c90c82df0c669cc07dd9f6435c1ead62873e2e25025a",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_frame_way_403555589_V12_Architecture_frame_cream",
+        "original_users": [
+          {
+            "object": "V12_Architecture_frame_cream",
+            "slot_index": 7
+          }
+        ],
+        "source_graph_sha256": "37031ecb91a042b9014f65f079373c6690b754a5ae11620044b2874d3efd7965",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_frame_way_403555590_V12_Architecture_frame_cream",
+        "original_users": [
+          {
+            "object": "V12_Architecture_frame_cream",
+            "slot_index": 8
+          }
+        ],
+        "source_graph_sha256": "16aeea911790b884504bb035f3b148f5f46c5e8031b4d1facbd46a8970bfe71f",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_frame_way_403555591_V12_Architecture_frame_cream",
+        "original_users": [
+          {
+            "object": "V12_Architecture_frame_cream",
+            "slot_index": 9
+          }
+        ],
+        "source_graph_sha256": "10518a94aeb6633ce275765e4ac87db486a238369a33170f89bb2dbbdefd35d7",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_frame_way_403555592_V12_Architecture_frame_cream",
+        "original_users": [
+          {
+            "object": "V12_Architecture_frame_cream",
+            "slot_index": 10
+          }
+        ],
+        "source_graph_sha256": "f37ff99deb65334fdb8c082e044cf09c9b5c39ade498acba81c0641419203690",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_frame_way_403555593_V12_Architecture_frame_cream",
+        "original_users": [
+          {
+            "object": "V12_Architecture_frame_cream",
+            "slot_index": 11
+          }
+        ],
+        "source_graph_sha256": "e5156ffbf8e2a589f0904d5c75b2c4acfba20ceacb5e42932f46511fd4f3f26b",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_frame_way_403555594_V12_Architecture_frame_teal",
+        "original_users": [
+          {
+            "object": "V12_Architecture_frame_teal",
+            "slot_index": 3
+          }
+        ],
+        "source_graph_sha256": "9240328051b4adce4949995318a6cd58cbdcd0fd739295aeb7867e0fafeebe64",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_frame_way_403555595_V12_Architecture_frame_cream",
+        "original_users": [
+          {
+            "object": "V12_Architecture_frame_cream",
+            "slot_index": 12
+          }
+        ],
+        "source_graph_sha256": "a6b1c44fa33996949bc72dcbdb7fea0ba0d654eb0c0ff8b015f9c9377cbf80f5",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_frame_way_403555596_V12_Architecture_frame_brown",
+        "original_users": [
+          {
+            "object": "V12_Architecture_frame_brown.001",
+            "slot_index": 1
+          }
+        ],
+        "source_graph_sha256": "b422cba89b40c9d3d088b4a9a6ced518db34ff9b2208472f772b4cb7ed1cf389",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_frame_way_403555609_V12_Architecture_frame_teal",
+        "original_users": [
+          {
+            "object": "V12_Architecture_frame_teal",
+            "slot_index": 4
+          }
+        ],
+        "source_graph_sha256": "4114944e9fb6c59f303440cc37db5028c7045668075df86903aa7ba2324fe9f4",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_frame_way_406501364_V12_Architecture_frame_brown",
+        "original_users": [
+          {
+            "object": "V12_Architecture_frame_brown.001",
+            "slot_index": 5
+          }
+        ],
+        "source_graph_sha256": "ab5dde08e8b19929f9a467716b4c3d2cadc3ccaa6e838e6952d9742764237027",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_roof_way_403554197_V12_Architecture_Roof_2",
+        "original_users": [
+          {
+            "object": "BLDG_way_403554197_roof",
+            "slot_index": 0
+          },
+          {
+            "object": "V12_Roof_way_403554197",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "cdd6974a1547f22a887690d23237160879f77e476ac968d5b85397aca6ed6e3f",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_roof_way_403555588_V12_Architecture_Roof_2",
+        "original_users": [
+          {
+            "object": "BLDG_way_403555588_roof",
+            "slot_index": 0
+          },
+          {
+            "object": "V12_Roof_way_403555588",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "a1efe67b31a165e4e34a6132935c34e1cbd039429e2a950d4a0663d9d1725df5",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_roof_way_403555589_V12_Architecture_Roof_0",
+        "original_users": [
+          {
+            "object": "BLDG_way_403555589_roof",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "468143c22f7a56ae826f0711f569cbc78b11b58bbe3dbc0a6b6e997f5a140823",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_roof_way_403555590_V12_Architecture_Roof_2",
+        "original_users": [
+          {
+            "object": "BLDG_way_403555590_roof",
+            "slot_index": 0
+          },
+          {
+            "object": "V12_Roof_way_403555590",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "addabb917e98076612fbee05b9c3fe51a01350b3d07486a9c23a92f875753888",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_roof_way_403555591_V12_Architecture_Roof_0",
+        "original_users": [
+          {
+            "object": "BLDG_way_403555591_roof",
+            "slot_index": 0
+          },
+          {
+            "object": "V12_Roof_way_403555591",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "757b0f7cd88e17976a9bbb3a61e462fd3b5435ba0372809a2aad427146fec7d4",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_roof_way_403555592_V12_Architecture_Roof_1",
+        "original_users": [
+          {
+            "object": "BLDG_way_403555592_roof",
+            "slot_index": 0
+          },
+          {
+            "object": "V12_Roof_way_403555592",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "bda38ed85c8cb3bbeb6f5625a88b7c53e2e7128710eb3fa6571891709d39184b",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_roof_way_403555593_V12_Architecture_Roof_3",
+        "original_users": [
+          {
+            "object": "BLDG_way_403555593_roof",
+            "slot_index": 0
+          },
+          {
+            "object": "V12_Roof_way_403555593",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "694a00537346f54f7b83dc1afd1729de2c95ad05205d48c9dac85d4f8d7acbb3",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_roof_way_403555594_V12_Architecture_Roof_1",
+        "original_users": [
+          {
+            "object": "BLDG_way_403555594_roof",
+            "slot_index": 0
+          },
+          {
+            "object": "V12_Roof_way_403555594",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "ccd017a6ceee69c9f95727d0cfe08a73a9fc0c9ca7c435fcab4024cee23a88fc",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_roof_way_403555595_V12_Architecture_Roof_0",
+        "original_users": [
+          {
+            "object": "BLDG_way_403555595_roof",
+            "slot_index": 0
+          },
+          {
+            "object": "V12_Roof_way_403555595",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "e84f4d3f58f4924ca03b66a78d3bb7aaf5f0173ce18b5f86315c53858f76d3d8",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_roof_way_403555596_V12_Architecture_Roof_1",
+        "original_users": [
+          {
+            "object": "BLDG_way_403555596_roof",
+            "slot_index": 0
+          },
+          {
+            "object": "V12_Roof_way_403555596",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "1af07f95834e1fa402f2b9a20db04cd066c14559d2f8a4827f7352570d55ce4a",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_roof_way_403555609_V12_Architecture_Roof_0",
+        "original_users": [
+          {
+            "object": "BLDG_way_403555609_roof",
+            "slot_index": 0
+          },
+          {
+            "object": "V12_Roof_way_403555609",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "55ccf826c989132d6ec28b306643686740882c83f8305e3c66c63e8aa51a1feb",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_roof_way_406501364_V12_Architecture_Roof_1",
+        "original_users": [
+          {
+            "object": "BLDG_way_406501364_roof",
+            "slot_index": 0
+          },
+          {
+            "object": "V12_Roof_way_406501364",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "2bb8c0a77c3c75452903e7263239b6251b03035ecd6fa2ed617e595e9800e655",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_wall_way_403554197_V12_Architecture_Silicate_2",
+        "original_users": [
+          {
+            "object": "BLDG_way_403554197_walls",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "db20379447d7f7324ef51f8b74f2daeddf136bee9a88f1e7ff7051ffde5f430f",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_wall_way_403555588_V12_Architecture_Silicate_1",
+        "original_users": [
+          {
+            "object": "BLDG_way_403555588_walls",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "b264913e406cd0db9cf2ce62768f7d7f62b90d4db480b5acc6fae23c9a577378",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_wall_way_403555589_V12_Architecture_Plaster_3",
+        "original_users": [
+          {
+            "object": "BLDG_way_403555589_walls",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "9ad2aa164ec0b7462d7a704ba41e6cd666d98c290f1a9d8925c1baea59c6399f",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_wall_way_403555590_V12_Architecture_Plaster_1",
+        "original_users": [
+          {
+            "object": "BLDG_way_403555590_walls",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "39a364574130489090ca47f02f0809b52c47344f1605c591b3826485633f40bf",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_wall_way_403555591_V12_Architecture_Silicate_1",
+        "original_users": [
+          {
+            "object": "BLDG_way_403555591_walls",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "bf00c35444bf31e00a46b9af1d648ecc6c0740f1ab8fe835fca148f7ccde6d97",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_wall_way_403555592_V12_Architecture_Silicate_2",
+        "original_users": [
+          {
+            "object": "BLDG_way_403555592_walls",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "0d6cd4557e202aea0b2dc0585e3d55a70dcba80073cc81e5d339b92b0bc30b59",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_wall_way_403555593_V12_Architecture_Silicate_0",
+        "original_users": [
+          {
+            "object": "BLDG_way_403555593_walls",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "e1051bd42297893ef878912baf4411743858d353096ff6f615c47049cbe42d0c",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_wall_way_403555594_V12_Architecture_Silicate_2",
+        "original_users": [
+          {
+            "object": "BLDG_way_403555594_walls",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "4762a4c3b292dfe4f98034b1fca6f4d3ea0f185de9d9cfcd952089d2ae6d2a86",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_wall_way_403555595_V12_Architecture_Plaster_0",
+        "original_users": [
+          {
+            "object": "BLDG_way_403555595_walls",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "2842571d5af6794cba57916e46a024403b030927626c4a0a397dfa6d39b1a966",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_wall_way_403555596_V12_Architecture_Silicate_1",
+        "original_users": [
+          {
+            "object": "BLDG_way_403555596_walls",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "1080f72a45de452af41861c83f42c401e8743814d62860c20e15e97ebafe5098",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_wall_way_403555609_V12_Architecture_Plaster_2",
+        "original_users": [
+          {
+            "object": "BLDG_way_403555609_walls",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "b9bffc22e2d6eac79848788f8be7c39a52efa6cc6e4f917fa348554802aac236",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      },
+      {
+        "material": "V15_V13_wall_way_406501364_V12_Architecture_Plaster_1",
+        "original_users": [
+          {
+            "object": "BLDG_way_406501364_walls",
+            "slot_index": 0
+          }
+        ],
+        "source_graph_sha256": "d441aba74b5e4c215f0fa6ccff600a80b2b98264fe9e067615001c6c580cdbe7",
+        "all_users_rebound": true,
+        "reason": "All original effective object-slot users switch to explicit private v17 material copies. The now-unused source material is omitted by Blender save; no surviving source shader is modified."
+      }
+    ],
+    "shader_group_count": 0,
+    "changed_shader_groups": []
+  },
+  "image_dependencies": [
+    {
+      "name": "birch_bark_diffuse.png",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        512,
+        1024
+      ],
+      "colorspace": "sRGB",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 557672,
+          "sha256": "d84c784dc6448a33dd550a67e21b551e93cefc011bed16976f886c9065ff181c"
+        }
+      ]
+    },
+    {
+      "name": "birch_bark_normal.png",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        512,
+        1024
+      ],
+      "colorspace": "Non-Color",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 488757,
+          "sha256": "1dcb091c453a0604e25455ce205f6deaee17f03d03753762042a74bd9717bb48"
+        }
+      ]
+    },
+    {
+      "name": "broadleaf_diffuse_1k.png",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        1024,
+        1024
+      ],
+      "colorspace": "sRGB",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 353965,
+          "sha256": "16e4a91bd67844220cb49650408e49509ba89baa64b1ce568c7170b9f3e0152c"
+        }
+      ]
+    },
+    {
+      "name": "broadleaf_normal_1k.png",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        1024,
+        1024
+      ],
+      "colorspace": "Non-Color",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 408310,
+          "sha256": "5d410706701f51666b0f2156835aaabf75f8ff2e996919a480d0f7cc10776155"
+        }
+      ]
+    },
+    {
+      "name": "dark_bark_diffuse.png",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        512,
+        1024
+      ],
+      "colorspace": "sRGB",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 423766,
+          "sha256": "becde690506d0bb73d7ea9f569332cf5715ef4241d838bbbde8b4c00a6d3a4f3"
+        }
+      ]
+    },
+    {
+      "name": "dark_bark_normal.png",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        512,
+        1024
+      ],
+      "colorspace": "Non-Color",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 447602,
+          "sha256": "b4f33f6a868a2e9ed212f9854f02f1a9d64bda9624e96a1d6c40943e383fa0d8"
+        }
+      ]
+    },
+    {
+      "name": "dirt_diff_2k.jpg",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "sRGB",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 3053062,
+          "sha256": "126d3e4886cc94b494ba609ddc323a77ff0362a1b156c3750d5d2a0a0ead02b8"
+        }
+      ]
+    },
+    {
+      "name": "dirt_nor_gl_2k.jpg",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "Non-Color",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 4914156,
+          "sha256": "ff629fce04c5d6d581cfcb604ea85df6b726798e60d982fd5484c60cddcccd88"
+        }
+      ]
+    },
+    {
+      "name": "dirt_rough_2k.jpg",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "Non-Color",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 964887,
+          "sha256": "a17048230e1a86fc874b381360f6a821df1f6b0174ca7f85a59596c4290080fa"
+        }
+      ]
+    },
+    {
+      "name": "grass001_diff_2k.jpg",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "sRGB",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 6953345,
+          "sha256": "8a8bfcffd087134caad2a7def216f3dd2d307fbe02340ca47e3c5c71f49d50b4"
+        }
+      ]
+    },
+    {
+      "name": "grass001_nor_gl_2k.jpg",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "Non-Color",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 9979388,
+          "sha256": "7ccaf9e28ea7a533e590c2e07a39e141017a5a5db8b7241730a3c287c540e881"
+        }
+      ]
+    },
+    {
+      "name": "kloofendal_48d_partly_cloudy_puresky_4k.hdr",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        4096,
+        2048
+      ],
+      "colorspace": "Linear Rec.709",
+      "alpha_mode": "PREMUL",
+      "packed": [
+        {
+          "size_bytes": 20674857,
+          "sha256": "3061c00a16ecae748e84fd6c44c04804f539c118bb66325db858bad87b11bf88"
+        }
+      ]
+    },
+    {
+      "name": "pine_diffuse_1k.png",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        1024,
+        1024
+      ],
+      "colorspace": "sRGB",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 511014,
+          "sha256": "44beaef22cf66d0b6f6812623525b4d35f25c585ddd0afc3affad7720ad2232a"
+        }
+      ]
+    },
+    {
+      "name": "pine_normal_1k.png",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        1024,
+        1024
+      ],
+      "colorspace": "Non-Color",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 606790,
+          "sha256": "9ad50d354c34aae5cc81c1e96aae76c4bd8606df718b8391bb40580ea4656806"
+        }
+      ]
+    },
+    {
+      "name": "red_brick_diff_2k.jpg",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "sRGB",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 3169072,
+          "sha256": "a1ae5ba7e63026971ceaf68ebbcf8982d9c2dadde1c99996c49b8ac1160af995"
+        }
+      ]
+    },
+    {
+      "name": "red_brick_nor_gl_2k.jpg",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "Non-Color",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 4327452,
+          "sha256": "dd2ce5b5c42f04f02fce555d53eae42503733a0a42e76ae9a18bfb9d0680da5b"
+        }
+      ]
+    },
+    {
+      "name": "red_brick_rough_2k.jpg",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "Non-Color",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 552848,
+          "sha256": "b8b6b882b467647162433914b3e4db16e91852a0bdf866e6bcea4a76683ea00d"
+        }
+      ]
+    },
+    {
+      "name": "rough_concrete_diff_2k.jpg",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "sRGB",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 4355641,
+          "sha256": "1c20c0ae8622ff673f6ed76a282f07427fdaaf8c0c073558013fa5c5f3ddbf1f"
+        }
+      ]
+    },
+    {
+      "name": "rough_concrete_nor_gl_2k.jpg",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "Non-Color",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 5351725,
+          "sha256": "314050848fe4f50e695f05daa4f624e67eda37fc90c9cb6459e50af8463a720d"
+        }
+      ]
+    },
+    {
+      "name": "rough_concrete_rough_2k.jpg",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "Non-Color",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 2338332,
+          "sha256": "c3a2ef93e3559a32faef886babf398bc2e227d5a3336ddf9fd8e4790dd2ea621"
+        }
+      ]
+    },
+    {
+      "name": "singleleaf_diffuse_1k.png",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        1024,
+        1024
+      ],
+      "colorspace": "sRGB",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 657346,
+          "sha256": "2203e9ee6d196d3767700a902f40aaa5219e8388d15d4c28c3e68a495d7319c7"
+        }
+      ]
+    },
+    {
+      "name": "singleleaf_normal_1k.png",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        1024,
+        1024
+      ],
+      "colorspace": "Non-Color",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 684880,
+          "sha256": "0ee047856c537cd5c53589f148b4d74dc5642faef7ebbc90037bb540ce9eccd3"
+        }
+      ]
+    },
+    {
+      "name": "v10_surface_asphalt_albedo_2k.png",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "sRGB",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 4159124,
+          "sha256": "ddd92d2b4dc412e391319d91c9105709e633d825540a48e2b8b74b25d438bc72"
+        }
+      ]
+    },
+    {
+      "name": "v10_surface_asphalt_normal_gl_2k.png",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "Non-Color",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 5972960,
+          "sha256": "c2ac86100869492558bde2b06cf6335dd6f8e1d9ba0b77053e4c5e5625b01018"
+        }
+      ]
+    },
+    {
+      "name": "v10_surface_asphalt_roughness_2k.png",
+      "available": true,
+      "is_packed": true,
+      "resolved_path": null,
+      "source": "FILE",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "Non-Color",
+      "alpha_mode": "STRAIGHT",
+      "packed": [
+        {
+          "size_bytes": 2835185,
+          "sha256": "f3611850b0ed0d1d09eaf4fa6f8db03196a0135241756528aee18c5f90b96a60"
+        }
+      ]
+    }
+  ],
+  "inherited_geometry": {
+    "count": 6012,
+    "unchanged": 6012,
+    "missing": [],
+    "changed": [],
+    "changed_original_uv": [],
+    "changed_original_attributes": [],
+    "changed_modifiers": [],
+    "changed_material_indices": [],
+    "material_assignment_changes": [
+      "BLDG_way_403554197_walls",
+      "BLDG_way_403554197_roof",
+      "BLDG_way_403555588_walls",
+      "BLDG_way_403555588_roof",
+      "BLDG_way_403555589_walls",
+      "BLDG_way_403555589_roof",
+      "BLDG_way_403555590_walls",
+      "BLDG_way_403555590_roof",
+      "BLDG_way_403555591_walls",
+      "BLDG_way_403555591_roof",
+      "BLDG_way_403555592_walls",
+      "BLDG_way_403555592_roof",
+      "BLDG_way_403555593_walls",
+      "BLDG_way_403555593_roof",
+      "BLDG_way_403555594_walls",
+      "BLDG_way_403555594_roof",
+      "BLDG_way_403555595_walls",
+      "BLDG_way_403555595_roof",
+      "BLDG_way_403555596_walls",
+      "BLDG_way_403555596_roof",
+      "BLDG_way_403555609_walls",
+      "BLDG_way_403555609_roof",
+      "BLDG_way_406501364_walls",
+      "BLDG_way_406501364_roof",
+      "V12_Roof_way_403554197",
+      "V12_Roof_way_403555588",
+      "V12_Roof_way_403555590",
+      "V12_Roof_way_403555591",
+      "V12_Roof_way_403555592",
+      "V12_Roof_way_403555593",
+      "V12_Roof_way_403555594",
+      "V12_Roof_way_403555595",
+      "V12_Roof_way_403555596",
+      "V12_Roof_way_403555609",
+      "V12_Roof_way_406501364",
+      "V12_Architecture_frame_teal",
+      "V12_Architecture_frame_cream",
+      "V12_Architecture_frame_brown.001"
+    ],
+    "permitted_visibility_changes": [],
+    "protected_mesh_count": 837,
+    "mapped_building_wall_count": 729,
+    "exact_v15_kerb_meshes": 33,
+    "exact_v15_driving_rubber": true
+  },
+  "undefined_terrain_normal_exception": {
+    "object": "GROUND_Terrain_Continuous_v11",
+    "corners": [
+      {
+        "corner": 78752,
+        "polygon": 26250,
+        "vertex_indices": [
+          8930,
+          8737,
+          8737
+        ],
+        "area_m2": 0.0
+      },
+      {
+        "corner": 143734,
+        "polygon": 47911,
+        "vertex_indices": [
+          32673,
+          32673,
+          32671
+        ],
+        "area_m2": 0.0
+      },
+      {
+        "corner": 143893,
+        "polygon": 47964,
+        "vertex_indices": [
+          33234,
+          33234,
+          33233
+        ],
+        "area_m2": 0.0
+      }
+    ],
+    "source_raw_computed_sha256": "dfcbb932301faa273fc6577b84a3a588b8d2f7b5f975ecf3843f6802ef9cc6c2",
+    "candidate_raw_computed_sha256": "dfcbb932301faa273fc6577b84a3a588b8d2f7b5f975ecf3843f6802ef9cc6c2",
+    "stored_custom_normal_attribute_exact": true,
+    "policy": "Only these three computed outputs canonicalized in validation memory after proving exact zero-area topology; files and stored custom normals remain unchanged."
+  },
+  "mapped_clearance_source": {
+    "file": "/workspace/scratch/e2f367f9a270/output/chmyrivka_v17/source_data/surroundings_local.json",
+    "sha256": "938f162e90e34bd9bd5683408faca0d91534223631034413e976f5b789ccfaf5",
+    "buildings": 729
+  },
+  "new_geometry": [
+    {
+      "object": "V17_Architecture_way_403554197",
+      "role": "attached_detail",
+      "vertices": 270,
+      "triangles": 306,
+      "footprint_m2": 0.4103560695725291,
+      "asphalt_overlap_m2": 0.0,
+      "building_overlap_m2": 0.017666821191184102,
+      "asphalt_clearance_m": 1.5449885955817184,
+      "building_clearance_m": 0.0,
+      "associated_building": "BLDG_way_403554197_walls",
+      "associated_osm_id": "way/403554197",
+      "attachment_tolerance_m": 1.2,
+      "other_building_overlap_m2": 0.0,
+      "outside_attachment_area_m2": 0.0,
+      "outside_attachment_vertices": 0,
+      "associated_z_bounds_m": [
+        2.899137496948242,
+        8.184189796447754
+      ],
+      "actual_z_bounds_m": [
+        4.854190349578857,
+        6.324190139770508
+      ],
+      "declared_z_allowances_m": [
+        0.05,
+        1.5
+      ]
+    },
+    {
+      "object": "V17_Architecture_way_403555588",
+      "role": "attached_detail",
+      "vertices": 629,
+      "triangles": 735,
+      "footprint_m2": 2.697204930762164,
+      "asphalt_overlap_m2": 0.0,
+      "building_overlap_m2": 0.2003942891505183,
+      "asphalt_clearance_m": 6.126430546774434,
+      "building_clearance_m": 0.0,
+      "associated_building": "BLDG_way_403555588_walls",
+      "associated_osm_id": "way/403555588",
+      "attachment_tolerance_m": 1.2,
+      "other_building_overlap_m2": 0.0,
+      "outside_attachment_area_m2": 0.0,
+      "outside_attachment_vertices": 0,
+      "associated_z_bounds_m": [
+        3.066680431365967,
+        8.359070777893066
+      ],
+      "actual_z_bounds_m": [
+        5.029070854187012,
+        8.259071350097656
+      ],
+      "declared_z_allowances_m": [
+        0.05,
+        1.5
+      ]
+    },
+    {
+      "object": "V17_Architecture_way_403555589",
+      "role": "attached_detail",
+      "vertices": 340,
+      "triangles": 380,
+      "footprint_m2": 0.4644158237524264,
+      "asphalt_overlap_m2": 0.0,
+      "building_overlap_m2": 0.06790258314767189,
+      "asphalt_clearance_m": 5.073855028681648,
+      "building_clearance_m": 0.0,
+      "associated_building": "BLDG_way_403555589_walls",
+      "associated_osm_id": "way/403555589",
+      "attachment_tolerance_m": 1.2,
+      "other_building_overlap_m2": 0.0,
+      "outside_attachment_area_m2": 0.0,
+      "outside_attachment_vertices": 0,
+      "associated_z_bounds_m": [
+        3.173137664794922,
+        8.45249080657959
+      ],
+      "actual_z_bounds_m": [
+        5.122490406036377,
+        6.592490196228027
+      ],
+      "declared_z_allowances_m": [
+        0.05,
+        1.5
+      ]
+    },
+    {
+      "object": "V17_Architecture_way_403555590",
+      "role": "attached_detail",
+      "vertices": 325,
+      "triangles": 347,
+      "footprint_m2": 0.43950766588644163,
+      "asphalt_overlap_m2": 0.0,
+      "building_overlap_m2": 0.04281478655924978,
+      "asphalt_clearance_m": 1.9095250881882055,
+      "building_clearance_m": 0.0,
+      "associated_building": "BLDG_way_403555590_walls",
+      "associated_osm_id": "way/403555590",
+      "attachment_tolerance_m": 1.2,
+      "other_building_overlap_m2": 0.0,
+      "outside_attachment_area_m2": 0.0,
+      "outside_attachment_vertices": 0,
+      "associated_z_bounds_m": [
+        3.2324423789978027,
+        8.480478286743164
+      ],
+      "actual_z_bounds_m": [
+        5.150477886199951,
+        8.380477905273438
+      ],
+      "declared_z_allowances_m": [
+        0.05,
+        1.5
+      ]
+    },
+    {
+      "object": "V17_Architecture_way_403555591",
+      "role": "attached_detail",
+      "vertices": 422,
+      "triangles": 494,
+      "footprint_m2": 2.1794145830756437,
+      "asphalt_overlap_m2": 0.0,
+      "building_overlap_m2": 0.06805817012223164,
+      "asphalt_clearance_m": 3.444762495626135,
+      "building_clearance_m": 0.0,
+      "associated_building": "BLDG_way_403555591_walls",
+      "associated_osm_id": "way/403555591",
+      "attachment_tolerance_m": 1.2,
+      "other_building_overlap_m2": 0.0,
+      "outside_attachment_area_m2": 0.0,
+      "outside_attachment_vertices": 0,
+      "associated_z_bounds_m": [
+        3.333613157272339,
+        8.662033081054688
+      ],
+      "actual_z_bounds_m": [
+        5.332033157348633,
+        7.190893173217773
+      ],
+      "declared_z_allowances_m": [
+        0.05,
+        1.5
+      ]
+    },
+    {
+      "object": "V17_Architecture_way_403555592",
+      "role": "attached_detail",
+      "vertices": 323,
+      "triangles": 341,
+      "footprint_m2": 0.4150193258257624,
+      "asphalt_overlap_m2": 0.0,
+      "building_overlap_m2": 0.018103335871156458,
+      "asphalt_clearance_m": 0.7675328496455854,
+      "building_clearance_m": 0.0,
+      "associated_building": "BLDG_way_403555592_walls",
+      "associated_osm_id": "way/403555592",
+      "attachment_tolerance_m": 1.2,
+      "other_building_overlap_m2": 0.0,
+      "outside_attachment_area_m2": 0.0,
+      "outside_attachment_vertices": 0,
+      "associated_z_bounds_m": [
+        3.180365800857544,
+        8.427657127380371
+      ],
+      "actual_z_bounds_m": [
+        5.097657680511475,
+        8.327657699584961
+      ],
+      "declared_z_allowances_m": [
+        0.05,
+        1.5
+      ]
+    },
+    {
+      "object": "V17_Architecture_way_403555593",
+      "role": "attached_detail",
+      "vertices": 585,
+      "triangles": 683,
+      "footprint_m2": 2.6151144294956175,
+      "asphalt_overlap_m2": 0.0,
+      "building_overlap_m2": 0.1478840048079276,
+      "asphalt_clearance_m": 4.025651241927161,
+      "building_clearance_m": 0.0,
+      "associated_building": "BLDG_way_403555593_walls",
+      "associated_osm_id": "way/403555593",
+      "attachment_tolerance_m": 1.2,
+      "other_building_overlap_m2": 0.0,
+      "outside_attachment_area_m2": 0.0,
+      "outside_attachment_vertices": 0,
+      "associated_z_bounds_m": [
+        3.091254949569702,
+        8.374898910522461
+      ],
+      "actual_z_bounds_m": [
+        5.044898986816406,
+        8.274898529052734
+      ],
+      "declared_z_allowances_m": [
+        0.05,
+        1.5
+      ]
+    },
+    {
+      "object": "V17_Architecture_way_403555594",
+      "role": "attached_detail",
+      "vertices": 332,
+      "triangles": 404,
+      "footprint_m2": 2.1746535465016468,
+      "asphalt_overlap_m2": 0.0,
+      "building_overlap_m2": 0.043867591196839646,
+      "asphalt_clearance_m": 6.335667704679247,
+      "building_clearance_m": 0.0,
+      "associated_building": "BLDG_way_403555594_walls",
+      "associated_osm_id": "way/403555594",
+      "attachment_tolerance_m": 1.2,
+      "other_building_overlap_m2": 0.0,
+      "outside_attachment_area_m2": 0.0,
+      "outside_attachment_vertices": 0,
+      "associated_z_bounds_m": [
+        2.6709036827087402,
+        8.08072566986084
+      ],
+      "actual_z_bounds_m": [
+        4.750725269317627,
+        6.609585762023926
+      ],
+      "declared_z_allowances_m": [
+        0.05,
+        1.5
+      ]
+    },
+    {
+      "object": "V17_Architecture_way_403555595",
+      "role": "attached_detail",
+      "vertices": 146,
+      "triangles": 182,
+      "footprint_m2": 0.3956844828516568,
+      "asphalt_overlap_m2": 0.0,
+      "building_overlap_m2": 0.030334728954726317,
+      "asphalt_clearance_m": 5.012646871619544,
+      "building_clearance_m": 0.0,
+      "associated_building": "BLDG_way_403555595_walls",
+      "associated_osm_id": "way/403555595",
+      "attachment_tolerance_m": 1.2,
+      "other_building_overlap_m2": 0.0,
+      "outside_attachment_area_m2": 0.0,
+      "outside_attachment_vertices": 0,
+      "associated_z_bounds_m": [
+        3.1044228076934814,
+        8.392319679260254
+      ],
+      "actual_z_bounds_m": [
+        5.062319755554199,
+        6.566819667816162
+      ],
+      "declared_z_allowances_m": [
+        0.05,
+        1.5
+      ]
+    },
+    {
+      "object": "V17_Architecture_way_403555596",
+      "role": "attached_detail",
+      "vertices": 250,
+      "triangles": 306,
+      "footprint_m2": 1.9767341890239276,
+      "asphalt_overlap_m2": 0.0,
+      "building_overlap_m2": 0.06006608917420184,
+      "asphalt_clearance_m": 2.2210107382554947,
+      "building_clearance_m": 0.0,
+      "associated_building": "BLDG_way_403555596_walls",
+      "associated_osm_id": "way/403555596",
+      "attachment_tolerance_m": 1.2,
+      "other_building_overlap_m2": 0.0,
+      "outside_attachment_area_m2": 0.0,
+      "outside_attachment_vertices": 0,
+      "associated_z_bounds_m": [
+        3.3259856700897217,
+        8.631532669067383
+      ],
+      "actual_z_bounds_m": [
+        5.301533222198486,
+        7.160393238067627
+      ],
+      "declared_z_allowances_m": [
+        0.05,
+        1.5
+      ]
+    },
+    {
+      "object": "V17_Architecture_way_403555609",
+      "role": "attached_detail",
+      "vertices": 496,
+      "triangles": 568,
+      "footprint_m2": 0.7462867955314777,
+      "asphalt_overlap_m2": 0.0,
+      "building_overlap_m2": 0.1517923495660931,
+      "asphalt_clearance_m": 0.05306688135251136,
+      "building_clearance_m": 0.0,
+      "associated_building": "BLDG_way_403555609_walls",
+      "associated_osm_id": "way/403555609",
+      "attachment_tolerance_m": 1.2,
+      "other_building_overlap_m2": 0.0,
+      "outside_attachment_area_m2": 0.0,
+      "outside_attachment_vertices": 0,
+      "associated_z_bounds_m": [
+        3.107733726501465,
+        8.353503227233887
+      ],
+      "actual_z_bounds_m": [
+        5.023503303527832,
+        6.493503093719482
+      ],
+      "declared_z_allowances_m": [
+        0.05,
+        1.5
+      ]
+    },
+    {
+      "object": "V17_Architecture_way_406501364",
+      "role": "attached_detail",
+      "vertices": 538,
+      "triangles": 610,
+      "footprint_m2": 0.8005159805193129,
+      "asphalt_overlap_m2": 0.0,
+      "building_overlap_m2": 0.1065136348160905,
+      "asphalt_clearance_m": 4.74393965809507,
+      "building_clearance_m": 0.0,
+      "associated_building": "BLDG_way_406501364_walls",
+      "associated_osm_id": "way/406501364",
+      "attachment_tolerance_m": 1.2,
+      "other_building_overlap_m2": 0.0,
+      "outside_attachment_area_m2": 0.0,
+      "outside_attachment_vertices": 0,
+      "associated_z_bounds_m": [
+        2.7651567459106445,
+        8.189074516296387
+      ],
+      "actual_z_bounds_m": [
+        4.859074592590332,
+        6.329074382781982
+      ],
+      "declared_z_allowances_m": [
+        0.05,
+        1.5
+      ]
+    },
+    {
+      "object": "V17_Frontage_Fencebase_Grass",
+      "role": "vegetation",
+      "vertices": 15160,
+      "triangles": 9096,
+      "footprint_m2": 0.2722481882417123,
+      "asphalt_overlap_m2": 0.0,
+      "building_overlap_m2": 0.0,
+      "asphalt_clearance_m": 2.240030345925179,
+      "building_clearance_m": 0.6223671554572892
+    },
+    {
+      "object": "V17_Frontage_Ground_Transition",
+      "role": "yard_detail",
+      "vertices": 735,
+      "triangles": 245,
+      "footprint_m2": 3.2000686451792717,
+      "asphalt_overlap_m2": 0.0,
+      "building_overlap_m2": 0.0,
+      "asphalt_clearance_m": 4.265941405928068,
+      "building_clearance_m": 8.07991730799069
+    },
+    {
+      "object": "V17_Frontage_Layered_Shrubs",
+      "role": "vegetation",
+      "vertices": 84840,
+      "triangles": 44320,
+      "footprint_m2": 25.17619065077786,
+      "asphalt_overlap_m2": 0.0,
+      "building_overlap_m2": 0.0,
+      "asphalt_clearance_m": 2.3200087575589623,
+      "building_clearance_m": 0.3734859233409275
+    },
+    {
+      "object": "V17_Frontage_Perennial_Groups",
+      "role": "vegetation",
+      "vertices": 10193,
+      "triangles": 8057,
+      "footprint_m2": 2.604819720192993,
+      "asphalt_overlap_m2": 0.0,
+      "building_overlap_m2": 0.0,
+      "asphalt_clearance_m": 2.4726301042362238,
+      "building_clearance_m": 0.40876333934640574
+    }
+  ],
+  "retained_source_subsets": [],
+  "ground_support_checks": [
+    {
+      "object": "V17_Frontage_Layered_Shrubs",
+      "samples": 760,
+      "surfaces": [
+        "ROAD_SHOULDERS",
+        "V09_Side_road_verges",
+        "GROUND_Terrain_Continuous_v11"
+      ],
+      "min_offset_m": -0.002678394317626953,
+      "max_offset_m": 0.0008616447448730469,
+      "permitted_range_m": [
+        -0.007,
+        0.007
+      ],
+      "missing_hits": [],
+      "invalid_offsets": []
+    },
+    {
+      "object": "V17_Frontage_Fencebase_Grass",
+      "samples": 6064,
+      "surfaces": [
+        "ROAD_SHOULDERS",
+        "V09_Side_road_verges",
+        "GROUND_Terrain_Continuous_v11"
+      ],
+      "min_offset_m": -0.003471851348876953,
+      "max_offset_m": 0.0013499259948730469,
+      "permitted_range_m": [
+        -0.007,
+        0.007
+      ],
+      "missing_hits": [],
+      "invalid_offsets": []
+    },
+    {
+      "object": "V17_Frontage_Perennial_Groups",
+      "samples": 976,
+      "surfaces": [
+        "ROAD_SHOULDERS",
+        "V09_Side_road_verges",
+        "GROUND_Terrain_Continuous_v11"
+      ],
+      "min_offset_m": -0.002953052520751953,
+      "max_offset_m": 0.0007395744323730469,
+      "permitted_range_m": [
+        -0.007,
+        0.007
+      ],
+      "missing_hits": [],
+      "invalid_offsets": []
+    },
+    {
+      "object": "V17_Frontage_Ground_Transition",
+      "samples": 735,
+      "surfaces": [
+        "ROAD_SHOULDERS",
+        "V09_Side_road_verges",
+        "GROUND_Terrain_Continuous_v11"
+      ],
+      "min_offset_m": 0.004279136657714844,
+      "max_offset_m": 0.00724029541015625,
+      "permitted_range_m": [
+        0.003,
+        0.012
+      ],
+      "missing_hits": [],
+      "invalid_offsets": []
+    }
+  ],
+  "material_graph_checks": [],
+  "candidate_sha256": "06ccd62b4a82cead2a084bd7df0c7879c5f6002d2c9679ff55a9d91fabdafd22",
+  "source_sha256_after": "8e4f2c9c3e1b37de42d9d99edf115a898fa72cb76936dce19020bb02f23b0e00",
+  "passed": true,
+  "seconds": 51.438
+}

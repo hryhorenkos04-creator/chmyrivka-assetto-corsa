@@ -1,0 +1,766 @@
+{
+  "version": "v17",
+  "native_sha256": "06ccd62b4a82cead2a084bd7df0c7879c5f6002d2c9679ff55a9d91fabdafd22",
+  "source_sha256": "8e4f2c9c3e1b37de42d9d99edf115a898fa72cb76936dce19020bb02f23b0e00",
+  "assetto_corsa_tested": false,
+  "transfer_bake_created_in_v17": false,
+  "current_views": 11,
+  "baseline_views": 11,
+  "files": [
+    {
+      "path": "ARCHITECTURE_V17_RU.md",
+      "bytes": 6633,
+      "sha256": "b545847d55fa73ae3dbcc12301507ec9b2313ae4ed2ba5f08b342f0ad43533b9"
+    },
+    {
+      "path": "CHMYRIVKA_ROADMAP_RU.md",
+      "bytes": 18099,
+      "sha256": "cd8c2f5dba07dcb4b29d04e22bfb34fb8817378d4d73f13fa8732510efd013e3"
+    },
+    {
+      "path": "CHMYRIVKA_STATUS_RU.md",
+      "bytes": 10917,
+      "sha256": "070587ad2b71850f6145eea51b4435b8d22932883b9348fa5f3ce2f8ca75b79b"
+    },
+    {
+      "path": "FRONTAGE_V17_RU.md",
+      "bytes": 7661,
+      "sha256": "4eb1c4614098008327ed44f1c14a667c0574942e09b3f458043790a6988aaa28"
+    },
+    {
+      "path": "README_V17_RU.md",
+      "bytes": 8129,
+      "sha256": "52586b15fda7c97a0f7b46e082cbd8f1483664fc0a513d170158646636f0559b"
+    },
+    {
+      "path": "VALIDATION_V17_RU.md",
+      "bytes": 10543,
+      "sha256": "22f9dfa62aeaf0296058ee1adca29afbbaa26e6bf2602a6fec02a6ec196abd0a"
+    },
+    {
+      "path": "VISUAL_REVIEW_V17_RU.md",
+      "bytes": 12909,
+      "sha256": "c1dad2ac61ab3a33566f2906eec4f836d28fd460c2a6c02f312476f402975f1e"
+    },
+    {
+      "path": "VISUAL_TARGET_V17_RU.md",
+      "bytes": 9830,
+      "sha256": "cb7b02521b9d6fb4ce361fcef2cfa317961c331da06b0f973138be8c64c6bb4f"
+    },
+    {
+      "path": "architecture_v17.py",
+      "bytes": 18432,
+      "sha256": "dee2cfaef1a33d28efb093b293ce96214c66f18aa97daf2300bb023571259dd8"
+    },
+    {
+      "path": "build_info_v17.json",
+      "bytes": 4076830,
+      "sha256": "c216529550018d0afd56eadbee0bec05f90245dcb53a95b68746cd36646d7e92"
+    },
+    {
+      "path": "build_v17.py",
+      "bytes": 7863,
+      "sha256": "33826f1549cfab4852e22321d4697867a28843e3c45930394e5296ff88d215cf"
+    },
+    {
+      "path": "chmyrivka_visual_v17.blend",
+      "bytes": 236789965,
+      "sha256": "06ccd62b4a82cead2a084bd7df0c7879c5f6002d2c9679ff55a9d91fabdafd22"
+    },
+    {
+      "path": "comparisons/comparison_architecture_v17.png",
+      "bytes": 1398242,
+      "sha256": "4cd57a953e7ed04e346a4bf54209a36d948d6bbc00652b4469e5df051efe6d92"
+    },
+    {
+      "path": "comparisons/comparison_driver_v17.png",
+      "bytes": 1256583,
+      "sha256": "4e05b349776fd0e85fdcca2bc85ba9a46942c69f97098761a92a47c6fb4f8616"
+    },
+    {
+      "path": "comparisons/comparison_layout_v17.png",
+      "bytes": 738980,
+      "sha256": "7c0e42b4759133eab01102ddff93060403c6d2999ecc8c0650450d171c5f4e1b"
+    },
+    {
+      "path": "comparisons/contact_sheet_v17.png",
+      "bytes": 3358813,
+      "sha256": "4ea78911ede05a19e73685b94931f65b364775534a9f77fec1b19c67ac88be24"
+    },
+    {
+      "path": "comparisons/gallery_manifest_v17.json",
+      "bytes": 2266,
+      "sha256": "9a3871def95290b87ebaf9d79f0103ecb4a32b8336ddd4d9d47e35a6224f62fc"
+    },
+    {
+      "path": "comparisons/gallery_v17.html",
+      "bytes": 9045,
+      "sha256": "e60b79779dae62a0d96678f6b45d708e3a41d8fbf65ed8b3d6b4456268a170e8"
+    },
+    {
+      "path": "data/architecture_v17.json",
+      "bytes": 30910,
+      "sha256": "1bae79f2e1938d95b45967e9173776f0dd5551c1d6fa34e4b88a89f3e95e2601"
+    },
+    {
+      "path": "data/change_contract_v17.json",
+      "bytes": 289772,
+      "sha256": "a4c092d51926011ff0175ba2e79fba170cb1cb087039a9490600fce59e09213d"
+    },
+    {
+      "path": "data/extra_cameras_v15.json",
+      "bytes": 3172,
+      "sha256": "e820d8be53d76bc60be223e570bb34ccf378b73658e17dd6dc638445ca309d55"
+    },
+    {
+      "path": "data/extra_cameras_v17.json",
+      "bytes": 3922,
+      "sha256": "4527c4a09958531755cb2c5c0c00f278ef17d70b87798452ad0b9879477ba7ea"
+    },
+    {
+      "path": "data/frontage_v17.json",
+      "bytes": 3393129,
+      "sha256": "3857bcae95f448b76fc77168e51eb1da054bd5ddfbd7e5ed2a0003b424b9715a"
+    },
+    {
+      "path": "data/frontage_visibility_candidates_v17.json",
+      "bytes": 11772,
+      "sha256": "5477b4fe0b781c72fe624af8ada9f3723ad27dfd9fbd8df8d58a01fd908ecccc"
+    },
+    {
+      "path": "data/frontage_visibility_candidates_v17_3985.json",
+      "bytes": 9870,
+      "sha256": "9bcef85ea5209cb7a9e70b091184cf52bbd3aabd1c327f223e293eff3ac85ec8"
+    },
+    {
+      "path": "data/frontage_visibility_targets_v17.json",
+      "bytes": 14433,
+      "sha256": "e7341b45269f7d37cdb73ab7a077ecbb6fcf98045c32b0ad1bb6c36d4785b273"
+    },
+    {
+      "path": "data/inherited_racing_v15/RACING_V15_RU.md",
+      "bytes": 15083,
+      "sha256": "1fc6f5068851752ceee5650181213fcbe69692e1757286cc65c9dccc65a5b3ea"
+    },
+    {
+      "path": "data/inherited_racing_v15/racing_layout_native_v15.json",
+      "bytes": 378311,
+      "sha256": "3550996664e13bd703360e46e662995a0fadc0e5aefc0ba9115a4db2104cc6d2"
+    },
+    {
+      "path": "data/inherited_racing_v15/racing_layout_v15.png",
+      "bytes": 622601,
+      "sha256": "b9692c73e4f63f2f117bca5d59757b9dd71faaee16f1e000c05530cc3a2f726e"
+    },
+    {
+      "path": "data/inherited_racing_v15/racing_line_native_v15.json",
+      "bytes": 3436172,
+      "sha256": "39b9e0c938b8af4a2e36bbcf05cd2a28717900dbeb1541199c0979c830a036da"
+    },
+    {
+      "path": "data/inherited_racing_v15/racing_plan_v15.json",
+      "bytes": 3395436,
+      "sha256": "6cfa8208a6c7f85b2529915a03458a0f1a44f2c1785c0eedcc7fee24d7302e8f"
+    },
+    {
+      "path": "data/material_retirements_v17.json",
+      "bytes": 15495,
+      "sha256": "4d5fb6d869fe387de1802bfdbbc0abf92dd092bcb4d33a2e1915242025a4d34f"
+    },
+    {
+      "path": "data/packed_images_v17.json",
+      "bytes": 2303,
+      "sha256": "4cd810121363fb783ba3fc970dfd7be348c2475b1051b31df3eb0b33345642bd"
+    },
+    {
+      "path": "data/review_cameras_v15.json",
+      "bytes": 3191,
+      "sha256": "7a1ee9cfcda1c3cfab584a8ee42cdadd78e37795dd8c074397b145f66a8007f0"
+    },
+    {
+      "path": "dependencies/v15/render_v15.py",
+      "bytes": 3373,
+      "sha256": "7ce3dae6fd4e4133ae6b52d63d039ca6ab3d33fdd1f82c5b25da6f211ac7e9e0"
+    },
+    {
+      "path": "dependencies/v15/verges_v15.py",
+      "bytes": 30112,
+      "sha256": "117b68276cf4870b46f0872ef831912b57722b48ac6265cdc004bb62a45bb822"
+    },
+    {
+      "path": "dependencies/v16/vegetation_v16.py",
+      "bytes": 31105,
+      "sha256": "5610d143449263077634ec26b10330c661fa12ff99244bc8822c363d7d25f482"
+    },
+    {
+      "path": "dependencies/v16/windows_v16.py",
+      "bytes": 4849,
+      "sha256": "2f8c118b9bf1127e0fe7c823d4319d62e5c0a926042e51e9adbfd9137f56a67f"
+    },
+    {
+      "path": "dependencies/v16/yards_v16.py",
+      "bytes": 28598,
+      "sha256": "9c3651d10c03b92fcf65e1124fe107e9e8febeedaafe405c891640d4136a2dbc"
+    },
+    {
+      "path": "frontage_v17.py",
+      "bytes": 25863,
+      "sha256": "cb615aaf977b36b673632713b36e00bc4a7f737c3784b58919db3512dde70f48"
+    },
+    {
+      "path": "make_gallery_v17.py",
+      "bytes": 10238,
+      "sha256": "4faefe68c75a30d524f3628659f516e7f7a7f9e30013ba78497fe2377db3f644"
+    },
+    {
+      "path": "package_v17.py",
+      "bytes": 6523,
+      "sha256": "bd3749d50c720adf8e6611377c62696f243bdf8d50523a1c7d95782150056431"
+    },
+    {
+      "path": "render_v17.py",
+      "bytes": 3363,
+      "sha256": "42dcad42efcdd81fed7508c04573917396e27256e6a45db011fa4bc2c435e6f9"
+    },
+    {
+      "path": "screenshots_before_v16/01_driver.png",
+      "bytes": 1701737,
+      "sha256": "99c7bda243856380a8f4b8bec0ef49837f6c7f2e477201d592b10d4842aa0def"
+    },
+    {
+      "path": "screenshots_before_v16/02_detail.png",
+      "bytes": 1782740,
+      "sha256": "671d7daa9869d3c70ca18be40a89a34762d9aa690201ee3b7d4be270af15efb6"
+    },
+    {
+      "path": "screenshots_before_v16/03_detail.png",
+      "bytes": 1651466,
+      "sha256": "d086f9af88011df15c2f04a7e78f91bfb6f52454f3993440e222bbacf103b2a8"
+    },
+    {
+      "path": "screenshots_before_v16/04_overview.png",
+      "bytes": 1965845,
+      "sha256": "d9d6b9462b8a02c1ec59c7a94cf13171a55b392bd0f1b1a090d517cae76ac8b1"
+    },
+    {
+      "path": "screenshots_before_v16/05_driver.png",
+      "bytes": 1891552,
+      "sha256": "91666a59d5d6c5762aaf3abfde7f6fcd6bd367ee96dd8e7e3f14f11765cd19c7"
+    },
+    {
+      "path": "screenshots_before_v16/06_driver.png",
+      "bytes": 1548939,
+      "sha256": "2f2d49e551145b8ed9b8c781b056c2a4625a7eb7ea814ca1617a0f4bd0e10811"
+    },
+    {
+      "path": "screenshots_before_v16/render_manifest.json",
+      "bytes": 5154,
+      "sha256": "490a10e9418fc4c8f066e6f09faeb4f04f14948d64f88d42b9ee72369c2da97b"
+    },
+    {
+      "path": "screenshots_extra_before_v16/01_verge.png",
+      "bytes": 2217426,
+      "sha256": "4066961f6f692445ede9e7c02a622b4f53cb599a11734ba848535dba01370441"
+    },
+    {
+      "path": "screenshots_extra_before_v16/02_verge.png",
+      "bytes": 2754529,
+      "sha256": "baa26afd53215be624c9cb1e08d1050d04b84b7b340b16f6ab9abaeb556db774"
+    },
+    {
+      "path": "screenshots_extra_before_v16/03_kerb.png",
+      "bytes": 1648261,
+      "sha256": "34ae1a19bc286171840028028e6a878ed11ebb121fc58d74b40c7c2befbf7313"
+    },
+    {
+      "path": "screenshots_extra_before_v16/04_overview.png",
+      "bytes": 2041322,
+      "sha256": "3fae28e05e052c1db6c59f47b4e5fdfb40191ff329558171ffc32226282d3e4a"
+    },
+    {
+      "path": "screenshots_extra_before_v16/05_driver.png",
+      "bytes": 1618171,
+      "sha256": "b13c899e892db07596534546c9fe076782cad73cbd942989c8470c32f130b6e8"
+    },
+    {
+      "path": "screenshots_extra_before_v16/render_manifest.json",
+      "bytes": 5720,
+      "sha256": "35b901524a5bae3497ca42db22afd69e3a0a336fa739d3d33ad56d5105969fd9"
+    },
+    {
+      "path": "screenshots_extra_v17/01_verge.png",
+      "bytes": 2229077,
+      "sha256": "da38e32a6b48fc23ec0927b1d52aa2dc2363f76f5874f2a8a8bbd482d5c4331c"
+    },
+    {
+      "path": "screenshots_extra_v17/02_verge.png",
+      "bytes": 1898943,
+      "sha256": "f5e25311535a53e3c18204e9ac2df28036ed6ad62047c9118e1374f25081fee9"
+    },
+    {
+      "path": "screenshots_extra_v17/03_kerb.png",
+      "bytes": 1650515,
+      "sha256": "f00b3e25d692cdacac299c68d63a02359486bfd324969a9f78a25c8362ff78da"
+    },
+    {
+      "path": "screenshots_extra_v17/04_overview.png",
+      "bytes": 2041322,
+      "sha256": "e04af93f3ad48b72f807e4385feb1daa30127b890fe1fbc6388c6a5210091582"
+    },
+    {
+      "path": "screenshots_extra_v17/05_driver.png",
+      "bytes": 1625303,
+      "sha256": "b8beb51c3f6b1399c73ea637ee05945881b52e42fc843069606633babc271c0d"
+    },
+    {
+      "path": "screenshots_extra_v17/render_manifest.json",
+      "bytes": 5721,
+      "sha256": "004ee8fa0c322ed40763bfda2ebc203ec9469ed286adbb2ec94999d4099e6f4e"
+    },
+    {
+      "path": "screenshots_v17/01_driver.png",
+      "bytes": 1706454,
+      "sha256": "547c3ac014d65e8a9521318cfd39394efae71318d0c49a796c5b3948d2193f71"
+    },
+    {
+      "path": "screenshots_v17/02_detail.png",
+      "bytes": 1786730,
+      "sha256": "e396a3684f6cffea6a16d5a8d0551278e4be6edad4ec5523fa196fdd725c78d3"
+    },
+    {
+      "path": "screenshots_v17/03_detail.png",
+      "bytes": 1660965,
+      "sha256": "74752f715c99522b57052866f3e9ca7418f91e9e74eb32f8c4b61724a1bb47cf"
+    },
+    {
+      "path": "screenshots_v17/04_overview.png",
+      "bytes": 1971891,
+      "sha256": "484b7f5f86bfcae8a555ef1f96770c38cb5c92958e18406f36571465afc4f8a4"
+    },
+    {
+      "path": "screenshots_v17/05_driver.png",
+      "bytes": 1891552,
+      "sha256": "a59c1450e9dc85f7de05901bc30370e0721510e9df7a028bd8db43f41b501eeb"
+    },
+    {
+      "path": "screenshots_v17/06_driver.png",
+      "bytes": 1549256,
+      "sha256": "397ccc6e71bd6a73232015fb76c5edc285c7336b9627a25e61c044f9a0f3c689"
+    },
+    {
+      "path": "screenshots_v17/render_manifest.json",
+      "bytes": 5153,
+      "sha256": "a72a11a979472de03bdd5142c8ba5a838028c81ea91c8bbe4d1df9ff1beeb4e9"
+    },
+    {
+      "path": "source_data/architecture_camera_v12.json",
+      "bytes": 450,
+      "sha256": "ad512457b0ad367d6aec518d65e828c661c03f06120ba8e4c48684b61ab45aeb"
+    },
+    {
+      "path": "source_data/architecture_closeup_v12.json",
+      "bytes": 561,
+      "sha256": "714d36793e11c9ae81a8e0fd43b6939f0a6f68e10d078baf4eabaae2b5ec750c"
+    },
+    {
+      "path": "source_data/architecture_placement_v12.json",
+      "bytes": 221083,
+      "sha256": "2c50a8b000c8bb5d66e7a0e00b2635dbde43d773d8620385ecd5f29df0408cd0"
+    },
+    {
+      "path": "source_data/architecture_step_clearance_v12.json",
+      "bytes": 6209,
+      "sha256": "a4064958b5b737613715618c5f15b7c4a90d6342080b776343e87a516fc1ed90"
+    },
+    {
+      "path": "source_data/architecture_v12.json",
+      "bytes": 75144,
+      "sha256": "e69313629adf45aeb4180ed9c8d00d653ee07446344e6e49f02c60e7294add1a"
+    },
+    {
+      "path": "source_data/baseline_encroachment_v12.json",
+      "bytes": 2633,
+      "sha256": "3a7d989b1fdf8945af105ebbcde275dd79c66cb4324d36947bf39e94260b0d6c"
+    },
+    {
+      "path": "source_data/cameras_v12.json",
+      "bytes": 3563,
+      "sha256": "e314b06c48da6a9befe0d359ebb1b30bf5516172edc5367e60d2cf399779b83f"
+    },
+    {
+      "path": "source_data/cameras_v13.json",
+      "bytes": 3840,
+      "sha256": "266f265a49bab98a922a207c3e551142818df0c1d160faf40d11a47869084f0e"
+    },
+    {
+      "path": "source_data/corner_smoothing.json",
+      "bytes": 20278,
+      "sha256": "220188ec8165f4afeca4846637475b8ea043c03e59cba47a1ed0ae98916a6929"
+    },
+    {
+      "path": "source_data/crossings_v07.json",
+      "bytes": 5537,
+      "sha256": "97544ca7cf2761233a6f66d26fc5c7d8e9af3864f2b5cc2fade7c41c52539738"
+    },
+    {
+      "path": "source_data/curb_plan_v08.json",
+      "bytes": 16663,
+      "sha256": "507600fc9279d1289a4aa219a6ab35a52bdab300c049ab7e2521430f7708f6c5"
+    },
+    {
+      "path": "source_data/driver_cameras_v11.json",
+      "bytes": 15980,
+      "sha256": "a7778e1f32bc22949d73c1295150925294ff24512d57a397623ae2e361fc9384"
+    },
+    {
+      "path": "source_data/elevation_audit_v11.json",
+      "bytes": 7472,
+      "sha256": "816b0e49392f3c26a95c1dcdeacd97684bd65fb71c4f286204258e31a4d88180"
+    },
+    {
+      "path": "source_data/foliage_atlas_v10.json",
+      "bytes": 2840,
+      "sha256": "bdc954c23470a2b69e0f48aa841ec3637d62659aa362b7e07637ff75658a1d0a"
+    },
+    {
+      "path": "source_data/horizon_material_refresh_v11.json",
+      "bytes": 331,
+      "sha256": "df22733cdf83767c149ba3bc2ae3027ed3aee3cb0530087150a479e99c4a6a9e"
+    },
+    {
+      "path": "source_data/horizon_source_metadata_v11.json",
+      "bytes": 2642,
+      "sha256": "b16a1aa064a3c55c4c465a13395e6518a1dd94803a37692a0d0d6523636ee68e"
+    },
+    {
+      "path": "source_data/industrial_v10.json",
+      "bytes": 1047151,
+      "sha256": "8a745e973a5ecb646b4868f51d7cdb72e6f077f063d15627435c5d028c18151e"
+    },
+    {
+      "path": "source_data/junction_closures_v09.json",
+      "bytes": 293352,
+      "sha256": "fb6b997851927479ba0ebe1120496cbd63b54071a536663a55af6fab38a21b8e"
+    },
+    {
+      "path": "source_data/landscape_report_v09.json",
+      "bytes": 9714,
+      "sha256": "10ab453ff2271e949ce5eea387b22d13b16f3661878f6a9f4837db0cffb415e4"
+    },
+    {
+      "path": "source_data/map_provenance_v09.json",
+      "bytes": 537,
+      "sha256": "5fadb61e17354cc2c971b5b22db91309d3a1620d5afedb699c77bee175a650e4"
+    },
+    {
+      "path": "source_data/material_finish_v09.json",
+      "bytes": 1221,
+      "sha256": "3607045aa4ca9e8dca8301129c98b27a43bcfc0226fb374e413a05cf28f1a2e6"
+    },
+    {
+      "path": "source_data/material_zones_v07.json",
+      "bytes": 14143,
+      "sha256": "a13abadcf65661bb05cbe927dad7acd89b6b68849ec066792c0a2b25089a37e0"
+    },
+    {
+      "path": "source_data/optimization_v13.json",
+      "bytes": 14330355,
+      "sha256": "88c7c26682b6a2758f083d743ebc57520770910cfe88204fadf22e18cde80782"
+    },
+    {
+      "path": "source_data/packed_images_v11.json",
+      "bytes": 4233,
+      "sha256": "3fded11272b6d58f9fde17c0e30d36f36dce2bf1cace67556aa10a217cc14fcc"
+    },
+    {
+      "path": "source_data/packed_images_v13.json",
+      "bytes": 4233,
+      "sha256": "3fded11272b6d58f9fde17c0e30d36f36dce2bf1cace67556aa10a217cc14fcc"
+    },
+    {
+      "path": "source_data/paved_visibility_v12.json",
+      "bytes": 1571,
+      "sha256": "876af15ce780401e412fc950ed2222cfd99851c70cc9f45bee111d88cf52a1ed"
+    },
+    {
+      "path": "source_data/paving_overlap_diagnosis_v12.json",
+      "bytes": 4646,
+      "sha256": "ec01b05fbe459a7f8d7dd2e5fff9bbe881db8b1ddd7322275e71fa97faa3b8a2"
+    },
+    {
+      "path": "source_data/pit_plan.json",
+      "bytes": 181547,
+      "sha256": "8e2bcf8fb4cfdbb13e19b2103110fbebb53e34efd806d943df11bd6f2dfab72a"
+    },
+    {
+      "path": "source_data/pit_plan_v07.json",
+      "bytes": 204138,
+      "sha256": "de3e3a1e442353a75acf62bdf1ada9424aa018dedeca6a00060b9a4d252c0781"
+    },
+    {
+      "path": "source_data/pit_plan_v08.json",
+      "bytes": 370541,
+      "sha256": "87fdb78917ced87d0311ad881a4ac4e978f28607a46a865a76c6307d51511291"
+    },
+    {
+      "path": "source_data/precision_validation_history_v10.json",
+      "bytes": 5677,
+      "sha256": "e2a5c9612aebcbcb406f3d444538244a2fed6e1701729c2e1868a89834b9165a"
+    },
+    {
+      "path": "source_data/reference_evidence_v12.json",
+      "bytes": 7376,
+      "sha256": "38fe71f571d497da18a4eeb9e0a739170e54b7978ad7bc16ac45280b5947635f"
+    },
+    {
+      "path": "source_data/residential_context_v09.json",
+      "bytes": 4796,
+      "sha256": "772a9ba356e3d7257218bad945a70ee173d6ab4a245a0f35ca3e73a33d0d616b"
+    },
+    {
+      "path": "source_data/road_patch_v13.json",
+      "bytes": 205411,
+      "sha256": "5241fcd5e719284a34c0b38b23f5c5ce4576e271270c5a959d405545054b55bf"
+    },
+    {
+      "path": "source_data/sector_inventory_v12.json",
+      "bytes": 2163084,
+      "sha256": "afb7f38a319114d93491164bd1cad3de64a086a4f49afe456df2e0fc19e25877"
+    },
+    {
+      "path": "source_data/side_road_native_test_v09.json",
+      "bytes": 1909,
+      "sha256": "99482ca2579e54545d36d0f0fbd969a47c8f8213393f77a82e45d8ac40986617"
+    },
+    {
+      "path": "source_data/side_road_plan_v09.json",
+      "bytes": 176635,
+      "sha256": "ef539235b35893c5a17a122f7cadac4b1178bd64ba28fbbe02976f987e08fac1"
+    },
+    {
+      "path": "source_data/street_detail_v09.json",
+      "bytes": 30951,
+      "sha256": "5d6fd223bef57dc406c705c871c9de976811e4e2dd4ddb19fdecf57407ed9fa1"
+    },
+    {
+      "path": "source_data/surface_finish_v10.json",
+      "bytes": 167199,
+      "sha256": "feecad7e7ab4859964c373de35c3791e68ad991a37af6840204c9fd3cc598304"
+    },
+    {
+      "path": "source_data/surroundings_local.json",
+      "bytes": 495266,
+      "sha256": "938f162e90e34bd9bd5683408faca0d91534223631034413e976f5b789ccfaf5"
+    },
+    {
+      "path": "source_data/terrain_continuity_v11.json",
+      "bytes": 2867,
+      "sha256": "775b28ba9d81bbfce91daf0193adb4214b2c390d2a7202c6ea87daf19d9aa9ed"
+    },
+    {
+      "path": "source_data/terrain_horizon_v11.json",
+      "bytes": 2568,
+      "sha256": "c78d165b15d1fb52b014d58ce57eaf89ce3af8bf9a1887df0a8cac50ea4efd34"
+    },
+    {
+      "path": "source_data/terrain_metadata.json",
+      "bytes": 2946,
+      "sha256": "843fa83b31fcd2299677b47145c8480fb5f19f35775205dfcdf8154099281ff3"
+    },
+    {
+      "path": "source_data/track_native_check_v08.json",
+      "bytes": 3880,
+      "sha256": "aaa91015ddea6153b45d3e262653b57e4044db7816f272537c16db6457f1c2e2"
+    },
+    {
+      "path": "source_data/track_plan_v08.json",
+      "bytes": 1202775,
+      "sha256": "e9e125abc64a0dc79e99bb234cb8b52b2d04f72fefa8e018bd94cd4827dcb7d0"
+    },
+    {
+      "path": "source_data/vegetation_game_v10.json",
+      "bytes": 4160750,
+      "sha256": "6e29fd407559a6d3d73f61dcba9e94eecb03e0f3abbcc69ce74800427ba2491e"
+    },
+    {
+      "path": "source_data/vegetation_inventory_v10.json",
+      "bytes": 83412,
+      "sha256": "42c66991d000069175c47fe54a3fedccda32f41fe13072b3665f20232204815d"
+    },
+    {
+      "path": "source_data/vegetation_local_inventory_v12.json",
+      "bytes": 2276,
+      "sha256": "aab0909c35764f772cd0fab645d4258772a9379f6bbb72ce64a5408f41dc119e"
+    },
+    {
+      "path": "source_data/vegetation_v12.json",
+      "bytes": 2633915,
+      "sha256": "ef3292fd1b4c8fedfee36d5b2573f3fe16b495b83f97326a0c726d09ad6aa618"
+    },
+    {
+      "path": "source_data/vegetation_v16.json",
+      "bytes": 6661446,
+      "sha256": "8e80cbe6587b2c410eb8d79260ff4d078b6352f5a715b27248e0d8f74adef2ac"
+    },
+    {
+      "path": "source_data/weathering_v13.json",
+      "bytes": 4503911,
+      "sha256": "8e260e6c894e63f14be350eccee1b915eb69fdad2bb9ab0566c3952fbe910748"
+    },
+    {
+      "path": "source_data/yard_layout_v12.json",
+      "bytes": 1069161,
+      "sha256": "ab45858fb3383cf8eb42129dab47bf320b41696baa6dd37254833adf8630da0c"
+    },
+    {
+      "path": "source_data/yards_v12.json",
+      "bytes": 4590,
+      "sha256": "1174801b67bcea7fc8d8bc219f81f8e6a5d37372430688b3d8318c123096ee48"
+    },
+    {
+      "path": "source_data/yards_v16.json",
+      "bytes": 2951833,
+      "sha256": "4246f879d829605392bdc3c4a7b75606d1035563678122ff1fba1f412a5ffba3"
+    },
+    {
+      "path": "sources/AC_TRANSFER_V16_RU.md",
+      "bytes": 13374,
+      "sha256": "fab80ceab70f89a259dcc77577bccfd79f3bf2e35958a01526ab98b60223609c"
+    },
+    {
+      "path": "sources/ELEVATION_SOURCES_V11_RU.md",
+      "bytes": 11044,
+      "sha256": "40ce290d3409fe0b75398b3feb1e32ae996b460918e16e73cb66bba7a2d47655"
+    },
+    {
+      "path": "sources/MAP_AUDIT_RU.md",
+      "bytes": 8924,
+      "sha256": "b79e47adadc6d2a6cdc63c7a8ee92ae1a6b4b1642a381348b2660cda4886d0ed"
+    },
+    {
+      "path": "sources/MATERIALS_V15_RU.md",
+      "bytes": 10772,
+      "sha256": "4b97398fd110be4ec30dc4ce96651723a4fcb4e93989f78885fe9ea7113b6b43"
+    },
+    {
+      "path": "sources/MATERIAL_SOURCES.md",
+      "bytes": 8056,
+      "sha256": "78026675869911daadb21338b1cfd9dabb9edd2f9d697e648712ffa34e1ee7a6"
+    },
+    {
+      "path": "sources/RACING_V15_RU.md",
+      "bytes": 15083,
+      "sha256": "1fc6f5068851752ceee5650181213fcbe69692e1757286cc65c9dccc65a5b3ea"
+    },
+    {
+      "path": "sources/README_V16_RU.md",
+      "bytes": 6599,
+      "sha256": "32e0848af0bb33f8b587778dc5654fbece5c57e660432c4823276fe87a6c0ffd"
+    },
+    {
+      "path": "sources/REFERENCES_V12_RU.md",
+      "bytes": 12402,
+      "sha256": "78aea1583a54b032a78a189be771a835ebf6925f6f56816c58002c0ba13f2bbd"
+    },
+    {
+      "path": "sources/SOURCES_AND_LIMITS_V13.txt",
+      "bytes": 2321,
+      "sha256": "91f90645c80117e0b01fb4b82b57e4aff2a2ab1cf4f3a1b61387acfec98c9728"
+    },
+    {
+      "path": "sources/SOURCES_V15_RU.md",
+      "bytes": 2899,
+      "sha256": "bb2b0393f1f39954856516c2f026d2e984c80216ec2a7d81ed0d6cf3974fa1cc"
+    },
+    {
+      "path": "sources/VALIDATION_V16_RU.md",
+      "bytes": 9278,
+      "sha256": "99e0426561253a8ece729760d53199075afde0b8374c2882dd8c4d2d8eb12493"
+    },
+    {
+      "path": "sources/VISUAL_REVIEW_V16_RU.md",
+      "bytes": 13478,
+      "sha256": "9095f4446ab1f4da1ffd5531dd7e1d68145f78ead66ecf38a1eda5d99840f943"
+    },
+    {
+      "path": "sources/texture_metadata/asphalt_02_files.json",
+      "bytes": 27252,
+      "sha256": "1249520977b7ba990db96a9b4dea2d7d5b8ff6d70c61a7d348310e92f68130d2"
+    },
+    {
+      "path": "sources/texture_metadata/asphalt_02_info.json",
+      "bytes": 985,
+      "sha256": "d357668ad1f17c79aee29455e493145576e405e41af51bfb86a30596bd3ce474"
+    },
+    {
+      "path": "sources/texture_metadata/dirt_files.json",
+      "bytes": 23174,
+      "sha256": "e47999c63343557cf1764f278a0c5b09b5e420d9b2c42daeda38ec3abfa0d7b7"
+    },
+    {
+      "path": "sources/texture_metadata/dirt_info.json",
+      "bytes": 885,
+      "sha256": "651dac47cb2438e3413f0f99525cf2ca8469e8700cb5c5157f578e048c2629fb"
+    },
+    {
+      "path": "sources/texture_metadata/kloofendal_48d_partly_cloudy_puresky_files.json",
+      "bytes": 1947,
+      "sha256": "a7cbb453c0269ac0996e43edaa7995d52b72f89830f4c7d7f813569f6647832c"
+    },
+    {
+      "path": "sources/texture_metadata/kloofendal_48d_partly_cloudy_puresky_info.json",
+      "bytes": 1229,
+      "sha256": "00e2207b8ff93e50accabbba2015bb925512c0bdb36fe00b2e8939a22ed1e5c9"
+    },
+    {
+      "path": "sources/texture_metadata/red_brick_files.json",
+      "bytes": 31173,
+      "sha256": "84596c2f282a2a0b1d2f2a7f14ee938c663e1c41594dd84225e68498fb040b6f"
+    },
+    {
+      "path": "sources/texture_metadata/red_brick_info.json",
+      "bytes": 908,
+      "sha256": "c0f078d334509d1a1e9150b95f1aab045d4103c95bcf448b32301cbcab99b188"
+    },
+    {
+      "path": "sources/texture_metadata/rough_concrete_files.json",
+      "bytes": 26557,
+      "sha256": "293ccc610cbb371fbcda28d28bc32408a41fd471fae8dd41a60d1d1e3bcc8b40"
+    },
+    {
+      "path": "sources/texture_metadata/rough_concrete_info.json",
+      "bytes": 898,
+      "sha256": "27345e38e8e25ae68e62631233c98c25ce93b775576ea01756813126a6c96f7a"
+    },
+    {
+      "path": "sources/texture_metadata/sparse_grass_files.json",
+      "bytes": 29490,
+      "sha256": "385455d28cb04effb36e7775527b88b1e637b3dbf228b0cf37474aa4ae05b54b"
+    },
+    {
+      "path": "sources/texture_metadata/sparse_grass_info.json",
+      "bytes": 960,
+      "sha256": "2dc6ca759402c5b985b2786cabb9d2be688331d44c662e7ed789b4f6025e8766"
+    },
+    {
+      "path": "tools/prepare_extra_camera_v17.py",
+      "bytes": 1869,
+      "sha256": "578e78ff3a7777b377dadd5fa0b8fa2957b1b84146d014715607e0bbaa625e1b"
+    },
+    {
+      "path": "tools/select_frontage_visibility_v17.py",
+      "bytes": 5427,
+      "sha256": "cc56abe997f6b1f52120c9a55a4361cc34551a0c170014b37c71901339acbf2c"
+    },
+    {
+      "path": "tools/validate_v17.py",
+      "bytes": 41424,
+      "sha256": "ab010281764576d4cf7fa8512fa6ec0209c592c9032932434410658be514c62b"
+    },
+    {
+      "path": "validation_v17.json",
+      "bytes": 51131,
+      "sha256": "04cff9e8e0cfe0cba4c49e4102994f4fb451bba084f815124193af0c01d7c1e2"
+    }
+  ]
+}

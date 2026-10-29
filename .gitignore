@@ -1,0 +1,18 @@
+# Большие или локально генерируемые файлы Blender
+*.blend
+*.blend1
+*.blend2
+*.blend@
+*.zip
+*.tmp
+*.log
+
+# Локальное окружение
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+.DS_Store
+Thumbs.db
