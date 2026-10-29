@@ -1,0 +1,1256 @@
+{
+  "version": "v09",
+  "uv_textured_buildings": 200,
+  "buildings": [
+    {
+      "osm_id": "way/403555609",
+      "network_distance_m": 0.48,
+      "wall_material": "silicate0",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/403555622",
+      "network_distance_m": 5.08,
+      "wall_material": "silicate0",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/399281604",
+      "network_distance_m": 3.13,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/1246290046",
+      "network_distance_m": 4.98,
+      "wall_material": "silicate1",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/403555590",
+      "network_distance_m": 5.95,
+      "wall_material": "silicate0",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/399291022",
+      "network_distance_m": 5.83,
+      "wall_material": "silicate0",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/1084374392",
+      "network_distance_m": 6.51,
+      "wall_material": "plaster3",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/399281602",
+      "network_distance_m": 7.28,
+      "wall_material": "plaster3",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/399291021",
+      "network_distance_m": 7.58,
+      "wall_material": "plaster2",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/398505994",
+      "network_distance_m": 8.04,
+      "wall_material": "plaster1",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/403541264",
+      "network_distance_m": 1.02,
+      "wall_material": "plaster1",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/403541265",
+      "network_distance_m": 2.89,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/399281603",
+      "network_distance_m": 6.64,
+      "wall_material": "plaster3",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/1007827073",
+      "network_distance_m": 6.44,
+      "wall_material": "silicate1",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/397112000",
+      "network_distance_m": 4.94,
+      "wall_material": "plaster0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/399281607",
+      "network_distance_m": 4.6,
+      "wall_material": "silicate1",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/404786449",
+      "network_distance_m": 8.0,
+      "wall_material": "plaster3",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403541268",
+      "network_distance_m": 8.92,
+      "wall_material": "plaster0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403555588",
+      "network_distance_m": 10.5,
+      "wall_material": "plaster0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403536624",
+      "network_distance_m": 9.73,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403555620",
+      "network_distance_m": 6.46,
+      "wall_material": "plaster4",
+      "roof_material": "roof1"
+    },
+    {
+      "osm_id": "way/399291020",
+      "network_distance_m": 5.95,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/1233306996",
+      "network_distance_m": 3.75,
+      "wall_material": "silicate1",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403555591",
+      "network_distance_m": 8.4,
+      "wall_material": "plaster1",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/1007826287",
+      "network_distance_m": 10.84,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/1007827072",
+      "network_distance_m": 8.65,
+      "wall_material": "plaster3",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/1246290045",
+      "network_distance_m": 4.93,
+      "wall_material": "plaster4",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403536625",
+      "network_distance_m": 8.01,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403543307",
+      "network_distance_m": 10.62,
+      "wall_material": "plaster2",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/1007787699",
+      "network_distance_m": 8.69,
+      "wall_material": "silicate0",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/406501368",
+      "network_distance_m": 8.97,
+      "wall_material": "plaster3",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/397112002",
+      "network_distance_m": 6.36,
+      "wall_material": "silicate1",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/399281601",
+      "network_distance_m": 9.07,
+      "wall_material": "plaster1",
+      "roof_material": "roof1"
+    },
+    {
+      "osm_id": "way/1007787700",
+      "network_distance_m": 7.7,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/1007787698",
+      "network_distance_m": 7.42,
+      "wall_material": "plaster3",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/403543306",
+      "network_distance_m": 12.15,
+      "wall_material": "plaster3",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/399291018",
+      "network_distance_m": 6.37,
+      "wall_material": "plaster0",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/403541267",
+      "network_distance_m": 8.19,
+      "wall_material": "plaster1",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/1007827075",
+      "network_distance_m": 8.05,
+      "wall_material": "silicate0",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/399281605",
+      "network_distance_m": 7.42,
+      "wall_material": "plaster1",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403555619",
+      "network_distance_m": 5.8,
+      "wall_material": "silicate1",
+      "roof_material": "roof1"
+    },
+    {
+      "osm_id": "way/406497782",
+      "network_distance_m": 11.57,
+      "wall_material": "plaster4",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/404470634",
+      "network_distance_m": 5.91,
+      "wall_material": "silicate1",
+      "roof_material": "roof1"
+    },
+    {
+      "osm_id": "way/403555589",
+      "network_distance_m": 8.78,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/1084374396",
+      "network_distance_m": 10.19,
+      "wall_material": "plaster0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403536626",
+      "network_distance_m": 7.73,
+      "wall_material": "silicate0",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/403543308",
+      "network_distance_m": 10.81,
+      "wall_material": "plaster0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/1084374393",
+      "network_distance_m": 11.33,
+      "wall_material": "plaster0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403555596",
+      "network_distance_m": 7.13,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403543347",
+      "network_distance_m": 7.15,
+      "wall_material": "silicate0",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/1007787697",
+      "network_distance_m": 6.47,
+      "wall_material": "plaster1",
+      "roof_material": "roof1"
+    },
+    {
+      "osm_id": "way/403555597",
+      "network_distance_m": 9.32,
+      "wall_material": "plaster1",
+      "roof_material": "roof1"
+    },
+    {
+      "osm_id": "way/397112005",
+      "network_distance_m": 5.13,
+      "wall_material": "silicate0",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/399281608",
+      "network_distance_m": 7.35,
+      "wall_material": "plaster2",
+      "roof_material": "roof1"
+    },
+    {
+      "osm_id": "way/403543309",
+      "network_distance_m": 9.28,
+      "wall_material": "plaster3",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403555592",
+      "network_distance_m": 4.79,
+      "wall_material": "silicate0",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/396329090",
+      "network_distance_m": 6.4,
+      "wall_material": "silicate0",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/403543324",
+      "network_distance_m": 7.54,
+      "wall_material": "silicate1",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/396329088",
+      "network_distance_m": 7.11,
+      "wall_material": "plaster3",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/403543310",
+      "network_distance_m": 8.34,
+      "wall_material": "plaster1",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/1007827071",
+      "network_distance_m": 8.93,
+      "wall_material": "plaster4",
+      "roof_material": "roof1"
+    },
+    {
+      "osm_id": "way/1007787696",
+      "network_distance_m": 5.86,
+      "wall_material": "plaster3",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/396329091",
+      "network_distance_m": 5.13,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403555595",
+      "network_distance_m": 8.8,
+      "wall_material": "silicate0",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/396785994",
+      "network_distance_m": 9.72,
+      "wall_material": "silicate0",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/396329089",
+      "network_distance_m": 7.99,
+      "wall_material": "plaster4",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/403536628",
+      "network_distance_m": 10.89,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/399291023",
+      "network_distance_m": 8.27,
+      "wall_material": "silicate0",
+      "roof_material": "roof1"
+    },
+    {
+      "osm_id": "way/403541248",
+      "network_distance_m": 4.04,
+      "wall_material": "plaster4",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403536641",
+      "network_distance_m": 8.66,
+      "wall_material": "plaster0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/404802865",
+      "network_distance_m": 11.25,
+      "wall_material": "plaster0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403541275",
+      "network_distance_m": 4.71,
+      "wall_material": "plaster3",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403543350",
+      "network_distance_m": 3.7,
+      "wall_material": "plaster1",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/404470632",
+      "network_distance_m": 7.12,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/399281612",
+      "network_distance_m": 6.56,
+      "wall_material": "plaster0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403555629",
+      "network_distance_m": 13.02,
+      "wall_material": "plaster4",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/1007827076",
+      "network_distance_m": 10.38,
+      "wall_material": "silicate1",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/403555613",
+      "network_distance_m": 9.02,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/399281609",
+      "network_distance_m": 8.12,
+      "wall_material": "plaster3",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403543342",
+      "network_distance_m": 10.84,
+      "wall_material": "silicate0",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/404470631",
+      "network_distance_m": 5.95,
+      "wall_material": "plaster1",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403543311",
+      "network_distance_m": 8.67,
+      "wall_material": "silicate1",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/403536627",
+      "network_distance_m": 14.79,
+      "wall_material": "silicate0",
+      "roof_material": "roof1"
+    },
+    {
+      "osm_id": "way/403555587",
+      "network_distance_m": 11.39,
+      "wall_material": "silicate1",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/1084374394",
+      "network_distance_m": 11.99,
+      "wall_material": "plaster4",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403543344",
+      "network_distance_m": 14.89,
+      "wall_material": "plaster3",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/399281606",
+      "network_distance_m": 12.73,
+      "wall_material": "plaster3",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403555614",
+      "network_distance_m": 5.64,
+      "wall_material": "plaster1",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/403543339",
+      "network_distance_m": 7.16,
+      "wall_material": "silicate0",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/396329109",
+      "network_distance_m": 10.29,
+      "wall_material": "plaster1",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/399291019",
+      "network_distance_m": 6.38,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403536630",
+      "network_distance_m": 9.5,
+      "wall_material": "plaster1",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/1007787695",
+      "network_distance_m": 7.03,
+      "wall_material": "silicate0",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/396764069",
+      "network_distance_m": 14.77,
+      "wall_material": "silicate0",
+      "roof_material": "roof1"
+    },
+    {
+      "osm_id": "way/397112006",
+      "network_distance_m": 6.72,
+      "wall_material": "plaster4",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/404802851",
+      "network_distance_m": 16.47,
+      "wall_material": "plaster4",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/404470629",
+      "network_distance_m": 5.85,
+      "wall_material": "plaster0",
+      "roof_material": "roof1"
+    },
+    {
+      "osm_id": "way/403555608",
+      "network_distance_m": 6.97,
+      "wall_material": "plaster2",
+      "roof_material": "roof1"
+    },
+    {
+      "osm_id": "way/403536629",
+      "network_distance_m": 11.84,
+      "wall_material": "plaster0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/1007831237",
+      "network_distance_m": 7.79,
+      "wall_material": "silicate0",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/396785995",
+      "network_distance_m": 8.08,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/399281611",
+      "network_distance_m": 7.75,
+      "wall_material": "plaster2",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403541279",
+      "network_distance_m": 6.38,
+      "wall_material": "plaster0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403543345",
+      "network_distance_m": 13.77,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/404470594",
+      "network_distance_m": 7.7,
+      "wall_material": "plaster4",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/1007787701",
+      "network_distance_m": 8.8,
+      "wall_material": "plaster3",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/403555610",
+      "network_distance_m": 16.84,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/399291025",
+      "network_distance_m": 9.59,
+      "wall_material": "plaster2",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/403541261",
+      "network_distance_m": 5.87,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/1007787694",
+      "network_distance_m": 6.63,
+      "wall_material": "plaster1",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403555612",
+      "network_distance_m": 9.45,
+      "wall_material": "plaster2",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/396785997",
+      "network_distance_m": 4.05,
+      "wall_material": "plaster0",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/403541247",
+      "network_distance_m": 7.88,
+      "wall_material": "plaster1",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403543349",
+      "network_distance_m": 7.77,
+      "wall_material": "silicate0",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/403555621",
+      "network_distance_m": 16.61,
+      "wall_material": "plaster2",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/1007831235",
+      "network_distance_m": 7.87,
+      "wall_material": "plaster2",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/1007827070",
+      "network_distance_m": 11.38,
+      "wall_material": "silicate1",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/396764067",
+      "network_distance_m": 13.79,
+      "wall_material": "plaster1",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/398506012",
+      "network_distance_m": 10.43,
+      "wall_material": "plaster2",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/1007831234",
+      "network_distance_m": 7.44,
+      "wall_material": "plaster1",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/396764071",
+      "network_distance_m": 18.4,
+      "wall_material": "silicate0",
+      "roof_material": "roof1"
+    },
+    {
+      "osm_id": "way/403536631",
+      "network_distance_m": 10.21,
+      "wall_material": "plaster1",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/399281616",
+      "network_distance_m": 6.26,
+      "wall_material": "plaster2",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403536640",
+      "network_distance_m": 9.78,
+      "wall_material": "plaster2",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/1007787693",
+      "network_distance_m": 5.99,
+      "wall_material": "plaster4",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/403541250",
+      "network_distance_m": 5.48,
+      "wall_material": "plaster0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/397112008",
+      "network_distance_m": 7.16,
+      "wall_material": "plaster1",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/396329093",
+      "network_distance_m": 7.82,
+      "wall_material": "plaster1",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/404466839",
+      "network_distance_m": 13.67,
+      "wall_material": "silicate0",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/1084130038",
+      "network_distance_m": 14.94,
+      "wall_material": "plaster3",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403555616",
+      "network_distance_m": 6.07,
+      "wall_material": "plaster4",
+      "roof_material": "roof1"
+    },
+    {
+      "osm_id": "way/403555593",
+      "network_distance_m": 9.03,
+      "wall_material": "plaster3",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/403543351",
+      "network_distance_m": 7.57,
+      "wall_material": "silicate1",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/403543353",
+      "network_distance_m": 7.26,
+      "wall_material": "plaster3",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403555623",
+      "network_distance_m": 8.9,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/1007831233",
+      "network_distance_m": 6.94,
+      "wall_material": "plaster0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/397112004",
+      "network_distance_m": 12.63,
+      "wall_material": "plaster0",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/403554197",
+      "network_distance_m": 5.07,
+      "wall_material": "silicate0",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/403555607",
+      "network_distance_m": 6.96,
+      "wall_material": "plaster1",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/406501364",
+      "network_distance_m": 8.79,
+      "wall_material": "silicate1",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/396785996",
+      "network_distance_m": 8.26,
+      "wall_material": "silicate1",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/1007827069",
+      "network_distance_m": 11.13,
+      "wall_material": "silicate0",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/1084374395",
+      "network_distance_m": 12.92,
+      "wall_material": "plaster2",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/398506011",
+      "network_distance_m": 10.4,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/398505993",
+      "network_distance_m": 18.07,
+      "wall_material": "plaster4",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/404470628",
+      "network_distance_m": 6.44,
+      "wall_material": "plaster0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403536639",
+      "network_distance_m": 9.59,
+      "wall_material": "plaster3",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/1007831232",
+      "network_distance_m": 6.19,
+      "wall_material": "plaster3",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/403555628",
+      "network_distance_m": 6.49,
+      "wall_material": "plaster0",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/403543357",
+      "network_distance_m": 6.26,
+      "wall_material": "plaster4",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403541272",
+      "network_distance_m": 12.71,
+      "wall_material": "plaster4",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/1007787702",
+      "network_distance_m": 9.38,
+      "wall_material": "plaster4",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/403541281",
+      "network_distance_m": 13.16,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403543359",
+      "network_distance_m": 6.74,
+      "wall_material": "silicate1",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403543348",
+      "network_distance_m": 9.51,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403555586",
+      "network_distance_m": 13.98,
+      "wall_material": "silicate0",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/403555618",
+      "network_distance_m": 6.86,
+      "wall_material": "silicate0",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/403536633",
+      "network_distance_m": 7.11,
+      "wall_material": "plaster3",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403536632",
+      "network_distance_m": 8.22,
+      "wall_material": "plaster4",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/398502404",
+      "network_distance_m": 7.1,
+      "wall_material": "plaster1",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/398505988",
+      "network_distance_m": 4.45,
+      "wall_material": "plaster4",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/403543340",
+      "network_distance_m": 11.79,
+      "wall_material": "silicate0",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/403555615",
+      "network_distance_m": 5.98,
+      "wall_material": "plaster3",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403543360",
+      "network_distance_m": 7.17,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/404477008",
+      "network_distance_m": 14.07,
+      "wall_material": "plaster4",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/403543312",
+      "network_distance_m": 11.52,
+      "wall_material": "silicate0",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/404466840",
+      "network_distance_m": 7.84,
+      "wall_material": "plaster3",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403555624",
+      "network_distance_m": 6.8,
+      "wall_material": "plaster4",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/399291017",
+      "network_distance_m": 12.36,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/396785993",
+      "network_distance_m": 13.58,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403555625",
+      "network_distance_m": 5.23,
+      "wall_material": "silicate0",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/399291024",
+      "network_distance_m": 10.74,
+      "wall_material": "plaster1",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/399281613",
+      "network_distance_m": 8.29,
+      "wall_material": "plaster3",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/1007827068",
+      "network_distance_m": 11.01,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/396329087",
+      "network_distance_m": 11.61,
+      "wall_material": "plaster3",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/396329094",
+      "network_distance_m": 8.31,
+      "wall_material": "plaster4",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/396329108",
+      "network_distance_m": 12.85,
+      "wall_material": "plaster4",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/1007787692",
+      "network_distance_m": 6.71,
+      "wall_material": "plaster1",
+      "roof_material": "roof1"
+    },
+    {
+      "osm_id": "way/403541282",
+      "network_distance_m": 16.37,
+      "wall_material": "plaster3",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403555611",
+      "network_distance_m": 18.6,
+      "wall_material": "plaster3",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403543361",
+      "network_distance_m": 7.61,
+      "wall_material": "silicate1",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/396329118",
+      "network_distance_m": 6.45,
+      "wall_material": "plaster2",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/396785992",
+      "network_distance_m": 12.61,
+      "wall_material": "plaster4",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/404802864",
+      "network_distance_m": 11.75,
+      "wall_material": "silicate0",
+      "roof_material": "roof1"
+    },
+    {
+      "osm_id": "way/403543358",
+      "network_distance_m": 7.65,
+      "wall_material": "silicate0",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/1007831231",
+      "network_distance_m": 6.59,
+      "wall_material": "plaster0",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/403536638",
+      "network_distance_m": 9.7,
+      "wall_material": "plaster3",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403543341",
+      "network_distance_m": 10.64,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403555585",
+      "network_distance_m": 13.71,
+      "wall_material": "plaster2",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/399291027",
+      "network_distance_m": 7.22,
+      "wall_material": "plaster4",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/1084374388",
+      "network_distance_m": 13.12,
+      "wall_material": "plaster0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403541269",
+      "network_distance_m": 18.99,
+      "wall_material": "silicate0",
+      "roof_material": "roof3"
+    },
+    {
+      "osm_id": "way/403555627",
+      "network_distance_m": 7.24,
+      "wall_material": "silicate1",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/396785998",
+      "network_distance_m": 3.17,
+      "wall_material": "plaster0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/398506014",
+      "network_distance_m": 9.24,
+      "wall_material": "plaster3",
+      "roof_material": "roof2"
+    },
+    {
+      "osm_id": "way/396764068",
+      "network_distance_m": 15.34,
+      "wall_material": "silicate0",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/1007827067",
+      "network_distance_m": 9.92,
+      "wall_material": "silicate0",
+      "roof_material": "roof1"
+    },
+    {
+      "osm_id": "way/396329103",
+      "network_distance_m": 6.66,
+      "wall_material": "silicate1",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/403543354",
+      "network_distance_m": 9.06,
+      "wall_material": "plaster4",
+      "roof_material": "roof0"
+    },
+    {
+      "osm_id": "way/404786442",
+      "network_distance_m": 13.12,
+      "wall_material": "plaster1",
+      "roof_material": "roof0"
+    }
+  ],
+  "corrugated_roofs": 36,
+  "corrugated_roof_faces": 18530,
+  "small_fittings": {
+    "utility_boxes": 92,
+    "new_canopies": 28,
+    "faces": 2328
+  },
+  "service_buildings": {
+    "buildings": [
+      "way/401630832",
+      "way/401630835",
+      "way/401630833",
+      "way/395673090"
+    ],
+    "loading_doors": 22,
+    "upper_windows": 81,
+    "faces": 7075
+  },
+  "elevator": {
+    "buildings": 2,
+    "new_faces": 657,
+    "source_url": "https://www.alp-prom.com.ua/uk/portfolio.html",
+    "reference_photos_embedded": false,
+    "scope": "Photo-informed palette and panel rhythm; unchanged mapped shell XY and height; exact panel count remains inferred"
+  },
+  "event_identity": [
+    {
+      "map_station_m": 5190,
+      "center": [
+        551.124,
+        343.947,
+        4.073
+      ],
+      "design_status": "Original event graphics, not authentic street sign"
+    },
+    {
+      "map_station_m": 2360,
+      "center": [
+        753.731,
+        2076.844,
+        5.759
+      ],
+      "design_status": "Original event graphics, not authentic street sign"
+    }
+  ],
+  "mapped_wall_vertices_modified": false,
+  "mapped_roof_vertices_modified": false,
+  "window_openings_preserved": true,
+  "texture_license": "Existing Poly Haven CC0 images, packed in Blender",
+  "accuracy": "Road connectivity and footprints from OSM. Residential facade colors/details remain regional inferred dressing. Two elevator palettes are photo-informed. Event signs are original fictional race presentation. Not game-tested."
+}
