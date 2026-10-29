@@ -1,0 +1,465 @@
+{
+  "audit_date": "2026-10-13",
+  "source": "Local OSM API extract, 2026-10-13; all 841 feature tag dictionaries cross-checked against original XML.",
+  "license": "Map data © OpenStreetMap contributors, ODbL 1.0",
+  "osm_copyright_url": "https://www.openstreetmap.org/copyright",
+  "route_length_m": 5849.321,
+  "surface_explicitly_tagged_m": 3556.917,
+  "surface_untagged_m": 2292.404,
+  "surface_tagged_percent": 60.81,
+  "method": "Nearest exact projection of each model centerline segment midpoint onto circuit-source OSM ways. Zone boundaries quantized to model centerline vertices, typically 5 m; no boundary is a surveyed pavement change.",
+  "texture_status": "All render textures are licensed or original material surrogates. No route facade or pavement has a photographic texture taken at that exact location.",
+  "zones": [
+    {
+      "osm_id": "way/969188439",
+      "source_url": "https://www.openstreetmap.org/way/969188439",
+      "source_version": "41",
+      "source_timestamp": "2026-04-20T09:30:47Z",
+      "street": "вулиця Григора Тютюнника",
+      "old_name": "вулиця Горького",
+      "start_m": 0.0,
+      "end_m": 1024.435,
+      "surface_tag": "asphalt",
+      "surface_evidence": "explicit_osm_tag",
+      "render_surface": "asphalt",
+      "bridge_tag": null,
+      "max_centerline_offset_m": 1.2,
+      "length_m": 1024.435
+    },
+    {
+      "osm_id": "way/1470908179",
+      "source_url": "https://www.openstreetmap.org/way/1470908179",
+      "source_version": "4",
+      "source_timestamp": "2026-04-20T09:30:47Z",
+      "street": "вулиця Григора Тютюнника",
+      "old_name": "вулиця Горького",
+      "start_m": 1024.435,
+      "end_m": 1133.047,
+      "surface_tag": "asphalt",
+      "surface_evidence": "explicit_osm_tag",
+      "render_surface": "asphalt",
+      "bridge_tag": null,
+      "max_centerline_offset_m": 0.984,
+      "length_m": 108.612
+    },
+    {
+      "osm_id": "way/969188440",
+      "source_url": "https://www.openstreetmap.org/way/969188440",
+      "source_version": "9",
+      "source_timestamp": "2026-04-05T19:08:42Z",
+      "street": "вулиця Тютюнника",
+      "old_name": null,
+      "start_m": 1133.047,
+      "end_m": 1142.23,
+      "surface_tag": "asphalt",
+      "surface_evidence": "explicit_osm_tag",
+      "render_surface": "asphalt",
+      "bridge_tag": "yes",
+      "max_centerline_offset_m": 0.004,
+      "length_m": 9.183
+    },
+    {
+      "osm_id": "way/1384458416",
+      "source_url": "https://www.openstreetmap.org/way/1384458416",
+      "source_version": "4",
+      "source_timestamp": "2026-04-20T09:30:47Z",
+      "street": "вулиця Тютюнника",
+      "old_name": null,
+      "start_m": 1142.23,
+      "end_m": 2243.042,
+      "surface_tag": "asphalt",
+      "surface_evidence": "explicit_osm_tag",
+      "render_surface": "asphalt",
+      "bridge_tag": null,
+      "max_centerline_offset_m": 0.418,
+      "length_m": 1100.812
+    },
+    {
+      "osm_id": "way/111844962",
+      "source_url": "https://www.openstreetmap.org/way/111844962",
+      "source_version": "94",
+      "source_timestamp": "2026-04-20T09:30:47Z",
+      "street": "Т-13-02",
+      "old_name": null,
+      "start_m": 2243.042,
+      "end_m": 2449.868,
+      "surface_tag": "asphalt",
+      "surface_evidence": "explicit_osm_tag",
+      "render_surface": "asphalt",
+      "bridge_tag": null,
+      "max_centerline_offset_m": 0.283,
+      "length_m": 206.826
+    },
+    {
+      "osm_id": "way/406501366",
+      "source_url": "https://www.openstreetmap.org/way/406501366",
+      "source_version": "4",
+      "source_timestamp": "2022-08-14T13:18:06Z",
+      "street": "без названия в OSM",
+      "old_name": null,
+      "start_m": 2449.868,
+      "end_m": 3686.755,
+      "surface_tag": null,
+      "surface_evidence": "unknown_no_surface_tag",
+      "render_surface": "asphalt_surrogate_unverified",
+      "bridge_tag": null,
+      "max_centerline_offset_m": 0.622,
+      "length_m": 1236.887
+    },
+    {
+      "osm_id": "way/232806998",
+      "source_url": "https://www.openstreetmap.org/way/232806998",
+      "source_version": "25",
+      "source_timestamp": "2023-10-23T02:08:51Z",
+      "street": "Сінна вулиця",
+      "old_name": null,
+      "start_m": 3686.755,
+      "end_m": 4343.308,
+      "surface_tag": null,
+      "surface_evidence": "unknown_no_surface_tag",
+      "render_surface": "asphalt_surrogate_unverified",
+      "bridge_tag": null,
+      "max_centerline_offset_m": 0.14,
+      "length_m": 656.553
+    },
+    {
+      "osm_id": "way/406501367",
+      "source_url": "https://www.openstreetmap.org/way/406501367",
+      "source_version": "3",
+      "source_timestamp": "2022-01-06T08:41:23Z",
+      "street": "без названия в OSM",
+      "old_name": null,
+      "start_m": 4343.308,
+      "end_m": 4377.099,
+      "surface_tag": null,
+      "surface_evidence": "unknown_no_surface_tag",
+      "render_surface": "asphalt_surrogate_unverified",
+      "bridge_tag": "yes",
+      "max_centerline_offset_m": 0.004,
+      "length_m": 33.791
+    },
+    {
+      "osm_id": "way/1384458417",
+      "source_url": "https://www.openstreetmap.org/way/1384458417",
+      "source_version": "1",
+      "source_timestamp": "2025-05-07T22:49:25Z",
+      "street": "без названия в OSM",
+      "old_name": null,
+      "start_m": 4377.099,
+      "end_m": 4425.466,
+      "surface_tag": null,
+      "surface_evidence": "unknown_no_surface_tag",
+      "render_surface": "asphalt_surrogate_unverified",
+      "bridge_tag": null,
+      "max_centerline_offset_m": 0.004,
+      "length_m": 48.367
+    },
+    {
+      "osm_id": "way/72658274",
+      "source_url": "https://www.openstreetmap.org/way/72658274",
+      "source_version": "36",
+      "source_timestamp": "2025-05-07T22:49:26Z",
+      "street": "Шляхетна вулиця",
+      "old_name": "вулиця Нахімова",
+      "start_m": 4425.466,
+      "end_m": 4742.272,
+      "surface_tag": null,
+      "surface_evidence": "unknown_no_surface_tag",
+      "render_surface": "asphalt_surrogate_unverified",
+      "bridge_tag": null,
+      "max_centerline_offset_m": 0.961,
+      "length_m": 316.806
+    },
+    {
+      "osm_id": "way/1018734154",
+      "source_url": "https://www.openstreetmap.org/way/1018734154",
+      "source_version": "34",
+      "source_timestamp": "2025-05-07T22:49:27Z",
+      "street": "Товарна площа",
+      "old_name": null,
+      "start_m": 4742.272,
+      "end_m": 5519.123,
+      "surface_tag": "asphalt",
+      "surface_evidence": "explicit_osm_tag",
+      "render_surface": "asphalt",
+      "bridge_tag": null,
+      "max_centerline_offset_m": 1.171,
+      "length_m": 776.851
+    },
+    {
+      "osm_id": "way/1018734157",
+      "source_url": "https://www.openstreetmap.org/way/1018734157",
+      "source_version": "33",
+      "source_timestamp": "2026-04-05T19:08:42Z",
+      "street": "вулиця Григорія Сковороди",
+      "old_name": "вулиця 1 Травня",
+      "start_m": 5519.123,
+      "end_m": 5849.321,
+      "surface_tag": "asphalt",
+      "surface_evidence": "explicit_osm_tag",
+      "render_surface": "asphalt",
+      "bridge_tag": null,
+      "max_centerline_offset_m": 0.07,
+      "length_m": 330.198
+    }
+  ],
+  "roads_with_explicit_surface_tags": [
+    {
+      "osm_id": "way/111844962",
+      "name": null,
+      "surface": "asphalt",
+      "is_circuit_way": true,
+      "source_url": "https://www.openstreetmap.org/way/111844962"
+    },
+    {
+      "osm_id": "way/232801193",
+      "name": "Енергетична вулиця",
+      "surface": "sand",
+      "is_circuit_way": false,
+      "source_url": "https://www.openstreetmap.org/way/232801193"
+    },
+    {
+      "osm_id": "way/719686065",
+      "name": null,
+      "surface": "ground",
+      "is_circuit_way": false,
+      "source_url": "https://www.openstreetmap.org/way/719686065"
+    },
+    {
+      "osm_id": "way/969188439",
+      "name": "вулиця Тютюнника",
+      "surface": "asphalt",
+      "is_circuit_way": true,
+      "source_url": "https://www.openstreetmap.org/way/969188439"
+    },
+    {
+      "osm_id": "way/969188440",
+      "name": "вулиця Тютюнника",
+      "surface": "asphalt",
+      "is_circuit_way": true,
+      "source_url": "https://www.openstreetmap.org/way/969188440"
+    },
+    {
+      "osm_id": "way/1018734154",
+      "name": "Товарна площа",
+      "surface": "asphalt",
+      "is_circuit_way": true,
+      "source_url": "https://www.openstreetmap.org/way/1018734154"
+    },
+    {
+      "osm_id": "way/1018734157",
+      "name": "вулиця Сковороди",
+      "surface": "asphalt",
+      "is_circuit_way": true,
+      "source_url": "https://www.openstreetmap.org/way/1018734157"
+    },
+    {
+      "osm_id": "way/1018734159",
+      "name": "вулиця Тютюнника",
+      "surface": "asphalt",
+      "is_circuit_way": false,
+      "source_url": "https://www.openstreetmap.org/way/1018734159"
+    },
+    {
+      "osm_id": "way/1084509194",
+      "name": null,
+      "surface": "unpaved",
+      "is_circuit_way": false,
+      "source_url": "https://www.openstreetmap.org/way/1084509194"
+    },
+    {
+      "osm_id": "way/1384458414",
+      "name": "Шляхетна вулиця",
+      "surface": "asphalt",
+      "is_circuit_way": false,
+      "source_url": "https://www.openstreetmap.org/way/1384458414"
+    },
+    {
+      "osm_id": "way/1384458416",
+      "name": "вулиця Тютюнника",
+      "surface": "asphalt",
+      "is_circuit_way": true,
+      "source_url": "https://www.openstreetmap.org/way/1384458416"
+    },
+    {
+      "osm_id": "way/1470908179",
+      "name": "вулиця Тютюнника",
+      "surface": "asphalt",
+      "is_circuit_way": true,
+      "source_url": "https://www.openstreetmap.org/way/1470908179"
+    }
+  ],
+  "ground_polygon_sources": [
+    {
+      "osm_id": "way/30718099",
+      "tags": {
+        "landuse": "residential"
+      },
+      "source_url": "https://www.openstreetmap.org/way/30718099"
+    },
+    {
+      "osm_id": "way/379371689",
+      "tags": {
+        "landuse": "industrial"
+      },
+      "source_url": "https://www.openstreetmap.org/way/379371689"
+    },
+    {
+      "osm_id": "way/397023531",
+      "tags": {
+        "natural": "water",
+        "water": "pond"
+      },
+      "source_url": "https://www.openstreetmap.org/way/397023531"
+    },
+    {
+      "osm_id": "way/397023556",
+      "tags": {
+        "landuse": "industrial"
+      },
+      "source_url": "https://www.openstreetmap.org/way/397023556"
+    },
+    {
+      "osm_id": "way/397023558",
+      "tags": {
+        "landuse": "forest"
+      },
+      "source_url": "https://www.openstreetmap.org/way/397023558"
+    },
+    {
+      "osm_id": "way/401631858",
+      "tags": {
+        "landuse": "industrial"
+      },
+      "source_url": "https://www.openstreetmap.org/way/401631858"
+    },
+    {
+      "osm_id": "way/403543254",
+      "tags": {
+        "landuse": "industrial"
+      },
+      "source_url": "https://www.openstreetmap.org/way/403543254"
+    },
+    {
+      "osm_id": "way/403543271",
+      "tags": {
+        "landuse": "industrial"
+      },
+      "source_url": "https://www.openstreetmap.org/way/403543271"
+    },
+    {
+      "osm_id": "way/403543302",
+      "tags": {
+        "landuse": "industrial"
+      },
+      "source_url": "https://www.openstreetmap.org/way/403543302"
+    },
+    {
+      "osm_id": "way/406500030",
+      "tags": {
+        "natural": "wetland",
+        "wetland": "marsh"
+      },
+      "source_url": "https://www.openstreetmap.org/way/406500030"
+    },
+    {
+      "osm_id": "way/990950843",
+      "tags": {
+        "landuse": "residential"
+      },
+      "source_url": "https://www.openstreetmap.org/way/990950843"
+    },
+    {
+      "osm_id": "way/1007800293",
+      "tags": {
+        "landuse": "residential"
+      },
+      "source_url": "https://www.openstreetmap.org/way/1007800293"
+    },
+    {
+      "osm_id": "way/1007826306",
+      "tags": {
+        "landuse": "residential"
+      },
+      "source_url": "https://www.openstreetmap.org/way/1007826306"
+    },
+    {
+      "osm_id": "way/1007836537",
+      "tags": {
+        "landuse": "residential"
+      },
+      "source_url": "https://www.openstreetmap.org/way/1007836537"
+    },
+    {
+      "osm_id": "way/1007836538",
+      "tags": {
+        "landuse": "residential"
+      },
+      "source_url": "https://www.openstreetmap.org/way/1007836538"
+    },
+    {
+      "osm_id": "way/1084245329",
+      "tags": {
+        "landuse": "industrial",
+        "name": "РЕС",
+        "name:uk": "РЕС",
+        "power": "plant"
+      },
+      "source_url": "https://www.openstreetmap.org/way/1084245329"
+    },
+    {
+      "osm_id": "way/1086199193",
+      "tags": {
+        "landuse": "cemetery"
+      },
+      "source_url": "https://www.openstreetmap.org/way/1086199193"
+    },
+    {
+      "osm_id": "way/1086201656",
+      "tags": {
+        "natural": "wood"
+      },
+      "source_url": "https://www.openstreetmap.org/way/1086201656"
+    },
+    {
+      "osm_id": "way/1086201657",
+      "tags": {
+        "natural": "wood"
+      },
+      "source_url": "https://www.openstreetmap.org/way/1086201657"
+    },
+    {
+      "osm_id": "way/1243808507",
+      "tags": {
+        "landuse": "grass"
+      },
+      "source_url": "https://www.openstreetmap.org/way/1243808507"
+    },
+    {
+      "osm_id": "way/1246290048",
+      "tags": {
+        "landuse": "grass"
+      },
+      "source_url": "https://www.openstreetmap.org/way/1246290048"
+    },
+    {
+      "osm_id": "way/1246290049",
+      "tags": {
+        "landuse": "grass"
+      },
+      "source_url": "https://www.openstreetmap.org/way/1246290049"
+    },
+    {
+      "osm_id": "way/1246290050",
+      "tags": {
+        "landuse": "grass"
+      },
+      "source_url": "https://www.openstreetmap.org/way/1246290050"
+    }
+  ],
+  "provisional_objects_hidden_by_default": [
+    "V06_Asphalt_repairs_provisional",
+    "PROVISIONAL_EDGE_MARKINGS"
+  ],
+  "model_geometry_changed": false
+}

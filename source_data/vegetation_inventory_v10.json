@@ -1,0 +1,4284 @@
+[
+  {
+    "name": "GROUND_land_grass_v08",
+    "users": 1,
+    "objects": [
+      "GROUND_land_grass"
+    ],
+    "triangles": 121,
+    "polygons": 121,
+    "vertices": 131,
+    "material_indices": {
+      "0": 121
+    },
+    "materials": [
+      "V09_Continuous_Soil_Grass"
+    ],
+    "bounds": [
+      [
+        22.678770065307617,
+        36.73561477661133,
+        -0.2667742073535919
+      ],
+      [
+        783.402587890625,
+        2062.04345703125,
+        7.392809867858887
+      ]
+    ]
+  },
+  {
+    "name": "V06_birch_0_distant_LOD_geometry",
+    "users": 233,
+    "objects": [
+      "Tree_0018",
+      "Tree_0022",
+      "Tree_0032",
+      "Tree_0046"
+    ],
+    "triangles": 8744,
+    "polygons": 4372,
+    "vertices": 14213,
+    "material_indices": {
+      "1": 1306,
+      "3": 1544,
+      "2": 1522
+    },
+    "materials": [
+      "V06_Ridged_bark",
+      "V06_Birch_bark",
+      "V06_Leaf_0",
+      "V06_Leaf_1",
+      "V06_Leaf_2",
+      "V06_Leaf_3"
+    ],
+    "bounds": [
+      [
+        -0.3158281445503235,
+        -0.3432433307170868,
+        -2.9930713935755193e-05
+      ],
+      [
+        0.31345921754837036,
+        0.3663114309310913,
+        1.0838825702667236
+      ]
+    ]
+  },
+  {
+    "name": "V06_birch_0_instanced_geometry",
+    "users": 137,
+    "objects": [
+      "Tree_0008",
+      "Tree_0041",
+      "Tree_0072",
+      "Tree_0076"
+    ],
+    "triangles": 25188,
+    "polygons": 23046,
+    "vertices": 29325,
+    "material_indices": {
+      "1": 2142,
+      "3": 10608,
+      "2": 10296
+    },
+    "materials": [
+      "V06_Ridged_bark",
+      "V06_Birch_bark",
+      "V06_Leaf_0",
+      "V06_Leaf_1",
+      "V06_Leaf_2",
+      "V06_Leaf_3"
+    ],
+    "bounds": [
+      [
+        -0.3511708080768585,
+        -0.31019118428230286,
+        -3.121363988611847e-05
+      ],
+      [
+        0.33371973037719727,
+        0.33093658089637756,
+        1.071303367614746
+      ]
+    ]
+  },
+  {
+    "name": "V06_birch_1_distant_LOD_geometry",
+    "users": 222,
+    "objects": [
+      "Tree_0024",
+      "Tree_0030",
+      "Tree_0051",
+      "Tree_0054"
+    ],
+    "triangles": 8744,
+    "polygons": 4372,
+    "vertices": 14213,
+    "material_indices": {
+      "1": 1306,
+      "2": 1537,
+      "3": 1529
+    },
+    "materials": [
+      "V06_Ridged_bark",
+      "V06_Birch_bark",
+      "V06_Leaf_0",
+      "V06_Leaf_1",
+      "V06_Leaf_2",
+      "V06_Leaf_3"
+    ],
+    "bounds": [
+      [
+        -0.3033440411090851,
+        -0.2934248745441437,
+        -0.00010182405094383284
+      ],
+      [
+        0.3422292172908783,
+        0.30615052580833435,
+        1.1112303733825684
+      ]
+    ]
+  },
+  {
+    "name": "V06_birch_1_instanced_geometry",
+    "users": 147,
+    "objects": [
+      "Tree_0004",
+      "Tree_0005",
+      "Tree_0006",
+      "Tree_0034"
+    ],
+    "triangles": 25188,
+    "polygons": 23046,
+    "vertices": 29325,
+    "material_indices": {
+      "1": 2142,
+      "2": 10352,
+      "3": 10552
+    },
+    "materials": [
+      "V06_Ridged_bark",
+      "V06_Birch_bark",
+      "V06_Leaf_0",
+      "V06_Leaf_1",
+      "V06_Leaf_2",
+      "V06_Leaf_3"
+    ],
+    "bounds": [
+      [
+        -0.34689849615097046,
+        -0.3102812170982361,
+        -0.0001016611568047665
+      ],
+      [
+        0.3239244818687439,
+        0.34830543398857117,
+        1.0772043466567993
+      ]
+    ]
+  },
+  {
+    "name": "V06_maple_0_distant_LOD_geometry",
+    "users": 333,
+    "objects": [
+      "Tree_0000",
+      "Tree_0010",
+      "Tree_0014",
+      "Tree_0015"
+    ],
+    "triangles": 9788,
+    "polygons": 4894,
+    "vertices": 16301,
+    "material_indices": {
+      "0": 1306,
+      "3": 1740,
+      "4": 1848
+    },
+    "materials": [
+      "V06_Ridged_bark",
+      "V06_Birch_bark",
+      "V06_Leaf_0",
+      "V06_Leaf_1",
+      "V06_Leaf_2",
+      "V06_Leaf_3"
+    ],
+    "bounds": [
+      [
+        -0.3428964912891388,
+        -0.3113615810871124,
+        -6.980079342611134e-05
+      ],
+      [
+        0.3098108470439911,
+        0.28234848380088806,
+        1.0751782655715942
+      ]
+    ]
+  },
+  {
+    "name": "V06_maple_0_instanced_geometry",
+    "users": 262,
+    "objects": [
+      "Tree_0009",
+      "Tree_0039",
+      "Tree_0071",
+      "Tree_0073"
+    ],
+    "triangles": 27972,
+    "polygons": 25830,
+    "vertices": 32805,
+    "material_indices": {
+      "0": 2142,
+      "3": 11668,
+      "4": 12020
+    },
+    "materials": [
+      "V06_Ridged_bark",
+      "V06_Birch_bark",
+      "V06_Leaf_0",
+      "V06_Leaf_1",
+      "V06_Leaf_2",
+      "V06_Leaf_3"
+    ],
+    "bounds": [
+      [
+        -0.3592222332954407,
+        -0.31896546483039856,
+        -7.69091202528216e-05
+      ],
+      [
+        0.32926467061042786,
+        0.32194089889526367,
+        1.0959460735321045
+      ]
+    ]
+  },
+  {
+    "name": "V06_maple_1_distant_LOD_geometry",
+    "users": 323,
+    "objects": [
+      "Tree_0011",
+      "Tree_0012",
+      "Tree_0016",
+      "Tree_0020"
+    ],
+    "triangles": 9788,
+    "polygons": 4894,
+    "vertices": 16301,
+    "material_indices": {
+      "0": 1306,
+      "4": 1820,
+      "3": 1768
+    },
+    "materials": [
+      "V06_Ridged_bark",
+      "V06_Birch_bark",
+      "V06_Leaf_0",
+      "V06_Leaf_1",
+      "V06_Leaf_2",
+      "V06_Leaf_3"
+    ],
+    "bounds": [
+      [
+        -0.29252320528030396,
+        -0.3390003442764282,
+        -9.102975309360772e-05
+      ],
+      [
+        0.3271511495113373,
+        0.35594043135643005,
+        1.0996724367141724
+      ]
+    ]
+  },
+  {
+    "name": "V06_maple_1_instanced_geometry",
+    "users": 280,
+    "objects": [
+      "Tree_0003",
+      "Tree_0007",
+      "Tree_0036",
+      "Tree_0038"
+    ],
+    "triangles": 27972,
+    "polygons": 25830,
+    "vertices": 32805,
+    "material_indices": {
+      "0": 2142,
+      "4": 11856,
+      "3": 11832
+    },
+    "materials": [
+      "V06_Ridged_bark",
+      "V06_Birch_bark",
+      "V06_Leaf_0",
+      "V06_Leaf_1",
+      "V06_Leaf_2",
+      "V06_Leaf_3"
+    ],
+    "bounds": [
+      [
+        -0.3245210349559784,
+        -0.3114146292209625,
+        -9.761791443452239e-05
+      ],
+      [
+        0.3242267370223999,
+        0.331297904253006,
+        1.0824041366577148
+      ]
+    ]
+  },
+  {
+    "name": "V06_pine_0_distant_LOD_geometry",
+    "users": 121,
+    "objects": [
+      "Tree_0019",
+      "Tree_0026",
+      "Tree_0049",
+      "Tree_0078"
+    ],
+    "triangles": 17730,
+    "polygons": 8865,
+    "vertices": 29744,
+    "material_indices": {
+      "0": 2691,
+      "5": 6174
+    },
+    "materials": [
+      "V06_Ridged_bark",
+      "V06_Birch_bark",
+      "V06_Leaf_0",
+      "V06_Leaf_1",
+      "V06_Leaf_2",
+      "V06_Leaf_3"
+    ],
+    "bounds": [
+      [
+        -0.3028603196144104,
+        -0.3136112093925476,
+        -0.001231105299666524
+      ],
+      [
+        0.3124236464500427,
+        0.2937573790550232,
+        1.0328617095947266
+      ]
+    ]
+  },
+  {
+    "name": "V06_pine_0_instanced_geometry",
+    "users": 48,
+    "objects": [
+      "Tree_0040",
+      "Tree_0043",
+      "Tree_0104",
+      "Tree_0131"
+    ],
+    "triangles": 166762,
+    "polygons": 162957,
+    "vertices": 205988,
+    "material_indices": {
+      "0": 3805,
+      "5": 159152
+    },
+    "materials": [
+      "V06_Ridged_bark",
+      "V06_Birch_bark",
+      "V06_Leaf_0",
+      "V06_Leaf_1",
+      "V06_Leaf_2",
+      "V06_Leaf_3"
+    ],
+    "bounds": [
+      [
+        -0.29268181324005127,
+        -0.3041629493236542,
+        -0.0012306165881454945
+      ],
+      [
+        0.3095210790634155,
+        0.2941552996635437,
+        1.0158376693725586
+      ]
+    ]
+  },
+  {
+    "name": "V06_poplar_0_distant_LOD_geometry",
+    "users": 113,
+    "objects": [
+      "Tree_0001",
+      "Tree_0002",
+      "Tree_0013",
+      "Tree_0017"
+    ],
+    "triangles": 11428,
+    "polygons": 5714,
+    "vertices": 19031,
+    "material_indices": {
+      "0": 1526,
+      "4": 2092,
+      "3": 2096
+    },
+    "materials": [
+      "V06_Ridged_bark",
+      "V06_Birch_bark",
+      "V06_Leaf_0",
+      "V06_Leaf_1",
+      "V06_Leaf_2",
+      "V06_Leaf_3"
+    ],
+    "bounds": [
+      [
+        -0.18873125314712524,
+        -0.17198783159255981,
+        -6.240254151634872e-05
+      ],
+      [
+        0.15330803394317627,
+        0.1820581704378128,
+        1.1309055089950562
+      ]
+    ]
+  },
+  {
+    "name": "V06_poplar_0_instanced_geometry",
+    "users": 54,
+    "objects": [
+      "Tree_0035",
+      "Tree_0037",
+      "Tree_0070",
+      "Tree_0101"
+    ],
+    "triangles": 32652,
+    "polygons": 30150,
+    "vertices": 38295,
+    "material_indices": {
+      "0": 2502,
+      "4": 13620,
+      "3": 14028
+    },
+    "materials": [
+      "V06_Ridged_bark",
+      "V06_Birch_bark",
+      "V06_Leaf_0",
+      "V06_Leaf_1",
+      "V06_Leaf_2",
+      "V06_Leaf_3"
+    ],
+    "bounds": [
+      [
+        -0.17845705151557922,
+        -0.14695224165916443,
+        -6.119965837569907e-05
+      ],
+      [
+        0.15753646194934845,
+        0.17923223972320557,
+        1.144719123840332
+      ]
+    ]
+  },
+  {
+    "name": "V08_Paddock_Verge_grass0_mesh",
+    "users": 1,
+    "objects": [
+      "V08_Paddock_Verge_grass0"
+    ],
+    "triangles": 18462,
+    "polygons": 12308,
+    "vertices": 30770,
+    "material_indices": {
+      "0": 12308
+    },
+    "materials": [
+      "V08_Verge_Grass_Green"
+    ],
+    "bounds": [
+      [
+        268.57421875,
+        218.12142944335938,
+        0.07026074081659317
+      ],
+      [
+        746.9581298828125,
+        415.87445068359375,
+        3.513275623321533
+      ]
+    ]
+  },
+  {
+    "name": "V08_Paddock_Verge_grass1_mesh",
+    "users": 1,
+    "objects": [
+      "V08_Paddock_Verge_grass1"
+    ],
+    "triangles": 10800,
+    "polygons": 7200,
+    "vertices": 18000,
+    "material_indices": {
+      "0": 7200
+    },
+    "materials": [
+      "V08_Verge_Grass_Olive"
+    ],
+    "bounds": [
+      [
+        268.7200012207031,
+        218.2911376953125,
+        0.07026074081659317
+      ],
+      [
+        746.8868408203125,
+        415.7914733886719,
+        3.5155744552612305
+      ]
+    ]
+  },
+  {
+    "name": "V08_Paddock_Verge_grass2_mesh",
+    "users": 1,
+    "objects": [
+      "V08_Paddock_Verge_grass2"
+    ],
+    "triangles": 2460,
+    "polygons": 1640,
+    "vertices": 4100,
+    "material_indices": {
+      "0": 1640
+    },
+    "materials": [
+      "V08_Verge_Grass_Dry"
+    ],
+    "bounds": [
+      [
+        282.1169128417969,
+        219.9158172607422,
+        0.07026074081659317
+      ],
+      [
+        745.6892700195312,
+        415.47576904296875,
+        3.50606107711792
+      ]
+    ]
+  },
+  {
+    "name": "V09_Closure_street_name_junction_way_1018734145_0_0",
+    "users": 1,
+    "objects": [
+      "V09_Closure_street_name_junction_way_1018734145_0_0"
+    ],
+    "triangles": 12176,
+    "polygons": 9122,
+    "vertices": 12216,
+    "material_indices": {
+      "0": 9122
+    },
+    "materials": [
+      "V09_Closure_sign_white"
+    ],
+    "bounds": [
+      [
+        -0.7671502828598022,
+        -0.046310968697071075,
+        -0.0010000000474974513
+      ],
+      [
+        0.7676398754119873,
+        0.03309091180562973,
+        0.0010000000474974513
+      ]
+    ]
+  },
+  {
+    "name": "V09_Closure_street_name_junction_way_1018734146_0_0",
+    "users": 1,
+    "objects": [
+      "V09_Closure_street_name_junction_way_1018734146_0_0"
+    ],
+    "triangles": 6160,
+    "polygons": 4615,
+    "vertices": 6180,
+    "material_indices": {
+      "0": 4615
+    },
+    "materials": [
+      "V09_Closure_sign_white"
+    ],
+    "bounds": [
+      [
+        -0.45592230558395386,
+        -0.05720766633749008,
+        -0.0010000000474974513
+      ],
+      [
+        0.45592230558395386,
+        0.03951612114906311,
+        0.0010000000474974513
+      ]
+    ]
+  },
+  {
+    "name": "V09_Closure_street_name_junction_way_1018734159_0_1",
+    "users": 1,
+    "objects": [
+      "V09_Closure_street_name_junction_way_1018734159_0_1"
+    ],
+    "triangles": 4572,
+    "polygons": 3420,
+    "vertices": 4608,
+    "material_indices": {
+      "0": 3420
+    },
+    "materials": [
+      "V09_Closure_sign_white"
+    ],
+    "bounds": [
+      [
+        -0.4885993003845215,
+        -0.05448349565267563,
+        -0.0010000000474974513
+      ],
+      [
+        0.4885993003845215,
+        0.03763440251350403,
+        0.0010000000474974513
+      ]
+    ]
+  },
+  {
+    "name": "V09_Closure_street_name_junction_way_111844962_0_0",
+    "users": 1,
+    "objects": [
+      "V09_Closure_street_name_junction_way_111844962_0_0"
+    ],
+    "triangles": 2812,
+    "polygons": 2103,
+    "vertices": 2836,
+    "material_indices": {
+      "0": 2103
+    },
+    "materials": [
+      "V09_Closure_sign_white"
+    ],
+    "bounds": [
+      [
+        -0.20042842626571655,
+        -0.03719758614897728,
+        -0.0010000000474974513
+      ],
+      [
+        0.18979334831237793,
+        0.04087701067328453,
+        0.0010000000474974513
+      ]
+    ]
+  },
+  {
+    "name": "V09_Closure_street_name_junction_way_1261986843_0_0",
+    "users": 1,
+    "objects": [
+      "V09_Closure_street_name_junction_way_1261986843_0_0"
+    ],
+    "triangles": 7812,
+    "polygons": 5850,
+    "vertices": 7848,
+    "material_indices": {
+      "0": 5850
+    },
+    "materials": [
+      "V09_Closure_sign_white"
+    ],
+    "bounds": [
+      [
+        -0.4588049352169037,
+        -0.046310968697071075,
+        -0.0010000000474974513
+      ],
+      [
+        0.4588049352169037,
+        0.03309091180562973,
+        0.0010000000474974513
+      ]
+    ]
+  },
+  {
+    "name": "V09_Closure_street_name_junction_way_1384458414_0_0",
+    "users": 1,
+    "objects": [
+      "V09_Closure_street_name_junction_way_1384458414_0_0"
+    ],
+    "triangles": 4348,
+    "polygons": 3253,
+    "vertices": 4380,
+    "material_indices": {
+      "0": 3253
+    },
+    "materials": [
+      "V09_Closure_sign_white"
+    ],
+    "bounds": [
+      [
+        -0.4769153594970703,
+        -0.05720766633749008,
+        -0.0010000000474974513
+      ],
+      [
+        0.47827622294425964,
+        0.03951612114906311,
+        0.0010000000474974513
+      ]
+    ]
+  },
+  {
+    "name": "V09_Closure_street_name_junction_way_232801193_0_0",
+    "users": 1,
+    "objects": [
+      "V09_Closure_street_name_junction_way_232801193_0_0"
+    ],
+    "triangles": 5556,
+    "polygons": 4157,
+    "vertices": 5596,
+    "material_indices": {
+      "0": 4157
+    },
+    "materials": [
+      "V09_Closure_sign_white"
+    ],
+    "bounds": [
+      [
+        -0.46490445733070374,
+        -0.04842977225780487,
+        -0.0010000000474974513
+      ],
+      [
+        0.4660564959049225,
+        0.033452801406383514,
+        0.0010000000474974513
+      ]
+    ]
+  },
+  {
+    "name": "V09_Closure_street_name_junction_way_232801206_0_0",
+    "users": 1,
+    "objects": [
+      "V09_Closure_street_name_junction_way_232801206_0_0"
+    ],
+    "triangles": 7388,
+    "polygons": 5535,
+    "vertices": 7412,
+    "material_indices": {
+      "0": 5535
+    },
+    "materials": [
+      "V09_Closure_sign_white"
+    ],
+    "bounds": [
+      [
+        -0.4860551357269287,
+        -0.05448349565267563,
+        -0.0010000000474974513
+      ],
+      [
+        0.4873511791229248,
+        0.04233870655298233,
+        0.0010000000474974513
+      ]
+    ]
+  },
+  {
+    "name": "V09_Closure_street_name_junction_way_232801214_0_0",
+    "users": 1,
+    "objects": [
+      "V09_Closure_street_name_junction_way_232801214_0_0"
+    ],
+    "triangles": 5556,
+    "polygons": 4157,
+    "vertices": 5596,
+    "material_indices": {
+      "0": 4157
+    },
+    "materials": [
+      "V09_Closure_sign_white"
+    ],
+    "bounds": [
+      [
+        -0.46490445733070374,
+        -0.04842977225780487,
+        -0.0010000000474974513
+      ],
+      [
+        0.4660564959049225,
+        0.033452801406383514,
+        0.0010000000474974513
+      ]
+    ]
+  },
+  {
+    "name": "V09_Closure_street_name_junction_way_232801226_0_1",
+    "users": 1,
+    "objects": [
+      "V09_Closure_street_name_junction_way_232801226_0_1"
+    ],
+    "triangles": 6124,
+    "polygons": 4587,
+    "vertices": 6148,
+    "material_indices": {
+      "0": 4587
+    },
+    "materials": [
+      "V09_Closure_sign_white"
+    ],
+    "bounds": [
+      [
+        -0.4922475218772888,
+        -0.05448349565267563,
+        -0.0010000000474974513
+      ],
+      [
+        0.48874327540397644,
+        0.03763440251350403,
+        0.0010000000474974513
+      ]
+    ]
+  },
+  {
+    "name": "V09_Closure_street_name_junction_way_232806995_0_0",
+    "users": 1,
+    "objects": [
+      "V09_Closure_street_name_junction_way_232806995_0_0"
+    ],
+    "triangles": 7208,
+    "polygons": 5401,
+    "vertices": 7228,
+    "material_indices": {
+      "0": 5401
+    },
+    "materials": [
+      "V09_Closure_sign_white"
+    ],
+    "bounds": [
+      [
+        -0.4791666269302368,
+        -0.05448349565267563,
+        -0.0010000000474974513
+      ],
+      [
+        0.4791666269302368,
+        0.03763440251350403,
+        0.0010000000474974513
+      ]
+    ]
+  },
+  {
+    "name": "V09_Closure_street_name_junction_way_232806998_0_1",
+    "users": 1,
+    "objects": [
+      "V09_Closure_street_name_junction_way_232806998_0_1"
+    ],
+    "triangles": 3640,
+    "polygons": 2722,
+    "vertices": 3672,
+    "material_indices": {
+      "0": 2722
+    },
+    "materials": [
+      "V09_Closure_sign_white"
+    ],
+    "bounds": [
+      [
+        -0.35378023982048035,
+        -0.05720766633749008,
+        -0.0010000000474974513
+      ],
+      [
+        0.35080647468566895,
+        0.04269152879714966,
+        0.0010000000474974513
+      ]
+    ]
+  },
+  {
+    "name": "V09_Closure_street_name_junction_way_232807037_0_0",
+    "users": 1,
+    "objects": [
+      "V09_Closure_street_name_junction_way_232807037_0_0"
+    ],
+    "triangles": 6164,
+    "polygons": 4607,
+    "vertices": 6228,
+    "material_indices": {
+      "0": 4607
+    },
+    "materials": [
+      "V09_Closure_sign_white"
+    ],
+    "bounds": [
+      [
+        -0.46331366896629333,
+        -0.046310968697071075,
+        -0.0010000000474974513
+      ],
+      [
+        0.4630688726902008,
+        0.03455980867147446,
+        0.0010000000474974513
+      ]
+    ]
+  },
+  {
+    "name": "V09_Closure_street_name_junction_way_232807041_0_0",
+    "users": 1,
+    "objects": [
+      "V09_Closure_street_name_junction_way_232807041_0_0"
+    ],
+    "triangles": 5732,
+    "polygons": 4293,
+    "vertices": 5756,
+    "material_indices": {
+      "0": 4293
+    },
+    "materials": [
+      "V09_Closure_sign_white"
+    ],
+    "bounds": [
+      [
+        -0.42895668745040894,
+        -0.05720766633749008,
+        -0.0010000000474974513
+      ],
+      [
+        0.43566030263900757,
+        0.04269152879714966,
+        0.0010000000474974513
+      ]
+    ]
+  },
+  {
+    "name": "V09_Closure_street_name_junction_way_232807041_0_1",
+    "users": 1,
+    "objects": [
+      "V09_Closure_street_name_junction_way_232807041_0_1"
+    ],
+    "triangles": 5732,
+    "polygons": 4293,
+    "vertices": 5756,
+    "material_indices": {
+      "0": 4293
+    },
+    "materials": [
+      "V09_Closure_sign_white"
+    ],
+    "bounds": [
+      [
+        -0.42895668745040894,
+        -0.05720766633749008,
+        -0.0010000000474974513
+      ],
+      [
+        0.43566030263900757,
+        0.04269152879714966,
+        0.0010000000474974513
+      ]
+    ]
+  },
+  {
+    "name": "V09_Closure_street_name_junction_way_232807051_0_0",
+    "users": 1,
+    "objects": [
+      "V09_Closure_street_name_junction_way_232807051_0_0"
+    ],
+    "triangles": 7208,
+    "polygons": 5401,
+    "vertices": 7228,
+    "material_indices": {
+      "0": 5401
+    },
+    "materials": [
+      "V09_Closure_sign_white"
+    ],
+    "bounds": [
+      [
+        -0.4791666269302368,
+        -0.05448349565267563,
+        -0.0010000000474974513
+      ],
+      [
+        0.4791666269302368,
+        0.03763440251350403,
+        0.0010000000474974513
+      ]
+    ]
+  },
+  {
+    "name": "V09_Closure_street_name_junction_way_232807057_0_0",
+    "users": 1,
+    "objects": [
+      "V09_Closure_street_name_junction_way_232807057_0_0"
+    ],
+    "triangles": 6728,
+    "polygons": 5041,
+    "vertices": 6748,
+    "material_indices": {
+      "0": 5041
+    },
+    "materials": [
+      "V09_Closure_sign_white"
+    ],
+    "bounds": [
+      [
+        -0.4714861810207367,
+        -0.05448349565267563,
+        -0.0010000000474974513
+      ],
+      [
+        0.4714861512184143,
+        0.038930486887693405,
+        0.0010000000474974513
+      ]
+    ]
+  },
+  {
+    "name": "V09_Closure_street_name_junction_way_232807059_0_0",
+    "users": 1,
+    "objects": [
+      "V09_Closure_street_name_junction_way_232807059_0_0"
+    ],
+    "triangles": 4996,
+    "polygons": 3736,
+    "vertices": 5040,
+    "material_indices": {
+      "0": 3736
+    },
+    "materials": [
+      "V09_Closure_sign_white"
+    ],
+    "bounds": [
+      [
+        -0.4503527879714966,
+        -0.05720766633749008,
+        -0.0010000000474974513
+      ],
+      [
+        0.4527217149734497,
+        0.04269152879714966,
+        0.0010000000474974513
+      ]
+    ]
+  },
+  {
+    "name": "V09_Closure_street_name_junction_way_232807079_0_0",
+    "users": 1,
+    "objects": [
+      "V09_Closure_street_name_junction_way_232807079_0_0"
+    ],
+    "triangles": 8044,
+    "polygons": 6025,
+    "vertices": 8076,
+    "material_indices": {
+      "0": 6025
+    },
+    "materials": [
+      "V09_Closure_sign_white"
+    ],
+    "bounds": [
+      [
+        -0.46988794207572937,
+        -0.05127858370542526,
+        -0.0010000000474974513
+      ],
+      [
+        0.47201135754585266,
+        0.03826691582798958,
+        0.0010000000474974513
+      ]
+    ]
+  },
+  {
+    "name": "V09_Closure_street_name_junction_way_232807084_0_0",
+    "users": 1,
+    "objects": [
+      "V09_Closure_street_name_junction_way_232807084_0_0"
+    ],
+    "triangles": 7100,
+    "polygons": 5314,
+    "vertices": 7144,
+    "material_indices": {
+      "0": 5314
+    },
+    "materials": [
+      "V09_Closure_sign_white"
+    ],
+    "bounds": [
+      [
+        -0.46076351404190063,
+        -0.046310968697071075,
+        -0.0010000000474974513
+      ],
+      [
+        0.4618651568889618,
+        0.03455980867147446,
+        0.0010000000474974513
+      ]
+    ]
+  },
+  {
+    "name": "V09_Closure_Ukrainian_street_plates_mesh",
+    "users": 1,
+    "objects": [
+      "V09_Closure_Ukrainian_street_plates"
+    ],
+    "triangles": 1040,
+    "polygons": 440,
+    "vertices": 640,
+    "material_indices": {
+      "1": 200,
+      "5": 120,
+      "6": 120
+    },
+    "materials": [
+      "V09_Closure_concrete",
+      "V09_Closure_galvanized",
+      "V09_Closure_mesh_steel",
+      "V09_Closure_joint_rubber",
+      "V09_Closure_reflector_red",
+      "V09_Closure_sign_white",
+      "V09_Closure_street_sign_blue"
+    ],
+    "bounds": [
+      [
+        9.073505401611328,
+        23.35741424560547,
+        -2.2747650146484375
+      ],
+      [
+        1539.532470703125,
+        2139.199951171875,
+        10.141451835632324
+      ]
+    ]
+  },
+  {
+    "name": "V09_Ground_contact_grass_0_mesh",
+    "users": 1,
+    "objects": [
+      "V09_Ground_contact_grass_0"
+    ],
+    "triangles": 23817,
+    "polygons": 15878,
+    "vertices": 39695,
+    "material_indices": {
+      "0": 15878
+    },
+    "materials": [
+      "V09_Low_Grass_0"
+    ],
+    "bounds": [
+      [
+        5.712838172912598,
+        21.950613021850586,
+        -2.746838092803955
+      ],
+      [
+        1567.574462890625,
+        2131.855224609375,
+        16.219074249267578
+      ]
+    ]
+  },
+  {
+    "name": "V09_Ground_contact_grass_1_mesh",
+    "users": 1,
+    "objects": [
+      "V09_Ground_contact_grass_1"
+    ],
+    "triangles": 22020,
+    "polygons": 14680,
+    "vertices": 36700,
+    "material_indices": {
+      "0": 14680
+    },
+    "materials": [
+      "V09_Low_Grass_1"
+    ],
+    "bounds": [
+      [
+        5.77733039855957,
+        21.89126205444336,
+        -2.746838092803955
+      ],
+      [
+        1567.494140625,
+        2131.8779296875,
+        16.188762664794922
+      ]
+    ]
+  },
+  {
+    "name": "V09_Ground_contact_grass_2_mesh",
+    "users": 1,
+    "objects": [
+      "V09_Ground_contact_grass_2"
+    ],
+    "triangles": 3957,
+    "polygons": 2638,
+    "vertices": 6595,
+    "material_indices": {
+      "0": 2638
+    },
+    "materials": [
+      "V09_Low_Grass_2"
+    ],
+    "bounds": [
+      [
+        7.871131896972656,
+        21.956151962280273,
+        -2.746838092803955
+      ],
+      [
+        1567.3653564453125,
+        2129.138671875,
+        15.896658897399902
+      ]
+    ]
+  },
+  {
+    "name": "V09_Yard_low_grass_0_mesh",
+    "users": 1,
+    "objects": [
+      "V09_Yard_low_grass_0"
+    ],
+    "triangles": 14169,
+    "polygons": 9446,
+    "vertices": 23615,
+    "material_indices": {
+      "0": 9446
+    },
+    "materials": [
+      "V09_Low_Grass_0"
+    ],
+    "bounds": [
+      [
+        88.77091979980469,
+        234.43385314941406,
+        -2.688047170639038
+      ],
+      [
+        560.2359008789062,
+        1992.058837890625,
+        1.7336626052856445
+      ]
+    ]
+  },
+  {
+    "name": "V09_Yard_low_grass_1_mesh",
+    "users": 1,
+    "objects": [
+      "V09_Yard_low_grass_1"
+    ],
+    "triangles": 14097,
+    "polygons": 9398,
+    "vertices": 23495,
+    "material_indices": {
+      "0": 9398
+    },
+    "materials": [
+      "V09_Low_Grass_1"
+    ],
+    "bounds": [
+      [
+        88.74140930175781,
+        234.07516479492188,
+        -2.688047170639038
+      ],
+      [
+        560.1900024414062,
+        1992.05859375,
+        1.7353612184524536
+      ]
+    ]
+  },
+  {
+    "name": "V09_Yard_low_grass_2_mesh",
+    "users": 1,
+    "objects": [
+      "V09_Yard_low_grass_2"
+    ],
+    "triangles": 7050,
+    "polygons": 4700,
+    "vertices": 11750,
+    "material_indices": {
+      "0": 4700
+    },
+    "materials": [
+      "V09_Low_Grass_2"
+    ],
+    "bounds": [
+      [
+        88.92972564697266,
+        234.17161560058594,
+        -2.688047170639038
+      ],
+      [
+        560.1817626953125,
+        1992.03955078125,
+        1.6883805990219116
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_0125_0200_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_0125_0200"
+    ],
+    "triangles": 3971,
+    "polygons": 2395,
+    "vertices": 5557,
+    "material_indices": {
+      "1": 638,
+      "2": 817,
+      "5": 113,
+      "6": 21,
+      "0": 243,
+      "3": 450,
+      "4": 113
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        37.95298767089844,
+        119.19873046875,
+        -0.17943896353244781
+      ],
+      [
+        85.37263488769531,
+        183.66709899902344,
+        0.9066341519355774
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_0200_0275_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_0200_0275"
+    ],
+    "triangles": 3995,
+    "polygons": 2397,
+    "vertices": 5593,
+    "material_indices": {
+      "2": 700,
+      "3": 615,
+      "1": 650,
+      "4": 144,
+      "0": 251,
+      "5": 28,
+      "6": 9
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        70.80255889892578,
+        181.1190643310547,
+        0.355656236410141
+      ],
+      [
+        117.97005462646484,
+        252.77212524414062,
+        1.023118019104004
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_0275_0350_mesh",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_0275_0350"
+    ],
+    "triangles": 3673,
+    "polygons": 2210,
+    "vertices": 5141,
+    "material_indices": {
+      "1": 546,
+      "2": 781,
+      "3": 468,
+      "5": 124,
+      "6": 30,
+      "4": 116,
+      "0": 145
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        105.33345031738281,
+        248.2602996826172,
+        0.308842271566391
+      ],
+      [
+        150.94105529785156,
+        320.70428466796875,
+        0.7989609241485596
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_0350_0425_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_0350_0425"
+    ],
+    "triangles": 55414,
+    "polygons": 33329,
+    "vertices": 77564,
+    "material_indices": {
+      "0": 3731,
+      "1": 8632,
+      "3": 6817,
+      "4": 2281,
+      "2": 10303,
+      "5": 1320,
+      "6": 245
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        130.5427703857422,
+        316.4803466796875,
+        -0.060420408844947815
+      ],
+      [
+        160.6522216796875,
+        394.5064697265625,
+        0.8220874071121216
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_0425_0500_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_0425_0500"
+    ],
+    "triangles": 216771,
+    "polygons": 130478,
+    "vertices": 303399,
+    "material_indices": {
+      "3": 27554,
+      "4": 9368,
+      "0": 13560,
+      "1": 33582,
+      "2": 38691,
+      "5": 6428,
+      "6": 1295
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        130.0472412109375,
+        392.807861328125,
+        -0.494197279214859
+      ],
+      [
+        156.88841247558594,
+        468.7103576660156,
+        0.7518718838691711
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_0500_0575_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_0500_0575"
+    ],
+    "triangles": 314942,
+    "polygons": 189393,
+    "vertices": 440836,
+    "material_indices": {
+      "3": 38495,
+      "4": 14536,
+      "5": 8923,
+      "1": 49506,
+      "2": 54184,
+      "0": 21982,
+      "6": 1767
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        128.9910430908203,
+        468.331787109375,
+        -0.6387895345687866
+      ],
+      [
+        153.86085510253906,
+        543.8290405273438,
+        0.14449168741703033
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_0575_0650_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_0575_0650"
+    ],
+    "triangles": 230810,
+    "polygons": 138858,
+    "vertices": 323062,
+    "material_indices": {
+      "0": 16220,
+      "1": 34599,
+      "3": 28794,
+      "4": 10919,
+      "2": 40186,
+      "5": 6841,
+      "6": 1299
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        114.02596282958984,
+        543.3715209960938,
+        -0.5894731283187866
+      ],
+      [
+        152.89735412597656,
+        618.8770141601562,
+        0.2641109228134155
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_0650_0725_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_0650_0725"
+    ],
+    "triangles": 254037,
+    "polygons": 152788,
+    "vertices": 355581,
+    "material_indices": {
+      "2": 44567,
+      "3": 32412,
+      "4": 11245,
+      "5": 7776,
+      "1": 38963,
+      "0": 16188,
+      "6": 1637
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        103.87882995605469,
+        614.0463256835938,
+        -0.7703202962875366
+      ],
+      [
+        135.66200256347656,
+        691.4481811523438,
+        0.0878833755850792
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_0725_0800_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_0725_0800"
+    ],
+    "triangles": 131744,
+    "polygons": 79344,
+    "vertices": 184384,
+    "material_indices": {
+      "3": 16952,
+      "4": 6075,
+      "0": 8537,
+      "1": 19909,
+      "5": 4062,
+      "6": 766,
+      "2": 23043
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        104.31649017333984,
+        690.156005859375,
+        -0.7654985189437866
+      ],
+      [
+        131.2982177734375,
+        766.510009765625,
+        -0.0018167721573263407
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_0800_0875_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_0800_0875"
+    ],
+    "triangles": 67722,
+    "polygons": 40751,
+    "vertices": 94788,
+    "material_indices": {
+      "1": 10368,
+      "2": 12182,
+      "4": 2895,
+      "5": 1705,
+      "3": 9065,
+      "0": 4214,
+      "6": 322
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        107.93477630615234,
+        765.4004516601562,
+        -1.0313066244125366
+      ],
+      [
+        136.0546417236328,
+        841.3642578125,
+        -0.22410956025123596
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_0875_0950_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_0875_0950"
+    ],
+    "triangles": 66767,
+    "polygons": 40240,
+    "vertices": 93439,
+    "material_indices": {
+      "2": 11180,
+      "3": 8640,
+      "4": 3303,
+      "5": 2190,
+      "1": 9863,
+      "0": 4661,
+      "6": 403
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        112.39997863769531,
+        839.8366088867188,
+        -0.9987138509750366
+      ],
+      [
+        140.74562072753906,
+        915.9642333984375,
+        -0.28261512517929077
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_0950_1025_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_0950_1025"
+    ],
+    "triangles": 3748,
+    "polygons": 2255,
+    "vertices": 5246,
+    "material_indices": {
+      "1": 556,
+      "2": 501,
+      "4": 242,
+      "5": 70,
+      "3": 611,
+      "0": 267,
+      "6": 8
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        112.05796813964844,
+        915.3513793945312,
+        -1.7174028158187866
+      ],
+      [
+        142.03819274902344,
+        986.3971557617188,
+        -0.3071688115596771
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_1025_1100_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_1025_1100"
+    ],
+    "triangles": 3931,
+    "polygons": 2371,
+    "vertices": 5501,
+    "material_indices": {
+      "0": 254,
+      "1": 576,
+      "4": 211,
+      "5": 156,
+      "3": 584,
+      "2": 560,
+      "6": 30
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        112.51190948486328,
+        988.7406616210938,
+        -2.739131450653076
+      ],
+      [
+        164.35964965820312,
+        1060.8336181640625,
+        -1.4209519624710083
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_1100_1175_mesh",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_1100_1175"
+    ],
+    "triangles": 1763,
+    "polygons": 1064,
+    "vertices": 2467,
+    "material_indices": {
+      "1": 217,
+      "2": 321,
+      "3": 269,
+      "0": 56,
+      "4": 88,
+      "5": 96,
+      "6": 17
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        151.55616760253906,
+        1049.1484375,
+        -2.798152446746826
+      ],
+      [
+        215.4062957763672,
+        1111.15234375,
+        -2.1010193824768066
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_1175_1250_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_1175_1250"
+    ],
+    "triangles": 3921,
+    "polygons": 2365,
+    "vertices": 5487,
+    "material_indices": {
+      "4": 94,
+      "5": 121,
+      "3": 445,
+      "6": 23,
+      "2": 799,
+      "1": 635,
+      "0": 248
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        208.05747985839844,
+        1103.6351318359375,
+        -2.106441020965576
+      ],
+      [
+        271.1609802246094,
+        1166.8282470703125,
+        -0.5185413956642151
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_1250_1325_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_1250_1325"
+    ],
+    "triangles": 2873,
+    "polygons": 1730,
+    "vertices": 4021,
+    "material_indices": {
+      "0": 229,
+      "1": 430,
+      "5": 49,
+      "6": 6,
+      "3": 380,
+      "4": 74,
+      "2": 562
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        257.13616943359375,
+        1152.6505126953125,
+        -0.8455766439437866
+      ],
+      [
+        319.4820251464844,
+        1223.6875,
+        -0.29591864347457886
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_1325_1400_mesh",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_1325_1400"
+    ],
+    "triangles": 3756,
+    "polygons": 2266,
+    "vertices": 5256,
+    "material_indices": {
+      "3": 514,
+      "4": 162,
+      "5": 158,
+      "2": 726,
+      "6": 31,
+      "1": 456,
+      "0": 219
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        306.65771484375,
+        1210.8687744140625,
+        -0.8394120931625366
+      ],
+      [
+        363.30474853515625,
+        1281.9508056640625,
+        -0.35192763805389404
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_1400_1475_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_1400_1475"
+    ],
+    "triangles": 45461,
+    "polygons": 27382,
+    "vertices": 63625,
+    "material_indices": {
+      "1": 6814,
+      "2": 7862,
+      "0": 3414,
+      "3": 5814,
+      "4": 2100,
+      "5": 1175,
+      "6": 203
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        348.04437255859375,
+        1274.531005859375,
+        -0.8314775228500366
+      ],
+      [
+        397.4462585449219,
+        1349.342529296875,
+        -0.1248767077922821
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_1475_1550_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_1475_1550"
+    ],
+    "triangles": 50917,
+    "polygons": 30637,
+    "vertices": 71267,
+    "material_indices": {
+      "0": 3533,
+      "1": 7887,
+      "2": 8694,
+      "3": 6329,
+      "4": 2444,
+      "5": 1487,
+      "6": 263
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        375.79254150390625,
+        1342.8231201171875,
+        -0.6589311361312866
+      ],
+      [
+        409.22784423828125,
+        1420.8841552734375,
+        0.1191970705986023
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_1550_1625_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_1550_1625"
+    ],
+    "triangles": 62011,
+    "polygons": 37312,
+    "vertices": 86795,
+    "material_indices": {
+      "1": 9974,
+      "2": 10926,
+      "3": 7659,
+      "4": 2748,
+      "0": 3809,
+      "5": 1838,
+      "6": 358
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        387.1450500488281,
+        1418.7952880859375,
+        -0.6773637533187866
+      ],
+      [
+        417.71478271484375,
+        1495.840576171875,
+        -0.008408093824982643
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_1625_1700_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_1625_1700"
+    ],
+    "triangles": 52391,
+    "polygons": 31509,
+    "vertices": 73333,
+    "material_indices": {
+      "0": 3501,
+      "1": 7735,
+      "2": 9153,
+      "3": 7167,
+      "4": 2315,
+      "5": 1367,
+      "6": 271
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        394.2286682128906,
+        1493.4654541015625,
+        -0.7821611166000366
+      ],
+      [
+        425.64984130859375,
+        1568.4844970703125,
+        -0.0496215857565403
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_1700_1775_mesh",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_1700_1775"
+    ],
+    "triangles": 3041,
+    "polygons": 1837,
+    "vertices": 4255,
+    "material_indices": {
+      "2": 529,
+      "3": 315,
+      "1": 550,
+      "4": 143,
+      "0": 117,
+      "5": 159,
+      "6": 24
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        411.5591125488281,
+        1567.005859375,
+        -0.7585405111312866
+      ],
+      [
+        446.9978942871094,
+        1643.397705078125,
+        0.22702570259571075
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_1775_1850_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_1775_1850"
+    ],
+    "triangles": 3679,
+    "polygons": 2226,
+    "vertices": 5147,
+    "material_indices": {
+      "5": 208,
+      "6": 41,
+      "2": 748,
+      "3": 515,
+      "0": 171,
+      "1": 405,
+      "4": 138
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        433.9888000488281,
+        1635.99951171875,
+        -0.409968763589859
+      ],
+      [
+        475.74267578125,
+        1710.4847412109375,
+        0.4419160783290863
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_1850_1925_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_1850_1925"
+    ],
+    "triangles": 3368,
+    "polygons": 2027,
+    "vertices": 4714,
+    "material_indices": {
+      "3": 397,
+      "4": 178,
+      "2": 709,
+      "1": 447,
+      "0": 219,
+      "5": 72,
+      "6": 5
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        461.0036926269531,
+        1719.040283203125,
+        0.389652818441391
+      ],
+      [
+        502.7890319824219,
+        1781.6072998046875,
+        1.2583012580871582
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_1925_2000_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_1925_2000"
+    ],
+    "triangles": 3680,
+    "polygons": 2208,
+    "vertices": 5152,
+    "material_indices": {
+      "2": 595,
+      "3": 319,
+      "1": 694,
+      "0": 343,
+      "4": 90,
+      "5": 131,
+      "6": 36
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        485.51458740234375,
+        1780.3935546875,
+        0.5861250162124634
+      ],
+      [
+        528.0257568359375,
+        1848.338134765625,
+        1.1572918891906738
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_2000_2075_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_2000_2075"
+    ],
+    "triangles": 2935,
+    "polygons": 1761,
+    "vertices": 4109,
+    "material_indices": {
+      "3": 341,
+      "4": 141,
+      "1": 464,
+      "2": 448,
+      "0": 231,
+      "5": 105,
+      "6": 31
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        513.1171875,
+        1846.45751953125,
+        0.5458418130874634
+      ],
+      [
+        557.2968139648438,
+        1920.33837890625,
+        1.136883020401001
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_2075_2150_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_2075_2150"
+    ],
+    "triangles": 2883,
+    "polygons": 1736,
+    "vertices": 4035,
+    "material_indices": {
+      "3": 459,
+      "4": 124,
+      "1": 501,
+      "2": 496,
+      "0": 140,
+      "5": 16
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        542.8402709960938,
+        1916.4259033203125,
+        -0.17241992056369781
+      ],
+      [
+        585.59326171875,
+        1995.859130859375,
+        0.9885657429695129
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_2150_2225_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_2150_2225"
+    ],
+    "triangles": 2408,
+    "polygons": 1451,
+    "vertices": 3370,
+    "material_indices": {
+      "1": 382,
+      "2": 458,
+      "3": 257,
+      "4": 127,
+      "0": 125,
+      "5": 86,
+      "6": 16
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        575.5618896484375,
+        1987.824951171875,
+        -0.20928515493869781
+      ],
+      [
+        638.3504638671875,
+        2024.7470703125,
+        0.6112425327301025
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_2225_2300_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_2225_2300"
+    ],
+    "triangles": 1548,
+    "polygons": 935,
+    "vertices": 2166,
+    "material_indices": {
+      "1": 280,
+      "2": 261,
+      "0": 105,
+      "3": 137,
+      "5": 80,
+      "6": 24,
+      "4": 48
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        690.3787841796875,
+        2007.336669921875,
+        0.8206831216812134
+      ],
+      [
+        721.49951171875,
+        2036.245361328125,
+        1.5684311389923096
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_2300_2375_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_2300_2375"
+    ],
+    "triangles": 3068,
+    "polygons": 1847,
+    "vertices": 4294,
+    "material_indices": {
+      "2": 656,
+      "3": 343,
+      "0": 133,
+      "1": 418,
+      "4": 114,
+      "5": 149,
+      "6": 34
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        714.3516235351562,
+        2021.4442138671875,
+        1.4522138833999634
+      ],
+      [
+        777.5401611328125,
+        2086.6669921875,
+        5.142324447631836
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_2375_2450_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_2375_2450"
+    ],
+    "triangles": 2990,
+    "polygons": 1794,
+    "vertices": 4186,
+    "material_indices": {
+      "4": 149,
+      "5": 59,
+      "2": 598,
+      "3": 480,
+      "1": 420,
+      "6": 16,
+      "0": 72
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        762.865966796875,
+        2076.447998046875,
+        3.748356342315674
+      ],
+      [
+        800.5863037109375,
+        2152.3388671875,
+        7.543344974517822
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_2450_2525_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_2450_2525"
+    ],
+    "triangles": 2668,
+    "polygons": 1607,
+    "vertices": 3734,
+    "material_indices": {
+      "1": 420,
+      "2": 546,
+      "3": 355,
+      "4": 125,
+      "0": 101,
+      "5": 54,
+      "6": 6
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        782.928466796875,
+        2083.1953125,
+        6.100162982940674
+      ],
+      [
+        829.7803344726562,
+        2157.7373046875,
+        12.45553970336914
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_2525_2600_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_2525_2600"
+    ],
+    "triangles": 3210,
+    "polygons": 1926,
+    "vertices": 4494,
+    "material_indices": {
+      "1": 404,
+      "2": 688,
+      "3": 487,
+      "4": 107,
+      "0": 135,
+      "5": 83,
+      "6": 22
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        809.727783203125,
+        2011.6031494140625,
+        10.567631721496582
+      ],
+      [
+        854.4737548828125,
+        2081.68798828125,
+        13.309041976928711
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_2600_2675_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_2600_2675"
+    ],
+    "triangles": 3759,
+    "polygons": 2274,
+    "vertices": 5259,
+    "material_indices": {
+      "4": 215,
+      "5": 111,
+      "2": 672,
+      "3": 465,
+      "1": 489,
+      "0": 315,
+      "6": 7
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        836.9459228515625,
+        1939.3936767578125,
+        7.868839740753174
+      ],
+      [
+        876.0548706054688,
+        2009.1322021484375,
+        10.673224449157715
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_2675_2750_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_2675_2750"
+    ],
+    "triangles": 3896,
+    "polygons": 2350,
+    "vertices": 5452,
+    "material_indices": {
+      "3": 440,
+      "4": 133,
+      "0": 268,
+      "1": 653,
+      "2": 756,
+      "5": 85,
+      "6": 15
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        857.7760620117188,
+        1877.766845703125,
+        8.854496955871582
+      ],
+      [
+        908.73046875,
+        1944.1485595703125,
+        10.646900177001953
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_2750_2825_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_2750_2825"
+    ],
+    "triangles": 3030,
+    "polygons": 1818,
+    "vertices": 4242,
+    "material_indices": {
+      "1": 404,
+      "2": 650,
+      "3": 486,
+      "4": 127,
+      "0": 112,
+      "5": 33,
+      "6": 6
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        913.1621704101562,
+        1850.0518798828125,
+        8.018864631652832
+      ],
+      [
+        976.4647827148438,
+        1896.0257568359375,
+        10.054468154907227
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_2825_2900_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_2825_2900"
+    ],
+    "triangles": 3644,
+    "polygons": 2205,
+    "vertices": 5098,
+    "material_indices": {
+      "1": 602,
+      "2": 671,
+      "3": 432,
+      "0": 231,
+      "4": 151,
+      "5": 106,
+      "6": 12
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        980.7310791015625,
+        1813.15185546875,
+        6.118168354034424
+      ],
+      [
+        1050.0638427734375,
+        1861.8597412109375,
+        9.577096939086914
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_2900_2975_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_2900_2975"
+    ],
+    "triangles": 2765,
+    "polygons": 1659,
+    "vertices": 3871,
+    "material_indices": {
+      "1": 414,
+      "2": 534,
+      "0": 235,
+      "3": 282,
+      "4": 161,
+      "5": 32,
+      "6": 1
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        1047.3768310546875,
+        1770.119384765625,
+        4.463749408721924
+      ],
+      [
+        1106.5740966796875,
+        1827.6597900390625,
+        8.25460147857666
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_2975_3050_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_2975_3050"
+    ],
+    "triangles": 2540,
+    "polygons": 1524,
+    "vertices": 3556,
+    "material_indices": {
+      "0": 68,
+      "1": 321,
+      "3": 420,
+      "4": 98,
+      "2": 482,
+      "5": 103,
+      "6": 32
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        1115.001220703125,
+        1723.056396484375,
+        6.215946674346924
+      ],
+      [
+        1170.557861328125,
+        1782.3974609375,
+        13.359711647033691
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_3050_3125_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_3050_3125"
+    ],
+    "triangles": 3230,
+    "polygons": 1938,
+    "vertices": 4522,
+    "material_indices": {
+      "2": 579,
+      "3": 567,
+      "0": 203,
+      "1": 316,
+      "4": 132,
+      "5": 106,
+      "6": 35
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        1159.384521484375,
+        1680.30078125,
+        12.847355842590332
+      ],
+      [
+        1230.0421142578125,
+        1732.12158203125,
+        16.12328338623047
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_3125_3200_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_3125_3200"
+    ],
+    "triangles": 3071,
+    "polygons": 1855,
+    "vertices": 4297,
+    "material_indices": {
+      "3": 447,
+      "4": 221,
+      "0": 208,
+      "1": 385,
+      "2": 500,
+      "5": 91,
+      "6": 3
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        1225.825927734375,
+        1651.994873046875,
+        13.920292854309082
+      ],
+      [
+        1300.8646240234375,
+        1699.984130859375,
+        16.501487731933594
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_3200_3275_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_3200_3275"
+    ],
+    "triangles": 3778,
+    "polygons": 2273,
+    "vertices": 5288,
+    "material_indices": {
+      "2": 677,
+      "3": 570,
+      "4": 237,
+      "1": 512,
+      "0": 143,
+      "5": 115,
+      "6": 19
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        1293.253173828125,
+        1619.7919921875,
+        8.448124885559082
+      ],
+      [
+        1367.0174560546875,
+        1667.7952880859375,
+        14.396358489990234
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_3275_3350_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_3275_3350"
+    ],
+    "triangles": 3171,
+    "polygons": 1915,
+    "vertices": 4437,
+    "material_indices": {
+      "0": 320,
+      "1": 542,
+      "3": 376,
+      "4": 146,
+      "2": 440,
+      "5": 82,
+      "6": 9
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        1361.5081787109375,
+        1587.454833984375,
+        8.107975959777832
+      ],
+      [
+        1434.7034912109375,
+        1635.5528564453125,
+        10.940214157104492
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_3350_3425_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_3350_3425"
+    ],
+    "triangles": 2194,
+    "polygons": 1335,
+    "vertices": 3068,
+    "material_indices": {
+      "1": 418,
+      "2": 334,
+      "3": 317,
+      "0": 112,
+      "4": 73,
+      "5": 72,
+      "6": 9
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        1431.486328125,
+        1570.5548095703125,
+        6.611698627471924
+      ],
+      [
+        1504.618408203125,
+        1607.8704833984375,
+        10.920568466186523
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_3425_3500_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_3425_3500"
+    ],
+    "triangles": 4373,
+    "polygons": 2630,
+    "vertices": 6121,
+    "material_indices": {
+      "4": 191,
+      "5": 92,
+      "1": 657,
+      "2": 794,
+      "3": 662,
+      "0": 222,
+      "6": 12
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        1507.97021484375,
+        1535.9715576171875,
+        4.841495990753174
+      ],
+      [
+        1567.8441162109375,
+        1589.070068359375,
+        6.572147846221924
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_3500_3575_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_3500_3575"
+    ],
+    "triangles": 5154,
+    "polygons": 3111,
+    "vertices": 7212,
+    "material_indices": {
+      "3": 603,
+      "4": 330,
+      "2": 793,
+      "1": 711,
+      "0": 428,
+      "5": 211,
+      "6": 35
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        1531.82080078125,
+        1460.1529541015625,
+        4.972904682159424
+      ],
+      [
+        1570.313232421875,
+        1532.609375,
+        5.784160614013672
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_3575_3650_mesh",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_3575_3650"
+    ],
+    "triangles": 4086,
+    "polygons": 2464,
+    "vertices": 5718,
+    "material_indices": {
+      "2": 657,
+      "3": 591,
+      "1": 615,
+      "0": 287,
+      "4": 167,
+      "5": 119,
+      "6": 28
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        1516.050537109375,
+        1389.0242919921875,
+        4.221683979034424
+      ],
+      [
+        1551.5216064453125,
+        1463.2371826171875,
+        5.607598304748535
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_3650_3725_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_3650_3725"
+    ],
+    "triangles": 3628,
+    "polygons": 2183,
+    "vertices": 5078,
+    "material_indices": {
+      "3": 598,
+      "4": 205,
+      "5": 62,
+      "0": 225,
+      "1": 522,
+      "2": 561,
+      "6": 10
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        1513.364990234375,
+        1314.3184814453125,
+        4.085148334503174
+      ],
+      [
+        1540.434326171875,
+        1388.1368408203125,
+        4.9337077140808105
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_3725_3800_mesh",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_3725_3800"
+    ],
+    "triangles": 29744,
+    "polygons": 17896,
+    "vertices": 41632,
+    "material_indices": {
+      "2": 5217,
+      "3": 3659,
+      "4": 1391,
+      "0": 2142,
+      "1": 4538,
+      "5": 809,
+      "6": 140
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        1497.44482421875,
+        1241.3822021484375,
+        4.001286029815674
+      ],
+      [
+        1528.8609619140625,
+        1312.6397705078125,
+        4.679343223571777
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_3800_3875_mesh",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_3800_3875"
+    ],
+    "triangles": 43161,
+    "polygons": 25971,
+    "vertices": 60411,
+    "material_indices": {
+      "2": 7320,
+      "3": 5519,
+      "0": 3544,
+      "1": 6276,
+      "4": 1916,
+      "5": 1165,
+      "6": 231
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        1480.9793701171875,
+        1166.1300048828125,
+        3.847843647003174
+      ],
+      [
+        1517.2962646484375,
+        1239.8822021484375,
+        4.55385684967041
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_3875_3950_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_3875_3950"
+    ],
+    "triangles": 46863,
+    "polygons": 28217,
+    "vertices": 65589,
+    "material_indices": {
+      "3": 6027,
+      "4": 2222,
+      "2": 7718,
+      "5": 1538,
+      "1": 7518,
+      "0": 2911,
+      "6": 283
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        1457.3472900390625,
+        1092.63525390625,
+        3.838016986846924
+      ],
+      [
+        1501.337646484375,
+        1170.390869140625,
+        4.79036808013916
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_3950_4025_mesh",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_3950_4025"
+    ],
+    "triangles": 53586,
+    "polygons": 32288,
+    "vertices": 74994,
+    "material_indices": {
+      "3": 6491,
+      "4": 2375,
+      "1": 8609,
+      "2": 9076,
+      "0": 3861,
+      "5": 1588,
+      "6": 288
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        1424.787353515625,
+        1027.5130615234375,
+        4.148075580596924
+      ],
+      [
+        1477.572021484375,
+        1101.888916015625,
+        4.8253350257873535
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_4025_4100_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_4025_4100"
+    ],
+    "triangles": 25271,
+    "polygons": 15237,
+    "vertices": 35365,
+    "material_indices": {
+      "2": 4594,
+      "3": 2613,
+      "1": 4061,
+      "0": 1749,
+      "4": 1059,
+      "5": 981,
+      "6": 180
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        1394.452392578125,
+        962.9557495117188,
+        4.170658588409424
+      ],
+      [
+        1445.4486083984375,
+        1034.218505859375,
+        4.795322895050049
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_4100_4175_mesh",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_4100_4175"
+    ],
+    "triangles": 3354,
+    "polygons": 2031,
+    "vertices": 4692,
+    "material_indices": {
+      "1": 486,
+      "2": 470,
+      "0": 304,
+      "3": 396,
+      "4": 224,
+      "5": 135,
+      "6": 16
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        1354.8455810546875,
+        895.44287109375,
+        4.211979389190674
+      ],
+      [
+        1405.971923828125,
+        968.0017700195312,
+        4.983843803405762
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_4175_4250_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_4175_4250"
+    ],
+    "triangles": 1710,
+    "polygons": 1026,
+    "vertices": 2394,
+    "material_indices": {
+      "3": 171,
+      "4": 95,
+      "5": 74,
+      "6": 18,
+      "2": 255,
+      "0": 126,
+      "1": 287
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        1325.337158203125,
+        854.8662719726562,
+        3.656803607940674
+      ],
+      [
+        1366.5247802734375,
+        902.6149291992188,
+        4.636258125305176
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_4400_4475_mesh",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_4400_4475"
+    ],
+    "triangles": 490,
+    "polygons": 294,
+    "vertices": 686,
+    "material_indices": {
+      "2": 92,
+      "3": 67,
+      "1": 63,
+      "4": 13,
+      "0": 59
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        1144.63427734375,
+        693.656494140625,
+        1.1378828287124634
+      ],
+      [
+        1162.218505859375,
+        709.1998901367188,
+        1.5508360862731934
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_4475_4550_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_4475_4550"
+    ],
+    "triangles": 65727,
+    "polygons": 39585,
+    "vertices": 91989,
+    "material_indices": {
+      "2": 11688,
+      "3": 7621,
+      "5": 2094,
+      "6": 415,
+      "4": 2533,
+      "1": 10542,
+      "0": 4692
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        1089.7037353515625,
+        626.7232666015625,
+        1.3161054849624634
+      ],
+      [
+        1152.560546875,
+        695.0913696289062,
+        2.7833213806152344
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_4550_4625_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_4550_4625"
+    ],
+    "triangles": 83772,
+    "polygons": 50474,
+    "vertices": 117240,
+    "material_indices": {
+      "3": 11159,
+      "4": 3780,
+      "2": 14719,
+      "5": 2710,
+      "6": 504,
+      "0": 5520,
+      "1": 12082
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        1041.4959716796875,
+        569.9971313476562,
+        2.012089252471924
+      ],
+      [
+        1106.7705078125,
+        641.4835815429688,
+        2.963101387023926
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_4625_4700_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_4625_4700"
+    ],
+    "triangles": 65527,
+    "polygons": 39527,
+    "vertices": 91697,
+    "material_indices": {
+      "1": 10405,
+      "2": 11733,
+      "3": 8112,
+      "4": 2740,
+      "0": 4253,
+      "5": 1970,
+      "6": 314
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        993.1033935546875,
+        519.6679077148438,
+        1.9915205240249634
+      ],
+      [
+        1058.44970703125,
+        583.3391723632812,
+        2.7474524974823
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_4700_4775_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_4700_4775"
+    ],
+    "triangles": 2903,
+    "polygons": 1748,
+    "vertices": 4063,
+    "material_indices": {
+      "0": 190,
+      "1": 517,
+      "2": 426,
+      "3": 351,
+      "4": 184,
+      "5": 72,
+      "6": 8
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        944.0357055664062,
+        468.0312805175781,
+        2.420048236846924
+      ],
+      [
+        1007.82275390625,
+        523.5454711914062,
+        3.505110025405884
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_4775_4850_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_4775_4850"
+    ],
+    "triangles": 2464,
+    "polygons": 1497,
+    "vertices": 3446,
+    "material_indices": {
+      "2": 507,
+      "3": 253,
+      "1": 415,
+      "4": 67,
+      "5": 62,
+      "0": 193
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        895.4783935546875,
+        453.12127685546875,
+        3.014591693878174
+      ],
+      [
+        945.791015625,
+        488.1203918457031,
+        3.7563018798828125
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_4850_4925_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_4850_4925"
+    ],
+    "triangles": 2395,
+    "polygons": 1437,
+    "vertices": 3353,
+    "material_indices": {
+      "0": 188,
+      "1": 285,
+      "4": 123,
+      "5": 128,
+      "2": 309,
+      "3": 371,
+      "6": 33
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        795.6099243164062,
+        432.26763916015625,
+        1.8910566568374634
+      ],
+      [
+        852.7471923828125,
+        463.0627136230469,
+        2.758392333984375
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_4925_5000_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_4925_5000"
+    ],
+    "triangles": 1795,
+    "polygons": 1077,
+    "vertices": 2513,
+    "material_indices": {
+      "1": 272,
+      "2": 411,
+      "3": 174,
+      "4": 25,
+      "0": 159,
+      "5": 27,
+      "6": 9
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        755.1224975585938,
+        419.6686096191406,
+        1.9428144693374634
+      ],
+      [
+        798.0536499023438,
+        450.164306640625,
+        2.7280564308166504
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_5000_5075_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_5000_5075"
+    ],
+    "triangles": 1195,
+    "polygons": 717,
+    "vertices": 1673,
+    "material_indices": {
+      "0": 46,
+      "1": 187,
+      "2": 259,
+      "5": 32,
+      "6": 8,
+      "3": 135,
+      "4": 50
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        657.0491943359375,
+        390.9226379394531,
+        2.967228412628174
+      ],
+      [
+        708.7868041992188,
+        428.27154541015625,
+        3.564657211303711
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_5075_5150_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_5075_5150"
+    ],
+    "triangles": 1260,
+    "polygons": 756,
+    "vertices": 1764,
+    "material_indices": {
+      "1": 285,
+      "2": 238,
+      "3": 118,
+      "4": 47,
+      "5": 8,
+      "0": 60
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        590.9874267578125,
+        363.7641906738281,
+        1.9908491373062134
+      ],
+      [
+        657.5069580078125,
+        404.0881042480469,
+        3.4298131465911865
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_5150_5225_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_5150_5225"
+    ],
+    "triangles": 1835,
+    "polygons": 1101,
+    "vertices": 2569,
+    "material_indices": {
+      "3": 292,
+      "4": 61,
+      "1": 160,
+      "2": 294,
+      "0": 198,
+      "5": 74,
+      "6": 22
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        521.1480102539062,
+        333.2308349609375,
+        1.2818037271499634
+      ],
+      [
+        587.5733642578125,
+        367.4289245605469,
+        2.056846857070923
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_5225_5300_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_5225_5300"
+    ],
+    "triangles": 1295,
+    "polygons": 777,
+    "vertices": 1813,
+    "material_indices": {
+      "3": 182,
+      "4": 41,
+      "2": 360,
+      "1": 187,
+      "5": 7
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        458.9798889160156,
+        303.83404541015625,
+        0.7692915201187134
+      ],
+      [
+        517.69873046875,
+        340.1438903808594,
+        1.5998507738113403
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_5300_5375_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_5300_5375"
+    ],
+    "triangles": 1683,
+    "polygons": 1016,
+    "vertices": 2355,
+    "material_indices": {
+      "2": 294,
+      "3": 284,
+      "1": 170,
+      "4": 114,
+      "0": 88,
+      "5": 56,
+      "6": 10
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        386.245849609375,
+        271.177734375,
+        0.395207017660141
+      ],
+      [
+        450.1182861328125,
+        302.4122619628906,
+        0.9308226108551025
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_5375_5450_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_5375_5450"
+    ],
+    "triangles": 530,
+    "polygons": 318,
+    "vertices": 742,
+    "material_indices": {
+      "3": 137,
+      "4": 49,
+      "1": 50,
+      "2": 31,
+      "5": 22,
+      "6": 5,
+      "0": 24
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        330.25732421875,
+        245.12425231933594,
+        0.313725084066391
+      ],
+      [
+        370.7354736328125,
+        266.1839599609375,
+        0.9202249646186829
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_5450_5525_mesh_v08_cleared_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_5450_5525"
+    ],
+    "triangles": 1445,
+    "polygons": 867,
+    "vertices": 2023,
+    "material_indices": {
+      "2": 241,
+      "3": 202,
+      "4": 66,
+      "1": 278,
+      "5": 7,
+      "0": 73
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        241.21524047851562,
+        208.28282165527344,
+        0.8925825357437134
+      ],
+      [
+        313.6329650878906,
+        248.575439453125,
+        1.4129024744033813
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_5525_5600_mesh_v08_cleared_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_5525_5600"
+    ],
+    "triangles": 1710,
+    "polygons": 1026,
+    "vertices": 2394,
+    "material_indices": {
+      "2": 363,
+      "3": 185,
+      "1": 308,
+      "4": 44,
+      "5": 80,
+      "6": 24,
+      "0": 22
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        178.3195037841797,
+        168.7057342529297,
+        1.1060224771499634
+      ],
+      [
+        246.57810974121094,
+        220.6385040283203,
+        1.8759468793869019
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_5600_5675_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_5600_5675"
+    ],
+    "triangles": 2566,
+    "polygons": 1552,
+    "vertices": 3590,
+    "material_indices": {
+      "1": 262,
+      "2": 603,
+      "3": 292,
+      "5": 105,
+      "6": 18,
+      "4": 60,
+      "0": 212
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        120.01306915283203,
+        114.70597076416016,
+        1.3692060708999634
+      ],
+      [
+        190.67886352539062,
+        176.4820556640625,
+        2.247441053390503
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_5675_5750_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_5675_5750"
+    ],
+    "triangles": 2437,
+    "polygons": 1487,
+    "vertices": 3407,
+    "material_indices": {
+      "2": 405,
+      "3": 328,
+      "0": 175,
+      "1": 390,
+      "4": 91,
+      "5": 93,
+      "6": 5
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        65.34159851074219,
+        65.73516082763672,
+        0.6281172037124634
+      ],
+      [
+        127.63988494873047,
+        126.94417572021484,
+        1.9408354759216309
+      ]
+    ]
+  },
+  {
+    "name": "VERGE_Grass_5750_5825_mesh_v08_cleared",
+    "users": 1,
+    "objects": [
+      "VERGE_Grass_5750_5825"
+    ],
+    "triangles": 1918,
+    "polygons": 1157,
+    "vertices": 2684,
+    "material_indices": {
+      "3": 311,
+      "4": 115,
+      "1": 180,
+      "2": 396,
+      "5": 54,
+      "6": 6,
+      "0": 95
+    },
+    "materials": [
+      "V06_verge_grass_0",
+      "V06_verge_grass_1",
+      "V06_verge_grass_2",
+      "V06_verge_grass_3",
+      "V06_verge_grass_4",
+      "V06_verge_grass_5",
+      "V06_verge_grass_6"
+    ],
+    "bounds": [
+      [
+        29.28621482849121,
+        33.42672348022461,
+        -0.049006834626197815
+      ],
+      [
+        74.64453125,
+        76.55130004882812,
+        0.8763551115989685
+      ]
+    ]
+  }
+]

@@ -1,0 +1,80 @@
+[
+  {
+    "object": "1PIT_SURFACE_V08",
+    "hide_render": false,
+    "hide_viewport": false,
+    "visible_get": true,
+    "collections": [
+      {
+        "name": "22_V08_Pit_complex",
+        "hide_render": false,
+        "hide_viewport": false
+      }
+    ]
+  },
+  {
+    "object": "1ROAD_MAIN",
+    "hide_render": false,
+    "hide_viewport": false,
+    "visible_get": true,
+    "collections": [
+      {
+        "name": "01_Circuit",
+        "hide_render": false,
+        "hide_viewport": false
+      }
+    ]
+  },
+  {
+    "object": "ROAD_SHOULDERS",
+    "hide_render": false,
+    "hide_viewport": false,
+    "visible_get": true,
+    "collections": [
+      {
+        "name": "01_Circuit",
+        "hide_render": false,
+        "hide_viewport": false
+      }
+    ]
+  },
+  {
+    "object": "SIDE_ROADS",
+    "hide_render": false,
+    "hide_viewport": false,
+    "visible_get": true,
+    "collections": [
+      {
+        "name": "02_Nearby_roads",
+        "hide_render": false,
+        "hide_viewport": false
+      }
+    ]
+  },
+  {
+    "object": "SIDE_ROADS_V09",
+    "hide_render": false,
+    "hide_viewport": false,
+    "visible_get": true,
+    "collections": [
+      {
+        "name": "30_V09_Mapped_side_streets",
+        "hide_render": false,
+        "hide_viewport": false
+      }
+    ]
+  },
+  {
+    "object": "V09_Side_road_verges",
+    "hide_render": false,
+    "hide_viewport": false,
+    "visible_get": true,
+    "collections": [
+      {
+        "name": "30_V09_Mapped_side_streets",
+        "hide_render": false,
+        "hide_viewport": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,686 @@
+[
+  {
+    "camera": "V11_01_DRIVER",
+    "title": "Улица Тютюнника",
+    "kind": "driver",
+    "station_map_m": 60,
+    "file": "screenshots_v11/01_driver.png",
+    "location": [
+      22.780364990234375,
+      55.50725173950195,
+      0.820660412311554
+    ],
+    "rotation": [
+      1.5721502304077148,
+      2.2817637557182024e-08,
+      -0.39412274956703186
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_02_DRIVER",
+    "title": "Улица Тютюнника",
+    "kind": "driver",
+    "station_map_m": 280,
+    "file": "screenshots_v11/02_driver.png",
+    "location": [
+      114.12226104736328,
+      255.5137481689453,
+      1.2865722179412842
+    ],
+    "rotation": [
+      1.5706247091293335,
+      -5.2458396737620205e-08,
+      -0.394294798374176
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_03_DRIVER",
+    "title": "Улица Тютюнника",
+    "kind": "driver",
+    "station_map_m": 520,
+    "file": "screenshots_v11/03_driver.png",
+    "location": [
+      141.69139099121094,
+      488.5387878417969,
+      0.36411744356155396
+    ],
+    "rotation": [
+      1.5736395120620728,
+      1.1493339613366516e-09,
+      0.032060910016298294
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_04_DRIVER",
+    "title": "Улица Тютюнника",
+    "kind": "driver",
+    "station_map_m": 760,
+    "file": "screenshots_v11/04_driver.png",
+    "location": [
+      117.55506134033203,
+      725.7850952148438,
+      0.31437379121780396
+    ],
+    "rotation": [
+      1.5680932998657227,
+      5.054872076470929e-09,
+      -0.056898705661296844
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_05_DRIVER",
+    "title": "Улица Тютюнника",
+    "kind": "driver",
+    "station_map_m": 998,
+    "file": "screenshots_v11/05_driver.png",
+    "location": [
+      127.84033203125,
+      963.000244140625,
+      -0.31117552518844604
+    ],
+    "rotation": [
+      1.5539389848709106,
+      4.003296183441307e-08,
+      -0.1736825406551361
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_06_DRIVER",
+    "title": "Улица Тютюнника",
+    "kind": "driver",
+    "station_map_m": 1250,
+    "file": "screenshots_v11/06_driver.png",
+    "location": [
+      263.65667724609375,
+      1160.341796875,
+      0.08140259981155396
+    ],
+    "rotation": [
+      1.5725666284561157,
+      -4.780117279779006e-08,
+      -0.7039114236831665
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_07_DRIVER",
+    "title": "Улица Тютюнника",
+    "kind": "driver",
+    "station_map_m": 1490,
+    "file": "screenshots_v11/07_driver.png",
+    "location": [
+      390.57861328125,
+      1360.6396484375,
+      0.39402467012405396
+    ],
+    "rotation": [
+      1.570265531539917,
+      -1.626972689905415e-08,
+      -0.11850066483020782
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_08_DRIVER",
+    "title": "Улица Тютюнника",
+    "kind": "driver",
+    "station_map_m": 1730,
+    "file": "screenshots_v11/08_driver.png",
+    "location": [
+      424.8133544921875,
+      1597.6998291015625,
+      0.44767457246780396
+    ],
+    "rotation": [
+      1.5749338865280151,
+      -3.4907149171203855e-08,
+      -0.3601110875606537
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_09_DRIVER",
+    "title": "Улица Тютюнника",
+    "kind": "driver",
+    "station_map_m": 1980,
+    "file": "screenshots_v11/09_driver.png",
+    "location": [
+      514.2448120117188,
+      1831.12744140625,
+      1.5558288097381592
+    ],
+    "rotation": [
+      1.5709148645401,
+      -2.41802737832586e-08,
+      -0.37763282656669617
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_10_DRIVER",
+    "title": "Улица Тютюнника",
+    "kind": "driver",
+    "station_map_m": 2200,
+    "file": "screenshots_v11/10_driver.png",
+    "location": [
+      620.6864013671875,
+      2012.2291259765625,
+      0.971752941608429
+    ],
+    "rotation": [
+      1.5819495916366577,
+      -1.0185725152211944e-08,
+      -1.4647847414016724
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_11_DRIVER",
+    "title": "Северный поворот · Т-13-02",
+    "kind": "driver",
+    "station_map_m": 2380,
+    "file": "screenshots_v11/11_driver.png",
+    "location": [
+      774.1785278320312,
+      2084.9384765625,
+      5.236767768859863
+    ],
+    "rotation": [
+      1.6290844678878784,
+      -9.36025088549286e-08,
+      -0.3269602656364441
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_12_DRIVER",
+    "title": "Лесной участок",
+    "kind": "driver",
+    "station_map_m": 2600,
+    "file": "screenshots_v11/12_driver.png",
+    "location": [
+      845.7603759765625,
+      2013.86279296875,
+      11.575329780578613
+    ],
+    "rotation": [
+      1.5524646043777466,
+      -3.177011365096405e-08,
+      -2.8599698543548584
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_13_DRIVER",
+    "title": "Лесной участок",
+    "kind": "driver",
+    "station_map_m": 2790,
+    "file": "screenshots_v11/13_driver.png",
+    "location": [
+      948.40380859375,
+      1868.770263671875,
+      9.275799751281738
+    ],
+    "rotation": [
+      1.5508402585983276,
+      7.769051535433391e-08,
+      -1.9924858808517456
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_14_DRIVER",
+    "title": "Подъём к гребню",
+    "kind": "driver",
+    "station_map_m": 2915,
+    "file": "screenshots_v11/14_driver.png",
+    "location": [
+      1059.1578369140625,
+      1811.617431640625,
+      6.503399848937988
+    ],
+    "rotation": [
+      1.5952898263931274,
+      -6.67810979848582e-08,
+      -2.215043067932129
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_15_DRIVER",
+    "title": "Гребень лесного участка",
+    "kind": "driver",
+    "station_map_m": 3090,
+    "file": "screenshots_v11/15_driver.png",
+    "location": [
+      1196.5556640625,
+      1703.637451171875,
+      15.346966743469238
+    ],
+    "rotation": [
+      1.5761045217514038,
+      -4.631229444385099e-08,
+      -1.9999018907546997
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_16_DRIVER",
+    "title": "Спуск к Чмирівке",
+    "kind": "driver",
+    "station_map_m": 3220,
+    "file": "screenshots_v11/16_driver.png",
+    "location": [
+      1314.832275390625,
+      1649.6873779296875,
+      12.658612251281738
+    ],
+    "rotation": [
+      1.539905309677124,
+      -1.0919666237896308e-07,
+      -1.995978593826294
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_17_DRIVER",
+    "title": "Спуск к Чмирівке",
+    "kind": "driver",
+    "station_map_m": 3440,
+    "file": "screenshots_v11/17_driver.png",
+    "location": [
+      1520.890380859375,
+      1574.9478759765625,
+      6.817975044250488
+    ],
+    "rotation": [
+      1.5478131771087646,
+      -4.402679110171448e-08,
+      -2.153021812438965
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_18_DRIVER",
+    "title": "Спуск к Чмирівке",
+    "kind": "driver",
+    "station_map_m": 3670,
+    "file": "screenshots_v11/18_driver.png",
+    "location": [
+      1528.6588134765625,
+      1367.7540283203125,
+      5.433575630187988
+    ],
+    "rotation": [
+      1.5651136636734009,
+      -1.0591766397283209e-07,
+      2.9779140949249268
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_19_DRIVER",
+    "title": "Сінна вулиця",
+    "kind": "driver",
+    "station_map_m": 3900,
+    "file": "screenshots_v11/19_driver.png",
+    "location": [
+      1485.5198974609375,
+      1142.367919921875,
+      4.926495552062988
+    ],
+    "rotation": [
+      1.5747419595718384,
+      5.035172634393348e-08,
+      2.7410192489624023
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_20_DRIVER",
+    "title": "Сінна вулиця",
+    "kind": "driver",
+    "station_map_m": 4140,
+    "file": "screenshots_v11/20_driver.png",
+    "location": [
+      1379.8516845703125,
+      927.472900390625,
+      5.328900337219238
+    ],
+    "rotation": [
+      1.56459379196167,
+      1.0196242961058033e-08,
+      2.4541468620300293
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_21_DRIVER",
+    "title": "Связка у моста",
+    "kind": "driver",
+    "station_map_m": 4380,
+    "file": "screenshots_v11/21_driver.png",
+    "location": [
+      1209.982177734375,
+      760.1614990234375,
+      1.6018493175506592
+    ],
+    "rotation": [
+      1.5761877298355103,
+      -3.561306627375416e-08,
+      2.3677284717559814
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_22_DRIVER",
+    "title": "Шляхетна вулиця",
+    "kind": "driver",
+    "station_map_m": 4650,
+    "file": "screenshots_v11/22_driver.png",
+    "location": [
+      1032.870849609375,
+      556.8681030273438,
+      2.988049268722534
+    ],
+    "rotation": [
+      1.5792583227157593,
+      8.11778555487308e-09,
+      2.4422240257263184
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_23_DRIVER",
+    "title": "Товарна площа · подход к боксам",
+    "kind": "driver",
+    "station_map_m": 4890,
+    "file": "screenshots_v11/23_driver.png",
+    "location": [
+      830.5044555664062,
+      448.06146240234375,
+      3.121624708175659
+    ],
+    "rotation": [
+      1.5732357501983643,
+      5.6749263066535605e-09,
+      1.803120732307434
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_24_DRIVER",
+    "title": "Товарна площа · пит-лейн справа",
+    "kind": "driver",
+    "station_map_m": 5115,
+    "file": "screenshots_v11/24_driver.png",
+    "location": [
+      615.1052856445312,
+      384.55377197265625,
+      3.420391798019409
+    ],
+    "rotation": [
+      1.5592373609542847,
+      1.1188055282218556e-07,
+      1.971767544746399
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_25_DRIVER",
+    "title": "Товарна площа · пит-лейн справа",
+    "kind": "driver",
+    "station_map_m": 5350,
+    "file": "screenshots_v11/25_driver.png",
+    "location": [
+      400.4189147949219,
+      289.085693359375,
+      1.3789794445037842
+    ],
+    "rotation": [
+      1.5751086473464966,
+      -3.949996241203735e-08,
+      2.0010643005371094
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_26_DRIVER",
+    "title": "Улица Сковороды · возвращение к A",
+    "kind": "driver",
+    "station_map_m": 5600,
+    "file": "screenshots_v11/26_driver.png",
+    "location": [
+      183.2567901611328,
+      168.77474975585938,
+      2.526776075363159
+    ],
+    "rotation": [
+      1.5718566179275513,
+      -2.1812185480030166e-07,
+      2.286400318145752
+    ],
+    "lens_mm": 29.0,
+    "eye_above_road_m": 0.8
+  },
+  {
+    "camera": "V11_27_DETAIL",
+    "title": "Шпилька A · общий ракурс",
+    "kind": "detail",
+    "station_map_m": 15,
+    "file": "screenshots_v11/27_detail.png",
+    "location": [
+      82.46293640136719,
+      -35.843929290771484,
+      47.99713134765625
+    ],
+    "rotation": [
+      1.1051610708236694,
+      -2.3363639911622158e-08,
+      0.7483781576156616
+    ],
+    "lens_mm": 35.0,
+    "eye_above_road_m": null
+  },
+  {
+    "camera": "V11_28_DETAIL",
+    "title": "Северная шпилька · обочины и рельеф",
+    "kind": "detail",
+    "station_map_m": 2400,
+    "file": "screenshots_v11/28_detail.png",
+    "location": [
+      871.06787109375,
+      2163.6923828125,
+      75.46578979492188
+    ],
+    "rotation": [
+      0.9964269995689392,
+      3.134123716108661e-08,
+      2.158798933029175
+    ],
+    "lens_mm": 35.0,
+    "eye_above_road_m": null
+  },
+  {
+    "camera": "V11_29_DETAIL",
+    "title": "Набережная · перекрытое примыкание",
+    "kind": "detail",
+    "station_map_m": 1024,
+    "file": "screenshots_v11/29_detail.png",
+    "location": [
+      128.16357421875,
+      964.1478881835938,
+      0.3328181505203247
+    ],
+    "rotation": [
+      1.5609800815582275,
+      5.4419928119386896e-08,
+      0.7587786316871643
+    ],
+    "lens_mm": 28.0,
+    "eye_above_road_m": null
+  },
+  {
+    "camera": "V11_30_DETAIL",
+    "title": "Сінна · боковая улица за ограждением",
+    "kind": "detail",
+    "station_map_m": 4059,
+    "file": "screenshots_v11/30_detail.png",
+    "location": [
+      1430.1070556640625,
+      1017.6912841796875,
+      5.864982604980469
+    ],
+    "rotation": [
+      1.5693773031234741,
+      1.1007208655655631e-07,
+      1.8873478174209595
+    ],
+    "lens_mm": 28.0,
+    "eye_above_road_m": null
+  },
+  {
+    "camera": "V11_31_DETAIL",
+    "title": "Боксы справа · вся линия пит-лейна",
+    "kind": "detail",
+    "station_map_m": 5270,
+    "file": "screenshots_v11/31_detail.png",
+    "location": [
+      364.9837646484375,
+      701.9346923828125,
+      241.19332885742188
+    ],
+    "rotation": [
+      1.0036643743515015,
+      -2.1856676468701153e-09,
+      -2.8712375164031982
+    ],
+    "lens_mm": 32.0,
+    "eye_above_road_m": null
+  },
+  {
+    "camera": "V11_32_DETAIL",
+    "title": "Элеватор · промышленное окружение",
+    "kind": "detail",
+    "station_map_m": 5115,
+    "file": "screenshots_v11/32_detail.png",
+    "location": [
+      409.8495788574219,
+      -286.9798583984375,
+      230.03244018554688
+    ],
+    "rotation": [
+      1.020189642906189,
+      3.746739096754936e-08,
+      0.6610433459281921
+    ],
+    "lens_mm": 45.0,
+    "eye_above_road_m": null
+  },
+  {
+    "camera": "V11_33_OVERVIEW",
+    "title": "Весь круг · южная панорама",
+    "kind": "overview",
+    "station_map_m": null,
+    "file": "screenshots_v11/33_overview.png",
+    "location": [
+      3100.0,
+      -3000.0,
+      2800.0
+    ],
+    "rotation": [
+      1.0418074131011963,
+      -5.714384521127158e-09,
+      0.5386241674423218
+    ],
+    "lens_mm": 42.0,
+    "eye_above_road_m": null
+  },
+  {
+    "camera": "V11_34_OVERVIEW",
+    "title": "Западный сектор · застройка и окружение",
+    "kind": "overview",
+    "station_map_m": null,
+    "file": "screenshots_v11/34_overview.png",
+    "location": [
+      -1250.0,
+      1100.0,
+      720.0
+    ],
+    "rotation": [
+      1.1495027542114258,
+      3.537500958827877e-08,
+      -1.570796251296997
+    ],
+    "lens_mm": 40.0,
+    "eye_above_road_m": null
+  },
+  {
+    "camera": "V11_35_OVERVIEW",
+    "title": "Лесной сектор · гребень и спуск",
+    "kind": "overview",
+    "station_map_m": null,
+    "file": "screenshots_v11/35_overview.png",
+    "location": [
+      2100.0,
+      2550.0,
+      650.0
+    ],
+    "rotation": [
+      1.1375552415847778,
+      -1.1317901993379564e-07,
+      2.3818302154541016
+    ],
+    "lens_mm": 40.0,
+    "eye_above_road_m": null
+  },
+  {
+    "camera": "V11_36_OVERVIEW",
+    "title": "Южный сектор · промзона и боксы",
+    "kind": "overview",
+    "station_map_m": null,
+    "file": "screenshots_v11/36_overview.png",
+    "location": [
+      1550.0,
+      -800.0,
+      650.0
+    ],
+    "rotation": [
+      1.1674295663833618,
+      3.1988143689432036e-08,
+      0.6355858445167542
+    ],
+    "lens_mm": 40.0,
+    "eye_above_road_m": null
+  }
+]
