@@ -132,6 +132,15 @@ def unpack_textures(out_dir, keep_hdr=False):
     return written, skipped
 
 
+def has_alpha(image):
+    """True when the image carries a real alpha channel.
+
+    Only the three leaf maps do (depth 32); bark, asphalt, brick and grass
+    are opaque, and turning alpha test on for those punches holes in them.
+    """
+    return image.channels == 4 and image.depth in (32, 64)
+
+
 ALBEDO = re.compile(r'albedo|diff|color|colour|base', re.I)
 NOT_ALBEDO = re.compile(r'_nor|normal|rough|spec|metal|bump|height|ao\b|mask', re.I)
 
@@ -173,7 +182,7 @@ def flat_image(material):
 def wire_base_colour(scene, out_dir):
     """Put one image straight into Base Color so the FBX carries a texture."""
     done, flats, skipped = [], [], []
-    chosen = {}
+    chosen, alpha = {}, set()
     seen = set()
     for ob in scene.objects:
         if ob.type != 'MESH' or not ob.select_get():
@@ -203,11 +212,13 @@ def wire_base_colour(scene, out_dir):
             else:
                 done.append({'material': m.name, 'image': node.image.name})
                 chosen[m.name] = safe_file(node.image.name)
+                if has_alpha(node.image):
+                    alpha.add(safe_file(node.image.name))
             base = bsdf.inputs['Base Color']
             for link in list(base.links):
                 m.node_tree.links.remove(link)
             m.node_tree.links.new(node.outputs['Color'], base)
-    return done, flats, skipped, chosen
+    return done, flats, skipped, chosen, alpha
 
 
 # ksEditor's own defaults (0.05 ambient, 0.8 specular) leave everything
@@ -228,7 +239,7 @@ def merge_materials(scene, out_dir, buckets=12):
     quantised into a few shades so a street of houses does not produce a
     material per wall.
     """
-    shared, assignments = {}, {}
+    shared, assignments, alpha = {}, {}, set()
     step = 1.0 / buckets
     for ob in scene.objects:
         if ob.type != 'MESH' or not ob.select_get():
@@ -264,8 +275,10 @@ def merge_materials(scene, out_dir, buckets=12):
                 tree.links.new(tex.outputs['Color'], bsdf.inputs['Base Color'])
                 shared[key] = (merged, image)
                 assignments[merged.name] = key
+                if has_alpha(image):
+                    alpha.add(key)
             slot.material = shared[key][0]
-    return assignments
+    return assignments, alpha
 
 
 def material_order(scene, assignments):
@@ -398,7 +411,7 @@ def node_sections(fbx_name, scene):
     return lines
 
 
-def write_persistence(fbx, assignments, scene=None):
+def write_persistence(fbx, assignments, scene=None, alpha=()):
     """Write ksEditor's <name>.fbx.ini so it loads the textures itself.
 
     ksEditor does not read Blender's material links: every txDiffuse slot
@@ -413,10 +426,14 @@ def write_persistence(fbx, assignments, scene=None):
              'MD5_HASH=' + digest, '',
              '[MATERIAL_LIST]', 'COUNT=%d' % len(assignments), '']
     for index, (material, texture) in enumerate(material_order(scene, assignments)):
+        cut = texture in alpha
         lines += ['[MATERIAL_%d]' % index, 'NAME=' + material,
-                  'SHADER=ksPerPixel', 'ALPHABLEND=0', 'ALPHATEST=0',
+                  'SHADER=ksPerPixel', 'ALPHABLEND=0',
+                  'ALPHATEST=%d' % (1 if cut else 0),
                   'DEPTHMODE=0', 'VARCOUNT=%d' % len(PERSISTENCE_VARS)]
         for slot, (var, value) in enumerate(PERSISTENCE_VARS):
+            if cut and var == 'ksAlphaRef':
+                value = 0.35
             lines += ['VAR_%d_NAME=%s' % (slot, var),
                       'VAR_%d_FLOAT1=%g' % (slot, value),
                       'VAR_%d_FLOAT2=0,0' % slot,
@@ -570,10 +587,10 @@ def main(a):
     out.parent.mkdir(parents=True, exist_ok=True)
     textures, skipped_textures = unpack_textures(out.parent, a.keep_hdr)
     if a.merge:
-        chosen = merge_materials(scene, out.parent)
+        chosen, alpha = merge_materials(scene, out.parent)
         wired, flats, no_bsdf = [], [], []
     else:
-        wired, flats, no_bsdf, chosen = wire_base_colour(scene, out.parent)
+        wired, flats, no_bsdf, chosen, alpha = wire_base_colour(scene, out.parent)
     bpy.ops.export_scene.fbx(
         filepath=str(out), use_selection=True, apply_unit_scale=True,
         global_scale=a.scale, axis_forward=a.axis_forward, axis_up=a.axis_up,
@@ -581,7 +598,7 @@ def main(a):
         mesh_smooth_type='FACE', path_mode='STRIP', embed_textures=False,
         bake_space_transform=a.bake_transform)
 
-    persistence = write_persistence(out, chosen, scene) if chosen else None
+    persistence = write_persistence(out, chosen, scene, alpha) if chosen else None
 
     report = {
         'mode': a.mode, 'scene': str(scene_path), 'fbx': str(out),
@@ -589,6 +606,7 @@ def main(a):
         'exported_objects': kept, 'culled_objects': culled,
         'exported_triangles': triangles, 'road_only': a.road_only,
         'trimmed_meshes': trimmed, 'split_meshes': split,
+        'alpha_tested': sorted(alpha),
         'persistence': str(persistence) if persistence else None,
         'textures_written': textures, 'textures_skipped': skipped_textures,
         'base_colour_wired': wired, 'base_colour_flat': flats,
