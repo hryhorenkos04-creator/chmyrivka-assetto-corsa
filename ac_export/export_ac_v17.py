@@ -128,6 +128,80 @@ def unpack_textures(out_dir, keep_hdr=False):
     return written, skipped
 
 
+ALBEDO = re.compile(r'albedo|diff|color|colour|base', re.I)
+NOT_ALBEDO = re.compile(r'_nor|normal|rough|spec|metal|bump|height|ao\b|mask', re.I)
+
+
+def pick_albedo(material):
+    """The image a material's colour mostly comes from, or None.
+
+    Every surface material here mixes several maps through MIX_RGB or a
+    Color Ramp, and the FBX exporter only follows a texture wired straight
+    into Base Color. So nothing reaches ksEditor and every slot lands NULL.
+    """
+    images = [n for n in material.node_tree.nodes
+              if n.type == 'TEX_IMAGE' and n.image and n.image.packed_file]
+    if not images:
+        return None
+    named = [n for n in images
+             if ALBEDO.search(n.image.name) and not NOT_ALBEDO.search(n.image.name)]
+    return (named or images)[0]
+
+
+def flat_image(material):
+    """An 8x8 swatch of the material's viewport colour.
+
+    Kerbs and the local asphalt are generated entirely from node maths and
+    own no image at all. Without one AC shades them a uniform grey and the
+    red/white kerb blocks stop reading as kerbs, so give them their colour
+    as a tiny texture instead.
+    """
+    name = 'ACFLAT_%s.png' % safe(material.name)
+    img = bpy.data.images.get(name)
+    if img is None:
+        img = bpy.data.images.new(name, 8, 8, alpha=False)
+        r, g, b = material.diffuse_color[:3]
+        img.pixels[:] = [r, g, b, 1.0] * 64
+        img.file_format = 'PNG'
+    return img
+
+
+def wire_base_colour(scene, out_dir):
+    """Put one image straight into Base Color so the FBX carries a texture."""
+    done, flats, skipped = [], [], []
+    seen = set()
+    for ob in scene.objects:
+        if ob.type != 'MESH' or not ob.select_get():
+            continue
+        for slot in ob.material_slots:
+            m = slot.material
+            if m is None or m.name in seen or not m.node_tree:
+                continue
+            seen.add(m.name)
+            bsdf = next((n for n in m.node_tree.nodes
+                         if n.type == 'BSDF_PRINCIPLED'), None)
+            if bsdf is None:
+                skipped.append(m.name)
+                continue
+            node = pick_albedo(m)
+            if node is None:
+                img = flat_image(m)
+                path = out_dir / img.name
+                img.filepath_raw = str(path)
+                img.save()
+                node = m.node_tree.nodes.new('ShaderNodeTexImage')
+                node.image = img
+                flats.append({'material': m.name, 'image': img.name,
+                              'colour': [round(v, 3) for v in m.diffuse_color[:3]]})
+            else:
+                done.append({'material': m.name, 'image': node.image.name})
+            base = bsdf.inputs['Base Color']
+            for link in list(base.links):
+                m.node_tree.links.remove(link)
+            m.node_tree.links.new(node.outputs['Color'], base)
+    return done, flats, skipped
+
+
 def null(scene, name, location, direction=None, flip=False):
     ob = bpy.data.objects.new(name, None)
     ob.empty_display_type = 'ARROWS'
@@ -208,6 +282,7 @@ def main(a):
     report_path = Path(a.report).resolve() if a.report else out.parent / 'export_report.json'
     out.parent.mkdir(parents=True, exist_ok=True)
     textures, skipped_textures = unpack_textures(out.parent, a.keep_hdr)
+    wired, flats, no_bsdf = wire_base_colour(scene, out.parent)
     bpy.ops.export_scene.fbx(
         filepath=str(out), use_selection=True, apply_unit_scale=True,
         global_scale=1.0, axis_forward='-Z', axis_up='Y',
@@ -221,6 +296,8 @@ def main(a):
         'exported_objects': kept, 'culled_objects': culled,
         'exported_triangles': triangles, 'road_only': a.road_only,
         'textures_written': textures, 'textures_skipped': skipped_textures,
+        'base_colour_wired': wired, 'base_colour_flat': flats,
+        'materials_without_principled': no_bsdf,
         'start_station_map_m': a.start_station,
         'start_location': list(origin), 'flip_spawn': a.flip,
         'sector_map_m': [a.sector_from, a.sector_to] if a.mode == 'sector' else None,
@@ -228,8 +305,10 @@ def main(a):
     }
     report_path.write_text(
         json.dumps(report, ensure_ascii=False, indent=2), encoding='utf8')
-    print('AC_EXPORT_DONE objects=%d culled=%d triangles=%d renamed=%d visual_only=%d textures=%d'
-          % (kept, culled, triangles, len(applied), visual, len(textures)))
+    print('AC_EXPORT_DONE objects=%d culled=%d triangles=%d renamed=%d visual_only=%d '
+          'textures=%d wired=%d flat=%d'
+          % (kept, culled, triangles, len(applied), visual, len(textures),
+             len(wired), len(flats)))
     print('AC_EXPORT_OUT %s' % out)
 
 
