@@ -16,3 +16,6 @@ venv/
 .env.*
 .DS_Store
 Thumbs.db
+
+# Выхлоп экспорта в Assetto Corsa: FBX и распакованные текстуры
+ac_export/out/

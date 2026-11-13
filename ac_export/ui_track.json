@@ -1,0 +1,24 @@
+{
+  "name": "Starobilsk - Chmyrivka",
+  "description": "Вуличне кільце по Старобільську та Чмирівці, Луганська область. Геометрія побудована з контурів OpenStreetMap і рельєфу Copernicus GLO-30. Оздоблення будинків і озеленення — регіональна художня реконструкція, а не фотографічна копія конкретних адрес. Непідтверджена версія для власного тестування.",
+  "tags": [
+    "street circuit",
+    "ukraine",
+    "point to point",
+    "wip"
+  ],
+  "geotags": [
+    "49.295296",
+    "38.934909"
+  ],
+  "country": "Ukraine",
+  "city": "Starobilsk",
+  "length": "5849",
+  "width": "8-14",
+  "pitboxes": "8",
+  "run": "clockwise",
+  "author": "hryhorenkos04-creator",
+  "version": "v17",
+  "year": "2026",
+  "url": "https://github.com/hryhorenkos04-creator/chmyrivka-assetto-corsa"
+}
