@@ -39,7 +39,9 @@ SURFACES = [
 # VERGE_Grass segments are modelled as volumetric tufts (one 75 m segment is
 # 315k triangles, 2.16M across the lap) and would dwarf everything else.
 # They are scenery, and get thinned with the rest of it.
-SPINE = re.compile(r'^1(ROAD|PIT|KERB)_')
+# GROUND_ joins them: the terrain is one mesh for the whole lap and only
+# 48k triangles, but culling it leaves the houses standing over a hole.
+SPINE = re.compile(r'^1(ROAD|PIT|KERB)_|^1[A-Z]+_GROUND_')
 
 
 def line_samples(path):
