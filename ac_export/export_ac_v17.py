@@ -326,14 +326,18 @@ if __name__ == '__main__':
     p.add_argument('--gate-width', type=float, default=14.0, dest='gate_width')
     p.add_argument('--spawn-lift', type=float, default=0.15, dest='spawn_lift')
     p.add_argument('--flip', action='store_true', help='car spawns facing backwards')
-    p.add_argument('--bake-transform', action='store_true', dest='bake_transform',
-                   help="bake the axis conversion into vertex data; ksEditor ignores node transforms")
+    # ksEditor reads a plain export 100x too large: bake_space_transform folds
+    # Blender's metre-to-centimetre conversion into the vertex data, and
+    # global_scale only takes effect alongside it. Together they land the raw
+    # coordinates on their true metre values (road Y extent 2131.65 m).
+    p.add_argument('--no-bake', action='store_false', dest='bake_transform',
+                   help='leave the axis conversion on the nodes; ksEditor then reads it 100x large')
     p.add_argument('--axis-up', dest='axis_up', default='Y', choices=['X', 'Y', 'Z', '-X', '-Y', '-Z'],
                    help="Z leaves Blender's axes alone, for when the importer converts them itself")
     p.add_argument('--axis-forward', dest='axis_forward', default='-Z',
                    choices=['X', 'Y', 'Z', '-X', '-Y', '-Z'])
-    p.add_argument('--scale', type=float, default=1.0,
-                   help='FBX global scale; 0.01 if ksEditor reads the file as centimetres')
+    p.add_argument('--scale', type=float, default=0.01,
+                   help='FBX global scale; only applies with the baked transform')
     p.add_argument('--road-only', action='store_true', dest='road_only',
                    help='drivable surfaces alone, no scenery: smallest file that still drives')
     p.add_argument('--keep-hdr', action='store_true', dest='keep_hdr',
