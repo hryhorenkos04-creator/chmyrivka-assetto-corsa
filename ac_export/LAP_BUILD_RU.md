@@ -58,12 +58,45 @@ ksEditor — 32-битная программа, ей доступно окол�
 зданиях. Фаска в 2 см на коньке крыши в тридцати метрах не видна никогда,
 поэтому за заданным расстоянием от трассы они выключаются.
 
+## Проверено прогоном
+
+Весь круг собран на сцене `chmyrivka_visual_v17.blend` (Blender 5.3) с
+ключами `--chunks 6 --corridor 45 --drop-bevel-beyond 12 --trunk-ratio 0.2`.
+**7 минут, 7 файлов.**
+
+| Файл | Объектов | Треугольников | FBX |
+|---|---:|---:|---:|
+| `chmyrivka` — вся дорога | 60 | 167 473 | 6.9 МБ |
+| `chmyrivka_s1` | 450 | 2 313 330 | 90.2 МБ |
+| `chmyrivka_s2` | 1185 | 2 242 095 | 95.4 МБ |
+| `chmyrivka_s3` | 936 | 2 679 691 | 128.2 МБ |
+| `chmyrivka_s4` | 535 | 1 786 752 | 77.8 МБ |
+| `chmyrivka_s5` | 436 | 1 887 259 | 66.0 МБ |
+| `chmyrivka_s6` | 166 | 356 665 | 12.3 МБ |
+| **Итого** | | **11 433 265** | **477 МБ** |
+
+Куски вышли неровными, и это нормально: отрезки одинаковой длины, а
+застройка вдоль круга разной плотности. `s6` маленький потому, что там
+поля.
+
+Проверено после сборки:
+
+- `models.ini` — 7 записей, формат совпадает со штатными трассами
+- 124 текстуры: 24 исходные, **56 перекрашенных фактур**, 44 плоских
+- **440 ссылок на текстуры из persistence, битых 0**
+- шейдеры: 426 `ksPerPixel` и **14 `ksPerPixelAT`** — это листва с альфой
+- кубическая развёртка посчитана для 1002 объектов
+- 45 сеток разрезано, худшая часть 59 715 углов при потолке ksEditor 65 536
+
+**Не проверено:** загрузка этих FBX в ksEditor и сам проезд. Это может
+сделать только человек с установленной игрой.
+
 ## Шаг 1. Посчитать, не собирая
 
 Сначала прикидка — она ничего не пишет, только считает:
 
 ```powershell
-blender --background --python ac_export\export_ac_v17.py -- --scene ПУТЬ\chmyrivka_visual_v17.blend --racing-line ПУТЬ\racing_line_native_v15.json --mode lap --chunks 3 --corridor 45 --drop-bevel-beyond 15 --trunk-ratio 0.2 --merge --dry-run --output ВЫХОД\chmyrivka.fbx
+blender --background --python ac_export\export_ac_v17.py -- --scene ПУТЬ\chmyrivka_visual_v17.blend --racing-line ПУТЬ\racing_line_native_v15.json --mode lap --chunks 6 --corridor 45 --drop-bevel-beyond 12 --trunk-ratio 0.2 --merge --dry-run --output ВЫХОД\chmyrivka.fbx
 ```
 
 Напечатает по строке на кусок: сколько объектов, треугольников и
@@ -75,7 +108,7 @@ blender --background --python ac_export\export_ac_v17.py -- --scene ПУТЬ\chm
 Та же команда без `--dry-run`, плюс параметры старта:
 
 ```powershell
-blender --background --python ac_export\export_ac_v17.py -- --scene ПУТЬ\chmyrivka_visual_v17.blend --racing-line ПУТЬ\racing_line_native_v15.json --mode lap --chunks 3 --corridor 45 --drop-bevel-beyond 15 --trunk-ratio 0.2 --merge --flip --start-station 3950 --scale 0.01 --output ВЫХОД\chmyrivka.fbx
+blender --background --python ac_export\export_ac_v17.py -- --scene ПУТЬ\chmyrivka_visual_v17.blend --racing-line ПУТЬ\racing_line_native_v15.json --mode lap --chunks 6 --corridor 45 --drop-bevel-beyond 12 --trunk-ratio 0.2 --merge --flip --start-station 3950 --scale 0.01 --output ВЫХОД\chmyrivka.fbx
 ```
 
 Обязательные, без них трасса не поедет:
@@ -97,7 +130,9 @@ blender --background --python ac_export\export_ac_v17.py -- --scene ПУТЬ\chm
 1. `File → Open`, выбрать `chmyrivka.fbx`
 2. `File → Load Persistence`, выбрать `chmyrivka.fbx.ini` рядом
 3. `File → Save` — получится `chmyrivka.kn5`
-4. Повторить для `chmyrivka_s1.fbx`, `chmyrivka_s2.fbx` и так далее
+4. Повторить для `chmyrivka_s1.fbx` … `chmyrivka_s6.fbx`
+
+Семь кругов по три минуты. Нудно, но один раз.
 
 Материалы руками назначать не нужно — их проставляет persistence.
 
