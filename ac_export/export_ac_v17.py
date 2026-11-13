@@ -259,6 +259,30 @@ def merge_materials(scene, out_dir, buckets=12):
     return assignments
 
 
+def material_order(scene, assignments):
+    """Materials as ksEditor numbers them: first seen walking the scene.
+
+    Sorting them by name instead made Load Persistence add a second set of
+    materials beside the imported ones rather than filling those in, which
+    looks like it keys the sections by position, not by NAME.
+    """
+    ordered, seen = [], set()
+    objects = sorted((o for o in scene.objects if o.select_get()),
+                     key=lambda o: o.name)
+    for ob in objects:
+        if ob.type != 'MESH':
+            continue
+        for slot in ob.material_slots:
+            m = slot.material
+            if m is None or m.name in seen or m.name not in assignments:
+                continue
+            seen.add(m.name)
+            ordered.append((m.name, assignments[m.name]))
+    for name in sorted(set(assignments) - seen):
+        ordered.append((name, assignments[name]))
+    return ordered
+
+
 def node_sections(fbx_name, scene):
     """ksEditor's per-node state, mirroring the tree it builds on import.
 
@@ -302,7 +326,7 @@ def write_persistence(fbx, assignments, scene=None):
              'DATE=' + time.strftime('%m/%d/%Y %I:%M:%S %p'),
              'MD5_HASH=' + digest, '',
              '[MATERIAL_LIST]', 'COUNT=%d' % len(assignments), '']
-    for index, (material, texture) in enumerate(sorted(assignments.items())):
+    for index, (material, texture) in enumerate(material_order(scene, assignments)):
         lines += ['[MATERIAL_%d]' % index, 'NAME=' + material,
                   'SHADER=ksPerPixel', 'ALPHABLEND=0', 'ALPHATEST=0',
                   'DEPTHMODE=0', 'VARCOUNT=%d' % len(PERSISTENCE_VARS)]
