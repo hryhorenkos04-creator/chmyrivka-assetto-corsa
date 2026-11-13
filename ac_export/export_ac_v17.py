@@ -564,8 +564,20 @@ def main(a):
     # Grid slot, pit box and the start/finish timing gate.
     origin, heading = at_station(rows, a.start_station)
     side = Vector((-heading.y, heading.x, 0.0))
-    null(scene, 'AC_START_0', origin + Vector((0, 0, a.spawn_lift)), heading, a.flip)
-    null(scene, 'AC_PIT_0', origin - heading * 12.0 + Vector((0, 0, a.spawn_lift)), heading, a.flip)
+    # A grid rather than a lone slot: one AC_START_0 leaves no room for a
+    # second car, so neither opponents nor a friend can join. Cars alternate
+    # sides of the centreline and step back along it, the way a real grid is
+    # laid out; the pit boxes queue up further behind.
+    lift = Vector((0, 0, a.spawn_lift))
+    for slot in range(a.grid):
+        row, left = divmod(slot, 2)
+        offset = side * (a.grid_offset if left else -a.grid_offset)
+        null(scene, 'AC_START_%d' % slot,
+             origin + offset - heading * (row * a.grid_spacing) + lift,
+             heading, a.flip)
+        null(scene, 'AC_PIT_%d' % slot,
+             origin + offset - heading * (40.0 + slot * a.grid_spacing) + lift,
+             heading, a.flip)
     null(scene, 'AC_TIME_0_L', origin + side * (a.gate_width / 2.0))
     null(scene, 'AC_TIME_0_R', origin - side * (a.gate_width / 2.0))
 
@@ -630,6 +642,7 @@ def main(a):
         'materials_without_principled': no_bsdf,
         'start_station_map_m': a.start_station,
         'start_location': list(origin), 'flip_spawn': a.flip,
+        'grid_slots': a.grid,
         'sector_map_m': [a.sector_from, a.sector_to] if a.mode == 'sector' else None,
         'assetto_corsa_tested': False, 'renames': applied,
     }
@@ -659,6 +672,10 @@ if __name__ == '__main__':
                    help='keep whole scenery meshes instead of cutting them to the corridor')
     p.add_argument('--start-station', type=float, default=3800.0, dest='start_station')
     p.add_argument('--gate-width', type=float, default=14.0, dest='gate_width')
+    p.add_argument('--grid', type=int, default=8,
+                   help='starting slots and pit boxes; one leaves nobody to race')
+    p.add_argument('--grid-spacing', type=float, default=9.0, dest='grid_spacing')
+    p.add_argument('--grid-offset', type=float, default=2.6, dest='grid_offset')
     p.add_argument('--spawn-lift', type=float, default=0.15, dest='spawn_lift')
     p.add_argument('--flip', action='store_true', help='car spawns facing backwards')
     # ksEditor reads a plain export 100x too large: bake_space_transform folds
