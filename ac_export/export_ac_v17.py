@@ -32,9 +32,13 @@ SURFACES = [
     (r'^GROUND_', 'GRASS'),
 ]
 
-# Anything that carries physics after renaming spans the lap and is never
-# sector-culled: the whole circuit stays drivable, only scenery is thinned.
-SPINE = re.compile(r'^1(ROAD|PIT|GRASS|KERB|SAND|DIRT)_')
+# Kept for the whole lap so the circuit stays drivable end to end. Only the
+# surfaces a car actually runs on qualify: road, pit lane and kerbs come to
+# ~120k triangles together. GRASS and DIRT are deliberately NOT here — the
+# VERGE_Grass segments are modelled as volumetric tufts (one 75 m segment is
+# 315k triangles, 2.16M across the lap) and would dwarf everything else.
+# They are scenery, and get thinned with the rest of it.
+SPINE = re.compile(r'^1(ROAD|PIT|KERB)_')
 
 
 def line_samples(path):
@@ -183,16 +187,21 @@ def main(a):
     for ob in scene.objects:
         ob.select_set(False)
     points = sector_points(rows, a.sector_from, a.sector_to) if a.mode == 'sector' else None
-    kept = culled = 0
+    kept = culled = triangles = 0
     for ob in scene.objects:
         if ob.type not in ('MESH', 'EMPTY'):
             continue
         if ob.type == 'EMPTY' and not ob.name.startswith('AC_'):
             continue
         take = True
-        if points is not None and ob.type == 'MESH' and not SPINE.match(ob.name):
-            take = in_sector(ob, points, a.corridor)
+        if ob.type == 'MESH':
+            if a.road_only:
+                take = bool(SPINE.match(ob.name))
+            elif points is not None and not SPINE.match(ob.name):
+                take = in_sector(ob, points, a.corridor)
         ob.select_set(take)
+        if take and ob.type == 'MESH':
+            triangles += sum(len(p.vertices) - 2 for p in ob.data.polygons)
         kept, culled = kept + bool(take), culled + (not take)
 
     out = Path(a.output).resolve() if a.output else scene_path.parent / 'ac_export_out/chmyrivka.fbx'
@@ -210,6 +219,7 @@ def main(a):
         'mode': a.mode, 'scene': str(scene_path), 'fbx': str(out),
         'renamed': len(applied), 'visual_only_meshes': visual,
         'exported_objects': kept, 'culled_objects': culled,
+        'exported_triangles': triangles, 'road_only': a.road_only,
         'textures_written': textures, 'textures_skipped': skipped_textures,
         'start_station_map_m': a.start_station,
         'start_location': list(origin), 'flip_spawn': a.flip,
@@ -218,8 +228,8 @@ def main(a):
     }
     report_path.write_text(
         json.dumps(report, ensure_ascii=False, indent=2), encoding='utf8')
-    print('AC_EXPORT_DONE objects=%d culled=%d renamed=%d visual_only=%d textures=%d'
-          % (kept, culled, len(applied), visual, len(textures)))
+    print('AC_EXPORT_DONE objects=%d culled=%d triangles=%d renamed=%d visual_only=%d textures=%d'
+          % (kept, culled, triangles, len(applied), visual, len(textures)))
     print('AC_EXPORT_OUT %s' % out)
 
 
@@ -237,6 +247,8 @@ if __name__ == '__main__':
     p.add_argument('--gate-width', type=float, default=14.0, dest='gate_width')
     p.add_argument('--spawn-lift', type=float, default=0.15, dest='spawn_lift')
     p.add_argument('--flip', action='store_true', help='car spawns facing backwards')
+    p.add_argument('--road-only', action='store_true', dest='road_only',
+                   help='drivable surfaces alone, no scenery: smallest file that still drives')
     p.add_argument('--keep-hdr', action='store_true', dest='keep_hdr',
                    help='also write the 4K sky HDR, unused by AC')
     p.add_argument('--racing-line', dest='racing_line', default=None,
