@@ -288,7 +288,7 @@ def main(a):
         global_scale=a.scale, axis_forward=a.axis_forward, axis_up=a.axis_up,
         object_types={'MESH', 'EMPTY'}, use_mesh_modifiers=True,
         mesh_smooth_type='FACE', path_mode='STRIP', embed_textures=False,
-        bake_space_transform=False)
+        bake_space_transform=a.bake_transform)
 
     report = {
         'mode': a.mode, 'scene': str(scene_path), 'fbx': str(out),
@@ -326,6 +326,8 @@ if __name__ == '__main__':
     p.add_argument('--gate-width', type=float, default=14.0, dest='gate_width')
     p.add_argument('--spawn-lift', type=float, default=0.15, dest='spawn_lift')
     p.add_argument('--flip', action='store_true', help='car spawns facing backwards')
+    p.add_argument('--bake-transform', action='store_true', dest='bake_transform',
+                   help="bake the axis conversion into vertex data; ksEditor ignores node transforms")
     p.add_argument('--axis-up', dest='axis_up', default='Y', choices=['X', 'Y', 'Z', '-X', '-Y', '-Z'],
                    help="Z leaves Blender's axes alone, for when the importer converts them itself")
     p.add_argument('--axis-forward', dest='axis_forward', default='-Z',
