@@ -61,28 +61,19 @@ def draw(points, width, height, pen_width):
     return image
 
 
-def fitting_scale(points):
-    """The px/m that keeps the longer side inside MAX_SIZE.
-
-    AC stops drawing the whole picture once a side passes MAX_SIZE and
-    shows a zoomed fragment instead, so a 5.7 km lap cannot be mapped at
-    the 1 px/m the shorter Kunos circuits use. Shrinking here rather than
-    clamping afterwards keeps the marker maths exact: SCALE_FACTOR is
-    whatever we drew at.
-    """
-    span = max(max(p[0] for p in points) - min(p[0] for p in points),
-               max(p[1] for p in points) - min(p[1] for p in points))
-    return (MAX_SIZE - 2 * MARGIN_PX) / span
-
-
 def main(a):
     points = axis(a.racing_line)
     out = Path(a.out).resolve()
     (out / 'data').mkdir(parents=True, exist_ok=True)
     (out / 'ui').mkdir(parents=True, exist_ok=True)
 
-    scale = a.scale if a.scale else fitting_scale(points)
+    scale = a.scale
     placed, width, height, x_offset, z_offset = place(points, scale)
+    # Kunos ships SCALE_FACTOR=1 on every circuit and magione's WIDTH is
+    # 342.88 -- a fraction, so these are metres, not pixels. Shrinking the
+    # scale to squeeze the lap under the stock MAX_SIZE of 1600 stopped the
+    # map drawing at all, so the cap moves instead of the scale.
+    cap = max(MAX_SIZE, width, height)
     pen = max(2, round(ROAD_WIDTH_M * scale))
     draw(placed, width, height, pen).save(out / 'map.png')
 
@@ -92,7 +83,7 @@ def main(a):
         'HEIGHT=%d' % height,
         'MARGIN=%d' % MARGIN_PX,
         'SCALE_FACTOR=%.6f' % scale,
-        'MAX_SIZE=%d' % MAX_SIZE,
+        'MAX_SIZE=%d' % cap,
         'X_OFFSET=%.3f' % x_offset,
         'Z_OFFSET=%.3f' % z_offset,
         'DRAWING_SIZE=%d' % pen,
@@ -115,7 +106,7 @@ if __name__ == '__main__':
     p = argparse.ArgumentParser()
     p.add_argument('--racing-line', required=True, dest='racing_line')
     p.add_argument('--out', required=True, help='the track folder')
-    p.add_argument('--scale', type=float, default=0.0,
-                   help='pixels per metre; 0 fits the lap inside MAX_SIZE')
+    p.add_argument('--scale', type=float, default=1.0,
+                   help='pixels per metre; Kunos circuits are all drawn at 1')
     p.add_argument('--outline', type=int, default=512)
     main(p.parse_args())

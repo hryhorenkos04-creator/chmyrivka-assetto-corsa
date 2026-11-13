@@ -253,15 +253,18 @@ PERSISTENCE_VARS = [('ksAmbient', 0.4), ('ksDiffuse', 0.6), ('ksSpecular', 0.1),
 # only the detail is missing. Each gets one of the tileable photographs the
 # scene already carries, tinted to its own colour.
 
+# First match wins, so built things are tested before the ground they
+# stand on: V16_Yard_Fences_Gates is a fence, not a yard, and matching
+# 'yard' first would surface a steel gate in soil.
 TILEABLE = [
     (re.compile(r'brick', re.I), 'red_brick_diff_2k.jpg'),
     (re.compile(r'grass|verge|lawn|hedge|turf', re.I), 'grass001_diff_2k.jpg'),
-    (re.compile(r'soil|dirt|earth|gravel|pebble|ground|land|yard|compact',
-                re.I), 'dirt_diff_2k.jpg'),
     (re.compile(r'wall|render|plaster|facade|frame|house|roof|concrete|kerb|'
                 r'plaza|slab|paving|stone|cap|crown|seam|rib|sill|chimney|'
-                r'porch|shed|fence|gate|door|canopy', re.I),
-     'rough_concrete_diff_2k.jpg'),
+                r'porch|shed|fence|gate|door|canopy|curb|step|plinth',
+                re.I), 'rough_concrete_diff_2k.jpg'),
+    (re.compile(r'soil|dirt|earth|gravel|pebble|ground|land|yard|compact',
+                re.I), 'dirt_diff_2k.jpg'),
 ]
 
 # Grain belongs on masonry and earth, not on what is meant to read as
@@ -280,28 +283,48 @@ def grain_for(name):
     return None
 
 
+# How much of the photograph's contrast to keep at most. The raw spread
+# runs past 3x on a lit brick face, and a pale render would clip flat
+# white across every highlight, losing both the colour and the grain.
+GRAIN_STRENGTH = 0.55
+
+
 def grain_multiplier(image_name, size=256, cache={}):
     """A tileable photo reduced to a brightness multiplier around 1.0.
 
     Dividing by the mean keeps the photograph's grain while discarding its
     own colour, so tinting afterwards lands on exactly the shade the
-    material asked for instead of a blend of the two.
+    material asked for instead of a blend of the two. The spread is then
+    pulled back toward 1 so a light material keeps its colour instead of
+    clipping to white.
     """
     if image_name in cache:
         return cache[image_name]
     img = bpy.data.images.get(image_name)
-    if img is None or not img.has_data:
+    width, height = img.size if img else (0, 0)
+    if not width or not height:
+        # has_data stays False until something touches the pixels, so the
+        # size is what says whether there is an image to read at all.
         cache[image_name] = None
         return None
-    width, height = img.size
     buf = np.empty(width * height * 4, dtype=np.float32)
-    img.pixels.foreach_get(buf)
+    try:
+        img.pixels.foreach_get(buf)
+    except (RuntimeError, AttributeError):
+        cache[image_name] = None
+        return None
     rgb = buf.reshape(height, width, 4)[:, :, :3]
     rows = np.linspace(0, height - 1, size).astype(int)
     cols = np.linspace(0, width - 1, size).astype(int)
     small = rgb[np.ix_(rows, cols)]
-    mean = float(small.mean())
-    cache[image_name] = small / mean if mean > 1e-4 else None
+    # Luminance, not the three channels: normalising each channel on its
+    # own still leaves the photograph's own hue in the result, and tinting
+    # red brick to a cream render came out pink. One grey channel carries
+    # the grain and nothing else, so the tint lands exactly on the colour
+    # the material asked for.
+    luma = small @ np.array([0.2126, 0.7152, 0.0722], dtype=np.float32)
+    mean = float(luma.mean())
+    cache[image_name] = luma / mean if mean > 1e-4 else None
     return cache[image_name]
 
 
@@ -316,7 +339,17 @@ def tinted_grain(out_dir, image_name, colour, size=256):
     grain = grain_multiplier(image_name, size)
     if grain is None:
         return None
-    tinted = np.clip(grain * np.array(colour, dtype=np.float32), 0.0, 1.0)
+    # Clipping would both blow out the grain and drag the colour towards
+    # white, so the contrast is scaled back to whatever this particular
+    # shade can carry rather than clamped afterwards.
+    brightest = max(colour)
+    headroom = float(grain.max()) - 1.0
+    strength = GRAIN_STRENGTH
+    if brightest > 1e-4 and headroom > 1e-4:
+        strength = min(strength, (1.0 / brightest - 1.0) / headroom)
+    multiplier = 1.0 + (grain - 1.0) * max(strength, 0.0)
+    tinted = np.clip(multiplier[:, :, None] * np.array(colour, dtype=np.float32),
+                     0.0, 1.0)
     rgba = np.ones((size, size, 4), dtype=np.float32)
     rgba[:, :, :3] = tinted
     img = bpy.data.images.new(name, size, size, alpha=False)
@@ -809,6 +842,56 @@ def object_touches_band(ob, axis_xy, axis_s, a, b, lap, corridor):
     return bool(in_band(station, a, b, lap).any() or span > corridor)
 
 
+# Tree trunks are the single heaviest thing in the scene: the two bark
+# materials carry 5.7M of the 9.0M triangles the vegetation spends, about
+# 2850 per trunk, where a game tree uses a couple of hundred. The leaves
+# cost far less and are what the eye actually reads, so only the bark is
+# reduced -- and it cannot be done per object, because 2929 of the 3042
+# plants hold bark and leaves in one mesh. A Decimate modifier bound to a
+# vertex group collapses the bark alone and leaves every alpha card whole.
+
+# Not 'Wood': that also catches wooden fences and doors, and collapsing a
+# plank gate to a fifth of its faces makes a mess of it.
+BARK = re.compile(r'Bark|Trunk', re.I)
+
+
+def thin_tree_trunks(scene, ratio):
+    """Collapse bark geometry to `ratio`, leaving foliage untouched."""
+    thinned = 0
+    for ob in scene.objects:
+        if ob.type != 'MESH' or not ob.data.polygons or not ob.select_get():
+            continue
+        slots = [i for i, s in enumerate(ob.material_slots)
+                 if s.material and BARK.search(s.material.name)]
+        if not slots:
+            continue
+        mesh = ob.data
+        index = np.empty(len(mesh.polygons), dtype=np.int32)
+        mesh.polygons.foreach_get('material_index', index)
+        wanted = np.isin(index, slots)
+        if not wanted.any():
+            continue
+        starts = np.empty(len(mesh.polygons), dtype=np.int32)
+        counts = np.empty(len(mesh.polygons), dtype=np.int32)
+        mesh.polygons.foreach_get('loop_start', starts)
+        mesh.polygons.foreach_get('loop_total', counts)
+        loops = np.empty(len(mesh.loops), dtype=np.int32)
+        mesh.loops.foreach_get('vertex_index', loops)
+        picked = np.zeros(len(mesh.loops), dtype=bool)
+        for start, total in zip(starts[wanted], counts[wanted]):
+            picked[start:start + total] = True
+        vertices = np.unique(loops[picked])
+        group = ob.vertex_groups.new(name='ACBark')
+        group.add([int(v) for v in vertices], 1.0, 'REPLACE')
+        modifier = ob.modifiers.new(name='ACThin', type='DECIMATE')
+        modifier.decimate_type = 'COLLAPSE'
+        modifier.ratio = ratio
+        modifier.vertex_group = group.name
+        modifier.use_collapse_triangulate = True
+        thinned += 1
+    return thinned
+
+
 def strip_distant_bevels(scene, axis_xy, axis_s, keep_within):
     """Turn off Bevel past `keep_within` metres of the racing line.
 
@@ -819,7 +902,7 @@ def strip_distant_bevels(scene, axis_xy, axis_s, keep_within):
     """
     dropped = objects = 0
     for ob in scene.objects:
-        if ob.type != 'MESH':
+        if ob.type != 'MESH' or not ob.select_get():
             continue
         bevels = [m for m in ob.modifiers if m.type == 'BEVEL' and m.show_viewport]
         if not bevels:
@@ -935,6 +1018,32 @@ def select_band(scene, rows, a, band, spine, scenery):
     return kept, culled, triangles, trimmed
 
 
+def evaluated_triangles(scene):
+    """Triangles as the FBX writer will see them, with modifiers applied.
+
+    The selection pass counts the stored mesh, which is the wrong number to
+    plan chunks with: bevels add 1.94M triangles the count never sees and
+    the trunk decimation removes several million it still counts. Only a
+    dry run pays for this, where being right matters more than being quick.
+    """
+    depsgraph = bpy.context.evaluated_depsgraph_get()
+    total = 0
+    for ob in scene.objects:
+        if ob.type != 'MESH' or not ob.select_get():
+            continue
+        evaluated = ob.evaluated_get(depsgraph)
+        try:
+            mesh = evaluated.to_mesh()
+        except RuntimeError:
+            continue
+        if mesh:
+            counts = np.empty(len(mesh.polygons), dtype=np.int32)
+            mesh.polygons.foreach_get('loop_total', counts)
+            total += int(np.maximum(counts - 2, 0).sum())
+        evaluated.to_mesh_clear()
+    return total
+
+
 def build_one(a, scene_path, out, band=None, spine=True, scenery=True, nulls=True):
     """One FBX plus its persistence file.
 
@@ -948,17 +1057,22 @@ def build_one(a, scene_path, out, band=None, spine=True, scenery=True, nulls=Tru
     applied, visual = rename(scene)
     origin = place_nulls(scene, rows, a) if nulls else None
 
-    bevels = (0, 0)
-    if a.drop_bevel_beyond > 0:
-        axis_xy, axis_s = axis_arrays(rows)
-        bevels = strip_distant_bevels(scene, axis_xy, axis_s, a.drop_bevel_beyond)
-
     for ob in scene.objects:
         ob.select_set(False)
     if a.mode == 'lap':
         kept, culled, triangles, trimmed = select_band(scene, rows, a, band, spine, scenery)
     else:
         kept, culled, triangles, trimmed = select_sector(scene, rows, a)
+
+    # After the selection, not before: thinning every tree in the scene for
+    # a chunk that exports the road alone is four scene-wide decimations
+    # that reach no FBX. Both still run ahead of the split, which measures
+    # the mesh with its modifiers applied.
+    trunks = thin_tree_trunks(scene, a.trunk_ratio) if a.trunk_ratio < 1.0 else 0
+    bevels = (0, 0)
+    if a.drop_bevel_beyond > 0:
+        axis_xy, axis_s = axis_arrays(rows)
+        bevels = strip_distant_bevels(scene, axis_xy, axis_s, a.drop_bevel_beyond)
 
     if not kept:
         return {'fbx': None, 'exported_objects': 0, 'exported_triangles': 0,
@@ -975,12 +1089,14 @@ def build_one(a, scene_path, out, band=None, spine=True, scenery=True, nulls=Tru
         wired, flats, no_bsdf, chosen, alpha = wire_base_colour(scene, out.parent)
 
     if a.dry_run:
-        print('AC_CHUNK_DRY %s objects=%d triangles=%d materials=%d bevels_off=%d'
-              % (out.name, kept, triangles, len(chosen), bevels[0]))
+        triangles = evaluated_triangles(scene)
+        print('AC_CHUNK_DRY %s objects=%d triangles=%d materials=%d '
+              'bevels_off=%d trunks=%d'
+              % (out.name, kept, triangles, len(chosen), bevels[0], trunks))
         return {'fbx': str(out), 'exported_objects': kept, 'band': band,
                 'exported_triangles': triangles, 'materials': len(chosen),
                 'bevel_modifiers_off': bevels[0], 'bevel_objects': bevels[1],
-                'dry_run': True}
+                'trunks_thinned': trunks, 'dry_run': True}
 
     bpy.ops.export_scene.fbx(
         filepath=str(out), use_selection=True, apply_unit_scale=True,
@@ -1000,6 +1116,7 @@ def build_one(a, scene_path, out, band=None, spine=True, scenery=True, nulls=Tru
         'culled_objects': culled, 'exported_triangles': triangles,
         'trimmed_meshes': trimmed, 'split_meshes': split,
         'bevel_modifiers_off': bevels[0], 'bevel_objects': bevels[1],
+        'trunks_thinned': trunks, 'trunk_ratio': a.trunk_ratio,
         'alpha_tested': sorted(alpha), 'materials': len(chosen),
         'persistence': str(persistence) if persistence else None,
         'textures_written': textures, 'textures_skipped': skipped_textures,
@@ -1102,6 +1219,9 @@ if __name__ == '__main__':
                    choices=['X', 'Y', 'Z', '-X', '-Y', '-Z'])
     p.add_argument('--scale', type=float, default=0.01,
                    help='FBX global scale; only applies with the baked transform')
+    p.add_argument('--trunk-ratio', type=float, default=1.0, dest='trunk_ratio',
+                   help='collapse tree bark to this fraction of its faces; '
+                        '1.0 leaves trunks alone, 0.2 is a game-weight trunk')
     p.add_argument('--no-grain', action='store_false', dest='grain',
                    help='leave colour-only materials as a flat swatch instead of '
                         'tinting a tileable photo and box-projecting UVs for it')
