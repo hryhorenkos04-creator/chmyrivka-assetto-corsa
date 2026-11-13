@@ -12,6 +12,7 @@ convention in the source scene and are left untouched.
 from pathlib import Path
 import argparse, json, math, re, sys
 import bpy
+import bmesh
 from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -231,6 +232,54 @@ def sector_points(rows, a, b, step=5.0):
     return out
 
 
+def corridor_bounds(points, corridor):
+    xs = [p[0] for p in points]
+    ys = [p[1] for p in points]
+    return (min(xs) - corridor, max(xs) + corridor,
+            min(ys) - corridor, max(ys) + corridor)
+
+
+def trim_to_corridor(ob, points, corridor, bounds):
+    """Drop the faces that fall outside the corridor.
+
+    Scenery is authored as a few meshes spanning the whole lap — one
+    vegetation object carries 269k triangles for every garden on the
+    circuit — so selecting whole objects is all-or-nothing and a 100 m
+    sector still drags in 1.5M triangles. Keeping faces by their centre
+    cuts those down to the part actually on screen.
+
+    Returns True when trimmed, False when untouched, None when nothing
+    survives and the caller should drop the object.
+    """
+    mesh = ob.data = ob.data.copy()   # may be shared; never touch the original
+    world = ob.matrix_world
+    limit = corridor * corridor
+    x0, x1, y0, y1 = bounds
+    bm = bmesh.new()
+    bm.from_mesh(mesh)
+    doomed = []
+    for face in bm.faces:
+        c = world @ face.calc_center_median()
+        if not (x0 <= c.x <= x1 and y0 <= c.y <= y1):
+            doomed.append(face)
+            continue
+        cx, cy = c.x, c.y
+        if not any((px - cx) ** 2 + (py - cy) ** 2 <= limit for px, py in points):
+            doomed.append(face)
+    kept = len(bm.faces) - len(doomed)
+    if not doomed:
+        bm.free()
+        return False
+    if not kept:
+        bm.free()
+        return None
+    bmesh.ops.delete(bm, geom=doomed, context='FACES')
+    bm.to_mesh(mesh)
+    bm.free()
+    mesh.update()
+    return True
+
+
 def in_sector(ob, points, corridor):
     centre = ob.matrix_world @ (sum((Vector(c) for c in ob.bound_box), Vector()) / 8.0)
     limit = corridor * corridor
@@ -261,7 +310,8 @@ def main(a):
     for ob in scene.objects:
         ob.select_set(False)
     points = sector_points(rows, a.sector_from, a.sector_to) if a.mode == 'sector' else None
-    kept = culled = triangles = 0
+    kept = culled = triangles = trimmed = 0
+    bounds = corridor_bounds(points, a.corridor) if points else None
     for ob in scene.objects:
         if ob.type not in ('MESH', 'EMPTY'):
             continue
@@ -273,6 +323,12 @@ def main(a):
                 take = bool(SPINE.match(ob.name))
             elif points is not None and not SPINE.match(ob.name):
                 take = in_sector(ob, points, a.corridor)
+                if take and a.trim:
+                    result = trim_to_corridor(ob, points, a.corridor, bounds)
+                    if result is None:
+                        take = False
+                    elif result:
+                        trimmed += 1
         ob.select_set(take)
         if take and ob.type == 'MESH':
             triangles += sum(len(p.vertices) - 2 for p in ob.data.polygons)
@@ -295,6 +351,7 @@ def main(a):
         'renamed': len(applied), 'visual_only_meshes': visual,
         'exported_objects': kept, 'culled_objects': culled,
         'exported_triangles': triangles, 'road_only': a.road_only,
+        'trimmed_meshes': trimmed,
         'textures_written': textures, 'textures_skipped': skipped_textures,
         'base_colour_wired': wired, 'base_colour_flat': flats,
         'materials_without_principled': no_bsdf,
@@ -306,9 +363,9 @@ def main(a):
     report_path.write_text(
         json.dumps(report, ensure_ascii=False, indent=2), encoding='utf8')
     print('AC_EXPORT_DONE objects=%d culled=%d triangles=%d renamed=%d visual_only=%d '
-          'textures=%d wired=%d flat=%d'
+          'textures=%d wired=%d flat=%d trimmed=%d'
           % (kept, culled, triangles, len(applied), visual, len(textures),
-             len(wired), len(flats)))
+             len(wired), len(flats), trimmed))
     print('AC_EXPORT_OUT %s' % out)
 
 
@@ -322,6 +379,8 @@ if __name__ == '__main__':
     p.add_argument('--sector-from', type=float, default=3800.0, dest='sector_from')
     p.add_argument('--sector-to', type=float, default=4250.0, dest='sector_to')
     p.add_argument('--corridor', type=float, default=120.0)
+    p.add_argument('--no-trim', action='store_false', dest='trim',
+                   help='keep whole scenery meshes instead of cutting them to the corridor')
     p.add_argument('--start-station', type=float, default=3800.0, dest='start_station')
     p.add_argument('--gate-width', type=float, default=14.0, dest='gate_width')
     p.add_argument('--spawn-lift', type=float, default=0.15, dest='spawn_lift')
