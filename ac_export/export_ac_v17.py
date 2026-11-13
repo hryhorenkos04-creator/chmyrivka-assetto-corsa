@@ -750,6 +750,24 @@ def in_sector(ob, points, corridor):
 # gap. A corridor radius would overlap at each seam and z-fight there.
 
 
+# Landmarks stand back from the road by their nature, so a corridor chosen
+# from how dense the housing is cuts them off. The grain elevator reaches
+# 262 m from the racing line and the memorial 39 m; at a 45 m corridor the
+# elevator's towers simply vanished, which is the one thing nobody driving
+# the lap would fail to notice. They are cheap to keep whole -- the
+# elevator is 3916 triangles and the tank 3754 -- so distance stops
+# applying to them. The station band still does, or they would be written
+# into every chunk at once.
+LANDMARK = re.compile(r'Elevator|Industrial|MEM_|Memorial', re.I)
+
+
+def is_landmark(ob, pattern):
+    if pattern.search(ob.name):
+        return True
+    return any(s.material and pattern.search(s.material.name)
+               for s in ob.material_slots)
+
+
 def axis_arrays(rows, step=10.0):
     """The racing axis as numpy columns: positions and their chainage.
 
@@ -985,7 +1003,7 @@ def select_sector(scene, rows, a):
     return kept, culled, triangles, trimmed
 
 
-def select_band(scene, rows, a, band, spine, scenery):
+def select_band(scene, rows, a, band, spine, scenery, landmarks=LANDMARK):
     """Station-banded selection for a whole-lap chunk.
 
     `spine` takes the drivable surfaces for the entire lap regardless of
@@ -1007,10 +1025,13 @@ def select_band(scene, rows, a, band, spine, scenery):
         take = False
         if is_spine:
             take = spine
-        elif scenery and object_touches_band(ob, axis_xy, axis_s, a0, a1, lap, a.corridor):
-            result = trim_to_band(ob, axis_xy, axis_s, a0, a1, lap, a.corridor)
-            take = result is not None
-            trimmed += bool(result)
+        elif scenery:
+            reach = (float('inf') if landmarks and is_landmark(ob, landmarks)
+                     else a.corridor)
+            if object_touches_band(ob, axis_xy, axis_s, a0, a1, lap, reach):
+                result = trim_to_band(ob, axis_xy, axis_s, a0, a1, lap, reach)
+                take = result is not None
+                trimmed += bool(result)
         ob.select_set(take)
         if take:
             triangles += sum(len(p.vertices) - 2 for p in ob.data.polygons)
@@ -1060,7 +1081,9 @@ def build_one(a, scene_path, out, band=None, spine=True, scenery=True, nulls=Tru
     for ob in scene.objects:
         ob.select_set(False)
     if a.mode == 'lap':
-        kept, culled, triangles, trimmed = select_band(scene, rows, a, band, spine, scenery)
+        kept, culled, triangles, trimmed = select_band(
+            scene, rows, a, band, spine, scenery,
+            landmarks=re.compile(a.landmarks, re.I) if a.landmarks else None)
     else:
         kept, culled, triangles, trimmed = select_sector(scene, rows, a)
 
@@ -1193,6 +1216,10 @@ if __name__ == '__main__':
                    help="lap cuts the whole circuit into --chunks KN5 and writes models.ini")
     p.add_argument('--chunks', type=int, default=6,
                    help='scenery KN5 for mode lap; the drivable surfaces get one of their own')
+    p.add_argument('--landmarks', default=LANDMARK.pattern,
+                   help='objects matching this (by name or material) ignore --corridor, '
+                        'because landmarks stand back from the road; empty string '
+                        'subjects them to the corridor like everything else')
     p.add_argument('--only-chunk', type=int, default=None, dest='only_chunk',
                    help='rebuild just this chunk of mode lap: 0 is the road, '
                         '1..N the scenery bands. The bands come from --chunks, '
