@@ -210,7 +210,36 @@ PERSISTENCE_VARS = [('ksAmbient', 0.05), ('ksDiffuse', 0.8), ('ksSpecular', 0.8)
                     ('ksSpecularEXP', 10), ('ksEmissive', 0), ('ksAlphaRef', 0)]
 
 
-def write_persistence(fbx, assignments):
+def node_sections(fbx_name, scene):
+    """ksEditor's per-node state, mirroring the tree it builds on import.
+
+    One section for the file root, one per object, and one per mesh child
+    named after its object — split into _SUB0.._SUBn when the mesh carries
+    several materials, which is how the two-tone kerbs arrive.
+    """
+    lines = ['[model_FBX: %s]' % fbx_name, 'ACTIVE=1', 'PRIORITY=0', '']
+    for ob in scene.objects:
+        if not ob.select_get() or ob.type not in ('MESH', 'EMPTY'):
+            continue
+        node = '%s_%s' % (fbx_name, ob.name)
+        lines += ['[model_FBX: %s]' % node, 'ACTIVE=1', 'PRIORITY=0', '']
+        if ob.type != 'MESH':
+            continue
+        # Distinct materials, not slots: several slots often point at one
+        # material and ksEditor splits by material, leaving such a mesh whole.
+        slots = ob.material_slots
+        used = {slots[p.material_index].material for p in ob.data.polygons
+                if p.material_index < len(slots)} - {None}
+        children = (['%s_%s' % (node, ob.name)] if len(used) < 2 else
+                    ['%s_%s_SUB%d' % (node, ob.name, i) for i in range(len(used))])
+        for child in children:
+            lines += ['[model_FBX: %s]' % child, 'ACTIVE=1', 'PRIORITY=0',
+                      'VISIBLE=1', 'TRANSPARENT=0', 'CAST_SHADOWS=1',
+                      'LOD_IN=0', 'LOD_OUT=0', 'RENDERABLE=1', '']
+    return lines
+
+
+def write_persistence(fbx, assignments, scene=None):
     """Write ksEditor's <name>.fbx.ini so it loads the textures itself.
 
     ksEditor does not read Blender's material links: every txDiffuse slot
@@ -236,8 +265,10 @@ def write_persistence(fbx, assignments):
                       'VAR_%d_FLOAT4=0,0,0,0' % slot]
         lines += ['RESCOUNT=1', 'RES_0_NAME=txDiffuse', 'RES_0_SLOT=0',
                   'RES_0_TEXTURE=' + texture, '']
+    if scene is not None:
+        lines += node_sections(fbx.name, scene)
     path = fbx.with_name(fbx.name + '.ini')
-    path.write_text('\n'.join(lines), encoding='utf8')
+    path.write_text('\r\n'.join(lines), encoding='utf8')   # ksEditor writes CRLF
     return path
 
 
@@ -384,7 +415,7 @@ def main(a):
         mesh_smooth_type='FACE', path_mode='STRIP', embed_textures=False,
         bake_space_transform=a.bake_transform)
 
-    persistence = write_persistence(out, chosen) if chosen else None
+    persistence = write_persistence(out, chosen, scene) if chosen else None
 
     report = {
         'mode': a.mode, 'scene': str(scene_path), 'fbx': str(out),
