@@ -195,7 +195,18 @@ def wire_base_colour(scene, out_dir):
             bsdf = next((n for n in m.node_tree.nodes
                          if n.type == 'BSDF_PRINCIPLED'), None)
             if bsdf is None:
+                # Window glass and its shadow are built without a Principled
+                # node, so nothing can be wired into them — but ksEditor still
+                # refuses to save a KN5 while their txDiffuse reads NULL. The
+                # swatch goes into the persistence file even though the FBX
+                # material cannot carry it.
+                img = flat_image(m)
+                path = out_dir / 'texture' / img.name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                img.filepath_raw = str(path)
+                img.save()
                 skipped.append(m.name)
+                chosen[m.name] = safe_file(img.name)
                 continue
             node = pick_albedo(m)
             if node is None:
@@ -305,12 +316,13 @@ def material_order(scene, assignments):
     return ordered
 
 
-# ksEditor refuses a mesh over 65536 vertices, but what it counts is the
-# exported geometry: modifiers run first (492 objects carry a Bevel, some
-# multiplying sevenfold) and then the writer splits vertices along UV and
-# normal seams again. Cutting at this many evaluated vertices leaves room
-# for that second expansion.
-VERTEX_LIMIT = 30000
+# ksEditor refuses a mesh over 65536 vertices, and what it counts is the
+# exported geometry. Modifiers run first — 492 objects carry a Bevel — and
+# then the writer splits a vertex per unique normal and UV, so counting
+# mesh vertices underestimates wildly: a 30000-vertex slice of terrain
+# arrived as 108169. Face corners are the ceiling that expansion cannot
+# exceed, so batches are measured in those.
+VERTEX_LIMIT = 60000
 
 
 def build_part(ob, source, faces, name, scene):
@@ -368,17 +380,16 @@ def split_large_meshes(scene, limit=VERTEX_LIMIT):
         # part built from the base mesh would silently lose its bevel.
         source = bpy.data.meshes.new_from_object(
             ob.evaluated_get(depsgraph), depsgraph=depsgraph)
-        if len(source.vertices) <= limit:
+        if len(source.loops) <= limit:
             bpy.data.meshes.remove(source)
             continue
-        batches, batch, seen = [], [], set()
+        batches, batch, corners = [], [], 0
         for poly in source.polygons:
-            verts = set(poly.vertices)
-            if batch and len(seen | verts) > limit:
+            if batch and corners + poly.loop_total > limit:
                 batches.append(batch)
-                batch, seen = [], set()
+                batch, corners = [], 0
             batch.append(poly.index)
-            seen |= verts
+            corners += poly.loop_total
         if batch:
             batches.append(batch)
         if not batches:
@@ -393,7 +404,7 @@ def split_large_meshes(scene, limit=VERTEX_LIMIT):
             part.data.update()
             part.select_set(True)
         ob.select_set(False)
-        split.append({'object': ob.name, 'vertices': len(source.vertices),
+        split.append({'object': ob.name, 'corners': len(source.loops),
                       'parts': len(batches)})
         bpy.data.meshes.remove(source)
     return split
