@@ -305,17 +305,21 @@ def material_order(scene, assignments):
     return ordered
 
 
-VERTEX_LIMIT = 65000
+# ksEditor refuses a mesh over 65536 vertices, but what it counts is the
+# exported geometry: modifiers run first (492 objects carry a Bevel, some
+# multiplying sevenfold) and then the writer splits vertices along UV and
+# normal seams again. Cutting at this many evaluated vertices leaves room
+# for that second expansion.
+VERTEX_LIMIT = 30000
 
 
-def build_part(ob, faces, name, scene):
+def build_part(ob, source, faces, name, scene):
     """A new object holding just these faces of `ob`.
 
     Built vertex by vertex rather than by copying the mesh and deleting the
     rest: a half-million-vertex canopy needs eight parts, and copying it
     eight times costs minutes and gigabytes.
     """
-    source = ob.data
     remap, coords, polygons = {}, [], []
     for index in faces:
         poly = source.polygons[index]
@@ -355,13 +359,20 @@ def split_large_meshes(scene, limit=VERTEX_LIMIT):
     prefix in the name all survive.
     """
     split = []
+    depsgraph = bpy.context.evaluated_depsgraph_get()
     for ob in list(scene.objects):
         if ob.type != 'MESH' or not ob.select_get():
             continue
-        if len(ob.data.vertices) <= limit:
+        # Measure and cut the mesh the exporter will actually write, with
+        # modifiers applied; parts carry no modifiers of their own, so a
+        # part built from the base mesh would silently lose its bevel.
+        source = bpy.data.meshes.new_from_object(
+            ob.evaluated_get(depsgraph), depsgraph=depsgraph)
+        if len(source.vertices) <= limit:
+            bpy.data.meshes.remove(source)
             continue
         batches, batch, seen = [], [], set()
-        for poly in ob.data.polygons:
+        for poly in source.polygons:
             verts = set(poly.vertices)
             if batch and len(seen | verts) > limit:
                 batches.append(batch)
@@ -370,15 +381,21 @@ def split_large_meshes(scene, limit=VERTEX_LIMIT):
             seen |= verts
         if batch:
             batches.append(batch)
-        if len(batches) < 2:
+        if not batches:
+            bpy.data.meshes.remove(source)
             continue
+        # A single batch still means a rebuild: the mesh carries vertices no
+        # polygon uses, and only rebuilding drops them. V12_Architecture_
+        # gutter_001 reaches 85680 that way and keeps failing to load.
         for index, faces in enumerate(batches):
-            part = build_part(ob, faces, '%s_P%d' % (ob.name[:50], index), scene)
+            part = build_part(ob, source, faces,
+                              '%s_P%d' % (ob.name[:50], index), scene)
             part.data.update()
             part.select_set(True)
         ob.select_set(False)
-        split.append({'object': ob.name, 'vertices': len(ob.data.vertices),
+        split.append({'object': ob.name, 'vertices': len(source.vertices),
                       'parts': len(batches)})
+        bpy.data.meshes.remove(source)
     return split
 
 
