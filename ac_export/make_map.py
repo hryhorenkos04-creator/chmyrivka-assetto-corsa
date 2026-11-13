@@ -16,21 +16,24 @@ MARGIN_PX = 40
 
 def axis(path):
     rows = json.loads(Path(path).read_text(encoding='utf8'))['samples']
+    # The export turns Blender's Z-up into the Y-up the game wants, so the
+    # scene's Y becomes AC's -Z. Converting here keeps map.ini in the same
+    # coordinates AC reports the car in; reading the raw Y instead puts the
+    # marker on the wrong side of the circuit.
     # The axis closes on itself; the repeated last sample would draw a spike.
-    points = [(r['x'], r['y']) for r in rows[:-1]]
+    points = [(r['x'], -r['y']) for r in rows[:-1]]
     assert len(points) > 2, 'racing axis is too short to draw'
     return points
 
 
 def fit(points, size):
     xs = [p[0] for p in points]
-    ys = [p[1] for p in points]
-    span_x, span_y = max(xs) - min(xs), max(ys) - min(ys)
-    scale = (size - 2 * MARGIN_PX) / max(span_x, span_y)
-    # AC's map grows downward in Y, the scene's grows upward.
+    zs = [p[1] for p in points]
+    span_x, span_z = max(xs) - min(xs), max(zs) - min(zs)
+    scale = (size - 2 * MARGIN_PX) / max(span_x, span_z)
     placed = [((x - min(xs)) * scale + MARGIN_PX,
-               size - ((y - min(ys)) * scale + MARGIN_PX)) for x, y in points]
-    return placed, scale, min(xs), min(ys)
+               (z - min(zs)) * scale + MARGIN_PX) for x, z in points]
+    return placed, scale, min(xs), min(zs)
 
 
 def draw(points, size, width, colour, background):
@@ -46,7 +49,7 @@ def main(a):
     (out / 'data').mkdir(parents=True, exist_ok=True)
     (out / 'ui').mkdir(parents=True, exist_ok=True)
 
-    placed, scale, x0, y0 = fit(points, a.size)
+    placed, scale, x0, z0 = fit(points, a.size)
     width = max(2, round(ROAD_WIDTH_M * scale))
     draw(placed, a.size, width, (255, 255, 255, 255), (0, 0, 0, 0)).save(out / 'map.png')
 
@@ -58,7 +61,7 @@ def main(a):
         'MARGIN=%d' % MARGIN_PX,
         'SCALE_FACTOR=%.6f' % (1.0 / scale),
         'X_OFFSET=%.3f' % -x0,
-        'Z_OFFSET=%.3f' % -y0,
+        'Z_OFFSET=%.3f' % -z0,
         'DRAWING_SIZE=%.3f' % width,
         '']), encoding='utf8')
 
