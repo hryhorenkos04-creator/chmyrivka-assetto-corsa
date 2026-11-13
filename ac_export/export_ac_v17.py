@@ -208,8 +208,11 @@ def wire_base_colour(scene, out_dir):
     return done, flats, skipped, chosen
 
 
-PERSISTENCE_VARS = [('ksAmbient', 0.05), ('ksDiffuse', 0.8), ('ksSpecular', 0.8),
-                    ('ksSpecularEXP', 10), ('ksEmissive', 0), ('ksAlphaRef', 0)]
+# ksEditor's own defaults (0.05 ambient, 0.8 specular) leave everything
+# turned away from the sun pure black and make matte walls glossy. Kunos
+# track materials sit nearer these values.
+PERSISTENCE_VARS = [('ksAmbient', 0.4), ('ksDiffuse', 0.6), ('ksSpecular', 0.1),
+                    ('ksSpecularEXP', 30), ('ksEmissive', 0), ('ksAlphaRef', 0)]
 
 
 def merge_materials(scene, out_dir, buckets=12):
