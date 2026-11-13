@@ -210,6 +210,55 @@ PERSISTENCE_VARS = [('ksAmbient', 0.05), ('ksDiffuse', 0.8), ('ksSpecular', 0.8)
                     ('ksSpecularEXP', 10), ('ksEmissive', 0), ('ksAlphaRef', 0)]
 
 
+def merge_materials(scene, out_dir, buckets=12):
+    """Collapse every material onto a shared one per texture.
+
+    The sector carries 284 materials and ksEditor fills each txDiffuse by
+    hand, so a build is unusable without collapsing them first. Materials
+    that resolve to the same image become one; the flat-colour ones are
+    quantised into a few shades so a street of houses does not produce a
+    material per wall.
+    """
+    shared, assignments = {}, {}
+    step = 1.0 / buckets
+    for ob in scene.objects:
+        if ob.type != 'MESH' or not ob.select_get():
+            continue
+        for slot in ob.material_slots:
+            m = slot.material
+            if m is None or not m.node_tree:
+                continue
+            node = pick_albedo(m)
+            if node is not None:
+                key = safe_file(node.image.name)
+                image = node.image
+            else:
+                shade = tuple(min(buckets - 1, int(v / step))
+                              for v in m.diffuse_color[:3])
+                key = 'ACSHADE_%d_%d_%d.png' % shade
+                image = shared.get(key, (None, None))[1]
+                if image is None:
+                    image = bpy.data.images.new(key, 8, 8, alpha=False)
+                    rgb = [(c + 0.5) * step for c in shade]
+                    image.pixels[:] = list(rgb) + [1.0] * 1 + \
+                        (list(rgb) + [1.0]) * 63
+                    image.file_format = 'PNG'
+                    image.filepath_raw = str(out_dir / key)
+                    image.save()
+            if key not in shared:
+                merged = bpy.data.materials.new('AC_' + Path(key).stem)
+                merged.use_nodes = True
+                tree = merged.node_tree
+                bsdf = next(n for n in tree.nodes if n.type == 'BSDF_PRINCIPLED')
+                tex = tree.nodes.new('ShaderNodeTexImage')
+                tex.image = image
+                tree.links.new(tex.outputs['Color'], bsdf.inputs['Base Color'])
+                shared[key] = (merged, image)
+                assignments[merged.name] = key
+            slot.material = shared[key][0]
+    return assignments
+
+
 def node_sections(fbx_name, scene):
     """ksEditor's per-node state, mirroring the tree it builds on import.
 
@@ -408,7 +457,11 @@ def main(a):
     report_path = Path(a.report).resolve() if a.report else out.parent / 'export_report.json'
     out.parent.mkdir(parents=True, exist_ok=True)
     textures, skipped_textures = unpack_textures(out.parent, a.keep_hdr)
-    wired, flats, no_bsdf, chosen = wire_base_colour(scene, out.parent)
+    if a.merge:
+        chosen = merge_materials(scene, out.parent)
+        wired, flats, no_bsdf = [], [], []
+    else:
+        wired, flats, no_bsdf, chosen = wire_base_colour(scene, out.parent)
     bpy.ops.export_scene.fbx(
         filepath=str(out), use_selection=True, apply_unit_scale=True,
         global_scale=a.scale, axis_forward=a.axis_forward, axis_up=a.axis_up,
@@ -452,6 +505,9 @@ if __name__ == '__main__':
     p.add_argument('--sector-from', type=float, default=3800.0, dest='sector_from')
     p.add_argument('--sector-to', type=float, default=4250.0, dest='sector_to')
     p.add_argument('--corridor', type=float, default=120.0)
+    p.add_argument('--merge', action='store_true',
+                   help='collapse materials onto one per texture; needed once the '
+                        'sector brings hundreds that ksEditor would want by hand')
     p.add_argument('--no-trim', action='store_false', dest='trim',
                    help='keep whole scenery meshes instead of cutting them to the corridor')
     p.add_argument('--start-station', type=float, default=3800.0, dest='start_station')
