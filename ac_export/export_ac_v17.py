@@ -15,7 +15,9 @@ import bpy
 from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parent.parent
-LINE = ROOT / 'data/inherited_racing_v15/racing_line_native_v15.json'
+# Ships beside the scene in the v17 release archive, so the default is
+# resolved against the .blend rather than against this script.
+LINE_REL = 'data/inherited_racing_v15/racing_line_native_v15.json'
 
 # Physics surface mapping, first match wins. KEY must exist in surfaces.ini.
 # A leading '1' marks the mesh as collidable; everything else is visual only.
@@ -35,8 +37,14 @@ SURFACES = [
 SPINE = re.compile(r'^1(ROAD|PIT|GRASS|KERB|SAND|DIRT)_')
 
 
-def line_samples():
-    rows = json.loads(LINE.read_text(encoding='utf8'))['samples']
+def line_samples(path):
+    path = Path(path)
+    if not path.is_file():
+        sys.exit('racing axis not found: %s\n'
+                 'Pass --racing-line with the path to '
+                 'data/inherited_racing_v15/racing_line_native_v15.json '
+                 '(it ships inside the v17 release archive).' % path)
+    rows = json.loads(path.read_text(encoding='utf8'))['samples']
     assert rows, 'racing axis is empty'
     return rows
 
@@ -159,7 +167,7 @@ def main(a):
     scene_path = Path(a.scene).resolve()
     bpy.ops.wm.open_mainfile(filepath=str(scene_path))
     scene = bpy.context.scene
-    rows = line_samples()
+    rows = line_samples(a.racing_line or scene_path.parent / LINE_REL)
 
     applied, visual = rename(scene)
 
@@ -187,7 +195,8 @@ def main(a):
         ob.select_set(take)
         kept, culled = kept + bool(take), culled + (not take)
 
-    out = Path(a.output).resolve()
+    out = Path(a.output).resolve() if a.output else scene_path.parent / 'ac_export_out/chmyrivka.fbx'
+    report_path = Path(a.report).resolve() if a.report else out.parent / 'export_report.json'
     out.parent.mkdir(parents=True, exist_ok=True)
     textures, skipped_textures = unpack_textures(out.parent, a.keep_hdr)
     bpy.ops.export_scene.fbx(
@@ -207,10 +216,11 @@ def main(a):
         'sector_map_m': [a.sector_from, a.sector_to] if a.mode == 'sector' else None,
         'assetto_corsa_tested': False, 'renames': applied,
     }
-    Path(a.report).resolve().write_text(
+    report_path.write_text(
         json.dumps(report, ensure_ascii=False, indent=2), encoding='utf8')
     print('AC_EXPORT_DONE objects=%d culled=%d renamed=%d visual_only=%d textures=%d'
           % (kept, culled, len(applied), visual, len(textures)))
+    print('AC_EXPORT_OUT %s' % out)
 
 
 if __name__ == '__main__':
@@ -218,8 +228,8 @@ if __name__ == '__main__':
     p = argparse.ArgumentParser()
     p.add_argument('--scene', required=True)
     p.add_argument('--mode', choices=['sector', 'full'], default='sector')
-    p.add_argument('--output', default=str(ROOT / 'ac_export/out/chmyrivka.fbx'))
-    p.add_argument('--report', default=str(ROOT / 'ac_export/out/export_report.json'))
+    p.add_argument('--output', default=None, help='default: ac_export_out/chmyrivka.fbx beside the scene')
+    p.add_argument('--report', default=None, help='default: export_report.json beside the FBX')
     p.add_argument('--sector-from', type=float, default=3800.0, dest='sector_from')
     p.add_argument('--sector-to', type=float, default=4250.0, dest='sector_to')
     p.add_argument('--corridor', type=float, default=120.0)
@@ -229,4 +239,6 @@ if __name__ == '__main__':
     p.add_argument('--flip', action='store_true', help='car spawns facing backwards')
     p.add_argument('--keep-hdr', action='store_true', dest='keep_hdr',
                    help='also write the 4K sky HDR, unused by AC')
+    p.add_argument('--racing-line', dest='racing_line', default=None,
+                   help='racing_line_native_v15.json; defaults to %s beside the scene' % LINE_REL)
     main(p.parse_args(argv))
