@@ -292,6 +292,83 @@ def material_order(scene, assignments):
     return ordered
 
 
+VERTEX_LIMIT = 65000
+
+
+def build_part(ob, faces, name, scene):
+    """A new object holding just these faces of `ob`.
+
+    Built vertex by vertex rather than by copying the mesh and deleting the
+    rest: a half-million-vertex canopy needs eight parts, and copying it
+    eight times costs minutes and gigabytes.
+    """
+    source = ob.data
+    remap, coords, polygons = {}, [], []
+    for index in faces:
+        poly = source.polygons[index]
+        for vertex in poly.vertices:
+            if vertex not in remap:
+                remap[vertex] = len(coords)
+                coords.append(source.vertices[vertex].co[:])
+        polygons.append([remap[v] for v in poly.vertices])
+    mesh = bpy.data.meshes.new(name)
+    mesh.from_pydata(coords, [], polygons)
+    for slot in ob.material_slots:
+        mesh.materials.append(slot.material)
+    for position, index in enumerate(faces):
+        mesh.polygons[position].material_index = source.polygons[index].material_index
+    for layer in source.uv_layers:
+        target = mesh.uv_layers.new(name=layer.name)
+        loop = 0
+        for index in faces:
+            poly = source.polygons[index]
+            for offset in range(poly.loop_total):
+                target.data[loop].uv = layer.data[poly.loop_start + offset].uv
+                loop += 1
+    part = bpy.data.objects.new(name, mesh)
+    part.matrix_world = ob.matrix_world
+    scene.collection.objects.link(part)
+    return part
+
+
+def split_large_meshes(scene, limit=VERTEX_LIMIT):
+    """Break meshes that exceed ksEditor's per-mesh vertex ceiling.
+
+    The limit is 65536 — a 16-bit index buffer — and a mesh over it is
+    dropped on import with 'The mesh will not be loaded', silently losing
+    whole categories of scenery: the garden canopies alone carry 498748
+    vertices. Faces are gathered into batches that stay under the cap and
+    each batch becomes its own object, so UVs, materials and the physics
+    prefix in the name all survive.
+    """
+    split = []
+    for ob in list(scene.objects):
+        if ob.type != 'MESH' or not ob.select_get():
+            continue
+        if len(ob.data.vertices) <= limit:
+            continue
+        batches, batch, seen = [], [], set()
+        for poly in ob.data.polygons:
+            verts = set(poly.vertices)
+            if batch and len(seen | verts) > limit:
+                batches.append(batch)
+                batch, seen = [], set()
+            batch.append(poly.index)
+            seen |= verts
+        if batch:
+            batches.append(batch)
+        if len(batches) < 2:
+            continue
+        for index, faces in enumerate(batches):
+            part = build_part(ob, faces, '%s_P%d' % (ob.name[:50], index), scene)
+            part.data.update()
+            part.select_set(True)
+        ob.select_set(False)
+        split.append({'object': ob.name, 'vertices': len(ob.data.vertices),
+                      'parts': len(batches)})
+    return split
+
+
 def node_sections(fbx_name, scene):
     """ksEditor's per-node state, mirroring the tree it builds on import.
 
@@ -486,6 +563,8 @@ def main(a):
             triangles += sum(len(p.vertices) - 2 for p in ob.data.polygons)
         kept, culled = kept + bool(take), culled + (not take)
 
+    split = split_large_meshes(scene)
+
     out = Path(a.output).resolve() if a.output else scene_path.parent / 'ac_export_out/chmyrivka.fbx'
     report_path = Path(a.report).resolve() if a.report else out.parent / 'export_report.json'
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -509,7 +588,7 @@ def main(a):
         'renamed': len(applied), 'visual_only_meshes': visual,
         'exported_objects': kept, 'culled_objects': culled,
         'exported_triangles': triangles, 'road_only': a.road_only,
-        'trimmed_meshes': trimmed,
+        'trimmed_meshes': trimmed, 'split_meshes': split,
         'persistence': str(persistence) if persistence else None,
         'textures_written': textures, 'textures_skipped': skipped_textures,
         'base_colour_wired': wired, 'base_colour_flat': flats,
@@ -522,9 +601,9 @@ def main(a):
     report_path.write_text(
         json.dumps(report, ensure_ascii=False, indent=2), encoding='utf8')
     print('AC_EXPORT_DONE objects=%d culled=%d triangles=%d renamed=%d visual_only=%d '
-          'textures=%d wired=%d flat=%d trimmed=%d persistence=%d'
+          'textures=%d wired=%d flat=%d trimmed=%d split=%d persistence=%d'
           % (kept, culled, triangles, len(applied), visual, len(textures),
-             len(wired), len(flats), trimmed, len(chosen)))
+             len(wired), len(flats), trimmed, len(split), len(chosen)))
     print('AC_EXPORT_OUT %s' % out)
 
 
