@@ -268,7 +268,8 @@ def write_persistence(fbx, assignments, scene=None):
     if scene is not None:
         lines += node_sections(fbx.name, scene)
     path = fbx.with_name(fbx.name + '.ini')
-    path.write_text('\r\n'.join(lines), encoding='utf8')   # ksEditor writes CRLF
+    # newline= stops Windows translating again and giving CRCRLF
+    path.write_text('\n'.join(lines), encoding='utf8', newline='\r\n')
     return path
 
 
