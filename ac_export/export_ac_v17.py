@@ -13,6 +13,7 @@ from pathlib import Path
 import argparse, hashlib, json, math, re, sys, time
 import bpy
 import bmesh
+import numpy as np
 from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -242,7 +243,125 @@ PERSISTENCE_VARS = [('ksAmbient', 0.4), ('ksDiffuse', 0.6), ('ksSpecular', 0.1),
                     ('ksSpecularEXP', 30), ('ksEmissive', 0), ('ksAlphaRef', 0)]
 
 
-def merge_materials(scene, out_dir, buckets=12):
+# --- grain on the untextured materials ---------------------------------
+#
+# 400 of the scene's 496 materials own no image: 318 are built from Blender
+# noise nodes and 82 are a plain colour. Neither survives FBX, so each
+# arrived in AC as one flat shade and a street of houses read as painted
+# cardboard. Their viewport colours are deliberate, though -- only three of
+# the 400 are left at the default grey -- so the colour is worth keeping and
+# only the detail is missing. Each gets one of the tileable photographs the
+# scene already carries, tinted to its own colour.
+
+TILEABLE = [
+    (re.compile(r'brick', re.I), 'red_brick_diff_2k.jpg'),
+    (re.compile(r'grass|verge|lawn|hedge|turf', re.I), 'grass001_diff_2k.jpg'),
+    (re.compile(r'soil|dirt|earth|gravel|pebble|ground|land|yard|compact',
+                re.I), 'dirt_diff_2k.jpg'),
+    (re.compile(r'wall|render|plaster|facade|frame|house|roof|concrete|kerb|'
+                r'plaza|slab|paving|stone|cap|crown|seam|rib|sill|chimney|'
+                r'porch|shed|fence|gate|door|canopy', re.I),
+     'rough_concrete_diff_2k.jpg'),
+]
+
+# Grain belongs on masonry and earth, not on what is meant to read as
+# polished: concrete noise on a window pane or a galvanised post looks
+# worse than the flat colour it replaces.
+SMOOTH = re.compile(r'glass|glazing|metal|rubber|wire|chrome|steel|galvan|'
+                    r'armco|lens|led|plaque|gasket|paint|mirror|alu', re.I)
+
+
+def grain_for(name):
+    if SMOOTH.search(name):
+        return None
+    for pattern, image in TILEABLE:
+        if pattern.search(name):
+            return image
+    return None
+
+
+def grain_multiplier(image_name, size=256, cache={}):
+    """A tileable photo reduced to a brightness multiplier around 1.0.
+
+    Dividing by the mean keeps the photograph's grain while discarding its
+    own colour, so tinting afterwards lands on exactly the shade the
+    material asked for instead of a blend of the two.
+    """
+    if image_name in cache:
+        return cache[image_name]
+    img = bpy.data.images.get(image_name)
+    if img is None or not img.has_data:
+        cache[image_name] = None
+        return None
+    width, height = img.size
+    buf = np.empty(width * height * 4, dtype=np.float32)
+    img.pixels.foreach_get(buf)
+    rgb = buf.reshape(height, width, 4)[:, :, :3]
+    rows = np.linspace(0, height - 1, size).astype(int)
+    cols = np.linspace(0, width - 1, size).astype(int)
+    small = rgb[np.ix_(rows, cols)]
+    mean = float(small.mean())
+    cache[image_name] = small / mean if mean > 1e-4 else None
+    return cache[image_name]
+
+
+def tinted_grain(out_dir, image_name, colour, size=256):
+    """Write (and reuse) the tileable photo tinted to one colour."""
+    tag = '%s_%d_%d_%d' % (Path(image_name).stem[:6],
+                           *(int(round(c * 255)) for c in colour))
+    name = 'ACG_%s.png' % hashlib.md5(tag.encode('utf8')).hexdigest()[:10]
+    existing = bpy.data.images.get(name)
+    if existing is not None:
+        return existing
+    grain = grain_multiplier(image_name, size)
+    if grain is None:
+        return None
+    tinted = np.clip(grain * np.array(colour, dtype=np.float32), 0.0, 1.0)
+    rgba = np.ones((size, size, 4), dtype=np.float32)
+    rgba[:, :, :3] = tinted
+    img = bpy.data.images.new(name, size, size, alpha=False)
+    img.pixels.foreach_set(rgba.ravel())
+    img.file_format = 'PNG'
+    img.filepath_raw = str(out_dir / name)
+    img.save()
+    return img
+
+
+def cube_project(ob, tile):
+    """World-aligned box UVs, written straight into the mesh.
+
+    1321 of the object-materials built from noise carry no UV layer at all,
+    and a texture on a mesh without one samples a single texel: the grain
+    would arrive as another flat colour. Projecting along whichever world
+    axis each face most faces keeps brick courses level on a wall and flat
+    on a roof, and tiling in metres means every building shares one scale.
+    """
+    mesh = ob.data
+    if mesh.uv_layers or not mesh.polygons:
+        return False
+    matrix = np.array(ob.matrix_world.to_4x4())
+    co = np.empty(len(mesh.vertices) * 3, dtype=np.float64)
+    mesh.vertices.foreach_get('co', co)
+    world = co.reshape(-1, 3) @ matrix[:3, :3].T + matrix[:3, 3]
+    normals = np.empty(len(mesh.polygons) * 3, dtype=np.float64)
+    mesh.polygons.foreach_get('normal', normals)
+    facing = np.abs(normals.reshape(-1, 3) @ matrix[:3, :3].T).argmax(axis=1)
+    counts = np.empty(len(mesh.polygons), dtype=np.int32)
+    mesh.polygons.foreach_get('loop_total', counts)
+    vertex = np.empty(len(mesh.loops), dtype=np.int32)
+    mesh.loops.foreach_get('vertex_index', vertex)
+    # Loops are stored polygon by polygon, so repeating each face's axis by
+    # its loop count lines the two up without touching loop_start.
+    axis = np.repeat(facing, counts)
+    point = world[vertex]
+    u = np.where(axis == 0, point[:, 1], point[:, 0])
+    v = np.where(axis == 2, point[:, 1], point[:, 2])
+    layer = mesh.uv_layers.new(name='ACBox')
+    layer.data.foreach_set('uv', np.stack([u / tile, v / tile], 1).ravel())
+    return True
+
+
+def merge_materials(scene, out_dir, buckets=12, grain=True, tile=2.0):
     out_dir = out_dir / 'texture'
     out_dir.mkdir(parents=True, exist_ok=True)
     """Collapse every material onto a shared one per texture.
@@ -255,9 +374,12 @@ def merge_materials(scene, out_dir, buckets=12):
     """
     shared, assignments, alpha = {}, {}, set()
     step = 1.0 / buckets
+    projected = 0
     for ob in scene.objects:
         if ob.type != 'MESH' or not ob.select_get():
             continue
+        if grain:
+            projected += cube_project(ob, tile)
         for slot in ob.material_slots:
             m = slot.material
             if m is None or not m.node_tree:
@@ -269,11 +391,21 @@ def merge_materials(scene, out_dir, buckets=12):
             else:
                 shade = tuple(min(buckets - 1, int(v / step))
                               for v in m.diffuse_color[:3])
-                key = 'ACSHADE_%d_%d_%d.png' % shade
-                image = shared.get(key, (None, None))[1]
+                rgb = [(c + 0.5) * step for c in shade]
+                source = grain_for(m.name) if grain else None
+                textured = (tinted_grain(out_dir, source, rgb)
+                            if source else None)
+                if textured is not None:
+                    # Quantising the shade is what keeps this bounded: a
+                    # street of houses shares a handful of tinted copies
+                    # rather than one image per wall.
+                    key = safe_file(textured.name)
+                    image = textured
+                else:
+                    key = 'ACSHADE_%d_%d_%d.png' % shade
+                    image = shared.get(key, (None, None))[1]
                 if image is None:
                     image = bpy.data.images.new(key, 8, 8, alpha=False)
-                    rgb = [(c + 0.5) * step for c in shade]
                     image.pixels[:] = list(rgb) + [1.0] * 1 + \
                         (list(rgb) + [1.0]) * 63
                     image.file_format = 'PNG'
@@ -292,6 +424,8 @@ def merge_materials(scene, out_dir, buckets=12):
                 if has_alpha(image):
                     alpha.add(key)
             slot.material = shared[key][0]
+    if projected:
+        print('AC_UV_BOX objects=%d tile=%.1fm' % (projected, tile))
     return assignments, alpha
 
 
@@ -458,8 +592,13 @@ def write_persistence(fbx, assignments, scene=None, alpha=()):
              '[MATERIAL_LIST]', 'COUNT=%d' % len(assignments), '']
     for index, (material, texture) in enumerate(material_order(scene, assignments)):
         cut = texture in alpha
+        # ksPerPixel has no alpha-test path at all, so ALPHATEST=1 on it is
+        # ignored and a leaf card's transparent texels draw their own RGB --
+        # black. The AT variant is the same shader with the cutout branch,
+        # and it reads the threshold from ksAlphaRef below.
         lines += ['[MATERIAL_%d]' % index, 'NAME=' + material,
-                  'SHADER=ksPerPixel', 'ALPHABLEND=0',
+                  'SHADER=%s' % ('ksPerPixelAT' if cut else 'ksPerPixel'),
+                  'ALPHABLEND=0',
                   'ALPHATEST=%d' % (1 if cut else 0),
                   'DEPTHMODE=0', 'VARCOUNT=%d' % len(PERSISTENCE_VARS)]
         for slot, (var, value) in enumerate(PERSISTENCE_VARS):
@@ -567,15 +706,152 @@ def in_sector(ob, points, corridor):
     return False
 
 
-def main(a):
-    scene_path = Path(a.scene).resolve()
-    bpy.ops.wm.open_mainfile(filepath=str(scene_path))
-    scene = bpy.context.scene
-    rows = line_samples(a.racing_line or scene_path.parent / LINE_REL)
+# --- whole-lap builds -------------------------------------------------
+#
+# The lap is 5709 m and the scene carries 18.8M triangles with modifiers
+# applied. ksEditor is a 32-bit program, so one KN5 cannot hold it and the
+# track has to arrive as several, listed in models.ini. Cutting by station
+# rather than by a corridor around a sector is what makes the pieces fit
+# together: every face belongs to exactly the chunk whose station band its
+# nearest axis point falls in, so neighbours share no geometry and leave no
+# gap. A corridor radius would overlap at each seam and z-fight there.
 
-    applied, visual = rename(scene)
 
-    # Grid slot, pit box and the start/finish timing gate.
+def axis_arrays(rows, step=10.0):
+    """The racing axis as numpy columns: positions and their chainage.
+
+    Thinned first. The raw axis is sampled every half metre, which is 11475
+    points, and every face centre is compared against all of them; against a
+    60 m corridor that precision buys nothing and costs twenty times the
+    work. A 10 m step places a face within 5 m of its true chainage, far
+    inside the band it has to be sorted into.
+    """
+    kept, last = [], None
+    for r in rows:
+        if last is None or r['map_s_m'] - last >= step:
+            kept.append(r)
+            last = r['map_s_m']
+    if kept[-1]['map_s_m'] < rows[-1]['map_s_m']:
+        kept.append(rows[-1])
+    xy = np.array([(r['x'], r['y']) for r in kept], dtype=np.float64)
+    s = np.array([r['map_s_m'] for r in kept], dtype=np.float64)
+    return xy, s
+
+
+def nearest_on_axis(points, axis_xy, axis_s, batch=20000):
+    """For each point, the chainage of the closest axis sample and the gap.
+
+    Batched because the full product is 2M faces by 11475 samples; twenty
+    thousand rows at a time keeps it inside a few hundred megabytes while
+    staying one vectorised pass per batch instead of a Python loop.
+    """
+    stations = np.empty(len(points), dtype=np.float64)
+    gaps = np.empty(len(points), dtype=np.float64)
+    for start in range(0, len(points), batch):
+        block = points[start:start + batch]
+        dx = block[:, None, 0] - axis_xy[None, :, 0]
+        dy = block[:, None, 1] - axis_xy[None, :, 1]
+        d2 = dx * dx + dy * dy
+        pick = d2.argmin(axis=1)
+        stations[start:start + batch] = axis_s[pick]
+        gaps[start:start + batch] = np.sqrt(d2[np.arange(len(block)), pick])
+    return stations, gaps
+
+
+def face_centres(ob):
+    """World-space centres of every polygon, read out at C speed."""
+    mesh = ob.data
+    flat = np.empty(len(mesh.polygons) * 3, dtype=np.float64)
+    mesh.polygons.foreach_get('center', flat)
+    local = flat.reshape(-1, 3)
+    m = np.array(ob.matrix_world.to_4x4())
+    return local @ m[:3, :3].T + m[:3, 3]
+
+
+def in_band(station, a, b, lap):
+    """Chainage inside [a, b), wrapping once past the finish line."""
+    if b <= lap:
+        return (station >= a) & (station < b)
+    return (station >= a) | (station < b - lap)
+
+
+def trim_to_band(ob, axis_xy, axis_s, a, b, lap, corridor):
+    """Keep only the faces this chunk owns. None when nothing survives."""
+    mesh = ob.data = ob.data.copy()   # may be shared; never touch the original
+    if not mesh.polygons:
+        return None
+    station, gap = nearest_on_axis(face_centres(ob), axis_xy, axis_s)
+    keep = in_band(station, a, b, lap) & (gap <= corridor)
+    if keep.all():
+        return False
+    if not keep.any():
+        return None
+    bm = bmesh.new()
+    bm.from_mesh(mesh)
+    bm.faces.ensure_lookup_table()
+    doomed = [bm.faces[i] for i in np.flatnonzero(~keep)]
+    bmesh.ops.delete(bm, geom=doomed, context='FACES')
+    bm.to_mesh(mesh)
+    bm.free()
+    mesh.update()
+    return True
+
+
+def object_touches_band(ob, axis_xy, axis_s, a, b, lap, corridor):
+    """Cheap bounding-box test before paying for a per-face pass."""
+    corners = np.array([(ob.matrix_world @ Vector(c))[:2] for c in ob.bound_box])
+    station, gap = nearest_on_axis(corners, axis_xy, axis_s)
+    span = np.hypot(np.ptp(corners[:, 0]), np.ptp(corners[:, 1]))
+    if gap.min() > corridor + span:
+        return False
+    # A mesh spanning the whole lap has corners nowhere near its own middle,
+    # so accept it whenever any corner is in the band or it is simply large.
+    return bool(in_band(station, a, b, lap).any() or span > corridor)
+
+
+def strip_distant_bevels(scene, axis_xy, axis_s, keep_within):
+    """Turn off Bevel past `keep_within` metres of the racing line.
+
+    Bevels cost 1.94M of the scene's 18.8M triangles, 1.42M of that on
+    buildings alone. A 2 cm chamfer is worth its triangles on the kerb the
+    car is about to touch and worth nothing on a roof ridge thirty metres
+    away, so distance decides rather than a blanket switch.
+    """
+    dropped = objects = 0
+    for ob in scene.objects:
+        if ob.type != 'MESH':
+            continue
+        bevels = [m for m in ob.modifiers if m.type == 'BEVEL' and m.show_viewport]
+        if not bevels:
+            continue
+        centre = np.array([(ob.matrix_world @
+                            (sum((Vector(c) for c in ob.bound_box), Vector()) / 8.0))[:2]])
+        _, gap = nearest_on_axis(centre, axis_xy, axis_s)
+        if gap[0] <= keep_within:
+            continue
+        for m in bevels:
+            m.show_viewport = m.show_render = False
+        dropped += len(bevels)
+        objects += 1
+    return dropped, objects
+
+
+def write_models_ini(path, files):
+    """The list AC reads to load several KN5 as one track.
+
+    The first entry is the track's own name and carries the AC_ nulls:
+    spawn objects held in a secondary KN5 are not picked up.
+    """
+    lines = []
+    for index, name in enumerate(files):
+        lines += ['[MODEL_%d]' % index, 'FILE=%s' % name,
+                  'POSITION=0,0,0', 'ROTATION=0,0,0', '']
+    path.write_text('\n'.join(lines), encoding='utf8', newline='\r\n')
+    return path
+
+
+def place_nulls(scene, rows, a):
+    """Grid slots, pit boxes and the start/finish timing gate."""
     origin, heading = at_station(rows, a.start_station)
     side = Vector((-heading.y, heading.x, 0.0))
     # A grid rather than a lone slot: one AC_START_0 leaves no room for a
@@ -594,13 +870,14 @@ def main(a):
              heading, a.flip)
     null(scene, 'AC_TIME_0_L', origin + side * (a.gate_width / 2.0))
     null(scene, 'AC_TIME_0_R', origin - side * (a.gate_width / 2.0))
+    return origin
 
-    # Selection: every physical surface always, scenery only near the sector.
-    for ob in scene.objects:
-        ob.select_set(False)
+
+def select_sector(scene, rows, a):
+    """The original corridor-around-a-sector selection."""
     points = sector_points(rows, a.sector_from, a.sector_to) if a.mode == 'sector' else None
-    kept = culled = triangles = trimmed = 0
     bounds = corridor_bounds(points, a.corridor) if points else None
+    kept = culled = triangles = trimmed = 0
     for ob in scene.objects:
         if ob.type not in ('MESH', 'EMPTY'):
             continue
@@ -622,58 +899,179 @@ def main(a):
         if take and ob.type == 'MESH':
             triangles += sum(len(p.vertices) - 2 for p in ob.data.polygons)
         kept, culled = kept + bool(take), culled + (not take)
+    return kept, culled, triangles, trimmed
+
+
+def select_band(scene, rows, a, band, spine, scenery):
+    """Station-banded selection for a whole-lap chunk.
+
+    `spine` takes the drivable surfaces for the entire lap regardless of
+    band, because the road has to be one unbroken piece of physics; the
+    scenery is what the band divides up.
+    """
+    axis_xy, axis_s = axis_arrays(rows)
+    lap = float(axis_s.max())
+    a0, a1 = band if band else (0.0, lap)
+    kept = culled = triangles = trimmed = 0
+    for ob in scene.objects:
+        if ob.type not in ('MESH', 'EMPTY'):
+            continue
+        if ob.type == 'EMPTY':
+            ob.select_set(ob.name.startswith('AC_'))
+            kept += ob.select_get()
+            continue
+        is_spine = bool(SPINE.match(ob.name))
+        take = False
+        if is_spine:
+            take = spine
+        elif scenery and object_touches_band(ob, axis_xy, axis_s, a0, a1, lap, a.corridor):
+            result = trim_to_band(ob, axis_xy, axis_s, a0, a1, lap, a.corridor)
+            take = result is not None
+            trimmed += bool(result)
+        ob.select_set(take)
+        if take:
+            triangles += sum(len(p.vertices) - 2 for p in ob.data.polygons)
+        kept, culled = kept + bool(take), culled + (not take)
+    return kept, culled, triangles, trimmed
+
+
+def build_one(a, scene_path, out, band=None, spine=True, scenery=True, nulls=True):
+    """One FBX plus its persistence file.
+
+    The scene is reopened for every chunk: trimming replaces mesh data in
+    place, so a chunk built after another would inherit its neighbour's
+    cuts and come out empty.
+    """
+    bpy.ops.wm.open_mainfile(filepath=str(scene_path))
+    scene = bpy.context.scene
+    rows = line_samples(a.racing_line or scene_path.parent / LINE_REL)
+    applied, visual = rename(scene)
+    origin = place_nulls(scene, rows, a) if nulls else None
+
+    bevels = (0, 0)
+    if a.drop_bevel_beyond > 0:
+        axis_xy, axis_s = axis_arrays(rows)
+        bevels = strip_distant_bevels(scene, axis_xy, axis_s, a.drop_bevel_beyond)
+
+    for ob in scene.objects:
+        ob.select_set(False)
+    if a.mode == 'lap':
+        kept, culled, triangles, trimmed = select_band(scene, rows, a, band, spine, scenery)
+    else:
+        kept, culled, triangles, trimmed = select_sector(scene, rows, a)
+
+    if not kept:
+        return {'fbx': None, 'exported_objects': 0, 'exported_triangles': 0,
+                'band': band, 'skipped': 'nothing in this band'}
 
     split = split_large_meshes(scene)
-
-    out = Path(a.output).resolve() if a.output else scene_path.parent / 'ac_export_out/chmyrivka.fbx'
-    report_path = Path(a.report).resolve() if a.report else out.parent / 'export_report.json'
     out.parent.mkdir(parents=True, exist_ok=True)
     textures, skipped_textures = unpack_textures(out.parent, a.keep_hdr)
     if a.merge:
-        chosen, alpha = merge_materials(scene, out.parent)
+        chosen, alpha = merge_materials(scene, out.parent,
+                                        grain=a.grain, tile=a.grain_tile)
         wired, flats, no_bsdf = [], [], []
     else:
         wired, flats, no_bsdf, chosen, alpha = wire_base_colour(scene, out.parent)
+
+    if a.dry_run:
+        print('AC_CHUNK_DRY %s objects=%d triangles=%d materials=%d bevels_off=%d'
+              % (out.name, kept, triangles, len(chosen), bevels[0]))
+        return {'fbx': str(out), 'exported_objects': kept, 'band': band,
+                'exported_triangles': triangles, 'materials': len(chosen),
+                'bevel_modifiers_off': bevels[0], 'bevel_objects': bevels[1],
+                'dry_run': True}
+
     bpy.ops.export_scene.fbx(
         filepath=str(out), use_selection=True, apply_unit_scale=True,
         global_scale=a.scale, axis_forward=a.axis_forward, axis_up=a.axis_up,
         object_types={'MESH', 'EMPTY'}, use_mesh_modifiers=True,
         mesh_smooth_type='FACE', path_mode='STRIP', embed_textures=False,
         bake_space_transform=a.bake_transform)
-
     persistence = write_persistence(out, chosen, scene, alpha) if chosen else None
 
-    report = {
-        'mode': a.mode, 'scene': str(scene_path), 'fbx': str(out),
-        'renamed': len(applied), 'visual_only_meshes': visual,
-        'exported_objects': kept, 'culled_objects': culled,
-        'exported_triangles': triangles, 'road_only': a.road_only,
+    print('AC_CHUNK %s objects=%d culled=%d triangles=%d trimmed=%d split=%d '
+          'materials=%d bevels_off=%d MB=%.1f'
+          % (out.name, kept, culled, triangles, trimmed, len(split), len(chosen),
+             bevels[0], out.stat().st_size / 1e6))
+    return {
+        'fbx': str(out), 'band': band, 'renamed': len(applied),
+        'visual_only_meshes': visual, 'exported_objects': kept,
+        'culled_objects': culled, 'exported_triangles': triangles,
         'trimmed_meshes': trimmed, 'split_meshes': split,
-        'alpha_tested': sorted(alpha),
+        'bevel_modifiers_off': bevels[0], 'bevel_objects': bevels[1],
+        'alpha_tested': sorted(alpha), 'materials': len(chosen),
         'persistence': str(persistence) if persistence else None,
         'textures_written': textures, 'textures_skipped': skipped_textures,
         'base_colour_wired': wired, 'base_colour_flat': flats,
         'materials_without_principled': no_bsdf,
-        'start_station_map_m': a.start_station,
-        'start_location': list(origin), 'flip_spawn': a.flip,
-        'grid_slots': a.grid,
-        'sector_map_m': [a.sector_from, a.sector_to] if a.mode == 'sector' else None,
-        'assetto_corsa_tested': False, 'renames': applied,
+        'start_location': list(origin) if origin else None,
+        'megabytes': round(out.stat().st_size / 1e6, 1),
     }
+
+
+def main(a):
+    scene_path = Path(a.scene).resolve()
+    out = Path(a.output).resolve() if a.output else scene_path.parent / 'ac_export_out/chmyrivka.fbx'
+    report_path = Path(a.report).resolve() if a.report else out.parent / 'export_report.json'
+    started = time.time()
+
+    if a.mode != 'lap':
+        chunks = [build_one(a, scene_path, out)]
+        models = None
+    else:
+        rows = line_samples(a.racing_line or scene_path.parent / LINE_REL)
+        lap = max(r['map_s_m'] for r in rows)
+        # The track's own name goes on the drivable surfaces: AC reads the
+        # AC_ nulls only from the first model, and the road has to stay one
+        # piece of physics, so the bands divide the scenery alone.
+        chunks = [build_one(a, scene_path, out, band=None, spine=True,
+                            scenery=False, nulls=True)]
+        edges = [lap * i / a.chunks for i in range(a.chunks + 1)]
+        for index in range(a.chunks):
+            part = out.with_name('%s_s%d%s' % (out.stem, index + 1, out.suffix))
+            chunks.append(build_one(a, scene_path, part,
+                                    band=(edges[index], edges[index + 1]),
+                                    spine=False, scenery=True, nulls=False))
+        models = None
+        if not a.dry_run:
+            names = [Path(c['fbx']).with_suffix('.kn5').name
+                     for c in chunks if c.get('fbx')]
+            models = str(write_models_ini(out.parent / 'models.ini', names))
+
+    report = {
+        'mode': a.mode, 'scene': str(scene_path), 'chunks': chunks,
+        'models_ini': models, 'corridor': a.corridor,
+        'drop_bevel_beyond': a.drop_bevel_beyond,
+        'start_station_map_m': a.start_station, 'flip_spawn': a.flip,
+        'grid_slots': a.grid, 'dry_run': a.dry_run,
+        'sector_map_m': [a.sector_from, a.sector_to] if a.mode == 'sector' else None,
+        'assetto_corsa_tested': False,
+        'seconds': round(time.time() - started, 1),
+    }
+    report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(
         json.dumps(report, ensure_ascii=False, indent=2), encoding='utf8')
-    print('AC_EXPORT_DONE objects=%d culled=%d triangles=%d renamed=%d visual_only=%d '
-          'textures=%d wired=%d flat=%d trimmed=%d split=%d persistence=%d'
-          % (kept, culled, triangles, len(applied), visual, len(textures),
-             len(wired), len(flats), trimmed, len(split), len(chosen)))
-    print('AC_EXPORT_OUT %s' % out)
+    total = sum(c.get('exported_triangles', 0) for c in chunks)
+    print('AC_EXPORT_DONE chunks=%d triangles=%d seconds=%.0f models_ini=%s'
+          % (len(chunks), total, time.time() - started, models or '-'))
+    print('AC_EXPORT_OUT %s' % out.parent)
 
 
 if __name__ == '__main__':
     argv = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else sys.argv[1:]
     p = argparse.ArgumentParser()
     p.add_argument('--scene', required=True)
-    p.add_argument('--mode', choices=['sector', 'full'], default='sector')
+    p.add_argument('--mode', choices=['sector', 'full', 'lap'], default='sector',
+                   help="lap cuts the whole circuit into --chunks KN5 and writes models.ini")
+    p.add_argument('--chunks', type=int, default=6,
+                   help='scenery KN5 for mode lap; the drivable surfaces get one of their own')
+    p.add_argument('--dry-run', action='store_true', dest='dry_run',
+                   help='count what each chunk would hold without writing FBX')
+    p.add_argument('--drop-bevel-beyond', type=float, default=0.0,
+                   dest='drop_bevel_beyond',
+                   help='metres from the racing line past which Bevel is switched off; '
+                        '0 keeps every bevel')
     p.add_argument('--output', default=None, help='default: ac_export_out/chmyrivka.fbx beside the scene')
     p.add_argument('--report', default=None, help='default: export_report.json beside the FBX')
     p.add_argument('--sector-from', type=float, default=3800.0, dest='sector_from')
@@ -704,6 +1102,11 @@ if __name__ == '__main__':
                    choices=['X', 'Y', 'Z', '-X', '-Y', '-Z'])
     p.add_argument('--scale', type=float, default=0.01,
                    help='FBX global scale; only applies with the baked transform')
+    p.add_argument('--no-grain', action='store_false', dest='grain',
+                   help='leave colour-only materials as a flat swatch instead of '
+                        'tinting a tileable photo and box-projecting UVs for it')
+    p.add_argument('--grain-tile', type=float, default=2.0, dest='grain_tile',
+                   help='metres per texture tile for the box projection')
     p.add_argument('--road-only', action='store_true', dest='road_only',
                    help='drivable surfaces alone, no scenery: smallest file that still drives')
     p.add_argument('--keep-hdr', action='store_true', dest='keep_hdr',
