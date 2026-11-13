@@ -10,7 +10,7 @@ Surfaces named 1ROAD_MAIN and 1PIT_SURFACE_V08 already follow the AC
 convention in the source scene and are left untouched.
 """
 from pathlib import Path
-import argparse, json, math, re, sys
+import argparse, hashlib, json, math, re, sys, time
 import bpy
 import bmesh
 from mathutils import Vector
@@ -170,6 +170,7 @@ def flat_image(material):
 def wire_base_colour(scene, out_dir):
     """Put one image straight into Base Color so the FBX carries a texture."""
     done, flats, skipped = [], [], []
+    chosen = {}
     seen = set()
     for ob in scene.objects:
         if ob.type != 'MESH' or not ob.select_get():
@@ -194,13 +195,50 @@ def wire_base_colour(scene, out_dir):
                 node.image = img
                 flats.append({'material': m.name, 'image': img.name,
                               'colour': [round(v, 3) for v in m.diffuse_color[:3]]})
+                chosen[m.name] = safe_file(img.name)
             else:
                 done.append({'material': m.name, 'image': node.image.name})
+                chosen[m.name] = safe_file(node.image.name)
             base = bsdf.inputs['Base Color']
             for link in list(base.links):
                 m.node_tree.links.remove(link)
             m.node_tree.links.new(node.outputs['Color'], base)
-    return done, flats, skipped
+    return done, flats, skipped, chosen
+
+
+PERSISTENCE_VARS = [('ksAmbient', 0.05), ('ksDiffuse', 0.8), ('ksSpecular', 0.8),
+                    ('ksSpecularEXP', 10), ('ksEmissive', 0), ('ksAlphaRef', 0)]
+
+
+def write_persistence(fbx, assignments):
+    """Write ksEditor's <name>.fbx.ini so it loads the textures itself.
+
+    ksEditor does not read Blender's material links: every txDiffuse slot
+    comes in NULL and a KN5 save refuses until each is filled by hand. Its
+    persistence file is plain ini keyed to the FBX's MD5, and the export
+    already knows which image each material resolved to, so writing it here
+    saves clicking through hundreds of materials.
+    """
+    digest = hashlib.md5(fbx.read_bytes()).hexdigest()
+    lines = ['[HEADER]', 'VERSION=4', 'DLC_KEY=0', 'USERNAME=',
+             'DATE=' + time.strftime('%m/%d/%Y %I:%M:%S %p'),
+             'MD5_HASH=' + digest, '',
+             '[MATERIAL_LIST]', 'COUNT=%d' % len(assignments), '']
+    for index, (material, texture) in enumerate(sorted(assignments.items())):
+        lines += ['[MATERIAL_%d]' % index, 'NAME=' + material,
+                  'SHADER=ksPerPixel', 'ALPHABLEND=0', 'ALPHATEST=0',
+                  'DEPTHMODE=0', 'VARCOUNT=%d' % len(PERSISTENCE_VARS)]
+        for slot, (var, value) in enumerate(PERSISTENCE_VARS):
+            lines += ['VAR_%d_NAME=%s' % (slot, var),
+                      'VAR_%d_FLOAT1=%g' % (slot, value),
+                      'VAR_%d_FLOAT2=0,0' % slot,
+                      'VAR_%d_FLOAT3=0,0,0' % slot,
+                      'VAR_%d_FLOAT4=0,0,0,0' % slot]
+        lines += ['RESCOUNT=1', 'RES_0_NAME=txDiffuse', 'RES_0_SLOT=0',
+                  'RES_0_TEXTURE=' + texture, '']
+    path = fbx.with_name(fbx.name + '.ini')
+    path.write_text('\n'.join(lines), encoding='utf8')
+    return path
 
 
 def null(scene, name, location, direction=None, flip=False):
@@ -338,7 +376,7 @@ def main(a):
     report_path = Path(a.report).resolve() if a.report else out.parent / 'export_report.json'
     out.parent.mkdir(parents=True, exist_ok=True)
     textures, skipped_textures = unpack_textures(out.parent, a.keep_hdr)
-    wired, flats, no_bsdf = wire_base_colour(scene, out.parent)
+    wired, flats, no_bsdf, chosen = wire_base_colour(scene, out.parent)
     bpy.ops.export_scene.fbx(
         filepath=str(out), use_selection=True, apply_unit_scale=True,
         global_scale=a.scale, axis_forward=a.axis_forward, axis_up=a.axis_up,
@@ -346,12 +384,15 @@ def main(a):
         mesh_smooth_type='FACE', path_mode='STRIP', embed_textures=False,
         bake_space_transform=a.bake_transform)
 
+    persistence = write_persistence(out, chosen) if chosen else None
+
     report = {
         'mode': a.mode, 'scene': str(scene_path), 'fbx': str(out),
         'renamed': len(applied), 'visual_only_meshes': visual,
         'exported_objects': kept, 'culled_objects': culled,
         'exported_triangles': triangles, 'road_only': a.road_only,
         'trimmed_meshes': trimmed,
+        'persistence': str(persistence) if persistence else None,
         'textures_written': textures, 'textures_skipped': skipped_textures,
         'base_colour_wired': wired, 'base_colour_flat': flats,
         'materials_without_principled': no_bsdf,
@@ -363,9 +404,9 @@ def main(a):
     report_path.write_text(
         json.dumps(report, ensure_ascii=False, indent=2), encoding='utf8')
     print('AC_EXPORT_DONE objects=%d culled=%d triangles=%d renamed=%d visual_only=%d '
-          'textures=%d wired=%d flat=%d trimmed=%d'
+          'textures=%d wired=%d flat=%d trimmed=%d persistence=%d'
           % (kept, culled, triangles, len(applied), visual, len(textures),
-             len(wired), len(flats), trimmed))
+             len(wired), len(flats), trimmed, len(chosen)))
     print('AC_EXPORT_OUT %s' % out)
 
 
