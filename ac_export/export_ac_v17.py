@@ -169,7 +169,10 @@ def flat_image(material):
     red/white kerb blocks stop reading as kerbs, so give them their colour
     as a tiny texture instead.
     """
-    name = 'ACFLAT_%s.png' % safe(material.name)
+    # Short name on purpose: the window materials produced 57-character
+    # filenames and ksEditor left their txDiffuse NULL, which blocks the
+    # KN5 save. A digest keeps them unique without the length.
+    name = 'ACF_%s.png' % hashlib.md5(material.name.encode('utf8')).hexdigest()[:10]
     img = bpy.data.images.get(name)
     if img is None:
         img = bpy.data.images.new(name, 8, 8, alpha=False)
