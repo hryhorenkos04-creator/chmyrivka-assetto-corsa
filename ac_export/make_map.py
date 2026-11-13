@@ -61,14 +61,29 @@ def draw(points, width, height, pen_width):
     return image
 
 
+def fitting_scale(points):
+    """The px/m that keeps the longer side inside MAX_SIZE.
+
+    AC stops drawing the whole picture once a side passes MAX_SIZE and
+    shows a zoomed fragment instead, so a 5.7 km lap cannot be mapped at
+    the 1 px/m the shorter Kunos circuits use. Shrinking here rather than
+    clamping afterwards keeps the marker maths exact: SCALE_FACTOR is
+    whatever we drew at.
+    """
+    span = max(max(p[0] for p in points) - min(p[0] for p in points),
+               max(p[1] for p in points) - min(p[1] for p in points))
+    return (MAX_SIZE - 2 * MARGIN_PX) / span
+
+
 def main(a):
     points = axis(a.racing_line)
     out = Path(a.out).resolve()
     (out / 'data').mkdir(parents=True, exist_ok=True)
     (out / 'ui').mkdir(parents=True, exist_ok=True)
 
-    placed, width, height, x_offset, z_offset = place(points, a.scale)
-    pen = max(2, round(ROAD_WIDTH_M * a.scale))
+    scale = a.scale if a.scale else fitting_scale(points)
+    placed, width, height, x_offset, z_offset = place(points, scale)
+    pen = max(2, round(ROAD_WIDTH_M * scale))
     draw(placed, width, height, pen).save(out / 'map.png')
 
     (out / 'data' / 'map.ini').write_text('\n'.join([
@@ -76,7 +91,7 @@ def main(a):
         'WIDTH=%d' % width,
         'HEIGHT=%d' % height,
         'MARGIN=%d' % MARGIN_PX,
-        'SCALE_FACTOR=%.6f' % a.scale,
+        'SCALE_FACTOR=%.6f' % scale,
         'MAX_SIZE=%d' % MAX_SIZE,
         'X_OFFSET=%.3f' % x_offset,
         'Z_OFFSET=%.3f' % z_offset,
@@ -93,13 +108,14 @@ def main(a):
 
     print('AC_MAP map.png=%dx%d px  scale=%.3f px/m  pen=%d px  '
           'X_OFFSET=%.1f Z_OFFSET=%.1f  outline=%dpx'
-          % (width, height, a.scale, pen, x_offset, z_offset, a.outline))
+          % (width, height, scale, pen, x_offset, z_offset, a.outline))
 
 
 if __name__ == '__main__':
     p = argparse.ArgumentParser()
     p.add_argument('--racing-line', required=True, dest='racing_line')
     p.add_argument('--out', required=True, help='the track folder')
-    p.add_argument('--scale', type=float, default=1.0, help='pixels per metre')
+    p.add_argument('--scale', type=float, default=0.0,
+                   help='pixels per metre; 0 fits the lap inside MAX_SIZE')
     p.add_argument('--outline', type=int, default=512)
     main(p.parse_args())
