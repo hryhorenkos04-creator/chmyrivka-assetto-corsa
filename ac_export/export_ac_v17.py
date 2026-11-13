@@ -1142,18 +1142,28 @@ def main(a):
         # The track's own name goes on the drivable surfaces: AC reads the
         # AC_ nulls only from the first model, and the road has to stay one
         # piece of physics, so the bands divide the scenery alone.
-        chunks = [build_one(a, scene_path, out, band=None, spine=True,
-                            scenery=False, nulls=True)]
+        # The bands only depend on --chunks, so one chunk can be rebuilt on
+        # its own and dropped in beside the others: a change to one street
+        # costs a minute and one pass through ksEditor instead of seven.
         edges = [lap * i / a.chunks for i in range(a.chunks + 1)]
-        for index in range(a.chunks):
-            part = out.with_name('%s_s%d%s' % (out.stem, index + 1, out.suffix))
+        wanted = range(a.chunks + 1) if a.only_chunk is None else [a.only_chunk]
+        chunks = []
+        for index in wanted:
+            if index == 0:
+                chunks.append(build_one(a, scene_path, out, band=None,
+                                        spine=True, scenery=False, nulls=True))
+                continue
+            part = out.with_name('%s_s%d%s' % (out.stem, index, out.suffix))
             chunks.append(build_one(a, scene_path, part,
-                                    band=(edges[index], edges[index + 1]),
+                                    band=(edges[index - 1], edges[index]),
                                     spine=False, scenery=True, nulls=False))
         models = None
         if not a.dry_run:
-            names = [Path(c['fbx']).with_suffix('.kn5').name
-                     for c in chunks if c.get('fbx')]
+            # Named from --chunks rather than from what was built, so a
+            # single-chunk rebuild does not shrink the list to one model.
+            names = [out.with_suffix('.kn5').name] + [
+                out.with_name('%s_s%d.kn5' % (out.stem, i)).name
+                for i in range(1, a.chunks + 1)]
             models = str(write_models_ini(out.parent / 'models.ini', names))
 
     report = {
@@ -1183,6 +1193,10 @@ if __name__ == '__main__':
                    help="lap cuts the whole circuit into --chunks KN5 and writes models.ini")
     p.add_argument('--chunks', type=int, default=6,
                    help='scenery KN5 for mode lap; the drivable surfaces get one of their own')
+    p.add_argument('--only-chunk', type=int, default=None, dest='only_chunk',
+                   help='rebuild just this chunk of mode lap: 0 is the road, '
+                        '1..N the scenery bands. The bands come from --chunks, '
+                        'so pass the same value you built the rest with')
     p.add_argument('--dry-run', action='store_true', dest='dry_run',
                    help='count what each chunk would hold without writing FBX')
     p.add_argument('--drop-bevel-beyond', type=float, default=0.0,
