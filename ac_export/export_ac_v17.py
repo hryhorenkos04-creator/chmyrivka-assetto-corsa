@@ -110,9 +110,10 @@ def unpack_textures(out_dir, keep_hdr=False):
     every texture. packed_file.data holds the original bytes, so writing
     those out costs no re-encode.
     """
-    # Beside the FBX, not in a subfolder: the export strips paths to bare
-    # filenames so ksEditor resolves them from the FBX's own directory.
-    tex = out_dir
+    # ksEditor resolves a stripped texture name against a texture/ folder
+    # beside the FBX, not the FBX's own directory: writing them anywhere
+    # else leaves every txDiffuse NULL and blocks the KN5 save.
+    tex = out_dir / 'texture'
     tex.mkdir(parents=True, exist_ok=True)
     written, skipped = [], []
     for img in bpy.data.images:
@@ -188,7 +189,8 @@ def wire_base_colour(scene, out_dir):
             node = pick_albedo(m)
             if node is None:
                 img = flat_image(m)
-                path = out_dir / img.name
+                path = out_dir / 'texture' / img.name
+                path.parent.mkdir(parents=True, exist_ok=True)
                 img.filepath_raw = str(path)
                 img.save()
                 node = m.node_tree.nodes.new('ShaderNodeTexImage')
@@ -211,6 +213,8 @@ PERSISTENCE_VARS = [('ksAmbient', 0.05), ('ksDiffuse', 0.8), ('ksSpecular', 0.8)
 
 
 def merge_materials(scene, out_dir, buckets=12):
+    out_dir = out_dir / 'texture'
+    out_dir.mkdir(parents=True, exist_ok=True)
     """Collapse every material onto a shared one per texture.
 
     The sector carries 284 materials and ksEditor fills each txDiffuse by
