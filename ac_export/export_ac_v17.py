@@ -760,12 +760,35 @@ def in_sector(ob, points, corridor):
 # into every chunk at once.
 LANDMARK = re.compile(r'Elevator|Industrial|MEM_|Memorial', re.I)
 
+# The woods are the other thing a corridor ruins, for the opposite reason:
+# not one object standing far off but a mass that goes on for hundreds of
+# metres. The forest and the two wood polygons cover 46 hectares and hold
+# 7.43M triangles between them -- more than the rest of the scene -- and a
+# 45 m corridor leaves a hedge with daylight behind it.
+#
+# The scene already carries the answer. Forest geometry is authored in
+# depth tiers, V09_Forest_near / _mid / _understorey, so the backdrop can
+# reach further than the individual trees without dragging the whole mass
+# along: near and mid are 2.1M across the lap where the separate Tree
+# objects are 5.1M.
+BACKDROP = re.compile(r'V\d+_Forest_(near|mid)', re.I)
 
-def is_landmark(ob, pattern):
+
+def matches(ob, pattern):
+    """True when the object or any of its materials matches the pattern."""
     if pattern.search(ob.name):
         return True
     return any(s.material and pattern.search(s.material.name)
                for s in ob.material_slots)
+
+
+def reach_for(ob, corridor, landmarks, backdrop, backdrop_reach):
+    """How far from the racing line this object is allowed to stand."""
+    if landmarks and matches(ob, landmarks):
+        return float('inf')
+    if backdrop and backdrop_reach > corridor and matches(ob, backdrop):
+        return backdrop_reach
+    return corridor
 
 
 def axis_arrays(rows, step=10.0):
@@ -951,6 +974,97 @@ def write_models_ini(path, files):
     return path
 
 
+# --- bands of equal weight ---------------------------------------------
+#
+# Cutting the lap into equal lengths cuts it into very unequal chunks: the
+# housing is not spread evenly, so a 974 m band through the village came to
+# 2.68M triangles and crashed ksEditor while the band through the fields
+# came to 356k. Patching that by narrowing the corridor on the heavy chunk
+# works, but it leaves that stretch visibly shallower than its neighbours.
+#
+# Weighing the lap first and placing the edges so each chunk carries the
+# same number of triangles lets every chunk keep the same corridor. The
+# edges are written next to the build, because a later single-chunk
+# rebuild has to reuse exactly the same ones or its seams will not meet
+# its neighbours'.
+
+EDGES_FILE = 'band_edges.json'
+
+
+def weigh_lap(scene_path, a, rows, bin_m=10.0):
+    """Triangles along the lap, in bins of chainage."""
+    bpy.ops.wm.open_mainfile(filepath=str(scene_path))
+    scene = bpy.context.scene
+    rename(scene)
+    axis_xy, axis_s = axis_arrays(rows)
+    lap = float(axis_s.max())
+    bins = np.zeros(int(lap // bin_m) + 2, dtype=np.int64)
+    landmarks = re.compile(a.landmarks, re.I) if a.landmarks else None
+    for ob in scene.objects:
+        if ob.type != 'MESH' or not ob.data.polygons or SPINE.match(ob.name):
+            continue
+        reach = reach_for(ob, a.corridor, landmarks, BACKDROP,
+                          a.backdrop_corridor)
+        station, gap = nearest_on_axis(face_centres(ob), axis_xy, axis_s)
+        counts = np.empty(len(ob.data.polygons), dtype=np.int32)
+        ob.data.polygons.foreach_get('loop_total', counts)
+        tris = np.maximum(counts - 2, 0)
+        keep = gap <= reach
+        if not keep.any():
+            continue
+        np.add.at(bins, (station[keep] // bin_m).astype(np.int64), tris[keep])
+    return bins, lap, bin_m
+
+
+def edges_of_equal_weight(bins, lap, bin_m, chunks):
+    """Chainages that split the lap into chunks of equal triangle count."""
+    cumulative = np.cumsum(bins)
+    total = float(cumulative[-1])
+    edges = [0.0]
+    for index in range(1, chunks):
+        target = total * index / chunks
+        at = int(np.searchsorted(cumulative, target))
+        edges.append(min(lap, (at + 1) * bin_m))
+    edges.append(lap)
+    # Monotonic even where a stretch is empty, so no band comes out
+    # inverted and silently selects nothing.
+    for index in range(1, len(edges)):
+        edges[index] = max(edges[index], edges[index - 1] + bin_m)
+    edges[-1] = lap
+    return edges
+
+
+def band_signature(a, chunks):
+    """The settings the edges depend on; anything else may change freely."""
+    return {'chunks': chunks, 'corridor': a.corridor,
+            'backdrop_corridor': a.backdrop_corridor,
+            'landmarks': a.landmarks}
+
+
+def load_edges(path, a, chunks):
+    """Edges from an earlier build, when they still describe this one."""
+    if not path.is_file():
+        return None
+    stored = json.loads(path.read_text(encoding='utf8'))
+    if stored.get('signature') != band_signature(a, chunks):
+        return None
+    return stored['edges']
+
+
+def save_edges(path, a, chunks, edges, bins, bin_m):
+    counts = []
+    cumulative = np.cumsum(bins)
+    for index in range(chunks):
+        lo = int(edges[index] // bin_m)
+        hi = min(int(edges[index + 1] // bin_m), len(cumulative) - 1)
+        counts.append(int(cumulative[hi] - (cumulative[lo - 1] if lo else 0)))
+    path.write_text(json.dumps(
+        {'signature': band_signature(a, chunks), 'edges': edges,
+         'triangles_per_chunk': counts, 'bin_m': bin_m},
+        ensure_ascii=False, indent=2), encoding='utf8')
+    return counts
+
+
 def place_nulls(scene, rows, a):
     """Grid slots, pit boxes and the start/finish timing gate."""
     origin, heading = at_station(rows, a.start_station)
@@ -1003,7 +1117,8 @@ def select_sector(scene, rows, a):
     return kept, culled, triangles, trimmed
 
 
-def select_band(scene, rows, a, band, spine, scenery, landmarks=LANDMARK):
+def select_band(scene, rows, a, band, spine, scenery,
+                landmarks=LANDMARK, backdrop=BACKDROP):
     """Station-banded selection for a whole-lap chunk.
 
     `spine` takes the drivable surfaces for the entire lap regardless of
@@ -1026,8 +1141,8 @@ def select_band(scene, rows, a, band, spine, scenery, landmarks=LANDMARK):
         if is_spine:
             take = spine
         elif scenery:
-            reach = (float('inf') if landmarks and is_landmark(ob, landmarks)
-                     else a.corridor)
+            reach = reach_for(ob, a.corridor, landmarks, backdrop,
+                              a.backdrop_corridor)
             if object_touches_band(ob, axis_xy, axis_s, a0, a1, lap, reach):
                 result = trim_to_band(ob, axis_xy, axis_s, a0, a1, lap, reach)
                 take = result is not None
@@ -1083,7 +1198,8 @@ def build_one(a, scene_path, out, band=None, spine=True, scenery=True, nulls=Tru
     if a.mode == 'lap':
         kept, culled, triangles, trimmed = select_band(
             scene, rows, a, band, spine, scenery,
-            landmarks=re.compile(a.landmarks, re.I) if a.landmarks else None)
+            landmarks=re.compile(a.landmarks, re.I) if a.landmarks else None,
+            backdrop=BACKDROP)
     else:
         kept, culled, triangles, trimmed = select_sector(scene, rows, a)
 
@@ -1162,13 +1278,30 @@ def main(a):
     else:
         rows = line_samples(a.racing_line or scene_path.parent / LINE_REL)
         lap = max(r['map_s_m'] for r in rows)
+        edges = None
+        if a.balance:
+            # Deterministic from the scene and these settings, so a
+            # single-chunk rebuild that misses the cache recomputes the
+            # same edges rather than quietly shifting its seams.
+            out.parent.mkdir(parents=True, exist_ok=True)
+            edges_path = out.parent / EDGES_FILE
+            edges = load_edges(edges_path, a, a.chunks)
+            if edges is None:
+                bins, measured, bin_m = weigh_lap(scene_path, a, rows)
+                edges = edges_of_equal_weight(bins, measured, bin_m, a.chunks)
+                counts = save_edges(edges_path, a, a.chunks, edges, bins, bin_m)
+                print('AC_BANDS ' + ' '.join('%.0f' % e for e in edges))
+                print('AC_BAND_TRIANGLES ' + ' '.join(str(c) for c in counts))
+            else:
+                print('AC_BANDS_CACHED ' + ' '.join('%.0f' % e for e in edges))
         # The track's own name goes on the drivable surfaces: AC reads the
         # AC_ nulls only from the first model, and the road has to stay one
         # piece of physics, so the bands divide the scenery alone.
         # The bands only depend on --chunks, so one chunk can be rebuilt on
         # its own and dropped in beside the others: a change to one street
         # costs a minute and one pass through ksEditor instead of seven.
-        edges = [lap * i / a.chunks for i in range(a.chunks + 1)]
+        if edges is None:
+            edges = [lap * i / a.chunks for i in range(a.chunks + 1)]
         wanted = range(a.chunks + 1) if a.only_chunk is None else [a.only_chunk]
         chunks = []
         for index in wanted:
@@ -1193,6 +1326,7 @@ def main(a):
         'mode': a.mode, 'scene': str(scene_path), 'chunks': chunks,
         'models_ini': models, 'corridor': a.corridor,
         'drop_bevel_beyond': a.drop_bevel_beyond,
+        'balanced_bands': a.balance, 'backdrop_corridor': a.backdrop_corridor,
         'start_station_map_m': a.start_station, 'flip_spawn': a.flip,
         'grid_slots': a.grid, 'dry_run': a.dry_run,
         'sector_map_m': [a.sector_from, a.sector_to] if a.mode == 'sector' else None,
@@ -1216,6 +1350,15 @@ if __name__ == '__main__':
                    help="lap cuts the whole circuit into --chunks KN5 and writes models.ini")
     p.add_argument('--chunks', type=int, default=6,
                    help='scenery KN5 for mode lap; the drivable surfaces get one of their own')
+    p.add_argument('--balance', action='store_true',
+                   help='weigh the lap first and place the band edges so every '
+                        'chunk carries the same triangle count, instead of '
+                        'cutting it into equal lengths')
+    p.add_argument('--backdrop-corridor', type=float, default=0.0,
+                   dest='backdrop_corridor',
+                   help='how far the forest backdrop tiers may stand from the '
+                        'racing line, when further than --corridor; 0 keeps them '
+                        'on the ordinary corridor and the woods end in daylight')
     p.add_argument('--landmarks', default=LANDMARK.pattern,
                    help='objects matching this (by name or material) ignore --corridor, '
                         'because landmarks stand back from the road; empty string '
