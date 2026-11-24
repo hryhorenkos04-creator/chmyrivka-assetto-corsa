@@ -422,6 +422,15 @@ def normal_map(out_dir, source_name, flip_green=True, size=1024, cache={}):
     small = rgba[np.ix_(rows, cols)].copy()
     if flip_green:
         small[:, :, 1] = 1.0 - small[:, :, 1]
+    # JPEG left these vectors short -- 0.65 on the grass, 0.87 on the
+    # concrete, against the 1.0 a tangent-space normal should carry. A
+    # shader that normalises recovers the direction either way, but one
+    # that does not reads short vectors as a flatter surface, so they are
+    # put back on the unit sphere here where it costs nothing.
+    vector = small[:, :, :3] * 2.0 - 1.0
+    length = np.linalg.norm(vector, axis=-1, keepdims=True)
+    vector = np.divide(vector, length, out=vector, where=length > 1e-4)
+    small[:, :, :3] = np.clip(vector * 0.5 + 0.5, 0.0, 1.0)
     small[:, :, 3] = 1.0
     # A normal map is data, not a picture: writing it through the sRGB
     # transfer curve would bend every vector it stores.
