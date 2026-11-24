@@ -236,11 +236,70 @@ def wire_base_colour(scene, out_dir):
     return done, flats, skipped, chosen, alpha
 
 
+def word_pattern(words):
+    """Match these words only where a word actually begins.
+
+    Plain substring matching put metal on the ground and foliage on the
+    road: 'tin' is inside Continuous, so V15_Continuous_Soil_Grass came
+    out galvanised, and 'tree' is inside Street, so V09_Local_Street_Asphalt
+    came out a leaf. 'shed' inside polished did the same to a rail head.
+
+    A word boundary alone is too strict, because these names run words
+    together with capitals and nothing else: FineGrass and LightStone
+    match on purpose. So a word begins either after something that is not
+    a letter, or where a capital follows a small letter.
+    """
+    parts = []
+    for word in words:
+        parts.append(r'(?:^|[^A-Za-z])%s' % word)
+        parts.append(r'(?-i:(?<=[a-z])%s)' % (word[:1].upper() + word[1:]))
+    return re.compile('|'.join(parts), re.I)
+
+
 # ksEditor's own defaults (0.05 ambient, 0.8 specular) leave everything
 # turned away from the sun pure black and make matte walls glossy. Kunos
-# track materials sit nearer these values.
-PERSISTENCE_VARS = [('ksAmbient', 0.4), ('ksDiffuse', 0.6), ('ksSpecular', 0.1),
-                    ('ksSpecularEXP', 30), ('ksEmissive', 0), ('ksAlphaRef', 0)]
+# track materials sit nearer the values below.
+#
+# One set for everything, though, is why the place looked as if it were
+# cut from a single substance: glass, galvanised sheet, leaves, asphalt
+# and plaster all answered the sun identically. What separates materials
+# to the eye is less their colour than how sharply they return light, so
+# each class gets its own.
+SHADING = {
+    'glass':   [('ksAmbient', 0.35), ('ksDiffuse', 0.35), ('ksSpecular', 0.90),
+                ('ksSpecularEXP', 120), ('ksEmissive', 0), ('ksAlphaRef', 0)],
+    'metal':   [('ksAmbient', 0.40), ('ksDiffuse', 0.55), ('ksSpecular', 0.45),
+                ('ksSpecularEXP', 60), ('ksEmissive', 0), ('ksAlphaRef', 0)],
+    'foliage': [('ksAmbient', 0.55), ('ksDiffuse', 0.60), ('ksSpecular', 0.02),
+                ('ksSpecularEXP', 10), ('ksEmissive', 0), ('ksAlphaRef', 0)],
+    'road':    [('ksAmbient', 0.35), ('ksDiffuse', 0.60), ('ksSpecular', 0.18),
+                ('ksSpecularEXP', 45), ('ksEmissive', 0), ('ksAlphaRef', 0)],
+    'earth':   [('ksAmbient', 0.45), ('ksDiffuse', 0.62), ('ksSpecular', 0.03),
+                ('ksSpecularEXP', 8), ('ksEmissive', 0), ('ksAlphaRef', 0)],
+    'default': [('ksAmbient', 0.40), ('ksDiffuse', 0.60), ('ksSpecular', 0.10),
+                ('ksSpecularEXP', 30), ('ksEmissive', 0), ('ksAlphaRef', 0)],
+}
+PERSISTENCE_VARS = SHADING['default']
+
+SHADING_CLASS = [
+    ('glass', word_pattern('glass glazing lens mirror window'.split())),
+    ('metal', word_pattern('metal galvan steel iron chrome armco alu gutter '
+                           'seam rail wire hardware tin'.split())),
+    ('road', word_pattern('asphalt road tarmac kerb curb circuit pit'.split())),
+    ('foliage', word_pattern('foliage leaf leaves grass verge hedge tree bark '
+                             'canopy understorey crown shrub turf broadleaf '
+                             'singleleaf pine birch'.split())),
+    ('earth', word_pattern('soil dirt earth gravel pebble sand ground compact '
+                           'mud land'.split())),
+]
+
+
+def shading_class(name):
+    """Which lighting response this material should get."""
+    for key, pattern in SHADING_CLASS:
+        if pattern.search(name):
+            return key
+    return 'default'
 
 
 # --- grain on the untextured materials ---------------------------------
@@ -266,13 +325,14 @@ PERSISTENCE_VARS = [('ksAmbient', 0.4), ('ksDiffuse', 0.6), ('ksSpecular', 0.1),
 # painted, metal and timber things are taken out first, and only then is
 # anything matched by what it is part of.
 TILEABLE = [
-    (re.compile(r'brick', re.I), 'red_brick_diff_2k.jpg', 1.2),
-    (re.compile(r'pebble|gravel|shingle', re.I), 'dirt_diff_2k.jpg', 1.6),
-    (re.compile(r'grass|verge|lawn|hedge|turf', re.I), 'grass001_diff_2k.jpg', 1.5),
-    (re.compile(r'wall|render|plaster|facade|house|concrete|kerb|plaza|slab|'
-                r'paving|stone|cap|crown|sill|chimney|porch|shed|curb|step|'
-                r'plinth|canopy', re.I), 'rough_concrete_diff_2k.jpg', 2.0),
-    (re.compile(r'soil|dirt|earth|ground|land|yard|compact', re.I),
+    (word_pattern(['brick']), 'red_brick_diff_2k.jpg', 1.2),
+    (word_pattern('pebble gravel shingle'.split()), 'dirt_diff_2k.jpg', 1.6),
+    (word_pattern('grass verge lawn hedge turf'.split()),
+     'grass001_diff_2k.jpg', 1.5),
+    (word_pattern('wall render plaster facade house concrete kerb plaza slab '
+                  'paving stone cap crown sill chimney porch shed curb step '
+                  'plinth canopy'.split()), 'rough_concrete_diff_2k.jpg', 2.0),
+    (word_pattern('soil dirt earth ground land yard compact'.split()),
      'dirt_diff_2k.jpg', 2.5),
 ]
 
@@ -280,10 +340,10 @@ TILEABLE = [
 # painted, polished or planed it is worse than the flat colour it
 # replaces: concrete stucco on a window frame, on a picket fence or on a
 # folded metal roof reads as dirt, not as material.
-SMOOTH = re.compile(r'glass|glazing|metal|rubber|wire|chrome|steel|galvan|'
-                    r'armco|lens|led|plaque|gasket|paint|mirror|alu|'
-                    r'iron|timber|picket|wood|frame|seam|gutter|trim|'
-                    r'sign|mesh|insulator|rust|slate|ceramic', re.I)
+SMOOTH = word_pattern('glass glazing metal rubber wire chrome steel galvan '
+                      'armco lens led plaque gasket paint mirror alu iron '
+                      'timber picket wood frame seam gutter trim sign mesh '
+                      'insulator rust slate ceramic rail'.split())
 
 
 def grain_for(name):
@@ -407,7 +467,13 @@ NORMAL_FOR = {
 
 
 def normal_map(out_dir, source_name, flip_green=True, size=1024, cache={}):
-    """The Direct3D-facing copy of a source normal map, written once."""
+    """The written file name of a source normal map, facing Direct3D.
+
+    The cache holds names rather than datablocks on purpose. Every chunk
+    reopens the scene, which clears bpy.data, and a cached Image then
+    raises ReferenceError: StructRNA of type Image has been removed. The
+    file on disk is what the persistence refers to anyway.
+    """
     key = (source_name, flip_green, size)
     if key in cache:
         return cache[key]
@@ -419,10 +485,9 @@ def normal_map(out_dir, source_name, flip_green=True, size=1024, cache={}):
         return None
     name = 'ACN_%s.png' % hashlib.md5(
         ('%s|%s' % (source, flip_green)).encode('utf8')).hexdigest()[:10]
-    existing = bpy.data.images.get(name)
-    if existing is not None:
-        cache[key] = existing
-        return existing
+    if (out_dir / name).is_file():
+        cache[key] = name
+        return name
     buf = np.empty(width * height * 4, dtype=np.float32)
     try:
         img.pixels.foreach_get(buf)
@@ -453,8 +518,81 @@ def normal_map(out_dir, source_name, flip_green=True, size=1024, cache={}):
     out.file_format = 'PNG'
     out.filepath_raw = str(out_dir / name)
     out.save()
-    cache[key] = out
-    return out
+    cache[key] = name
+    return name
+
+
+# Three surfaces carry no usable relief map of their own. The asphalt's
+# measures flat to within 0.015 -- it stores nothing -- and the two bark
+# maps have an empty blue channel, so neither is a tangent-space normal.
+# All three are opaque photographs of rough material, and their own
+# brightness is a serviceable height field: dark is a pit, light is a
+# face turned to the light. Derived this way the asphalt's contrast under
+# a low sun goes up fourfold and the bark gains the grain it should have.
+#
+# The albedo is checked first for the one thing that would ruin this:
+# painted markings would read as trenches. The asphalt has none -- 0.000%
+# of it is more than four deviations above the mean, and its channels sit
+# within 0.003 of each other, so it is plain grey aggregate.
+DERIVED_NORMAL = {
+    'v10_surface_asphalt_albedo_2k.png': 1.2,
+    'dark_bark_diffuse.png': 1.0,
+    'birch_bark_diffuse.png': 1.0,
+}
+
+
+def encode_normal(vector, flip_green):
+    """Pack a unit normal field into image bytes, facing the engine."""
+    out = vector.copy()
+    if flip_green:
+        out[:, :, 1] = -out[:, :, 1]
+    return np.clip(out * 0.5 + 0.5, 0.0, 1.0)
+
+
+def derived_normal(out_dir, image_name, flip_green=True, size=1024, cache={}):
+    """A relief map built from a photograph's own brightness."""
+    key = (image_name, flip_green, size)
+    if key in cache:
+        return cache[key]
+    strength = DERIVED_NORMAL.get(image_name)
+    img = bpy.data.images.get(image_name) if strength else None
+    width, height = img.size if img else (0, 0)
+    if not width or not height:
+        cache[key] = None
+        return None
+    name = 'ACD_%s.png' % hashlib.md5(
+        ('%s|%s' % (image_name, flip_green)).encode('utf8')).hexdigest()[:10]
+    if (out_dir / name).is_file():
+        cache[key] = name
+        return name
+    buf = np.empty(width * height * 4, dtype=np.float32)
+    try:
+        img.pixels.foreach_get(buf)
+    except (RuntimeError, AttributeError):
+        cache[key] = None
+        return None
+    rgb = buf.reshape(height, width, 4)[:, :, :3]
+    rows = np.linspace(0, height - 1, size).astype(int)
+    cols = np.linspace(0, width - 1, size).astype(int)
+    small = rgb[np.ix_(rows, cols)]
+    field = small @ np.array([0.2126, 0.7152, 0.0722], dtype=np.float32)
+    # Standardised, so the strength means the same thing whatever the
+    # photograph's own contrast happens to be.
+    field = (field - field.mean()) / max(float(field.std()), 1e-4)
+    gx = np.gradient(field, axis=1) * strength
+    gy = np.gradient(field, axis=0) * strength
+    vector = np.stack([-gx, gy, np.ones_like(field)], axis=-1)
+    vector /= np.maximum(np.linalg.norm(vector, axis=-1, keepdims=True), 1e-6)
+    rgba = np.ones((size, size, 4), dtype=np.float32)
+    rgba[:, :, :3] = encode_normal(vector, flip_green)
+    out = bpy.data.images.new(name, size, size, alpha=False, is_data=True)
+    out.colorspace_settings.name = 'Non-Color'
+    out.pixels.foreach_set(rgba.ravel())
+    out.file_format = 'PNG'
+    out.filepath_raw = str(out_dir / name)
+    out.save()
+    cache[key] = name
+    return name
 
 
 def cube_project(ob, tile):
@@ -503,7 +641,7 @@ def merge_materials(scene, out_dir, buckets=12, grain=True, tile=2.0,
     quantised into a few shades so a street of houses does not produce a
     material per wall.
     """
-    shared, assignments, alpha, normals = {}, {}, set(), {}
+    shared, assignments, alpha, normals, classes = {}, {}, set(), {}, {}
     relief_for = {}
     step = 1.0 / buckets
     projected = 0
@@ -523,10 +661,15 @@ def merge_materials(scene, out_dir, buckets=12, grain=True, tile=2.0,
             m = slot.material
             if m is None or not m.node_tree:
                 continue
+            cls = shading_class(m.name)
             node = pick_albedo(m)
             if node is not None:
                 key = safe_file(node.image.name)
                 image = node.image
+                if relief:
+                    bump = derived_normal(out_dir, node.image.name, flip_green)
+                    if bump is not None:
+                        relief_for[key] = safe_file(bump)
             else:
                 shade = tuple(min(buckets - 1, int(v / step))
                               for v in m.diffuse_color[:3])
@@ -545,9 +688,12 @@ def merge_materials(scene, out_dir, buckets=12, grain=True, tile=2.0,
                         # the same photograph shares one relief map.
                         bump = normal_map(out_dir, source, flip_green)
                         if bump is not None:
-                            relief_for[key] = safe_file(bump.name)
+                            relief_for[key] = safe_file(bump)
                 else:
-                    key = 'ACSHADE_%d_%d_%d.png' % shade
+                    # The class goes in the key so a pane of glass and a
+                    # galvanised post of the same shade do not merge into
+                    # one material and then have to share one response.
+                    key = 'ACSHADE_%s_%d_%d_%d.png' % ((cls[:4],) + shade)
                     image = shared.get(key, (None, None))[1]
                 if image is None:
                     image = bpy.data.images.new(key, 8, 8, alpha=False)
@@ -557,6 +703,7 @@ def merge_materials(scene, out_dir, buckets=12, grain=True, tile=2.0,
                     image.filepath_raw = str(out_dir / key)
                     image.save()
             if key not in shared:
+                classes['AC_' + Path(key).stem] = cls
                 if key in relief_for:
                     normals['AC_' + Path(key).stem] = relief_for[key]
                 merged = bpy.data.materials.new('AC_' + Path(key).stem)
@@ -576,7 +723,9 @@ def merge_materials(scene, out_dir, buckets=12, grain=True, tile=2.0,
     if normals:
         print('AC_RELIEF materials=%d maps=%d'
               % (len(normals), len(set(normals.values()))))
-    return assignments, alpha, normals
+    spread = collections.Counter(classes.values())
+    print('AC_SHADING ' + ' '.join('%s=%d' % kv for kv in sorted(spread.items())))
+    return assignments, alpha, normals, classes
 
 
 def material_order(scene, assignments):
@@ -726,7 +875,8 @@ def node_sections(fbx_name, scene):
     return lines
 
 
-def write_persistence(fbx, assignments, scene=None, alpha=(), normals=None):
+def write_persistence(fbx, assignments, scene=None, alpha=(), normals=None,
+                      classes=None):
     """Write ksEditor's <name>.fbx.ini so it loads the textures itself.
 
     ksEditor does not read Blender's material links: every txDiffuse slot
@@ -755,8 +905,10 @@ def write_persistence(fbx, assignments, scene=None, alpha=(), normals=None):
                   'SHADER=' + shader,
                   'ALPHABLEND=0',
                   'ALPHATEST=%d' % (1 if cut else 0),
-                  'DEPTHMODE=0', 'VARCOUNT=%d' % len(PERSISTENCE_VARS)]
-        for slot, (var, value) in enumerate(PERSISTENCE_VARS):
+                  'DEPTHMODE=0']
+        tuning = SHADING[(classes or {}).get(material, 'default')]
+        lines += ['VARCOUNT=%d' % len(tuning)]
+        for slot, (var, value) in enumerate(tuning):
             if cut and var == 'ksAlphaRef':
                 value = 0.35
             lines += ['VAR_%d_NAME=%s' % (slot, var),
@@ -1123,6 +1275,8 @@ def weigh_lap(scene_path, a, rows, bin_m=10.0):
     bpy.ops.wm.open_mainfile(filepath=str(scene_path))
     scene = bpy.context.scene
     rename(scene)
+    if a.conifer_to > a.conifer_from:
+        make_conifer(scene, rows, a.conifer_from, a.conifer_to)
     axis_xy, axis_s = axis_arrays(rows)
     lap = float(axis_s.max())
     bins = np.zeros(int(lap // bin_m) + 2, dtype=np.int64)
@@ -1165,7 +1319,8 @@ def band_signature(a, chunks):
     """The settings the edges depend on; anything else may change freely."""
     return {'chunks': chunks, 'corridor': a.corridor,
             'backdrop_corridor': a.backdrop_corridor,
-            'landmarks': a.landmarks}
+            'landmarks': a.landmarks,
+            'conifer': [a.conifer_from, a.conifer_to]}
 
 
 def load_edges(path, a, chunks):
@@ -1190,6 +1345,90 @@ def save_edges(path, a, chunks, edges, bins, bin_m):
          'triangles_per_chunk': counts, 'bin_m': bin_m},
         ensure_ascii=False, indent=2), encoding='utf8')
     return counts
+
+
+# --- species -----------------------------------------------------------
+#
+# A resident says the stretch from the T-34 memorial to Sennaya street is
+# pine, on both sides, with the cemetery standing among it on the right.
+# The scene has 166 conifers there against 7596 trees -- 2% -- because
+# OpenStreetMap's natural=wood carries no species and the scene does not
+# invent what the source omits. The testimony is the missing source.
+#
+# Swapping them is cheap because the scene instances its trees: 3815
+# broadleaf objects share 46 meshes, and the pine is two of them, one per
+# LOD. A tree is a transform pointing at a mesh, so changing the species
+# is changing which mesh it points at. Nothing about the generator or the
+# .blend is touched; this happens on the way out, like the renaming and
+# the material merge.
+#
+# Height is restored afterwards. A ten-metre maple should become a
+# ten-metre pine, not whatever height the pine mesh happens to be once it
+# inherits the maple's scale.
+
+CONIFER_TARGET = 'V10_Tree_pine_0_%s'
+TREE_MESH = re.compile(r'_Tree_', re.I)
+
+
+def make_conifer(scene, rows, lo, hi):
+    """Point the broadleaf trees in a stretch of lap at the pine mesh."""
+    targets = {}
+    for lod in ('LOD0', 'LOD1'):
+        mesh = bpy.data.meshes.get(CONIFER_TARGET % lod)
+        if mesh is not None:
+            targets[lod] = mesh
+    if not targets:
+        return 0
+    axis_xy, axis_s = axis_arrays(rows)
+    heights = {}
+
+    def local_height(mesh):
+        """The mesh's own Z extent, straight from its vertices.
+
+        Not ob.dimensions: that reads a bound box the depsgraph has not
+        recomputed yet, so immediately after ob.data is reassigned it
+        still reports the old mesh. Measured here, the correction came
+        out as exactly 1.0 every time and the trees silently kept the
+        wrong scale.
+        """
+        if mesh.name not in heights:
+            co = np.empty(len(mesh.vertices) * 3, dtype=np.float64)
+            mesh.vertices.foreach_get('co', co)
+            z = co.reshape(-1, 3)[:, 2]
+            heights[mesh.name] = float(z.max() - z.min()) if len(z) else 0.0
+        return heights[mesh.name]
+
+    swapped = 0
+    for ob in scene.objects:
+        if ob.type != 'MESH' or not ob.data.polygons:
+            continue
+        base = ob.data.name.split('.')[0]
+        if not TREE_MESH.search(base) or 'pine' in base.lower():
+            continue
+        centre = np.array([(ob.matrix_world @
+                            (sum((Vector(c) for c in ob.bound_box), Vector()) / 8.0))[:2]])
+        station, _ = nearest_on_axis(centre, axis_xy, axis_s)
+        if not (lo <= station[0] < hi):
+            continue
+        mesh = targets.get('LOD0' if base.endswith('LOD0') else 'LOD1')
+        if mesh is None:
+            continue
+        was = local_height(ob.data)
+        now = local_height(mesh)
+        ob.data = mesh
+        # Slots can override the mesh's own materials; letting the data
+        # win is what puts needles on the needle geometry.
+        for slot in ob.material_slots:
+            slot.link = 'DATA'
+        # Both heights are local, and the object's own scale multiplies
+        # each the same way, so their ratio is the correction whatever
+        # that scale happens to be -- and no depsgraph is involved.
+        if was > 1e-3 and now > 1e-3:
+            ob.scale = ob.scale * (was / now)
+        swapped += 1
+    if swapped:
+        print('AC_CONIFER trees=%d from=%.0f to=%.0f' % (swapped, lo, hi))
+    return swapped
 
 
 def place_nulls(scene, rows, a):
@@ -1331,6 +1570,8 @@ def build_one(a, scene_path, out, band=None, spine=True, scenery=True, nulls=Tru
     scene = bpy.context.scene
     rows = line_samples(a.racing_line or scene_path.parent / LINE_REL)
     applied, visual = rename(scene)
+    conifers = (make_conifer(scene, rows, a.conifer_from, a.conifer_to)
+                if a.conifer_to > a.conifer_from else 0)
     origin = place_nulls(scene, rows, a) if nulls else None
 
     for ob in scene.objects:
@@ -1361,13 +1602,13 @@ def build_one(a, scene_path, out, band=None, spine=True, scenery=True, nulls=Tru
     out.parent.mkdir(parents=True, exist_ok=True)
     textures, skipped_textures = unpack_textures(out.parent, a.keep_hdr)
     if a.merge:
-        chosen, alpha, normals = merge_materials(
+        chosen, alpha, normals, classes = merge_materials(
             scene, out.parent, grain=a.grain, tile=a.grain_tile,
             relief=a.relief, flip_green=not a.normals_gl)
         wired, flats, no_bsdf = [], [], []
     else:
         wired, flats, no_bsdf, chosen, alpha = wire_base_colour(scene, out.parent)
-        normals = {}
+        normals, classes = {}, {}
 
     if a.dry_run:
         triangles = evaluated_triangles(scene)
@@ -1385,7 +1626,7 @@ def build_one(a, scene_path, out, band=None, spine=True, scenery=True, nulls=Tru
         object_types={'MESH', 'EMPTY'}, use_mesh_modifiers=True,
         mesh_smooth_type='FACE', path_mode='STRIP', embed_textures=False,
         bake_space_transform=a.bake_transform)
-    persistence = (write_persistence(out, chosen, scene, alpha, normals)
+    persistence = (write_persistence(out, chosen, scene, alpha, normals, classes)
                    if chosen else None)
 
     print('AC_CHUNK %s objects=%d culled=%d triangles=%d trimmed=%d split=%d '
@@ -1399,6 +1640,7 @@ def build_one(a, scene_path, out, band=None, spine=True, scenery=True, nulls=Tru
         'trimmed_meshes': trimmed, 'split_meshes': split,
         'bevel_modifiers_off': bevels[0], 'bevel_objects': bevels[1],
         'trunks_thinned': trunks, 'trunk_ratio': a.trunk_ratio,
+        'conifers_swapped': conifers,
         'alpha_tested': sorted(alpha), 'materials': len(chosen),
         'relief_materials': len(normals),
         'persistence': str(persistence) if persistence else None,
@@ -1494,6 +1736,11 @@ if __name__ == '__main__':
                    help="lap cuts the whole circuit into --chunks KN5 and writes models.ini")
     p.add_argument('--chunks', type=int, default=6,
                    help='scenery KN5 for mode lap; the drivable surfaces get one of their own')
+    p.add_argument('--conifer-from', type=float, default=0.0, dest='conifer_from',
+                   help='chainage where the pine stretch starts')
+    p.add_argument('--conifer-to', type=float, default=0.0, dest='conifer_to',
+                   help='chainage where it ends; equal to --conifer-from leaves '
+                        'every species as the scene placed it')
     p.add_argument('--relief', action='store_true',
                    help='give the tinted walls their source photograph\'s normal '
                         'map, so brick is raised rather than drawn on')
