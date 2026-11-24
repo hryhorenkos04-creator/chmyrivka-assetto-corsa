@@ -238,9 +238,48 @@ def wire_base_colour(scene, out_dir):
 
 # ksEditor's own defaults (0.05 ambient, 0.8 specular) leave everything
 # turned away from the sun pure black and make matte walls glossy. Kunos
-# track materials sit nearer these values.
-PERSISTENCE_VARS = [('ksAmbient', 0.4), ('ksDiffuse', 0.6), ('ksSpecular', 0.1),
-                    ('ksSpecularEXP', 30), ('ksEmissive', 0), ('ksAlphaRef', 0)]
+# track materials sit nearer the values below.
+#
+# One set for everything, though, is why the place looked as if it were
+# cut from a single substance: glass, galvanised sheet, leaves, asphalt
+# and plaster all answered the sun identically. What separates materials
+# to the eye is less their colour than how sharply they return light, so
+# each class gets its own.
+SHADING = {
+    'glass':   [('ksAmbient', 0.35), ('ksDiffuse', 0.35), ('ksSpecular', 0.90),
+                ('ksSpecularEXP', 120), ('ksEmissive', 0), ('ksAlphaRef', 0)],
+    'metal':   [('ksAmbient', 0.40), ('ksDiffuse', 0.55), ('ksSpecular', 0.45),
+                ('ksSpecularEXP', 60), ('ksEmissive', 0), ('ksAlphaRef', 0)],
+    'foliage': [('ksAmbient', 0.55), ('ksDiffuse', 0.60), ('ksSpecular', 0.02),
+                ('ksSpecularEXP', 10), ('ksEmissive', 0), ('ksAlphaRef', 0)],
+    'road':    [('ksAmbient', 0.35), ('ksDiffuse', 0.60), ('ksSpecular', 0.18),
+                ('ksSpecularEXP', 45), ('ksEmissive', 0), ('ksAlphaRef', 0)],
+    'earth':   [('ksAmbient', 0.45), ('ksDiffuse', 0.62), ('ksSpecular', 0.03),
+                ('ksSpecularEXP', 8), ('ksEmissive', 0), ('ksAlphaRef', 0)],
+    'default': [('ksAmbient', 0.40), ('ksDiffuse', 0.60), ('ksSpecular', 0.10),
+                ('ksSpecularEXP', 30), ('ksEmissive', 0), ('ksAlphaRef', 0)],
+}
+PERSISTENCE_VARS = SHADING['default']
+
+SHADING_CLASS = [
+    ('glass', re.compile(r'glass|glazing|lens|mirror|window', re.I)),
+    ('metal', re.compile(r'metal|galvan|steel|iron|chrome|armco|alu|'
+                         r'gutter|seam|rail|wire|hardware|tin', re.I)),
+    ('foliage', re.compile(r'foliage|leaf|leaves|grass|verge|hedge|tree|'
+                           r'bark|canopy|understorey|crown|shrub|turf|'
+                           r'broadleaf|singleleaf|pine|birch', re.I)),
+    ('road', re.compile(r'asphalt|road|tarmac|kerb|curb|circuit|pit_', re.I)),
+    ('earth', re.compile(r'soil|dirt|earth|gravel|pebble|sand|ground|'
+                         r'compact|mud|land_', re.I)),
+]
+
+
+def shading_class(name):
+    """Which lighting response this material should get."""
+    for key, pattern in SHADING_CLASS:
+        if pattern.search(name):
+            return key
+    return 'default'
 
 
 # --- grain on the untextured materials ---------------------------------
@@ -503,7 +542,7 @@ def merge_materials(scene, out_dir, buckets=12, grain=True, tile=2.0,
     quantised into a few shades so a street of houses does not produce a
     material per wall.
     """
-    shared, assignments, alpha, normals = {}, {}, set(), {}
+    shared, assignments, alpha, normals, classes = {}, {}, set(), {}, {}
     relief_for = {}
     step = 1.0 / buckets
     projected = 0
@@ -523,6 +562,7 @@ def merge_materials(scene, out_dir, buckets=12, grain=True, tile=2.0,
             m = slot.material
             if m is None or not m.node_tree:
                 continue
+            cls = shading_class(m.name)
             node = pick_albedo(m)
             if node is not None:
                 key = safe_file(node.image.name)
@@ -547,7 +587,10 @@ def merge_materials(scene, out_dir, buckets=12, grain=True, tile=2.0,
                         if bump is not None:
                             relief_for[key] = safe_file(bump.name)
                 else:
-                    key = 'ACSHADE_%d_%d_%d.png' % shade
+                    # The class goes in the key so a pane of glass and a
+                    # galvanised post of the same shade do not merge into
+                    # one material and then have to share one response.
+                    key = 'ACSHADE_%s_%d_%d_%d.png' % ((cls[:4],) + shade)
                     image = shared.get(key, (None, None))[1]
                 if image is None:
                     image = bpy.data.images.new(key, 8, 8, alpha=False)
@@ -557,6 +600,7 @@ def merge_materials(scene, out_dir, buckets=12, grain=True, tile=2.0,
                     image.filepath_raw = str(out_dir / key)
                     image.save()
             if key not in shared:
+                classes['AC_' + Path(key).stem] = cls
                 if key in relief_for:
                     normals['AC_' + Path(key).stem] = relief_for[key]
                 merged = bpy.data.materials.new('AC_' + Path(key).stem)
@@ -576,7 +620,9 @@ def merge_materials(scene, out_dir, buckets=12, grain=True, tile=2.0,
     if normals:
         print('AC_RELIEF materials=%d maps=%d'
               % (len(normals), len(set(normals.values()))))
-    return assignments, alpha, normals
+    spread = collections.Counter(classes.values())
+    print('AC_SHADING ' + ' '.join('%s=%d' % kv for kv in sorted(spread.items())))
+    return assignments, alpha, normals, classes
 
 
 def material_order(scene, assignments):
@@ -726,7 +772,8 @@ def node_sections(fbx_name, scene):
     return lines
 
 
-def write_persistence(fbx, assignments, scene=None, alpha=(), normals=None):
+def write_persistence(fbx, assignments, scene=None, alpha=(), normals=None,
+                      classes=None):
     """Write ksEditor's <name>.fbx.ini so it loads the textures itself.
 
     ksEditor does not read Blender's material links: every txDiffuse slot
@@ -755,8 +802,10 @@ def write_persistence(fbx, assignments, scene=None, alpha=(), normals=None):
                   'SHADER=' + shader,
                   'ALPHABLEND=0',
                   'ALPHATEST=%d' % (1 if cut else 0),
-                  'DEPTHMODE=0', 'VARCOUNT=%d' % len(PERSISTENCE_VARS)]
-        for slot, (var, value) in enumerate(PERSISTENCE_VARS):
+                  'DEPTHMODE=0']
+        tuning = SHADING[(classes or {}).get(material, 'default')]
+        lines += ['VARCOUNT=%d' % len(tuning)]
+        for slot, (var, value) in enumerate(tuning):
             if cut and var == 'ksAlphaRef':
                 value = 0.35
             lines += ['VAR_%d_NAME=%s' % (slot, var),
@@ -1361,13 +1410,13 @@ def build_one(a, scene_path, out, band=None, spine=True, scenery=True, nulls=Tru
     out.parent.mkdir(parents=True, exist_ok=True)
     textures, skipped_textures = unpack_textures(out.parent, a.keep_hdr)
     if a.merge:
-        chosen, alpha, normals = merge_materials(
+        chosen, alpha, normals, classes = merge_materials(
             scene, out.parent, grain=a.grain, tile=a.grain_tile,
             relief=a.relief, flip_green=not a.normals_gl)
         wired, flats, no_bsdf = [], [], []
     else:
         wired, flats, no_bsdf, chosen, alpha = wire_base_colour(scene, out.parent)
-        normals = {}
+        normals, classes = {}, {}
 
     if a.dry_run:
         triangles = evaluated_triangles(scene)
@@ -1385,7 +1434,7 @@ def build_one(a, scene_path, out, band=None, spine=True, scenery=True, nulls=Tru
         object_types={'MESH', 'EMPTY'}, use_mesh_modifiers=True,
         mesh_smooth_type='FACE', path_mode='STRIP', embed_textures=False,
         bake_space_transform=a.bake_transform)
-    persistence = (write_persistence(out, chosen, scene, alpha, normals)
+    persistence = (write_persistence(out, chosen, scene, alpha, normals, classes)
                    if chosen else None)
 
     print('AC_CHUNK %s objects=%d culled=%d triangles=%d trimmed=%d split=%d '
