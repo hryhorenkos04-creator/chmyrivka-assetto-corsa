@@ -1210,8 +1210,21 @@ def place_nulls(scene, rows, a):
         null(scene, 'AC_PIT_%d' % slot,
              origin + offset - heading * (40.0 + slot * a.grid_spacing) + lift,
              heading, a.flip)
-    null(scene, 'AC_TIME_0_L', origin + side * (a.gate_width / 2.0))
-    null(scene, 'AC_TIME_0_R', origin - side * (a.gate_width / 2.0))
+    # AC_TIME_0 is the finish line; every further pair closes a sector, so
+    # one gate alone means a lap time and no splits at all. Spacing them by
+    # chainage from the start puts them at even distances round the lap.
+    lap = max(r['map_s_m'] for r in rows)
+    for gate in range(max(1, a.sectors)):
+        if gate == 0:
+            at, across = origin, side
+        else:
+            station = (a.start_station + lap * gate / a.sectors) % lap
+            at, forward = at_station(rows, station)
+            across = Vector((-forward.y, forward.x, 0.0))
+        null(scene, 'AC_TIME_%d_L' % gate, at + across * (a.gate_width / 2.0))
+        null(scene, 'AC_TIME_%d_R' % gate, at - across * (a.gate_width / 2.0))
+    # Hotlap mode starts from its own null and ignores the grid.
+    null(scene, 'AC_HOTLAP_START_0', origin + lift, heading, a.flip)
     return origin
 
 
@@ -1523,6 +1536,9 @@ if __name__ == '__main__':
                    help='keep whole scenery meshes instead of cutting them to the corridor')
     p.add_argument('--start-station', type=float, default=3800.0, dest='start_station')
     p.add_argument('--gate-width', type=float, default=14.0, dest='gate_width')
+    p.add_argument('--sectors', type=int, default=3,
+                   help='timing gates round the lap; 1 gives a lap time and no '
+                        'splits, 3 is what a circuit normally shows')
     p.add_argument('--grid', type=int, default=8,
                    help='starting slots and pit boxes; one leaves nobody to race')
     p.add_argument('--grid-spacing', type=float, default=9.0, dest='grid_spacing')
