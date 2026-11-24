@@ -1052,6 +1052,21 @@ LANDMARK = re.compile(r'Elevator|Industrial|MEM_|Memorial', re.I)
 # objects are 5.1M.
 BACKDROP = re.compile(r'V\d+_Forest_(near|mid)', re.I)
 
+# The circuit is a loop cut out of a real road network, and at two places
+# the road it is cut from carries on: the street feeding the start runs
+# 1426 m in the map where the lap only turns onto it, and past the
+# elevator the through road is tagged primary and goes straight on while
+# the lap turns off. Trimmed to the scenery corridor they both end in
+# mid-air forty-five metres out, which reads as scenery stopping rather
+# than as a junction.
+#
+# Roads get their own reach for that reason. They are cheap to keep --
+# the side roads and their verges are 37k triangles for the whole lap
+# against the circuit's own 30k -- and a road running to the horizon is
+# most of what makes a junction look like one.
+THROUGH_ROAD = word_pattern('SIDE_ROADS ROAD_SHOULDERS Side_road RAIL BALLAST '
+                            'SLEEPERS Crossing Railway'.split())
+
 
 def matches(ob, pattern):
     """True when the object or any of its materials matches the pattern."""
@@ -1061,10 +1076,13 @@ def matches(ob, pattern):
                for s in ob.material_slots)
 
 
-def reach_for(ob, corridor, landmarks, backdrop, backdrop_reach):
+def reach_for(ob, corridor, landmarks, backdrop, backdrop_reach,
+              roads=None, road_reach=0.0):
     """How far from the racing line this object is allowed to stand."""
     if landmarks and matches(ob, landmarks):
         return float('inf')
+    if roads and road_reach > corridor and matches(ob, roads):
+        return road_reach
     if backdrop and backdrop_reach > corridor and matches(ob, backdrop):
         return backdrop_reach
     return corridor
@@ -1285,7 +1303,7 @@ def weigh_lap(scene_path, a, rows, bin_m=10.0):
         if ob.type != 'MESH' or not ob.data.polygons or SPINE.match(ob.name):
             continue
         reach = reach_for(ob, a.corridor, landmarks, BACKDROP,
-                          a.backdrop_corridor)
+                          a.backdrop_corridor, THROUGH_ROAD, a.road_corridor)
         station, gap = nearest_on_axis(face_centres(ob), axis_xy, axis_s)
         counts = np.empty(len(ob.data.polygons), dtype=np.int32)
         ob.data.polygons.foreach_get('loop_total', counts)
@@ -1319,6 +1337,7 @@ def band_signature(a, chunks):
     """The settings the edges depend on; anything else may change freely."""
     return {'chunks': chunks, 'corridor': a.corridor,
             'backdrop_corridor': a.backdrop_corridor,
+            'road_corridor': a.road_corridor,
             'landmarks': a.landmarks,
             'conifer': [a.conifer_from, a.conifer_to]}
 
@@ -1431,6 +1450,71 @@ def make_conifer(scene, rows, lo, hi):
     return swapped
 
 
+# The two level crossings are one railway, and in the map it runs 735 m
+# from the circuit in one direction and 442 m in the other. Trimmed to
+# the scenery corridor the track became two short stubs of rail with
+# nothing between or beyond them.
+#
+# Worse, the rails stand 0.16 to 0.27 m above the asphalt they cross --
+# measured against the road's own height at the same chainage. Nobody has
+# hit one because rails carry no collision prefix and the car drives
+# through them, but a rail floating a quarter of a metre over the road is
+# the first thing an eye catches. A real crossing is flush: the railhead
+# sits a centimetre or two proud and the car thumps across it.
+#
+# Sinking the rail is the cheap way to get that. Raising the road to meet
+# it is what the builders do, but it would mean reshaping the surface the
+# car drives on; moving the rail changes only scenery. The shift tapers
+# out with distance from the racing line so the track rises back to its
+# own level once it leaves the junction, instead of bending along its
+# whole length.
+
+RAILHEAD = word_pattern('RAIL BALLAST SLEEPERS Crossing'.split())
+
+
+def sink_rails(scene, rows, clearance=0.02, flush_within=7.0, taper_to=18.0):
+    """Drop the rails into the road where they cross it."""
+    axis_xy, axis_s = axis_arrays(rows)
+    height = {}
+    for row in rows:
+        height[round(row['map_s_m'] / 5.0)] = row['z']
+    lowered = 0
+    for ob in scene.objects:
+        if ob.type != 'MESH' or not ob.data.polygons or not matches(ob, RAILHEAD):
+            continue
+        mesh = ob.data = ob.data.copy()
+        matrix = np.array(ob.matrix_world.to_4x4())
+        co = np.empty(len(mesh.vertices) * 3, dtype=np.float64)
+        mesh.vertices.foreach_get('co', co)
+        local = co.reshape(-1, 3)
+        world = local @ matrix[:3, :3].T + matrix[:3, 3]
+        station, gap = nearest_on_axis(world[:, :2], axis_xy, axis_s)
+        close = gap <= taper_to
+        if not close.any():
+            continue
+        road = np.array([height.get(round(s / 5.0), 0.0) for s in station])
+        # How far the railhead stands over the road, measured where it is
+        # closest, so one number moves the whole crossing rather than
+        # bending each vertex to its own neighbourhood.
+        over = float(np.median((world[:, 2] - road)[gap <= flush_within])) \
+            if (gap <= flush_within).any() else 0.0
+        if over <= clearance:
+            continue
+        # Full drop near the line, nothing past the taper, smooth between.
+        weight = np.clip((taper_to - gap) / max(taper_to - flush_within, 1e-3),
+                         0.0, 1.0)
+        shift = -(over - clearance) * weight
+        inverse = np.linalg.inv(matrix)
+        world[:, 2] += shift
+        moved = (np.c_[world, np.ones(len(world))] @ inverse.T)[:, :3]
+        mesh.vertices.foreach_set('co', moved.ravel())
+        mesh.update()
+        lowered += 1
+    if lowered:
+        print('AC_RAILS sunk=%d clearance=%.2fm' % (lowered, clearance))
+    return lowered
+
+
 def place_nulls(scene, rows, a):
     """Grid slots, pit boxes and the start/finish timing gate."""
     origin, heading = at_station(rows, a.start_station)
@@ -1521,7 +1605,8 @@ def select_band(scene, rows, a, band, spine, scenery,
             take = spine
         elif scenery:
             reach = reach_for(ob, a.corridor, landmarks, backdrop,
-                              a.backdrop_corridor)
+                              a.backdrop_corridor, THROUGH_ROAD,
+                              a.road_corridor)
             if object_touches_band(ob, axis_xy, axis_s, a0, a1, lap, reach):
                 result = trim_to_band(ob, axis_xy, axis_s, a0, a1, lap, reach)
                 take = result is not None
@@ -1572,6 +1657,7 @@ def build_one(a, scene_path, out, band=None, spine=True, scenery=True, nulls=Tru
     applied, visual = rename(scene)
     conifers = (make_conifer(scene, rows, a.conifer_from, a.conifer_to)
                 if a.conifer_to > a.conifer_from else 0)
+    rails = sink_rails(scene, rows, a.rail_clearance) if a.rail_clearance else 0
     origin = place_nulls(scene, rows, a) if nulls else None
 
     for ob in scene.objects:
@@ -1640,7 +1726,7 @@ def build_one(a, scene_path, out, band=None, spine=True, scenery=True, nulls=Tru
         'trimmed_meshes': trimmed, 'split_meshes': split,
         'bevel_modifiers_off': bevels[0], 'bevel_objects': bevels[1],
         'trunks_thinned': trunks, 'trunk_ratio': a.trunk_ratio,
-        'conifers_swapped': conifers,
+        'conifers_swapped': conifers, 'rails_sunk': rails,
         'alpha_tested': sorted(alpha), 'materials': len(chosen),
         'relief_materials': len(normals),
         'persistence': str(persistence) if persistence else None,
@@ -1752,6 +1838,16 @@ if __name__ == '__main__':
                    help='weigh the lap first and place the band edges so every '
                         'chunk carries the same triangle count, instead of '
                         'cutting it into equal lengths')
+    p.add_argument('--rail-clearance', type=float, default=0.02,
+                   dest='rail_clearance',
+                   help='metres the railhead may stand over the road it crosses; '
+                        '0 leaves the rails where the scene put them, a quarter '
+                        'of a metre up')
+    p.add_argument('--road-corridor', type=float, default=0.0,
+                   dest='road_corridor',
+                   help='how far the side roads and their verges may run from '
+                        'the racing line, when further than --corridor; the lap '
+                        'is cut out of a real network and its roads carry on')
     p.add_argument('--backdrop-corridor', type=float, default=0.0,
                    dest='backdrop_corridor',
                    help='how far the forest backdrop tiers may stand from the '
