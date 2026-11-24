@@ -27,6 +27,12 @@ SURFACES = [
     (r'^1(ROAD|PIT|GRASS|KERB|SAND|DIRT)', None),   # already prefixed, keep
     (r'^ROAD_SHOULDERS', 'ROAD'),
     (r'^SIDE_ROADS', 'ROAD'),
+    # The crossing meshes are local to the junctions -- 39 m from the line
+    # at most -- so making them solid cannot put a kerb out in a field.
+    # Once the rails sit 2 cm proud rather than a quarter of a metre, that
+    # is a thump rather than a wall, which is what a crossing should feel
+    # like. KERB carries the vibration AC already shakes the wheel with.
+    (r'^V07_Crossing', 'KERB'),
     (r'KERB|V08_Racing_kerbs', 'KERB'),
     (r'^VERGE_Gravel', 'DIRT'),
     (r'^VERGE_Grass', 'GRASS'),
@@ -1530,8 +1536,13 @@ def place_nulls(scene, rows, a):
         null(scene, 'AC_START_%d' % slot,
              origin + offset - heading * (row * a.grid_spacing) + lift,
              heading, a.flip)
+        # Pit boxes sat on the centreline, two and a half metres apart,
+        # which parks eight cars across the racing line forty metres
+        # behind the start. Moving them off to one side puts them where a
+        # paddock would be, out of the way of anyone coming past.
         null(scene, 'AC_PIT_%d' % slot,
-             origin + offset - heading * (40.0 + slot * a.grid_spacing) + lift,
+             origin + side * a.pit_offset
+             - heading * (40.0 + slot * a.grid_spacing) + lift,
              heading, a.flip)
     # AC_TIME_0 is the finish line; every further pair closes a sector, so
     # one gate alone means a lap time and no splits at all. Spacing them by
@@ -1886,6 +1897,9 @@ if __name__ == '__main__':
                    help='starting slots and pit boxes; one leaves nobody to race')
     p.add_argument('--grid-spacing', type=float, default=9.0, dest='grid_spacing')
     p.add_argument('--grid-offset', type=float, default=2.6, dest='grid_offset')
+    p.add_argument('--pit-offset', type=float, default=9.0, dest='pit_offset',
+                   help='metres to the side of the centreline the pit boxes '
+                        'stand; on it they park eight cars across the track')
     p.add_argument('--spawn-lift', type=float, default=0.15, dest='spawn_lift')
     p.add_argument('--flip', action='store_true', help='car spawns facing backwards')
     # ksEditor reads a plain export 100x too large: bake_space_transform folds

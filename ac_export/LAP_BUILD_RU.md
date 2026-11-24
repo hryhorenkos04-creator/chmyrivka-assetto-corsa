@@ -154,7 +154,7 @@ polished клал штукатурку на полированный рельс.
 Сначала прикидка — она ничего не пишет, только считает:
 
 ```powershell
-blender --background --python ac_export\export_ac_v17.py -- --scene ПУТЬ\chmyrivka_visual_v17.blend --racing-line ПУТЬ\racing_line_native_v15.json --mode lap --chunks 8 --balance --corridor 45 --backdrop-corridor 160 --drop-bevel-beyond 12 --trunk-ratio 0.2 --conifer-from 2300 --conifer-to 3950 --merge --relief --dry-run --output ВЫХОД\chmyrivka.fbx
+blender --background --python ac_export\export_ac_v17.py -- --scene ПУТЬ\chmyrivka_visual_v17.blend --racing-line ПУТЬ\racing_line_native_v15.json --mode lap --chunks 8 --balance --corridor 45 --road-corridor 800 --backdrop-corridor 160 --drop-bevel-beyond 12 --trunk-ratio 0.2 --conifer-from 2300 --conifer-to 3950 --merge --relief --dry-run --output ВЫХОД\chmyrivka.fbx
 ```
 
 Напечатает по строке на кусок: сколько объектов, треугольников и
@@ -167,7 +167,7 @@ blender --background --python ac_export\export_ac_v17.py -- --scene ПУТЬ\chm
 Та же команда без `--dry-run`, плюс параметры старта:
 
 ```powershell
-blender --background --python ac_export\export_ac_v17.py -- --scene ПУТЬ\chmyrivka_visual_v17.blend --racing-line ПУТЬ\racing_line_native_v15.json --mode lap --chunks 8 --balance --corridor 45 --backdrop-corridor 160 --drop-bevel-beyond 12 --trunk-ratio 0.2 --conifer-from 2300 --conifer-to 3950 --merge --relief --sectors 3 --flip --start-station 3950 --scale 0.01 --output ВЫХОД\chmyrivka.fbx
+blender --background --python ac_export\export_ac_v17.py -- --scene ПУТЬ\chmyrivka_visual_v17.blend --racing-line ПУТЬ\racing_line_native_v15.json --mode lap --chunks 8 --balance --corridor 45 --road-corridor 800 --backdrop-corridor 160 --drop-bevel-beyond 12 --trunk-ratio 0.2 --conifer-from 2300 --conifer-to 3950 --merge --relief --sectors 3 --flip --start-station 3950 --scale 0.01 --output ВЫХОД\chmyrivka.fbx
 ```
 
 Без этих четырёх трасса просто не поедет:
@@ -351,6 +351,8 @@ ksEditor на затронутый кусок.
 | `--chunks` | 6 | сколько KN5 на окружение |
 | `--balance` | выкл | резать по весу, а не по длине |
 | `--corridor` | 120 | сколько метров по сторонам от оси оставлять |
+| `--road-corridor` | 0 | насколько дальше уходят боковые дороги и рельсы |
+| `--rail-clearance` | 0.02 | на сколько головка рельса торчит над дорогой |
 | `--backdrop-corridor` | 0 | насколько глубже уходит задник леса |
 | `--trunk-ratio` | 1.0 | доля геометрии ствола; 0.2 — игровой ствол |
 | `--drop-bevel-beyond` | 0 | за сколько метров гасить фаски |
@@ -376,6 +378,52 @@ ksEditor на затронутый кусок.
 
 Из них растительность — около 63% на любом коридоре. Здания при 40 м
 стоят всего 733 тысячи.
+
+## Продолжения дорог и железная дорога
+
+Круг — петля, вырезанная из настоящей сети. В трёх местах дорога, из
+которой он вырезан, идёт дальше: улица к старту тянется 1426 м по карте,
+за элеватором сквозная дорога помечена `primary` и уходит прямо, за
+танком `secondary` длиной 10 км уходит в сосны. Обрезанные коридором все
+три обрывались в сорока пяти метрах.
+
+Измерено, сколько при этом терялось:
+
+| Объект | Уходит от оси | Оставалось при коридоре 45 м |
+|---|---:|---:|
+| `SIDE_ROADS` | 734 м | **4.8%** |
+| `SIDE_ROADS_V09` | 281 м | 25.0% |
+| `V09_Side_road_verges` | 282 м | 24.3% |
+| `RAIL_SLEEPERS` | 735 м | — |
+
+То есть **выбрасывалось 95% дорожной сети**, которую сцена честно
+построила, и железная дорога превращалась в два огрызка у переездов.
+Ключ `--road-corridor 800` возвращает всё; стоит это около 30 тысяч
+треугольников на круг при 60 тысячах у самой трассы.
+
+Ширина у боковых настоящая: трасса несёт 59 624 м² полотна при средней
+ширине 10.2 м, боковые — 95 тысяч м² вместе. Это сеть, а не отростки.
+
+## Переезды
+
+Рельсы стояли **на 0.16–0.27 м выше асфальта**, который пересекают. Это
+не мешало ехать — у них нет префикса коллизии, и машина проходила
+насквозь, — но путь, висящий над дорогой, глаз замечает первым.
+
+`--rail-clearance` опускает головку рельса до 2 см над дорогой, как на
+настоящем переезде. Просадка **сходит на нет к восемнадцатому метру** от
+оси, так что путь возвращается на свою насыпь за пределами перекрёстка,
+а не изгибается по всей длине. Проверено: все семь рельсовых объектов
+переехали с +0.18…+0.23 на +0.02.
+
+Поднимать вместо этого дорогу было бы честнее — так делают строители, —
+но это означало бы менять поверхность, по которой едет машина. Опускание
+рельса меняет только декорацию.
+
+Меши переездов (`V07_Crossing_*`) теперь получают покрытие `KERB`: они
+локальны, не дальше 39 м от оси, поэтому сделать их твёрдыми безопасно, а
+`KERB` уже несёт вибрацию, которой AC трясёт руль. При двух сантиметрах
+это толчок, а не стена.
 
 ## Профиль круга
 
