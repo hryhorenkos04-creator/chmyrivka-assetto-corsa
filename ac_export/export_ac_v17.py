@@ -1177,6 +1177,8 @@ def weigh_lap(scene_path, a, rows, bin_m=10.0):
     bpy.ops.wm.open_mainfile(filepath=str(scene_path))
     scene = bpy.context.scene
     rename(scene)
+    if a.conifer_to > a.conifer_from:
+        make_conifer(scene, rows, a.conifer_from, a.conifer_to)
     axis_xy, axis_s = axis_arrays(rows)
     lap = float(axis_s.max())
     bins = np.zeros(int(lap // bin_m) + 2, dtype=np.int64)
@@ -1219,7 +1221,8 @@ def band_signature(a, chunks):
     """The settings the edges depend on; anything else may change freely."""
     return {'chunks': chunks, 'corridor': a.corridor,
             'backdrop_corridor': a.backdrop_corridor,
-            'landmarks': a.landmarks}
+            'landmarks': a.landmarks,
+            'conifer': [a.conifer_from, a.conifer_to]}
 
 
 def load_edges(path, a, chunks):
@@ -1244,6 +1247,69 @@ def save_edges(path, a, chunks, edges, bins, bin_m):
          'triangles_per_chunk': counts, 'bin_m': bin_m},
         ensure_ascii=False, indent=2), encoding='utf8')
     return counts
+
+
+# --- species -----------------------------------------------------------
+#
+# A resident says the stretch from the T-34 memorial to Sennaya street is
+# pine, on both sides, with the cemetery standing among it on the right.
+# The scene has 166 conifers there against 7596 trees -- 2% -- because
+# OpenStreetMap's natural=wood carries no species and the scene does not
+# invent what the source omits. The testimony is the missing source.
+#
+# Swapping them is cheap because the scene instances its trees: 3815
+# broadleaf objects share 46 meshes, and the pine is two of them, one per
+# LOD. A tree is a transform pointing at a mesh, so changing the species
+# is changing which mesh it points at. Nothing about the generator or the
+# .blend is touched; this happens on the way out, like the renaming and
+# the material merge.
+#
+# Height is restored afterwards. A ten-metre maple should become a
+# ten-metre pine, not whatever height the pine mesh happens to be once it
+# inherits the maple's scale.
+
+CONIFER_TARGET = 'V10_Tree_pine_0_%s'
+TREE_MESH = re.compile(r'_Tree_', re.I)
+
+
+def make_conifer(scene, rows, lo, hi):
+    """Point the broadleaf trees in a stretch of lap at the pine mesh."""
+    targets = {}
+    for lod in ('LOD0', 'LOD1'):
+        mesh = bpy.data.meshes.get(CONIFER_TARGET % lod)
+        if mesh is not None:
+            targets[lod] = mesh
+    if not targets:
+        return 0
+    axis_xy, axis_s = axis_arrays(rows)
+    swapped = 0
+    for ob in scene.objects:
+        if ob.type != 'MESH' or not ob.data.polygons:
+            continue
+        base = ob.data.name.split('.')[0]
+        if not TREE_MESH.search(base) or 'pine' in base.lower():
+            continue
+        centre = np.array([(ob.matrix_world @
+                            (sum((Vector(c) for c in ob.bound_box), Vector()) / 8.0))[:2]])
+        station, _ = nearest_on_axis(centre, axis_xy, axis_s)
+        if not (lo <= station[0] < hi):
+            continue
+        mesh = targets.get('LOD0' if base.endswith('LOD0') else 'LOD1')
+        if mesh is None:
+            continue
+        was = ob.dimensions.z
+        ob.data = mesh
+        # Slots can override the mesh's own materials; letting the data
+        # win is what puts needles on the needle geometry.
+        for slot in ob.material_slots:
+            slot.link = 'DATA'
+        now = ob.dimensions.z
+        if was > 1e-3 and now > 1e-3:
+            ob.scale = ob.scale * (was / now)
+        swapped += 1
+    if swapped:
+        print('AC_CONIFER trees=%d from=%.0f to=%.0f' % (swapped, lo, hi))
+    return swapped
 
 
 def place_nulls(scene, rows, a):
@@ -1385,6 +1451,8 @@ def build_one(a, scene_path, out, band=None, spine=True, scenery=True, nulls=Tru
     scene = bpy.context.scene
     rows = line_samples(a.racing_line or scene_path.parent / LINE_REL)
     applied, visual = rename(scene)
+    conifers = (make_conifer(scene, rows, a.conifer_from, a.conifer_to)
+                if a.conifer_to > a.conifer_from else 0)
     origin = place_nulls(scene, rows, a) if nulls else None
 
     for ob in scene.objects:
@@ -1453,6 +1521,7 @@ def build_one(a, scene_path, out, band=None, spine=True, scenery=True, nulls=Tru
         'trimmed_meshes': trimmed, 'split_meshes': split,
         'bevel_modifiers_off': bevels[0], 'bevel_objects': bevels[1],
         'trunks_thinned': trunks, 'trunk_ratio': a.trunk_ratio,
+        'conifers_swapped': conifers,
         'alpha_tested': sorted(alpha), 'materials': len(chosen),
         'relief_materials': len(normals),
         'persistence': str(persistence) if persistence else None,
@@ -1548,6 +1617,11 @@ if __name__ == '__main__':
                    help="lap cuts the whole circuit into --chunks KN5 and writes models.ini")
     p.add_argument('--chunks', type=int, default=6,
                    help='scenery KN5 for mode lap; the drivable surfaces get one of their own')
+    p.add_argument('--conifer-from', type=float, default=0.0, dest='conifer_from',
+                   help='chainage where the pine stretch starts')
+    p.add_argument('--conifer-to', type=float, default=0.0, dest='conifer_to',
+                   help='chainage where it ends; equal to --conifer-from leaves '
+                        'every species as the scene placed it')
     p.add_argument('--relief', action='store_true',
                    help='give the tinted walls their source photograph\'s normal '
                         'map, so brick is raised rather than drawn on')
