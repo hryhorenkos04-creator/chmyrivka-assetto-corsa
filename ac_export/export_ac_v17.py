@@ -10,7 +10,7 @@ Surfaces named 1ROAD_MAIN and 1PIT_SURFACE_V08 already follow the AC
 convention in the source scene and are left untouched.
 """
 from pathlib import Path
-import argparse, hashlib, json, math, re, sys, time
+import argparse, collections, hashlib, json, math, re, sys, time
 import bpy
 import bmesh
 import numpy as np
@@ -253,34 +253,47 @@ PERSISTENCE_VARS = [('ksAmbient', 0.4), ('ksDiffuse', 0.6), ('ksSpecular', 0.1),
 # only the detail is missing. Each gets one of the tileable photographs the
 # scene already carries, tinted to its own colour.
 
-# First match wins, so built things are tested before the ground they
-# stand on: V16_Yard_Fences_Gates is a fence, not a yard, and matching
-# 'yard' first would surface a steel gate in soil.
+# First match wins, and each class carries the size its photograph covers
+# in the world: brick courses are small, a ploughed yard is not. One tile
+# size for everything made the brick read as a mural and the soil as
+# gravel.
+#
+# Order matters more than the patterns do. An audit of what the rules
+# actually produced found 658k triangles wearing the wrong surface
+# entirely: 'yard' claimed V16_Yard_Old_Iron for soil, 'verge' claimed
+# V06_verge_pebble for grass, and 'roof' put stucco on V15_HD_roof_seam,
+# which is folded sheet metal whose seams are already modelled. So the
+# painted, metal and timber things are taken out first, and only then is
+# anything matched by what it is part of.
 TILEABLE = [
-    (re.compile(r'brick', re.I), 'red_brick_diff_2k.jpg'),
-    (re.compile(r'grass|verge|lawn|hedge|turf', re.I), 'grass001_diff_2k.jpg'),
-    (re.compile(r'wall|render|plaster|facade|frame|house|roof|concrete|kerb|'
-                r'plaza|slab|paving|stone|cap|crown|seam|rib|sill|chimney|'
-                r'porch|shed|fence|gate|door|canopy|curb|step|plinth',
-                re.I), 'rough_concrete_diff_2k.jpg'),
-    (re.compile(r'soil|dirt|earth|gravel|pebble|ground|land|yard|compact',
-                re.I), 'dirt_diff_2k.jpg'),
+    (re.compile(r'brick', re.I), 'red_brick_diff_2k.jpg', 1.2),
+    (re.compile(r'pebble|gravel|shingle', re.I), 'dirt_diff_2k.jpg', 1.6),
+    (re.compile(r'grass|verge|lawn|hedge|turf', re.I), 'grass001_diff_2k.jpg', 1.5),
+    (re.compile(r'wall|render|plaster|facade|house|concrete|kerb|plaza|slab|'
+                r'paving|stone|cap|crown|sill|chimney|porch|shed|curb|step|'
+                r'plinth|canopy', re.I), 'rough_concrete_diff_2k.jpg', 2.0),
+    (re.compile(r'soil|dirt|earth|ground|land|yard|compact', re.I),
+     'dirt_diff_2k.jpg', 2.5),
 ]
 
-# Grain belongs on masonry and earth, not on what is meant to read as
-# polished: concrete noise on a window pane or a galvanised post looks
-# worse than the flat colour it replaces.
+# Grain belongs on masonry and earth. On anything meant to read as
+# painted, polished or planed it is worse than the flat colour it
+# replaces: concrete stucco on a window frame, on a picket fence or on a
+# folded metal roof reads as dirt, not as material.
 SMOOTH = re.compile(r'glass|glazing|metal|rubber|wire|chrome|steel|galvan|'
-                    r'armco|lens|led|plaque|gasket|paint|mirror|alu', re.I)
+                    r'armco|lens|led|plaque|gasket|paint|mirror|alu|'
+                    r'iron|timber|picket|wood|frame|seam|gutter|trim|'
+                    r'sign|mesh|insulator|rust|slate|ceramic', re.I)
 
 
 def grain_for(name):
+    """The tileable photo for this material and the metres one tile covers."""
     if SMOOTH.search(name):
-        return None
-    for pattern, image in TILEABLE:
+        return None, 0.0
+    for pattern, image, tile in TILEABLE:
         if pattern.search(name):
-            return image
-    return None
+            return image, tile
+    return None, 0.0
 
 
 # How much of the photograph's contrast to keep at most. The raw spread
@@ -498,7 +511,14 @@ def merge_materials(scene, out_dir, buckets=12, grain=True, tile=2.0,
         if ob.type != 'MESH' or not ob.select_get():
             continue
         if grain:
-            projected += cube_project(ob, tile)
+            # One UV layer per mesh, so one scale per mesh: the class most
+            # of its materials belong to decides, and a mesh with no grain
+            # material at all falls back on the default.
+            wanted = [grain_for(s.material.name)[1] for s in ob.material_slots
+                      if s.material]
+            wanted = [v for v in wanted if v > 0]
+            common = collections.Counter(wanted).most_common(1)
+            projected += cube_project(ob, common[0][0] if common else tile)
         for slot in ob.material_slots:
             m = slot.material
             if m is None or not m.node_tree:
@@ -511,7 +531,7 @@ def merge_materials(scene, out_dir, buckets=12, grain=True, tile=2.0,
                 shade = tuple(min(buckets - 1, int(v / step))
                               for v in m.diffuse_color[:3])
                 rgb = [(c + 0.5) * step for c in shade]
-                source = grain_for(m.name) if grain else None
+                source = grain_for(m.name)[0] if grain else None
                 textured = (tinted_grain(out_dir, source, rgb)
                             if source else None)
                 if textured is not None:
