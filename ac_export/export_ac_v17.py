@@ -1052,6 +1052,20 @@ LANDMARK = re.compile(r'Elevator|Industrial|MEM_|Memorial', re.I)
 # objects are 5.1M.
 BACKDROP = re.compile(r'V\d+_Forest_(near|mid)', re.I)
 
+# The circuit is a loop cut out of a real road network, and at two places
+# the road it is cut from carries on: the street feeding the start runs
+# 1426 m in the map where the lap only turns onto it, and past the
+# elevator the through road is tagged primary and goes straight on while
+# the lap turns off. Trimmed to the scenery corridor they both end in
+# mid-air forty-five metres out, which reads as scenery stopping rather
+# than as a junction.
+#
+# Roads get their own reach for that reason. They are cheap to keep --
+# the side roads and their verges are 37k triangles for the whole lap
+# against the circuit's own 30k -- and a road running to the horizon is
+# most of what makes a junction look like one.
+THROUGH_ROAD = re.compile(r'SIDE_ROAD|ROAD_SHOULDER|Side_road', re.I)
+
 
 def matches(ob, pattern):
     """True when the object or any of its materials matches the pattern."""
@@ -1061,10 +1075,13 @@ def matches(ob, pattern):
                for s in ob.material_slots)
 
 
-def reach_for(ob, corridor, landmarks, backdrop, backdrop_reach):
+def reach_for(ob, corridor, landmarks, backdrop, backdrop_reach,
+              roads=None, road_reach=0.0):
     """How far from the racing line this object is allowed to stand."""
     if landmarks and matches(ob, landmarks):
         return float('inf')
+    if roads and road_reach > corridor and matches(ob, roads):
+        return road_reach
     if backdrop and backdrop_reach > corridor and matches(ob, backdrop):
         return backdrop_reach
     return corridor
@@ -1285,7 +1302,7 @@ def weigh_lap(scene_path, a, rows, bin_m=10.0):
         if ob.type != 'MESH' or not ob.data.polygons or SPINE.match(ob.name):
             continue
         reach = reach_for(ob, a.corridor, landmarks, BACKDROP,
-                          a.backdrop_corridor)
+                          a.backdrop_corridor, THROUGH_ROAD, a.road_corridor)
         station, gap = nearest_on_axis(face_centres(ob), axis_xy, axis_s)
         counts = np.empty(len(ob.data.polygons), dtype=np.int32)
         ob.data.polygons.foreach_get('loop_total', counts)
@@ -1319,6 +1336,7 @@ def band_signature(a, chunks):
     """The settings the edges depend on; anything else may change freely."""
     return {'chunks': chunks, 'corridor': a.corridor,
             'backdrop_corridor': a.backdrop_corridor,
+            'road_corridor': a.road_corridor,
             'landmarks': a.landmarks,
             'conifer': [a.conifer_from, a.conifer_to]}
 
@@ -1521,7 +1539,8 @@ def select_band(scene, rows, a, band, spine, scenery,
             take = spine
         elif scenery:
             reach = reach_for(ob, a.corridor, landmarks, backdrop,
-                              a.backdrop_corridor)
+                              a.backdrop_corridor, THROUGH_ROAD,
+                              a.road_corridor)
             if object_touches_band(ob, axis_xy, axis_s, a0, a1, lap, reach):
                 result = trim_to_band(ob, axis_xy, axis_s, a0, a1, lap, reach)
                 take = result is not None
@@ -1752,6 +1771,11 @@ if __name__ == '__main__':
                    help='weigh the lap first and place the band edges so every '
                         'chunk carries the same triangle count, instead of '
                         'cutting it into equal lengths')
+    p.add_argument('--road-corridor', type=float, default=0.0,
+                   dest='road_corridor',
+                   help='how far the side roads and their verges may run from '
+                        'the racing line, when further than --corridor; the lap '
+                        'is cut out of a real network and its roads carry on')
     p.add_argument('--backdrop-corridor', type=float, default=0.0,
                    dest='backdrop_corridor',
                    help='how far the forest backdrop tiers may stand from the '
