@@ -446,7 +446,13 @@ NORMAL_FOR = {
 
 
 def normal_map(out_dir, source_name, flip_green=True, size=1024, cache={}):
-    """The Direct3D-facing copy of a source normal map, written once."""
+    """The written file name of a source normal map, facing Direct3D.
+
+    The cache holds names rather than datablocks on purpose. Every chunk
+    reopens the scene, which clears bpy.data, and a cached Image then
+    raises ReferenceError: StructRNA of type Image has been removed. The
+    file on disk is what the persistence refers to anyway.
+    """
     key = (source_name, flip_green, size)
     if key in cache:
         return cache[key]
@@ -458,10 +464,9 @@ def normal_map(out_dir, source_name, flip_green=True, size=1024, cache={}):
         return None
     name = 'ACN_%s.png' % hashlib.md5(
         ('%s|%s' % (source, flip_green)).encode('utf8')).hexdigest()[:10]
-    existing = bpy.data.images.get(name)
-    if existing is not None:
-        cache[key] = existing
-        return existing
+    if (out_dir / name).is_file():
+        cache[key] = name
+        return name
     buf = np.empty(width * height * 4, dtype=np.float32)
     try:
         img.pixels.foreach_get(buf)
@@ -492,8 +497,8 @@ def normal_map(out_dir, source_name, flip_green=True, size=1024, cache={}):
     out.file_format = 'PNG'
     out.filepath_raw = str(out_dir / name)
     out.save()
-    cache[key] = out
-    return out
+    cache[key] = name
+    return name
 
 
 def cube_project(ob, tile):
@@ -585,7 +590,7 @@ def merge_materials(scene, out_dir, buckets=12, grain=True, tile=2.0,
                         # the same photograph shares one relief map.
                         bump = normal_map(out_dir, source, flip_green)
                         if bump is not None:
-                            relief_for[key] = safe_file(bump.name)
+                            relief_for[key] = safe_file(bump)
                 else:
                     # The class goes in the key so a pane of glass and a
                     # galvanised post of the same shade do not merge into
