@@ -27,6 +27,12 @@ SURFACES = [
     (r'^1(ROAD|PIT|GRASS|KERB|SAND|DIRT)', None),   # already prefixed, keep
     (r'^ROAD_SHOULDERS', 'ROAD'),
     (r'^SIDE_ROADS', 'ROAD'),
+    # The crossing meshes are local to the junctions -- 39 m from the line
+    # at most -- so making them solid cannot put a kerb out in a field.
+    # Once the rails sit 2 cm proud rather than a quarter of a metre, that
+    # is a thump rather than a wall, which is what a crossing should feel
+    # like. KERB carries the vibration AC already shakes the wheel with.
+    (r'^V07_Crossing', 'KERB'),
     (r'KERB|V08_Racing_kerbs', 'KERB'),
     (r'^VERGE_Gravel', 'DIRT'),
     (r'^VERGE_Grass', 'GRASS'),
