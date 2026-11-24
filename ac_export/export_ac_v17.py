@@ -501,6 +501,79 @@ def normal_map(out_dir, source_name, flip_green=True, size=1024, cache={}):
     return name
 
 
+# Three surfaces carry no usable relief map of their own. The asphalt's
+# measures flat to within 0.015 -- it stores nothing -- and the two bark
+# maps have an empty blue channel, so neither is a tangent-space normal.
+# All three are opaque photographs of rough material, and their own
+# brightness is a serviceable height field: dark is a pit, light is a
+# face turned to the light. Derived this way the asphalt's contrast under
+# a low sun goes up fourfold and the bark gains the grain it should have.
+#
+# The albedo is checked first for the one thing that would ruin this:
+# painted markings would read as trenches. The asphalt has none -- 0.000%
+# of it is more than four deviations above the mean, and its channels sit
+# within 0.003 of each other, so it is plain grey aggregate.
+DERIVED_NORMAL = {
+    'v10_surface_asphalt_albedo_2k.png': 1.2,
+    'dark_bark_diffuse.png': 1.0,
+    'birch_bark_diffuse.png': 1.0,
+}
+
+
+def encode_normal(vector, flip_green):
+    """Pack a unit normal field into image bytes, facing the engine."""
+    out = vector.copy()
+    if flip_green:
+        out[:, :, 1] = -out[:, :, 1]
+    return np.clip(out * 0.5 + 0.5, 0.0, 1.0)
+
+
+def derived_normal(out_dir, image_name, flip_green=True, size=1024, cache={}):
+    """A relief map built from a photograph's own brightness."""
+    key = (image_name, flip_green, size)
+    if key in cache:
+        return cache[key]
+    strength = DERIVED_NORMAL.get(image_name)
+    img = bpy.data.images.get(image_name) if strength else None
+    width, height = img.size if img else (0, 0)
+    if not width or not height:
+        cache[key] = None
+        return None
+    name = 'ACD_%s.png' % hashlib.md5(
+        ('%s|%s' % (image_name, flip_green)).encode('utf8')).hexdigest()[:10]
+    if (out_dir / name).is_file():
+        cache[key] = name
+        return name
+    buf = np.empty(width * height * 4, dtype=np.float32)
+    try:
+        img.pixels.foreach_get(buf)
+    except (RuntimeError, AttributeError):
+        cache[key] = None
+        return None
+    rgb = buf.reshape(height, width, 4)[:, :, :3]
+    rows = np.linspace(0, height - 1, size).astype(int)
+    cols = np.linspace(0, width - 1, size).astype(int)
+    small = rgb[np.ix_(rows, cols)]
+    field = small @ np.array([0.2126, 0.7152, 0.0722], dtype=np.float32)
+    # Standardised, so the strength means the same thing whatever the
+    # photograph's own contrast happens to be.
+    field = (field - field.mean()) / max(float(field.std()), 1e-4)
+    gx = np.gradient(field, axis=1) * strength
+    gy = np.gradient(field, axis=0) * strength
+    vector = np.stack([-gx, gy, np.ones_like(field)], axis=-1)
+    vector /= np.maximum(np.linalg.norm(vector, axis=-1, keepdims=True), 1e-6)
+    rgba = np.ones((size, size, 4), dtype=np.float32)
+    rgba[:, :, :3] = encode_normal(vector, flip_green)
+    out = bpy.data.images.new(name, size, size, alpha=False, is_data=True)
+    out.colorspace_settings.name = 'Non-Color'
+    out.pixels.foreach_set(rgba.ravel())
+    out.file_format = 'PNG'
+    out.filepath_raw = str(out_dir / name)
+    out.save()
+    cache[key] = name
+    return name
+
+
 def cube_project(ob, tile):
     """World-aligned box UVs, written straight into the mesh.
 
@@ -572,6 +645,10 @@ def merge_materials(scene, out_dir, buckets=12, grain=True, tile=2.0,
             if node is not None:
                 key = safe_file(node.image.name)
                 image = node.image
+                if relief:
+                    bump = derived_normal(out_dir, node.image.name, flip_green)
+                    if bump is not None:
+                        relief_for[key] = safe_file(bump)
             else:
                 shade = tuple(min(buckets - 1, int(v / step))
                               for v in m.diffuse_color[:3])
