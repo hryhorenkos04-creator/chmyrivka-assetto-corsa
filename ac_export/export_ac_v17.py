@@ -236,6 +236,26 @@ def wire_base_colour(scene, out_dir):
     return done, flats, skipped, chosen, alpha
 
 
+def word_pattern(words):
+    """Match these words only where a word actually begins.
+
+    Plain substring matching put metal on the ground and foliage on the
+    road: 'tin' is inside Continuous, so V15_Continuous_Soil_Grass came
+    out galvanised, and 'tree' is inside Street, so V09_Local_Street_Asphalt
+    came out a leaf. 'shed' inside polished did the same to a rail head.
+
+    A word boundary alone is too strict, because these names run words
+    together with capitals and nothing else: FineGrass and LightStone
+    match on purpose. So a word begins either after something that is not
+    a letter, or where a capital follows a small letter.
+    """
+    parts = []
+    for word in words:
+        parts.append(r'(?:^|[^A-Za-z])%s' % word)
+        parts.append(r'(?-i:(?<=[a-z])%s)' % (word[:1].upper() + word[1:]))
+    return re.compile('|'.join(parts), re.I)
+
+
 # ksEditor's own defaults (0.05 ambient, 0.8 specular) leave everything
 # turned away from the sun pure black and make matte walls glossy. Kunos
 # track materials sit nearer the values below.
@@ -262,15 +282,15 @@ SHADING = {
 PERSISTENCE_VARS = SHADING['default']
 
 SHADING_CLASS = [
-    ('glass', re.compile(r'glass|glazing|lens|mirror|window', re.I)),
-    ('metal', re.compile(r'metal|galvan|steel|iron|chrome|armco|alu|'
-                         r'gutter|seam|rail|wire|hardware|tin', re.I)),
-    ('foliage', re.compile(r'foliage|leaf|leaves|grass|verge|hedge|tree|'
-                           r'bark|canopy|understorey|crown|shrub|turf|'
-                           r'broadleaf|singleleaf|pine|birch', re.I)),
-    ('road', re.compile(r'asphalt|road|tarmac|kerb|curb|circuit|pit_', re.I)),
-    ('earth', re.compile(r'soil|dirt|earth|gravel|pebble|sand|ground|'
-                         r'compact|mud|land_', re.I)),
+    ('glass', word_pattern('glass glazing lens mirror window'.split())),
+    ('metal', word_pattern('metal galvan steel iron chrome armco alu gutter '
+                           'seam rail wire hardware tin'.split())),
+    ('road', word_pattern('asphalt road tarmac kerb curb circuit pit'.split())),
+    ('foliage', word_pattern('foliage leaf leaves grass verge hedge tree bark '
+                             'canopy understorey crown shrub turf broadleaf '
+                             'singleleaf pine birch'.split())),
+    ('earth', word_pattern('soil dirt earth gravel pebble sand ground compact '
+                           'mud land'.split())),
 ]
 
 
@@ -305,13 +325,14 @@ def shading_class(name):
 # painted, metal and timber things are taken out first, and only then is
 # anything matched by what it is part of.
 TILEABLE = [
-    (re.compile(r'brick', re.I), 'red_brick_diff_2k.jpg', 1.2),
-    (re.compile(r'pebble|gravel|shingle', re.I), 'dirt_diff_2k.jpg', 1.6),
-    (re.compile(r'grass|verge|lawn|hedge|turf', re.I), 'grass001_diff_2k.jpg', 1.5),
-    (re.compile(r'wall|render|plaster|facade|house|concrete|kerb|plaza|slab|'
-                r'paving|stone|cap|crown|sill|chimney|porch|shed|curb|step|'
-                r'plinth|canopy', re.I), 'rough_concrete_diff_2k.jpg', 2.0),
-    (re.compile(r'soil|dirt|earth|ground|land|yard|compact', re.I),
+    (word_pattern(['brick']), 'red_brick_diff_2k.jpg', 1.2),
+    (word_pattern('pebble gravel shingle'.split()), 'dirt_diff_2k.jpg', 1.6),
+    (word_pattern('grass verge lawn hedge turf'.split()),
+     'grass001_diff_2k.jpg', 1.5),
+    (word_pattern('wall render plaster facade house concrete kerb plaza slab '
+                  'paving stone cap crown sill chimney porch shed curb step '
+                  'plinth canopy'.split()), 'rough_concrete_diff_2k.jpg', 2.0),
+    (word_pattern('soil dirt earth ground land yard compact'.split()),
      'dirt_diff_2k.jpg', 2.5),
 ]
 
@@ -319,10 +340,10 @@ TILEABLE = [
 # painted, polished or planed it is worse than the flat colour it
 # replaces: concrete stucco on a window frame, on a picket fence or on a
 # folded metal roof reads as dirt, not as material.
-SMOOTH = re.compile(r'glass|glazing|metal|rubber|wire|chrome|steel|galvan|'
-                    r'armco|lens|led|plaque|gasket|paint|mirror|alu|'
-                    r'iron|timber|picket|wood|frame|seam|gutter|trim|'
-                    r'sign|mesh|insulator|rust|slate|ceramic', re.I)
+SMOOTH = word_pattern('glass glazing metal rubber wire chrome steel galvan '
+                      'armco lens led plaque gasket paint mirror alu iron '
+                      'timber picket wood frame seam gutter trim sign mesh '
+                      'insulator rust slate ceramic rail'.split())
 
 
 def grain_for(name):
@@ -1359,6 +1380,24 @@ def make_conifer(scene, rows, lo, hi):
     if not targets:
         return 0
     axis_xy, axis_s = axis_arrays(rows)
+    heights = {}
+
+    def local_height(mesh):
+        """The mesh's own Z extent, straight from its vertices.
+
+        Not ob.dimensions: that reads a bound box the depsgraph has not
+        recomputed yet, so immediately after ob.data is reassigned it
+        still reports the old mesh. Measured here, the correction came
+        out as exactly 1.0 every time and the trees silently kept the
+        wrong scale.
+        """
+        if mesh.name not in heights:
+            co = np.empty(len(mesh.vertices) * 3, dtype=np.float64)
+            mesh.vertices.foreach_get('co', co)
+            z = co.reshape(-1, 3)[:, 2]
+            heights[mesh.name] = float(z.max() - z.min()) if len(z) else 0.0
+        return heights[mesh.name]
+
     swapped = 0
     for ob in scene.objects:
         if ob.type != 'MESH' or not ob.data.polygons:
@@ -1374,13 +1413,16 @@ def make_conifer(scene, rows, lo, hi):
         mesh = targets.get('LOD0' if base.endswith('LOD0') else 'LOD1')
         if mesh is None:
             continue
-        was = ob.dimensions.z
+        was = local_height(ob.data)
+        now = local_height(mesh)
         ob.data = mesh
         # Slots can override the mesh's own materials; letting the data
         # win is what puts needles on the needle geometry.
         for slot in ob.material_slots:
             slot.link = 'DATA'
-        now = ob.dimensions.z
+        # Both heights are local, and the object's own scale multiplies
+        # each the same way, so their ratio is the correction whatever
+        # that scale happens to be -- and no depsgraph is involved.
         if was > 1e-3 and now > 1e-3:
             ob.scale = ob.scale * (was / now)
         swapped += 1

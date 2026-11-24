@@ -138,10 +138,15 @@ def check_models_ini(build, report, models):
     for name in expected:
         if name not in listed:
             report.fail('%s не перечислен в models.ini и в игру не попадёт' % name)
-    first = build.name if (build / (build.name + '.fbx')).is_file() else None
-    if listed and first and listed[0] != first + '.kn5':
-        report.warn('первой в models.ini стоит %s; AC читает пустышки AC_START '
-                    'только из первой модели' % listed[0])
+    # The track's own model is the one without a _sN suffix. Comparing the
+    # build directory's name instead, as this did, never matched anything
+    # and the check silently passed on every build.
+    plain = [f.with_suffix('.kn5').name for f in models
+             if not re.search(r'_s\d+$', f.stem)]
+    if listed and plain and listed[0] != plain[0]:
+        report.fail('первой в models.ini стоит %s, а не %s; AC читает пустышки '
+                    'AC_START только из первой модели, и спавн не заработает'
+                    % (listed[0], plain[0]))
     report.note('в models.ini моделей: %d' % len(listed))
 
 
