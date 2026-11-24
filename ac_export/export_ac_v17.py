@@ -360,6 +360,81 @@ def tinted_grain(out_dir, image_name, colour, size=256):
     return img
 
 
+# --- relief ------------------------------------------------------------
+#
+# The grain gives walls colour and pattern but no relief: brick is drawn
+# on, not raised, and the surface stays dead under a moving sun. The scene
+# already carries the maps that fix it, four of which hold real detail --
+# measured as the spread of their red and green channels:
+#
+#   rough_concrete  +/- 0.114    the strongest
+#   red_brick       +/- 0.078
+#   grass001        +/- 0.072
+#   dirt            +/- 0.063
+#   asphalt         +/- 0.015    almost flat, not worth its megabytes
+#   bark            blue channel empty, two-channel, unusable as is
+#   foliage         green strongly biased, not plain tangent space
+#
+# The four that work are exactly the ones the grain is tinted from, so the
+# relief lands on the same UVs as the colour with nothing to align.
+#
+# They are named _nor_gl_, which is the OpenGL convention: green points
+# up. Assetto Corsa is a Direct3D game and reads green as pointing down,
+# so the channel is inverted on the way out. Getting this backwards does
+# not look broken, it looks inside out -- mortar courses read as ridges
+# and bricks as the gaps between them -- so --normals-gl is there to try
+# the other way round without rebuilding anything else.
+
+NORMAL_FOR = {
+    'red_brick_diff_2k.jpg': 'red_brick_nor_gl_2k.jpg',
+    'rough_concrete_diff_2k.jpg': 'rough_concrete_nor_gl_2k.jpg',
+    'dirt_diff_2k.jpg': 'dirt_nor_gl_2k.jpg',
+    'grass001_diff_2k.jpg': 'grass001_nor_gl_2k.jpg',
+}
+
+
+def normal_map(out_dir, source_name, flip_green=True, size=1024, cache={}):
+    """The Direct3D-facing copy of a source normal map, written once."""
+    key = (source_name, flip_green, size)
+    if key in cache:
+        return cache[key]
+    source = NORMAL_FOR.get(source_name)
+    img = bpy.data.images.get(source) if source else None
+    width, height = img.size if img else (0, 0)
+    if not width or not height:
+        cache[key] = None
+        return None
+    name = 'ACN_%s.png' % hashlib.md5(
+        ('%s|%s' % (source, flip_green)).encode('utf8')).hexdigest()[:10]
+    existing = bpy.data.images.get(name)
+    if existing is not None:
+        cache[key] = existing
+        return existing
+    buf = np.empty(width * height * 4, dtype=np.float32)
+    try:
+        img.pixels.foreach_get(buf)
+    except (RuntimeError, AttributeError):
+        cache[key] = None
+        return None
+    rgba = buf.reshape(height, width, 4)
+    rows = np.linspace(0, height - 1, size).astype(int)
+    cols = np.linspace(0, width - 1, size).astype(int)
+    small = rgba[np.ix_(rows, cols)].copy()
+    if flip_green:
+        small[:, :, 1] = 1.0 - small[:, :, 1]
+    small[:, :, 3] = 1.0
+    # A normal map is data, not a picture: writing it through the sRGB
+    # transfer curve would bend every vector it stores.
+    out = bpy.data.images.new(name, size, size, alpha=False, is_data=True)
+    out.colorspace_settings.name = 'Non-Color'
+    out.pixels.foreach_set(small.ravel())
+    out.file_format = 'PNG'
+    out.filepath_raw = str(out_dir / name)
+    out.save()
+    cache[key] = out
+    return out
+
+
 def cube_project(ob, tile):
     """World-aligned box UVs, written straight into the mesh.
 
@@ -394,7 +469,8 @@ def cube_project(ob, tile):
     return True
 
 
-def merge_materials(scene, out_dir, buckets=12, grain=True, tile=2.0):
+def merge_materials(scene, out_dir, buckets=12, grain=True, tile=2.0,
+                    relief=False, flip_green=True):
     out_dir = out_dir / 'texture'
     out_dir.mkdir(parents=True, exist_ok=True)
     """Collapse every material onto a shared one per texture.
@@ -405,7 +481,8 @@ def merge_materials(scene, out_dir, buckets=12, grain=True, tile=2.0):
     quantised into a few shades so a street of houses does not produce a
     material per wall.
     """
-    shared, assignments, alpha = {}, {}, set()
+    shared, assignments, alpha, normals = {}, {}, set(), {}
+    relief_for = {}
     step = 1.0 / buckets
     projected = 0
     for ob in scene.objects:
@@ -434,6 +511,12 @@ def merge_materials(scene, out_dir, buckets=12, grain=True, tile=2.0):
                     # rather than one image per wall.
                     key = safe_file(textured.name)
                     image = textured
+                    if relief:
+                        # Keyed by the tinted copy, so every shade cut from
+                        # the same photograph shares one relief map.
+                        bump = normal_map(out_dir, source, flip_green)
+                        if bump is not None:
+                            relief_for[key] = safe_file(bump.name)
                 else:
                     key = 'ACSHADE_%d_%d_%d.png' % shade
                     image = shared.get(key, (None, None))[1]
@@ -445,6 +528,8 @@ def merge_materials(scene, out_dir, buckets=12, grain=True, tile=2.0):
                     image.filepath_raw = str(out_dir / key)
                     image.save()
             if key not in shared:
+                if key in relief_for:
+                    normals['AC_' + Path(key).stem] = relief_for[key]
                 merged = bpy.data.materials.new('AC_' + Path(key).stem)
                 merged.use_nodes = True
                 tree = merged.node_tree
@@ -459,7 +544,10 @@ def merge_materials(scene, out_dir, buckets=12, grain=True, tile=2.0):
             slot.material = shared[key][0]
     if projected:
         print('AC_UV_BOX objects=%d tile=%.1fm' % (projected, tile))
-    return assignments, alpha
+    if normals:
+        print('AC_RELIEF materials=%d maps=%d'
+              % (len(normals), len(set(normals.values()))))
+    return assignments, alpha, normals
 
 
 def material_order(scene, assignments):
@@ -609,7 +697,7 @@ def node_sections(fbx_name, scene):
     return lines
 
 
-def write_persistence(fbx, assignments, scene=None, alpha=()):
+def write_persistence(fbx, assignments, scene=None, alpha=(), normals=None):
     """Write ksEditor's <name>.fbx.ini so it loads the textures itself.
 
     ksEditor does not read Blender's material links: every txDiffuse slot
@@ -625,12 +713,17 @@ def write_persistence(fbx, assignments, scene=None, alpha=()):
              '[MATERIAL_LIST]', 'COUNT=%d' % len(assignments), '']
     for index, (material, texture) in enumerate(material_order(scene, assignments)):
         cut = texture in alpha
+        bump = (normals or {}).get(material)
         # ksPerPixel has no alpha-test path at all, so ALPHATEST=1 on it is
         # ignored and a leaf card's transparent texels draw their own RGB --
         # black. The AT variant is the same shader with the cutout branch,
-        # and it reads the threshold from ksAlphaRef below.
+        # and it reads the threshold from ksAlphaRef below. The NM variants
+        # are the same shaders again with a second sampler for relief.
+        shader = ('ksPerPixelAT_NM' if cut and bump else
+                  'ksPerPixelAT' if cut else
+                  'ksPerPixelNM' if bump else 'ksPerPixel')
         lines += ['[MATERIAL_%d]' % index, 'NAME=' + material,
-                  'SHADER=%s' % ('ksPerPixelAT' if cut else 'ksPerPixel'),
+                  'SHADER=' + shader,
                   'ALPHABLEND=0',
                   'ALPHATEST=%d' % (1 if cut else 0),
                   'DEPTHMODE=0', 'VARCOUNT=%d' % len(PERSISTENCE_VARS)]
@@ -642,8 +735,13 @@ def write_persistence(fbx, assignments, scene=None, alpha=()):
                       'VAR_%d_FLOAT2=0,0' % slot,
                       'VAR_%d_FLOAT3=0,0,0' % slot,
                       'VAR_%d_FLOAT4=0,0,0,0' % slot]
-        lines += ['RESCOUNT=1', 'RES_0_NAME=txDiffuse', 'RES_0_SLOT=0',
-                  'RES_0_TEXTURE=' + texture, '']
+        lines += ['RESCOUNT=%d' % (2 if bump else 1),
+                  'RES_0_NAME=txDiffuse', 'RES_0_SLOT=0',
+                  'RES_0_TEXTURE=' + texture]
+        if bump:
+            lines += ['RES_1_NAME=txNormal', 'RES_1_SLOT=1',
+                      'RES_1_TEXTURE=' + bump]
+        lines += ['']
     if scene is not None:
         lines += node_sections(fbx.name, scene)
     path = fbx.with_name(fbx.name + '.ini')
@@ -1221,11 +1319,13 @@ def build_one(a, scene_path, out, band=None, spine=True, scenery=True, nulls=Tru
     out.parent.mkdir(parents=True, exist_ok=True)
     textures, skipped_textures = unpack_textures(out.parent, a.keep_hdr)
     if a.merge:
-        chosen, alpha = merge_materials(scene, out.parent,
-                                        grain=a.grain, tile=a.grain_tile)
+        chosen, alpha, normals = merge_materials(
+            scene, out.parent, grain=a.grain, tile=a.grain_tile,
+            relief=a.relief, flip_green=not a.normals_gl)
         wired, flats, no_bsdf = [], [], []
     else:
         wired, flats, no_bsdf, chosen, alpha = wire_base_colour(scene, out.parent)
+        normals = {}
 
     if a.dry_run:
         triangles = evaluated_triangles(scene)
@@ -1243,7 +1343,8 @@ def build_one(a, scene_path, out, band=None, spine=True, scenery=True, nulls=Tru
         object_types={'MESH', 'EMPTY'}, use_mesh_modifiers=True,
         mesh_smooth_type='FACE', path_mode='STRIP', embed_textures=False,
         bake_space_transform=a.bake_transform)
-    persistence = write_persistence(out, chosen, scene, alpha) if chosen else None
+    persistence = (write_persistence(out, chosen, scene, alpha, normals)
+                   if chosen else None)
 
     print('AC_CHUNK %s objects=%d culled=%d triangles=%d trimmed=%d split=%d '
           'materials=%d bevels_off=%d MB=%.1f'
@@ -1257,6 +1358,7 @@ def build_one(a, scene_path, out, band=None, spine=True, scenery=True, nulls=Tru
         'bevel_modifiers_off': bevels[0], 'bevel_objects': bevels[1],
         'trunks_thinned': trunks, 'trunk_ratio': a.trunk_ratio,
         'alpha_tested': sorted(alpha), 'materials': len(chosen),
+        'relief_materials': len(normals),
         'persistence': str(persistence) if persistence else None,
         'textures_written': textures, 'textures_skipped': skipped_textures,
         'base_colour_wired': wired, 'base_colour_flat': flats,
@@ -1350,6 +1452,13 @@ if __name__ == '__main__':
                    help="lap cuts the whole circuit into --chunks KN5 and writes models.ini")
     p.add_argument('--chunks', type=int, default=6,
                    help='scenery KN5 for mode lap; the drivable surfaces get one of their own')
+    p.add_argument('--relief', action='store_true',
+                   help='give the tinted walls their source photograph\'s normal '
+                        'map, so brick is raised rather than drawn on')
+    p.add_argument('--normals-gl', action='store_true', dest='normals_gl',
+                   help='leave normal maps in OpenGL convention instead of '
+                        'inverting green for Direct3D; use only if relief comes '
+                        'out inside out')
     p.add_argument('--balance', action='store_true',
                    help='weigh the lap first and place the band edges so every '
                         'chunk carries the same triangle count, instead of '
